@@ -1,6 +1,7 @@
 package model.card;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import model.member.MemberDao;
 import model.member.MemberVO;
@@ -14,25 +15,27 @@ public class CardDaoImpl implements CardDao{
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
-
-	public void registerMember(MemberVO mvo) throws SQLException {
-		sqlSession.insert("memberSql.registerMember", mvo);
+	
+	//////////////////////////////////////////////////
+	public void createCard(CardVO cvo) throws SQLException {
+		sqlSession.insert("cardSql.createCard", cvo);
 	}
 
-	public Object idCheck(String memberId) throws SQLException {
-		return sqlSession.selectOne("memberSql.idCheck", memberId);
+	public CardVO getCard(int cardNO) throws SQLException {
+		return sqlSession.selectOne("cardSql.getCard", cardNO);
 	}
 
-	public MemberVO login(MemberVO mvo) throws SQLException {
-		return sqlSession.selectOne("memberSql.login", mvo);
+	public List<CardVO> getAllCards(String memberId) throws SQLException {
+		return sqlSession.selectList("cardSql.getAllCards", memberId);
 	}
 
-	public String findId(MemberVO mvo) throws SQLException {
-		return sqlSession.selectOne("memberSql.findId", mvo);
+	public void modifyCard(CardVO cvo) throws SQLException {
+		sqlSession.update("cardSql.modifyCard", cvo);		
 	}
 
-	public String findPassword(MemberVO mvo) throws SQLException {
-		return sqlSession.selectOne("memberSql.findPassword", mvo);
+	public void deleteCard(int cardNO) throws SQLException {
+		sqlSession.delete("cardSql.deleteCard", cardNO);
 	}
+
 
 }

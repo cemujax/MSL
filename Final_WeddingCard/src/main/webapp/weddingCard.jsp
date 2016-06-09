@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="css/uploadifive.css" />
 <link rel="stylesheet" href="css/jquery.cropbox.custom.css" />
 <link rel="stylesheet" href="css/builder.css" />
-<!-- <link rel="stylesheet" href="css/bootstrap-ko.css"/> -->
+<!-- <link rel="stylesheet" href="css/bootstrap-ko.css"/>  -->
 <link rel="stylesheet" href="css/style.css">
 
 
@@ -426,7 +426,6 @@ $(function(){
 
 </head>
 
-<%-- <c:import url="basicSkin.jsp" ></c:import> --%>
 <body>
 
 <div class="ui-grid-a contents">
@@ -447,7 +446,7 @@ $(function(){
 		</div>
 </div>
 
-<c:import url="vertical.html"></c:import>
+<c:import url="tabs.jsp"/>
 				
 
 

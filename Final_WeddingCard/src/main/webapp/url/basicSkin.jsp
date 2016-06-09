@@ -5,22 +5,22 @@
 <html>
 <head>
 <title>My Wedding a Wedding Category Flat Bootstrap Responsive  Website Template | Home :: w3layouts</title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="My Wedding Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="screen" />
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/bootstrap.js"></script>
 </head>
 <body>
 <!--header-->
 	<div class="header">
 		<div class="container">
-						  <script defer src="js/jquery.flexslider.js"></script>
+						  <script defer src="../js/jquery.flexslider.js"></script>
 				
 			<!-- 타이틀 등  -->
 			<div style="border: 1px solid #000; width: 100%; height: 80%; margin-top:30%;">
@@ -80,28 +80,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="about-grids">
 						<div class="col-md-3 about-grid test1">
-						<img src="images/p1.jpg" class="img-responsive" alt="/">
+						<img src="../images/p1.jpg" class="img-responsive" alt="/">
 							<div class="textbox">
 								<h4>my wedding</h4>
 								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
 							</div>
 						</div>
 						<div class="col-md-3 about-grid test1">
-						<img src="images/p2.jpg" class="img-responsive" alt="/">
+						<img src="../images/p2.jpg" class="img-responsive" alt="/">
 						<div class="textbox">
 								<h4>my wedding</h4>
 								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
 							</div>
 						</div>
 						<div class="col-md-3 about-grid test1">
-						<img src="images/p3.jpg" class="img-responsive" alt="/">
+						<img src="../images/p3.jpg" class="img-responsive" alt="/">
 						<div class="textbox">
 								<h4>my wedding</h4>
 								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
 							</div>
 						</div>
 						<div class="col-md-3 about-grid test1">
-						<img src="images/p4.jpg" class="img-responsive" alt="/">
+						<img src="../images/p4.jpg" class="img-responsive" alt="/">
 						<div class="textbox">
 								<h4>my wedding</h4>
 								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
@@ -117,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="container">
 					<h3>hot offer</h3>
 					<h4>for your best day!</h4>
-					<img src="images/p5.jpg" class="img-responsive" alt="/">
+					<img src="../images/p5.jpg" class="img-responsive" alt="/">
 					<div class="offer"></div>
 				</div>
 			</div>
@@ -186,7 +186,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<p>Cum sociis natoque penatibus et magnis. dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio.</p>
 											</div>
 									<a href="#" class="mask">
-									<img src="images/p6.jpg" class="img-responsive zoom-img" alt=""></a>	
+									<img src="../images/p6.jpg" class="img-responsive zoom-img" alt=""></a>	
 										</div>
 										<div class="col-md-4 weeding-new">
 											<div class="wedding-inner">
@@ -195,7 +195,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<p>Cum sociis natoque penatibus et magnis. dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio.</p>
 											</div>
 											<a href="#" class="mask">
-									<img src="images/p7.jpg" class="img-responsive zoom-img" alt=""></a>	
+									<img src="../images/p7.jpg" class="img-responsive zoom-img" alt=""></a>	
 										</div>
 									<div class="col-md-4 weeding-new">
 											<div class="wedding-inner">
@@ -204,7 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<p>Cum sociis natoque penatibus et magnis. dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio.</p>
 											</div>
 											<a href="#" class="mask">
-									<img src="images/p8.jpg" class="img-responsive zoom-img" alt=""></a>	
+									<img src="../images/p8.jpg" class="img-responsive zoom-img" alt=""></a>	
 										</div>
 									<div class="clearfix"></div>
 								</div>
