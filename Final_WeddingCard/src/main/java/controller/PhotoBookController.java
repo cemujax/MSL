@@ -1,4 +1,4 @@
-/*package controller;
+package controller;
 
 import java.io.File;
 import java.util.List;
@@ -14,8 +14,6 @@ import model.photobook.PhotoBookVO;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
-
-import com.sun.glass.ui.Application;
 
 public class PhotoBookController extends MultiActionController {
 	private PhotoBookService photoBookService;
@@ -34,6 +32,17 @@ public class PhotoBookController extends MultiActionController {
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		pbvo.setMemberVO(mvo);
 		
+		//////////////////////////////// bookComment
+		for(String c : pbvo.getComment()) {
+			if(pbvo.getBookComment() == null)
+				pbvo.setBookComment(c);
+			
+			else
+				pbvo.setBookComment(pbvo.getBookComment()+ "`'END`'"+ c);
+		}
+		
+		
+		//////////////////////////////// fileName
 		List<MultipartFile> files = pbvo.getFile();
 		
 		if(!files.isEmpty()) {
@@ -66,10 +75,10 @@ public class PhotoBookController extends MultiActionController {
 		return new ModelAndView("redirect:/photoBook.do?command=list");
 	} // create
 	
-	
+	/*
 	 * modifyPhotoBook
 	 * deletePhotoBook
-	 
+	 */
 	
 	public ModelAndView list (HttpServletRequest request, HttpServletResponse response,
 							HttpSession session) throws Exception {
@@ -89,10 +98,12 @@ public class PhotoBookController extends MultiActionController {
 		pbvo.setMemberVO(mvo);
 		
 		pbvo = photoBookService.getPhotoBookByNo(pbvo);
-		request.setAttribute("pbImgList", photoBookService.urlList(pbvo.getFileName()));
-		
+		request.setAttribute("pbImgList", photoBookService.imgList(pbvo.getFileName(), pbvo.getBookComment()));
+		for(String[] s :  photoBookService.imgList(pbvo.getFileName(), pbvo.getBookComment())) {
+			System.out.println("url :: "+ s[0]);
+			System.out.println("comment :: "+ s[1]);
+		}
 		// TODO 수정
 		return new ModelAndView("pbcontent", "pbvo", pbvo);
 	} // detail
 }
-*/

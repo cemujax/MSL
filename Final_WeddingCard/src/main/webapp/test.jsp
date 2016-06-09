@@ -10,11 +10,13 @@
 <body>
 <form method="post" action="photoBook.do" enctype="multipart/form-data">
 	<input type="hidden" name="command" value="create">
-	<input type="hidden" name="bookComment" value="comment">
 	이름 : <input type="text" name="bookName"><p>
 	<input type="file" name="file[0]"><p>
+	<input type="text" name="comment[0]" value=""><p>
 	<input type="file" name="file[1]"><p>
+	<input type="text" name="comment[1]" value=""><p>
 	<input type="file" name="file[2]"><p>
+	<input type="text" name="comment[2]" value=""><p>
 	<input type="submit" value="멀티 파일 업로드">
 </form>
 

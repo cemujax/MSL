@@ -1,6 +1,9 @@
 package model.photobook;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PhotoBookServiceImpl implements PhotoBookService{
 	private PhotoBookDao photoBookDao;
@@ -29,8 +32,22 @@ public class PhotoBookServiceImpl implements PhotoBookService{
 		photoBookDao.deletePhotoBook(bookNo);
 	}
 
-	public String[] urlList(String url) {
+	
+	public List<String[]> imgList(String url, String comment) {
+		String[] urlArr = url.split("`'");
+		String[] comArr = comment.split("`'END`'");
 		
-		return url.split("`'");
+		List<String[]> list = new ArrayList<String[]>();
+		
+		for(int i=0; i <urlArr.length; i++) {
+			String[] str = new String[2];
+			
+			str[0] = urlArr[i];
+			str[1] = comArr[i];
+			
+			list.add(str);
+	
+		}
+		return list;
 	}
 }

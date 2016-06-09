@@ -1,6 +1,7 @@
 package model.photobook;
 
 import java.util.List;
+import java.util.Map;
 
 public interface PhotoBookService {
 	List<PhotoBookVO> getPhotoBookList(String memberId);
@@ -9,6 +10,6 @@ public interface PhotoBookService {
 	void modifyPhotoBook(PhotoBookVO pbvo);
 	void deletePhotoBook(int bookNo);
 	/////////////////////////////////////////
-	public String[] urlList(String url);
+	public List<String[]> imgList(String url, String comment);
 
 }
