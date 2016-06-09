@@ -38,26 +38,32 @@ public class PhotoBookController extends MultiActionController {
 		
 		if(!files.isEmpty()) {
 			for(MultipartFile f : files) {
+				String fileName = f.getOriginalFilename();
+				
 				if(pbvo.getFileName() == null)
-					pbvo.setFileName(f.getOriginalFilename());
+					pbvo.setFileName(fileName);
 				
 				else
-					pbvo.setFileName(pbvo.getFileName()+ "`'"+ f.getOriginalFilename());
+					pbvo.setFileName(pbvo.getFileName()+ "`'"+ fileName);
+				
 			}
 			
 			photoBookService.createPhotoBook(pbvo);
-
+			
 			File filePath = new File(path+ mvo.getMemberId()+ "\\"+ pbvo.getBookNo());
 			
+			if(!filePath.getParentFile().exists())
+				filePath.getParentFile().mkdirs();
+			
 			if(!filePath.exists())
-				filePath.mkdirs();
+				filePath.mkdir();
 			
 			for(MultipartFile f : files)
-				f.transferTo(new File(filePath.toString()+ "\\"+ f.getOriginalFilename()));
+				f.transferTo(new File(filePath+ "\\"+ f.getOriginalFilename()));
 			
 		}
 		// TODO 수정
-		return new ModelAndView("test");
+		return new ModelAndView("redirect:/photoBook.do?command=list");
 	} // create
 	
 	/*

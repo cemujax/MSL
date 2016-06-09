@@ -229,6 +229,7 @@ a#prev_page_button:hover{
 						<a href="http://tympanus.net/Tutorials/SliderGallery/" target="_blank" class="demo">Demo</a>
 					</div>
 					</c:forEach>
+					<a href="index.jsp">
 					<!-- <div>
 						<img src="images/2.jpg" alt="" />
 						<h1>Animated Portfolio Gallery</h1>

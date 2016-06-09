@@ -9,7 +9,7 @@
 </head>
 <body>
 <b>LIST</b><p>
-<c:forEach items="${pbList }" var="i" varStatus="vs">
+<c:forEach items="${pbList}" var="i" varStatus="vs">
 	<a href="photoBook.do?command=detail&&no=${i.bookNo }">${vs.count}. ${i.bookName}</a><p>
 </c:forEach>
 
