@@ -80,6 +80,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    
     <!--  // 신랑/ 신부 -->
    
+    <!--  // 신랑/ 신부 -->
+   
    <!--header-->
    <div class="content">
             <!--about-->

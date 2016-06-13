@@ -117,7 +117,6 @@ public class CardController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 
 		String url = request.getParameter("url");
-		CardVO rvo = (CardVO) cardService.urlCheck(url);
 		request.setAttribute("cvo", rvo);
 		return new ModelAndView();
 	}

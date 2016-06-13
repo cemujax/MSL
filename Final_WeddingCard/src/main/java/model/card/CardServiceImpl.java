@@ -37,9 +37,5 @@ public class CardServiceImpl implements CardService{
       return cardDao.getAllCards(memberId);
    }
 
-   @Override
-   public CardVO urlCheck(String url) throws SQLException {
-      return cardDao.urlCheck(url);
-   }
 
 }

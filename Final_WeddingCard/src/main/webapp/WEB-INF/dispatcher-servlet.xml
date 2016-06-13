@@ -61,9 +61,7 @@
    <property name="methodNameResolver" ref="methodNameResolver"/>
    <property name="cardService" ref="cardService" />
       <property name="path">
-      <value>..\\..\\MSL\\Final_WeddingCard\\src\\main\\webapp\\url\\</value> 
-       <!--<value>..\\..\\SpringPro3\\eclipse\\workspace\\Final_WeddingCard_Test\\src\\main\\webapp\\url\\</value>-->
-      
+      <value>..\\..\\MSL\\Final_WeddingCard\\src\\main\\webapp\\url\\</value>
    </property>
 </bean>
 
@@ -71,8 +69,7 @@
 	<property name="methodNameResolver" ref="methodNameResolver"/>
 	<property name="photoBookService" ref="photoBookService" />
 	<property name="path">
-		 <value>..\\..\\MSL\\\Final_WeddingCard\\src\\main\\webapp\\img\\photobook\\</value> 
-		<!--<value>..\\..\\SpringPro3\\eclipse\\workspace\\Final_WeddingCard_Test\\src\\main\\webapp\\img\\photobook\\</value>-->
+		<value>..\\..\\MSL\\\Final_WeddingCard\\src\\main\\webapp\\img\\photobook\\</value>
 	</property>
 </bean>
 

@@ -37,10 +37,6 @@ public class CardDaoImpl implements CardDao{
       sqlSession.delete("cardSql.deleteCard", cardNO);
    }
 
-   @Override
-   public CardVO urlCheck(String url) throws SQLException {
-      return sqlSession.selectOne("carSql.urlCheck", url);
-   }
 
 
 }
