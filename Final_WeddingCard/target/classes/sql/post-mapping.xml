@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="postSql">
+	
+	<!-- ####################### post ####################### -->
+	<resultMap type="post" id="postRM">
+		<result property="postNo" column="post_no" jdbcType="NUMERIC"/>
+		<result property="title" column="title" jdbcType="VARCHAR"/>
+		<result property="content" column="content" jdbcType="VARCHAR"/>
+		<result property="writeDate" column="write_date" jdbcType="VARCHAR"/>
+		<result property="kind" column="kind" jdbcType="VARCHAR"/>
+		<result property="memberVO.memberId" column="member_id" jdbcType="VARCHAR"/>
+		<result property="memberVO.name" column="name" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<sql id="post-select">
+		SELECT post_no, title, content, write_date, kind, member_id
+		FROM post
+	</sql>
+	
+	<insert id="writePost" parameterType="post">
+		<selectKey keyProperty="postNo" resultType="int" order="BEFORE">
+			SELECT post_seq.nextVal FROM dual
+		</selectKey>
+		
+		INSERT
+		INTO post (post_no, title, content, write_date, kind, member_id)
+		VALUES(
+			#{postNo}, #{title}, #{content}, sysdate, #{kind}, #{memberVO.memberId}
+		)
+	</insert>
+	
+	<update id="modifyPost" parameterType="post">
+		UPDATE post
+		SET title = #{title}, content = #{content}
+		WHERE member_id = #{memberVO.memberId}
+		AND post_no = #{postNo}
+	</update>
+	
+	<delete id="deletePost" parameterType="int">
+		DELETE
+		FROM post
+		WHERE post_no = #{value}
+	</delete>
+	
+	<select id="getPostList" parameterType="string" resultMap="postRM">
+		<include refid="post-select"/>
+		WHERE kind = #{value}
+	</select>
+	
+	<select id="getPostListByNo" parameterType="post" resultMap="postRM">
+		<include refid="post-select"/>
+		WHERE kind = #{kind}
+			AND post_no = #{postNo}
+	</select>
+	
+	
+	<!-- ##################### post comment #################### -->
+	<resultMap type="postComment" id="postCommentRM">
+		<result property="commentNo" column="comment_no" jdbcType="NUMERIC"/>
+		<result property="content" column="content" jdbcType="VARCHAR"/>
+		<result property="writeDate" column="write_date" jdbcType="VARCHAR"/>
+		<result property="memberVO.memberId" column="member_id" jdbcType="VARCHAR"/>
+		<result property="memberVO.name" column="name" jdbcType="VARCHAR"/>
+		<result property="postVO.postNo" column="post_no" jdbcType="NUMERIC"/>
+	</resultMap>
+	
+	<insert id="writeComment" parameterType="postComment">
+		<selectKey keyProperty="commentNo" resultType="int" order="BEFORE">
+			SELECT postcomment_seq.nextVal FROM dual
+		</selectKey>
+	
+		INSERT
+		INTO postcomment (comment_no, content, write_date, member_id, post_no)
+		VALUES (
+			#{commentNo}, #{content}, sysdate, #{memberVO.memberId}, #{postVO.postNo}
+		)
+	</insert>
+	
+	<update id="modifyComment" parameterType="postComment">
+		UPDATE postcomment
+		SET content = #{content}
+		WHERE comment_no = #{commentNo}
+	</update>
+	
+	<delete id="deleteComment" parameterType="int">
+		DELETE
+		FROM postcomment
+		WHERE comment_no = #{value}
+	</delete>
+	
+	<select id="getCommentList" parameterType="int" resultMap="postCommentRM">
+		SELECT comment_no, content, write_date, member_id, post_no
+		FROM postcomment
+		WHERE post_no = #{value}
+	</select>
+	
+	
+	<!-- ################### review #################### -->
+	<resultMap type="reviewComment" id="reviewCommentRM">
+		<result property="content" column="content" jdbcType="VARCHAR"/>
+		<result property="writeDate" column="write_date" jdbcType="VARCHAR"/>
+		<result property="memberVO.memberId" column="member_id" jdbcType="VARCHAR"/>
+		<result property="memberVO.name" column="name" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<insert id="writeReview" parameterType="reviewComment">
+		INSERT
+		INTO reviewcomment (content, write_date, member_id)
+		VALUES (
+			#{content}, sysdate, #{memberVO.memberId}
+		)
+	</insert>
+	
+	<select id="getReviewList" resultMap="reviewCommentRM">
+		SELECT content, write_date, member_id
+		FROM reviewcomment
+	</select>
+	
+	
+</mapper>	
+
