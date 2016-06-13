@@ -35,8 +35,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <font size="5"> ${cvo.hallLocation}</font><p>
             <font size="5">${cvo.hallTel}</font><p>
             <p><p>
-            <font size="5"> ${cvo.groomTel}</font><p>
-            <font size="5">${cvo.brideTel}</font><p>
+            <font size="5"> ${cvo.groomInfo}</font><p>
+            <font size="5">${cvo.brideInfo}</font><p>
          </div>
          
          <!-- 상세 정보 등 -->
@@ -51,32 +51,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    </div>
    
    <!--  신랑/ 신부 -->
-   	<div class="content" >
-   		
-  		<div class="panel panel-default">
-		  <div class="panel-body">신랑 &nbsp;&nbsp;
- 			 <i class="glyphicon glyphicon-earphone"></i></div>
-		  <div class="panel-body">신부 &nbsp;&nbsp;
- 		 <i class="glyphicon glyphicon-earphone"></i></div>
-		</div>
-   	
-   		<div style="border:1px solid #000; text-align: center; margin-top: 5%;">
-   			소개글
-   		</div>
-   	
-   		<!-- <div style="background-color:rgba(119, 119, 119, 0.25); width:50%; float:left; height: 70px;">
-   			<font size="3" style="font-weight: bold; padding-left:5%; padding-top:10px;">신랑  </font>
-   			<i class="glyphicon glyphicon-earphone" style="font-size:15px; margin-top:5%; padding-left:5%;">   000-000-0000</i>
-   		</div> -->
-   		
-   	<!-- 	<div style="background-color:rgba(250, 144, 144, 0.32); width:50%; float:right; height: 70px;">
-   			<font size="3" style="font-weight: bold; padding-left:5%;" >신부  </font>
-   			<i class="glyphicon glyphicon-earphone" style="font-size:15px; margin-top:5%; padding-left:5%;">   000-000-0000</i>
-   		</div> -->
-   		
-   	</div>
-   	
+      <div class="content" >
+         
+        <div class="panel panel-default">
+        <div class="panel-body">신랑 &nbsp;&nbsp;
+           <i class="glyphicon glyphicon-earphone"></i></div>
+        <div class="panel-body">신부 &nbsp;&nbsp;
+        <i class="glyphicon glyphicon-earphone"></i></div>
+      </div>
+      
+         <div style="border:1px solid #000; text-align: center; margin-top: 5%;">
+            소개글
+         </div>
+      
+         <!-- <div style="background-color:rgba(119, 119, 119, 0.25); width:50%; float:left; height: 70px;">
+            <font size="3" style="font-weight: bold; padding-left:5%; padding-top:10px;">신랑  </font>
+            <i class="glyphicon glyphicon-earphone" style="font-size:15px; margin-top:5%; padding-left:5%;">   000-000-0000</i>
+         </div> -->
+         
+      <!--    <div style="background-color:rgba(250, 144, 144, 0.32); width:50%; float:right; height: 70px;">
+            <font size="3" style="font-weight: bold; padding-left:5%;" >신부  </font>
+            <i class="glyphicon glyphicon-earphone" style="font-size:15px; margin-top:5%; padding-left:5%;">   000-000-0000</i>
+         </div> -->
+         
+      </div>
+      
    
+   
+    <!--  // 신랑/ 신부 -->
    
     <!--  // 신랑/ 신부 -->
    
@@ -195,34 +197,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             
             
             <!-- location... -->
-            	<div class="contents cont_wrap">
-				<h2 class="tit_type2"><span>location</span></h2>
-				<div class="snb_wrap col-2">
-					<div class="lo_tit ui-block-a">
-						<span class="on" id="place_name">웨딩홀</span>
-					</div>
-					<div class="ui-block-b col-2">
-						<div class="lo_w ui-block-a">
-							<span class="locationtabs on" id="tabs_wedding" style="cursor: pointer;">예식장</span>
-						</div>
-					</div>
-				</div>
-				<div class="lo_cont_box cont_sub col-2 locationdivs" id="div_wedding">
-					<input type="hidden" id="wedding_pmap_lat" value="">
-					<input type="hidden" id="wedding_pmap_lon" value="">
-					<input type="hidden" id="wedding_paddr" value="예식장 주소 (test)">
-					<input type="hidden" id="wedding_pname" value="웨딩홀">
-					<div class="lo_info ui-block-b">
-						<dl>
-							<dt>DATE</dt>
-							<dd>2016년 6월 3일 금요일 오전 7시</dd>
-						</dl>
-						<dl>
-							<dt>ADDRESS</dt>
-							<dd id="widding_paddr" class="map_initialize">예식장 주소 (test)</dd><dd>010-0000-0000</dd>						</dl>
-					</div>
-				</div>
-			</div>
+               <div class="contents cont_wrap">
+            <h2 class="tit_type2"><span>location</span></h2>
+            <div class="snb_wrap col-2">
+               <div class="lo_tit ui-block-a">
+                  <span class="on" id="place_name">웨딩홀</span>
+               </div>
+               <div class="ui-block-b col-2">
+                  <div class="lo_w ui-block-a">
+                     <span class="locationtabs on" id="tabs_wedding" style="cursor: pointer;">예식장</span>
+                  </div>
+               </div>
+            </div>
+            <div class="lo_cont_box cont_sub col-2 locationdivs" id="div_wedding">
+               <input type="hidden" id="wedding_pmap_lat" value="">
+               <input type="hidden" id="wedding_pmap_lon" value="">
+               <input type="hidden" id="wedding_paddr" value="예식장 주소 (test)">
+               <input type="hidden" id="wedding_pname" value="웨딩홀">
+               <div class="lo_info ui-block-b">
+                  <dl>
+                     <dt>DATE</dt>
+                     <dd>2016년 6월 3일 금요일 오전 7시</dd>
+                  </dl>
+                  <dl>
+                     <dt>ADDRESS</dt>
+                     <dd id="widding_paddr" class="map_initialize">예식장 주소 (test)</dd><dd>010-0000-0000</dd>                  </dl>
+               </div>
+            </div>
+         </div>
             <!-- ////location -->
             
          
