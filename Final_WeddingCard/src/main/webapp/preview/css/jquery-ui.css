@@ -852,8 +852,8 @@ body .ui-tooltip {
 	color: #000000;
 }
 .ui-widget-header {
-	border: 1px solid #35c0bf;
-	background: #5FD4D3 url("images/ui-bg_flat_75_5FD4D3_40x100.png") 50% 50% repeat-x;
+	border: 1px solid #fff;
+	background: #a6baba url("images/ui-bg_flat_75_5FD4D3_40x100.png") 50% 50% repeat-x;
 	color: #ffffff;
 	font-weight: bold;
 }
@@ -866,8 +866,8 @@ body .ui-tooltip {
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-	border: 1px solid #35c6c5;
-	background: #5FD4D3 url("images/ui-bg_flat_45_5FD4D3_40x100.png") 50% 50% repeat-x;
+	border: 1px solid #fff;
+	background: #808c8c url("images/ui-bg_flat_45_5FD4D3_40x100.png") 50% 50% repeat-x;
 	font-weight: normal;
 	color: #ffffff;
 }
@@ -910,7 +910,7 @@ body .ui-tooltip {
 .ui-state-active a,
 .ui-state-active a:link,
 .ui-state-active a:visited {
-	color: #5FD4D3;
+	color: #000;
 	text-decoration: none;
 }
 

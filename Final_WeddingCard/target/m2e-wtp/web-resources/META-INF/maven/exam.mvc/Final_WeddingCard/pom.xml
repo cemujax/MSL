@@ -5,7 +5,7 @@
 	<artifactId>Final_WeddingCard</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Final_WeddingCard Maven Webapp</name>
+	<name>Final_WeddingCard_Test Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 

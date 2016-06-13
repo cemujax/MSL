@@ -24,6 +24,9 @@
 </style>
 </head>
 <body>
+<c:if test="${sessionScope.mvo == NULL }">
+	<c:redirect url="login.jsp"/>
+</c:if>
 
 <h2 align="center"> 초대장 관리</h2>
 <h4 align="center"> ID:${mvo.memberId} &nbsp;&nbsp;이름:${mvo.name}</h4>

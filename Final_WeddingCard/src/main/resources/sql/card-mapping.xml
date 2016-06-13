@@ -16,17 +16,19 @@
       <result property="hallLocation" column="hall_location"
          jdbcType="VARCHAR" />
       <result property="hallTel" column="hall_tel" jdbcType="VARCHAR" />
-      <result property="groomTel" column="groom_tel" jdbcType="VARCHAR" />
-      <result property="brideTel" column="bride_tel" jdbcType="VARCHAR" />
+      <result property="groomInfo" column="groom_info" jdbcType="VARCHAR" />
+      <result property="brideInfo" column="bride_info" jdbcType="VARCHAR" />
       <result property="memberVO.memberId" column="member_id" />
       <result property="photobookVO.bookNo" column="book_no" />
       <result property="url" column="url" jdbcType="VARCHAR" />
+      <result property="mainImage" column="main_image" jdbcType="VARCHAR" />
+      <result property="cardContext" column="card_context" jdbcType="VARCHAR" />
    </resultMap>
 
    <sql id="select-card">
       SELECT card_no, template, card_date, hall_name,
-      hall_location, hall_tel, groom_tel
-      ,bride_tel , member_id, book_no, url
+      hall_location, hall_tel, groom_info
+      ,bride_info , member_id, book_no, url, main_image, card_context
       FROM
       card
    </sql>
@@ -48,25 +50,25 @@
 
       INSERT INTO
       card(card_no, template, card_date, hall_name,
-      hall_location, hall_tel, groom_tel
-      ,bride_tel , member_id, book_no, url)
+      hall_location, hall_tel, groom_info
+      ,bride_info , member_id, book_no, url,main_image, card_context)
       VALUES(#{cardNo}, #{template}, TO_DATE(#{cardDate},'YYYY-MM-DD HH24:MI'),
       #{hallName}, #{hallLocation},
-      #{hallTel}, #{groomTel}, #{brideTel},
+      #{hallTel}, #{groomInfo}, #{brideInfo},
       #{memberVO.memberId},
       #{photobookVO.bookNo},
-      #{url})
+      #{url},#{mainImage},#{cardContext})
+      <!--  -->
    </insert>
 
    <update id="modifyCard" parameterType="card">
       UPDATE card
       SET template=#{template} , hall_name=#{hallName},
       hall_location=#{hallLocation}, hall_tel=#{hallTel},
-      groom_tel=#{groomTel}, bride_tel=#{brideTel},
+      groom_info=#{groomInfo}, bride_info=#{brideInfo},
       book_no=#{photobookVO.bookNo},
-      url = #{url}
-      WHERE card_no = #{cardNo} AND member_id =
-      #{memberVO.memberId}
+      url = #{url},main_image=#{mainImage}, card_context=#{cardContext}
+      WHERE card_no = #{cardNo}
    </update>
 
    <delete id="deleteCard" parameterType="int">
@@ -75,6 +77,11 @@
       card_no=#{value}
    </delete>
 
+
+   <select id="urlCheck" parameterType="string" resultType="String">
+      <include refid="select-card"/>
+      where url=#{value}
+   </select>
 
    <!-- ======================== card Comment=================================== -->
    <resultMap type="cardComment" id="cardCommentRM">
@@ -112,5 +119,6 @@
       where password = #{password}
    </select>
 
+   
 
 </mapper>   
