@@ -34,6 +34,8 @@ public class PhotoBookController extends MultiActionController {
 		
 		//////////////////////////////// bookComment
 		for(String c : pbvo.getComment()) {
+			c += "";
+			
 			if(pbvo.getBookComment() == null)
 				pbvo.setBookComment(c);
 			
@@ -99,10 +101,6 @@ public class PhotoBookController extends MultiActionController {
 		
 		pbvo = photoBookService.getPhotoBookByNo(pbvo);
 		request.setAttribute("pbImgList", photoBookService.imgList(pbvo.getFileName(), pbvo.getBookComment()));
-		for(String[] s :  photoBookService.imgList(pbvo.getFileName(), pbvo.getBookComment())) {
-			System.out.println("url :: "+ s[0]);
-			System.out.println("comment :: "+ s[1]);
-		}
 		// TODO 수정
 		return new ModelAndView("pbcontent", "pbvo", pbvo);
 	} // detail

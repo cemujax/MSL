@@ -21,8 +21,8 @@ public class CardDaoImpl implements CardDao{
 		sqlSession.insert("cardSql.createCard", cvo);
 	}
 
-	public CardVO getCard(int cardNO) throws SQLException {
-		return sqlSession.selectOne("cardSql.getCard", cardNO);
+	public CardVO getCard(String url) throws SQLException {
+		return sqlSession.selectOne("cardSql.getCard", url);
 	}
 
 	public List<CardVO> getAllCards(String memberId) throws SQLException {

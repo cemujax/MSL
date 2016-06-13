@@ -58,9 +58,12 @@
 </bean>
 
 <bean name="/card.do" class="controller.CardController">
-	<property name="methodNameResolver" ref="methodNameResolver"/>
-	<property name="cardService" ref="cardService" />
-</bean> 
+   <property name="methodNameResolver" ref="methodNameResolver"/>
+   <property name="cardService" ref="cardService" />
+      <property name="path">
+      <value>..\\..\\MSL\\Final_WeddingCard\\src\\main\\webapp\\url\\</value>
+   </property>
+</bean>
 
 <bean name="/photoBook.do" class="controller.PhotoBookController">
 	<property name="methodNameResolver" ref="methodNameResolver"/>

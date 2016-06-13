@@ -29,8 +29,8 @@ public class CardServiceImpl implements CardService{
 		
 	}
 
-	public CardVO getCard(int cardNO) throws SQLException {
-		return cardDao.getCard(cardNO);
+	public CardVO getCard(String url) throws SQLException {
+		return cardDao.getCard(url);
 	}
 
 	public List<CardVO> getAllCards(String memberId) throws SQLException {

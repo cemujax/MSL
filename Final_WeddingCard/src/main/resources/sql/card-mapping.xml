@@ -1,116 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cardSql">
 
 
-	<!-- ======================== card =================================== -->
+   <!-- ======================== card =================================== -->
 
-	<resultMap type="card" id="cardRM">
-		<result property="cardNo" column="card_no" jdbcType="NUMERIC" />
-		<result property="template" column="template" jdbcType="VARCHAR" />
-		<result property="cardDate" column="card_date" jdbcType="VARCHAR" />
-		<result property="hallName" column="hall_name" jdbcType="VARCHAR" />
-		<result property="hallLocation" column="hall_location"
-			jdbcType="VARCHAR" />
-		<result property="hallTel" column="hall_tel" jdbcType="VARCHAR" />
-		<result property="groomTel" column="groom_tel" jdbcType="VARCHAR" />
-		<result property="brideTel" column="bride_tel" jdbcType="VARCHAR" />
-		<result property="memberVO.memberId" column="member_id" />
-		<result property="photobookVO.bookNo" column="book_no" />
-		<result property="url" column="url" jdbcType="VARCHAR" />
-	</resultMap>
+   <resultMap type="card" id="cardRM">
+      <result property="cardNo" column="card_no" jdbcType="NUMERIC" />
+      <result property="template" column="template" jdbcType="VARCHAR" />
+      <result property="cardDate" column="card_date" jdbcType="VARCHAR" />
+      <result property="hallName" column="hall_name" jdbcType="VARCHAR" />
+      <result property="hallLocation" column="hall_location"
+         jdbcType="VARCHAR" />
+      <result property="hallTel" column="hall_tel" jdbcType="VARCHAR" />
+      <result property="groomTel" column="groom_tel" jdbcType="VARCHAR" />
+      <result property="brideTel" column="bride_tel" jdbcType="VARCHAR" />
+      <result property="memberVO.memberId" column="member_id" />
+      <result property="photobookVO.bookNo" column="book_no" />
+      <result property="url" column="url" jdbcType="VARCHAR" />
+   </resultMap>
 
-	<sql id="select-card">
-		SELECT card_no, template, card_date, hall_name,
-		hall_location, hall_tel, groom_tel
-		,bride_tel , member_id, book_no, url
-		FROM
-		card
-	</sql>
+   <sql id="select-card">
+      SELECT card_no, template, card_date, hall_name,
+      hall_location, hall_tel, groom_tel
+      ,bride_tel , member_id, book_no, url
+      FROM
+      card
+   </sql>
 
-	<select id="getCard" resultMap="cardRM" parameterType="int">
-		<include refid="select-card" />
-		WHERE card_no=#{value}
-	</select>
+   <select id="getCard" resultMap="cardRM" parameterType="string">
+      <include refid="select-card" />
+      WHERE url=#{url}
+   </select>
 
-	<select id="getAllCards" parameterType="string" resultMap="cardRM">
-		<include refid="select-card" />
-		WHERE member_id = #{value}
-	</select>
+   <select id="getAllCards" parameterType="string" resultMap="cardRM">
+      <include refid="select-card" />
+      WHERE member_id = #{value}
+   </select>
 
-	<insert id="createCard" parameterType="card">
-		<selectKey keyProperty="cardNo" resultType="int" order="BEFORE">
-			SELECT card_seq.nextVal FROM dual
-		</selectKey>
+   <insert id="createCard" parameterType="card">
+      <selectKey keyProperty="cardNo" resultType="int" order="BEFORE">
+         SELECT card_seq.nextVal FROM dual
+      </selectKey>
 
-		INSERT INTO
-		card(card_no, template, card_date, hall_name,
-		hall_location, hall_tel, groom_tel
-		,bride_tel , member_id, book_no, url)
-		VALUES(#{cardNo}, #{template}, sysdate,
-		#{hallName}, #{hallLocation},
-		#{hallTel}, #{groomTel}, #{brideTel},
-		#{memberVO.memberId},
-		#{photobookVO.bookNo},
-		#{url})
-	</insert>
+      INSERT INTO
+      card(card_no, template, card_date, hall_name,
+      hall_location, hall_tel, groom_tel
+      ,bride_tel , member_id, book_no, url)
+      VALUES(#{cardNo}, #{template}, TO_DATE(#{cardDate},'YYYY-MM-DD HH24:MI'),
+      #{hallName}, #{hallLocation},
+      #{hallTel}, #{groomTel}, #{brideTel},
+      #{memberVO.memberId},
+      #{photobookVO.bookNo},
+      #{url})
+   </insert>
 
-	<update id="modifyCard" parameterType="card">
-		UPDATE card
-		SET template=#{template} , hall_name=#{hallName},
-		hall_location=#{hallLocation}, hall_tel=#{hallTel},
-		groom_tel=#{groomTel}, bride_tel=#{brideTel},
-		book_no=#{photobookVO.bookNo},
-		url = #{url}
-		WHERE card_no = #{cardNo} AND member_id =
-		#{memberVO.memberId}
-	</update>
+   <update id="modifyCard" parameterType="card">
+      UPDATE card
+      SET template=#{template} , hall_name=#{hallName},
+      hall_location=#{hallLocation}, hall_tel=#{hallTel},
+      groom_tel=#{groomTel}, bride_tel=#{brideTel},
+      book_no=#{photobookVO.bookNo},
+      url = #{url}
+      WHERE card_no = #{cardNo} AND member_id =
+      #{memberVO.memberId}
+   </update>
 
-	<delete id="deleteCard" parameterType="int">
-		DELETE FROM card
-		WHERE
-		card_no=#{value}
-	</delete>
-
-
-	<!-- ======================== card Comment=================================== -->
-	<resultMap type="cardComment" id="cardCommentRM">
-		<result property="content" column="content" jdbcType="VARCHAR" />
-		<result property="guest" column="guest" jdbcType="VARCHAR" />
-		<result property="writeDate" column="write_date" jdbcType="VARCHAR" />
-		<result property="cardVO.cardNo" column="card_no" />
-	</resultMap>
-
-	<insert id="writeCardComment" parameterType="cardComment">
-		INSERT INTO
-		cardcomment(content,guest, write_date ,card_no, password)
-		VALUES(#{content}, #{guest}, sysdate, #{cardVO.cardNo},#{password})
-	</insert>
-
-	<update id="modifyCardComment" parameterType="cardComment">
-		UPDATE cardcomment
-		SET guest=#{guest},content=#{content}
-		where password = #{password}
-	</update>
-
-	<delete id="deleteCardComment" parameterType="cardComment">
-		DELETE FROM cardcomment
-		where password = #{password}
-	</delete>
-
-	<select id="getAllCardComments" resultMap="cardCommentRM">
-		SELECT guest, password, content, write_date, card_no
-		FROM cardcomment
-	</select>
-
-	<select id="passwordCheck" parameterType="string" resultMap="cardCommentRM">
-		SELECT guest, password, content, write_date, card_no
-		FROM cardcomment
-		where password = #{password}
-	</select>
+   <delete id="deleteCard" parameterType="int">
+      DELETE FROM card
+      WHERE
+      card_no=#{value}
+   </delete>
 
 
-</mapper>	
+   <!-- ======================== card Comment=================================== -->
+   <resultMap type="cardComment" id="cardCommentRM">
+      <result property="content" column="content" jdbcType="VARCHAR" />
+      <result property="guest" column="guest" jdbcType="VARCHAR" />
+      <result property="writeDate" column="write_date" jdbcType="VARCHAR" />
+      <result property="cardVO.cardNo" column="card_no" />
+   </resultMap>
+
+   <insert id="writeCardComment" parameterType="cardComment">
+      INSERT INTO
+      cardcomment(content,guest, write_date ,card_no, password)
+      VALUES(#{content}, #{guest}, sysdate, #{cardVO.cardNo},#{password})
+   </insert>
+
+   <update id="modifyCardComment" parameterType="cardComment">
+      UPDATE cardcomment
+      SET guest=#{guest},content=#{content}
+      where password = #{password}
+   </update>
+
+   <delete id="deleteCardComment" parameterType="cardComment">
+      DELETE FROM cardcomment
+      where password = #{password}
+   </delete>
+
+   <select id="getAllCardComments" resultMap="cardCommentRM">
+      SELECT guest, password, content, write_date, card_no
+      FROM cardcomment
+   </select>
+
+   <select id="passwordCheck" parameterType="string" resultMap="cardCommentRM">
+      SELECT guest, password, content, write_date, card_no
+      FROM cardcomment
+      where password = #{password}
+   </select>
+
+
+</mapper>   

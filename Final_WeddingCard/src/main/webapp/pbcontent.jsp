@@ -213,18 +213,19 @@ a#prev_page_button:hover{
 			<div id="loading" class="loading">Loading pages...</div>
 			<div id="mybook" style="display:none;">
 				<div class="b-load">
-					<c:forEach items="${pbImgList}" var="i" varStatus="vs">
+					<c:forEach items="${pbImgList}" var="i">
 					
 					<div>
-						<img alt="" src="./img/photobook/${pbvo.memberVO.memberId}/${pbvo.bookNo}/${i}">
+						<img alt="" src="./img/photobook/${pbvo.memberVO.memberId}/${pbvo.bookNo}/${i[0]}">
 						<h1>Slider Gallery</h1>
-						<p>This tutorial is about creating a creative gallery with a
+						<p><!-- This tutorial is about creating a creative gallery with a
 							slider for the thumbnails. The idea is to have an expanding
 							thumbnails area which opens once an album is chosen.
 							The thumbnails will scroll to the end and move back to
 							the first image. The user can scroll through the thumbnails
 							by using the slider controls. When a thumbnail is clicked,
-							it moves to the center and the full image preview opens.</p>
+							it moves to the center and the full image preview opens. -->
+							${i[1] }</p>
 						<a href="http://tympanus.net/codrops/2010/10/07/slider-gallery/" target="_blank" class="article">Article</a>
 						<a href="http://tympanus.net/Tutorials/SliderGallery/" target="_blank" class="demo">Demo</a>
 					</div>

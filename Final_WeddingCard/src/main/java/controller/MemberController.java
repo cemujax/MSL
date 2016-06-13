@@ -1,5 +1,7 @@
 package controller;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -38,6 +40,19 @@ public class MemberController extends MultiActionController{
 		if(mvo != null)
 			session.invalidate();
 		
+		return new ModelAndView("redirect:/index.jsp");
+	}
+	public ModelAndView register(HttpServletRequest request, HttpServletResponse response, MemberVO mvo) throws SQLException{
+		
+		/*String memberId = request.getParameter("memberId");
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+		String phoneNumber = request.getParameter("phoneNumber");
+		
+		MemberVO mvo = new MemberVO(memberId, password, name, phoneNumber);
+		*/
+		memberService.registerMember(mvo);
+		System.out.println("register success...");
 		return new ModelAndView("redirect:/index.jsp");
 	}
 }

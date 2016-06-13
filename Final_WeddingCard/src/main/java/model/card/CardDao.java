@@ -9,7 +9,7 @@ public interface CardDao {
 	void createCard(CardVO cvo) throws SQLException;
 	void modifyCard(CardVO cvo) throws SQLException;
 	void deleteCard(int cardNO) throws SQLException;
-	CardVO getCard(int cardNO) throws SQLException;
+	CardVO getCard(String url) throws SQLException;
 	List<CardVO>  getAllCards(String memberId) throws SQLException;
 	
 }
