@@ -79,21 +79,7 @@
 </style>
 </head>
 <body>
-
-<%-- <c:forEach items="${pbList}" var="i" varStatus="vs">
-   <a href="photoBook.do?command=detail&&no=${i.bookNo }">${vs.count}. ${i.bookName}</a><p>
-</c:forEach> --%>
-<ul class="list-unstyled video-list-thumbs row">
-   <c:forEach items="${pbList}" var="i" varStatus="vs">
-   <li class="col-lg-3 col-sm-4 col-xs-6" >
-      <a href="photoBook.do?command=detail&&no=${i.bookNo}">
-         <img src="http://www.freeiconspng.com/uploads/vector-book-icon-vector-graphic--creattor-7.jpg" alt="Barca" class="img-responsive" height="130px" />
-         <h2>${i.bookName}</h2>
-         <span class="glyphicon glyphicon-share-alt"></span>
-         <span class="duration">${vs.count}</span>
-      </a>
-   </li>
-   </c:forEach>
-</ul>
+<h1 align="center">PHOTO BOOK LIST</h1><p>
+<c:import url="pbresult.jsp"></c:import>
 </body>
 </html>
