@@ -264,7 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	        <ul class="dropdown-menu">
 
-	          <li><a href="test.jsp">포토북만들기</a></li>
+	          <li><a href="pbcreate.jsp">포토북만들기</a></li>
 
 	          <li><a href="photoBook.do?command=list">포토북보기</a></li>
 
