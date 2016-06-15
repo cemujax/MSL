@@ -34,8 +34,8 @@ public class PhotoBookServiceImpl implements PhotoBookService{
 
 	
 	public List<String[]> imgList(String url, String comment) {
-		String[] urlArr = url.split("`'");
-		String[] comArr = comment.split("`'END`'");
+		String[] urlArr = url.split("`");
+		String[] comArr = comment.split("`END`");
 		
 		List<String[]> list = new ArrayList<String[]>();
 		

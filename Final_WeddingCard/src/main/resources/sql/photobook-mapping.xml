@@ -31,6 +31,7 @@
 		<include refid="photoBook-select"/>
 		WHERE p.member_id=m.member_id
 		AND m.member_id = #{value}
+		ORDER BY book_no DESC
 	</select>
 	
 	<select id="getPhotoBookByNo" parameterType="photoBook" resultMap="photoBookByNoRM">

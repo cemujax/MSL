@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url(/css/NanumGothic.css);
+/* @import url(/css/NanumGothic.css); */
 
 /*html { overflow-y:scroll; }*/
 
@@ -292,7 +292,8 @@ display:block; width:50px; height:50px; box-sizing:border-box; margin-right:5px;
 .baby_wrap .section {margin:0;}
 .baby_wrap:first-child .baby_delete {display:none}
 .baby_wrap .baby_delete {position:absolute; top:-1px; right:-1px; width:33px; height:33px; 
-    background:#ffc784 url(/img/builder/builder_delete.png) no-repeat 50% 50%; border-radius:0 4px 0 0;
+/*  url(/img/builder/builder_delete.png)  */
+    background:#ffc784  no-repeat 50% 50%; border-radius:0 4px 0 0;
     font-size:0; line-height:0; text-indent:-9999px; cursor:pointer}
 .baby_wrap .baby_delete:hover {background-color:#f8941d}
 

@@ -40,7 +40,7 @@ public class PhotoBookController extends MultiActionController {
 				pbvo.setBookComment(c);
 			
 			else
-				pbvo.setBookComment(pbvo.getBookComment()+ "`'END`'"+ c);
+				pbvo.setBookComment(pbvo.getBookComment()+ "`END`"+ c);
 		}
 		
 		
@@ -55,7 +55,7 @@ public class PhotoBookController extends MultiActionController {
 					pbvo.setFileName(fileName);
 				
 				else
-					pbvo.setFileName(pbvo.getFileName()+ "`'"+ fileName);
+					pbvo.setFileName(pbvo.getFileName()+ "`"+ fileName);
 				
 			}
 			
@@ -104,4 +104,30 @@ public class PhotoBookController extends MultiActionController {
 		// TODO 수정
 		return new ModelAndView("pbcontent", "pbvo", pbvo);
 	} // detail
+	
+	// ///////////////////////////// ajax
+	public ModelAndView ajaxList(HttpServletRequest request,
+			HttpServletResponse response, HttpSession session) throws Exception {
+		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+		List<PhotoBookVO> pbList = photoBookService.getPhotoBookList(mvo
+				.getMemberId());
+
+		// TODO 수정
+		return new ModelAndView("JsonView", "pbList", pbList);
+	} // ajaxList
+
+	public ModelAndView ajaxDetail(HttpServletRequest request,
+			HttpServletResponse response, HttpSession session) throws Exception {
+		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+
+		PhotoBookVO pbvo = new PhotoBookVO();
+
+		pbvo.setBookNo(Integer.parseInt(request.getParameter("no")));
+		pbvo.setMemberVO(mvo);
+
+		pbvo = photoBookService.getPhotoBookByNo(pbvo);
+
+		// TODO 수정
+		return new ModelAndView("JsonView", "pbvo", pbvo);
+	} // ajaxDetail
 }

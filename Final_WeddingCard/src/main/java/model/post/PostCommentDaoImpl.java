@@ -12,19 +12,19 @@ public class PostCommentDaoImpl implements PostCommentDao{
 	}
 
 	public int writeComment(PostCommentVO pcvo) {
-		return sqlSession.insert("postSql.writeComment", pcvo);
+		return sqlSession.insert("postCommentSql.writeComment", pcvo);
 	}
 
 	public int modifyComment(PostCommentVO pcvo) {
-		return sqlSession.update("postSql.modifyComment", pcvo);
+		return sqlSession.update("postCommentSql.modifyComment", pcvo);
 	}
 
 	public int deleteComment(int commentNo) {
-		return sqlSession.delete("postSql.deleteComment", commentNo);
+		return sqlSession.delete("postCommentSql.deleteComment", commentNo);
 	}
 
 	public List<PostCommentVO> getCommentList(int postNo) {
-		return sqlSession.selectList("postSql.getCommentList", postNo);
+		return sqlSession.selectList("postCommentSql.getCommentList", postNo);
 	}
 
 }

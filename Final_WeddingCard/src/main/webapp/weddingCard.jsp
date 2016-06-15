@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Nifty Modal Window Effects with CSS Transitions and Animations" />
 <meta name="keywords" content="modal, window, overlay, modern, box, css transition, css animation, effect, 3d, perspective" />
@@ -116,58 +116,211 @@
 <script src="js/jquery.scrollTo.min.js"></script>
 
 <script type="text/javascript">
+var xhr;
+var checkFlag;
+
+/* 
+ 있는 url / 없는 url인지   */
+function urlCheck() { //Ajax 기술이 사용됨
+	var url = document.getElementById("url").value;
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = callback;
+	xhr.open("post", "./card.do");
+	xhr.setRequestHeader("Content-Type",
+			"application/x-www-form-urlencoded;charset=utf-8");
+	xhr.send("command=urlCheck&&url=" + url);
+}//urlcheck
+function callback() {
+	if (xhr.readyState == 4) {
+		if (xhr.status == 200) {
+			var jsonData = JSON.parse(xhr.responseText); //true, false
+			var resultSpan = document.getElementById("checkResult");
+			var ch = document.frmDalpeng.url.value;
+			if (ch.length >= 1) {
+
+				if (jsonData.flag) {
+					resultSpan.innerHTML = "<font color ='red'><b>해당 URL 사용불가</b></font>";
+					checkFlag = false;
+				} else {
+					resultSpan.innerHTML = "<font color ='green'><b>해당 URL 사용가능</b></font>";
+					checkFlag = true;
+				}
+
+			} else {
+				resultSpan.innerHTML = "<font color ='orange'><b>1자 이상 입력해주세요</b></font>";
+			}
+
+		}
+	}
+}//callback
+
+//=========photoBook ====================
+function photoBookAjax() {
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = pbCallback;
+	var url = "photoBook.do?command=ajaxList";
+	xhr.open("get", url);
+	xhr.send(null);
+} // photobookAjax
+
+function pbCallback() {
+	if (xhr.readyState == 4) {
+		if (xhr.status == 200) {
+			var jsonData = JSON.parse(xhr.responseText);
+			var pb = "";
+
+			for (var i = 0; i < jsonData.pbList.length; i++) {
+				pb += "<li class='col-lg-3 col-sm-4 col-xs-6' >"
+						+ "<a onclick='chooseBook("
+						+ jsonData.pbList[i].bookNo
+						+ ")'>"
+						+ "<img src='http://www.freeiconspng.com/uploads/vector-book-icon-vector-graphic--creattor-7.jpg' alt='Barca' class='img-responsive' height='130px' />"
+						+ jsonData.pbList[i].bookName
+						+ "<span class='glyphicon glyphicon-share-alt'></span>"
+						+ "<span class='duration'>" + i + "</span>"
+						+ "</a></li>";
+			}
+
+			document.getElementById("pbList-tab").innerHTML = pb;
+		}
+	}
+} // pbCallback
+
+function chooseBook(bookNo) {
+	document.getElementById("photoBookNo").value = bookNo;
+
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = imgCallback;
+	var url = "photoBook.do?command=ajaxDetail&&no=" + bookNo;
+	xhr.open("get", url);
+	xhr.send(null);
+
+} // chooseBook
+
+function imgCallback() {
+	if (xhr.readyState == 4) {
+		if (xhr.status == 200) {
+			var jsonData = JSON.parse(xhr.responseText);
+
+			document.getElementById("photoBookImg").value = jsonData.pbvo.fileName
+					+ "";
+			var myValue = document.getElementById("photoBookImg").value;
+
+			$('#photoBookImg').val(myValue).trigger('change');
+		}
+	}
+} // imgCallback
+
+
+
    $(document).ready(function(){
-      
-      $( "#datepicker" ).datepicker({
-          minDate: '+0',
-            dateFormat: 'yy-mm-dd',
-            //defaultDate: "+1w",
-            changeMonth: true,
-            numberOfMonths: 1,
-           
-          });
-      
-     $('#hallName').change(function(){
-    	set_preview();
-     });
-     
-     $('#hallLocation').change(function(){
+    
+	   $("#tabs").tabs();
+	   
+	   $('#template').click(function(){
+	  		set_preview();
+	  	});   
+	   
+   ///==================== 예식 정보 =========================
+   
+      $('#datepicker').change(function(){
      	set_preview();
       });
-     
-     $('#template').click(function(){
-   	  alert($(this).val());
-		set_preview();
-	});
-     
-      function set_preview(md){
-    	  alert("set preview");
-  		if(md) 
-  			$('#scroll_to_preview').val(md);
-  		
-  		
-  		$('#frmDalpeng').attr('target','left_skin_preview').attr('action','./preview/preview.jsp').submit();
-  	}
-      
-     
    
-      function move_pop_preview(id){
-  		try{
-  			if(id){
-  				if(id=='skin') id = 'topinfo';
-  				var $obj = $('#left_skin_preview').contents().find('#sk_'+id);
-  				try{
-  					$('#left_skin_preview').scrollTo($obj,100);
-  				}catch(e){
+      $('#ampm').change(function(){
+        	set_preview();
+         });
+      $('#hour').change(function(){
+        	set_preview();
+         });
+      
+      $('#min').change(function(){
+        	set_preview();
+         });
+   	
+      $('#min').change(function(){
+       	set_preview();
+        });
+      
+     $('#cardContext').change(function(){
+     	set_preview();
+      });
+      
+     $('#hallLocation').change(function(){
+      	set_preview();
+       });
+      
+    ///==================== 신랑 신부 정보 =========================  
+    $('#groomName').change(function(){
+        	set_preview();
+         });
+   	
+     $('#groomTel').change(function(){
+     	set_preview();
+      });
+      
+      $('#brideName').change(function(){
+      	set_preview();
+       });
+      $('#brideTel').change(function(){
+         	set_preview();
+          });  
+	   
+      
+      $('#photoBookImg').change(function(){
+        	set_preview();
+         });
+	   
+     ///==================== =========================   
+       function set_preview(md){
+   		if(md) 
+   			$('#scroll_to_preview').val(md);
+   		
+   		/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
+   		$('#frmDalpeng').attr('target','left_skin_preview').attr('action','./preview/preview.jsp').submit();
+   	}	
+     
+     
+     
+     //모바일,PC 확대버튼 클릭
+     $('#md-mobile').click(function(){
+    	 $('#frmDalpeng').attr('target','left_skin_preview_mobile').attr('action','./preview/preview.jsp').submit();
+     });
+     
+     $('#md-pc').click(function(){
+    	 $('#frmDalpeng').attr('target','left_skin_preview_pc').attr('action','./preview/preview.jsp').submit();
+     });
 
-  				}
-  			}else{
-  				// console.log('empty scroll target');
-  			}
-  		}catch(e){}
-  	}
-      
-      
+     $('#createCardBtn').click(function(){
+    	 alert("전송중");
+         var url = document.frmDalpeng.url.value;
+         alert(url);
+         
+         if(checkFlag){
+         $('#frmDalpeng').attr('target','frmDalpeng').attr('action','./card.do?command=createCard').submit();
+            
+         }else{
+         alert("사용하실 수 없는 URL 입니다.");
+         }
+        });// 초대장 생성 click   
+        
+     
+     
+       function move_pop_preview(id){
+   		try{
+   			if(id){
+   				if(id=='skin') id = 'topinfo';
+   				var $obj = $('#left_skin_preview').contents().find('#sk_'+id);
+   				try{
+   					$('#left_skin_preview').scrollTo($obj,100);
+   				}catch(e){
+
+   				}
+   			}else{
+   				// console.log('empty scroll target');
+   			}
+   		}catch(e){}
+   	}  
    });//ready
 
 </script>
@@ -178,6 +331,66 @@
 	<c:redirect url="login.jsp"/>
 </c:if>
 
+
+<!-- 메뉴바 -->
+   
+      <div class="navigation">
+            <nav class="navbar navbar-default">
+               <!-- Brand and toggle get grouped for better mobile display -->
+               <div class="navbar-header">
+                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                 </button>
+               </div>
+
+               <!-- Collect the nav links, forms, and other content for toggling -->
+               <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                  <nav class="link-effect-14" id="link-effect-14">
+                     <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.jsp"><span>Home</span></a></li>
+                        <!-- <li><a href="#about" class="scroll"><span>커뮤니티</span></a></li> -->
+                          <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
+                             <ul class="dropdown-menu">
+                               <li><a href="#">익명게시판</a></li>
+                               <li><a href="#">게시판</a></li>
+                               <li><a href="#">칭찬해요</a></li>
+                             </ul>
+                           </li>
+                           
+                           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>
+                             <ul class="dropdown-menu">
+                               <li><a href="weddingCard.jsp">청첩장만들기</a></li>
+                               <li><a href="./card.do?command=getAllCards">청첩장보기</a></li>
+                             </ul>
+                           </li>
+                           
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
+                             <ul class="dropdown-menu">
+                               <li><a href="test.jsp">포토북만들기</a></li>
+                               <li><a href="photoBook.do?command=list">포토북보기</a></li>
+                             </ul>
+                           </li>
+                           
+                        <li><a href="#mail" class="scroll"><span>Mail Us</span></a></li>
+                     </ul>
+                     
+                  </nav>
+               </div>
+               </nav>
+               </div>
+               
+   
+<!-- //메뉴바 -->
+
+
+
+
+
+
 <form name="frmDalpeng" id="frmDalpeng" target="left_skin_preview" method="post">
 
 <div class="ui-grid-a contents">
@@ -185,40 +398,12 @@
 			<div class="cont_look">
 				<div class="look_bg"><img src="img/preview_mobile2.png" alt="미리보기화면"><span class="blind">미리보기영역</span></div>
 				<div class="look_input">
-					<iframe src="basicSkin.jsp" name="left_skin_preview" id="left_skin_preview" width="40%" height="100%" scrolling="auto" > </iframe>
+					<iframe src="preview/preview.jsp" name="left_skin_preview" id="left_skin_preview" width="40%" height="100%" scrolling="auto" > </iframe>
 				</div>
-
-	
-
-
-
-
-
 
 <!-- 수연이가 한거 모달 -->
-		<!-- 		
-		<div id="pop_preview" style="">
-		<div class="pop_header">
-			<ul>
-				<li class="view_icon1 btn_ppreview on" id="btn_ppreview_mobile" style="cursor: pointer;"><span class="blind">Mobile</span></li>
-				<li class="view_icon2 btn_ppreview" id="btn_ppreview_tablet" style="cursor: pointer;"><span class="blind">Tablet</span></li>
-				<li class="view_icon3 btn_ppreview" id="btn_ppreview_pc" style="cursor: pointer;"><span class="blind">PC</span></li>
-			</ul>
-			<p class="pop_close" id="btn_close_preview" style="cursor: pointer;"><img src="/img/builder/btn_close_pop.png" alt="닫기버튼" title="미리보기 닫기(Esc)"></p>
-		</div>
-		<div class="contents">
-			<div class="pop_bg"></div>반투명배경
-			<div class="cont_preview mobile" id="cont_preview">
-				<div class="view_bg">
-				<img src="img/preview_mobile2.png" class="bg_preview hide" id="bg_mobile" style="width: 370px; height: 740px; display: inline;">
-				<img src="img/preview_mobile2.png" class="bg_preview hide" id="bg_tablet" style="display: none;"></div>
-				<div class="view_input" style="top: 75px; left: 23px;">
-					<iframe src="basicSkin.jsp" name="div_preview" id="div_preview" scrolling="auto" style="width: 320px; height: 570px;"> </iframe>
-				</div>
-			</div>
-		</div>
-	</div>
-		 -->
+		
+		<!--  ============== 모바일 ============== -->
 		<div class="md-modal md-effect-1" id="modal-1">
 			<div class="md-content">
 				<div class="cont_preview mobile" id="cont_preview">
@@ -227,581 +412,46 @@
 		<img src="img/preview_mobile2.png" alt="미리보기화면" style="width: 370px; height: 740px; margin-left:40%;margin-top:5%;">
 		</div>
 				<div class="look_input" style="margin-left:40.5%; margin-top:5%;">
-					<iframe src="basicSkin.jsp" name="left_skin_preview" id="left_skin_preview" style="width: 320px; height: 570px;" scrolling="auto" > </iframe>
+					
+					<iframe src="preview/preview.jsp" name="left_skin_preview_mobile" id="left_skin_preview_mobile" style="width: 320px; height: 570px;" scrolling="auto" > </iframe>
 				</div>
 					<button class="md-close">Close me!</button>
 				</div>
 			</div>
 		</div>
 				
-	
-				
-				<div class="column">
-					<button class="md-trigger" data-modal="modal-1">모바일</button>
-				
-				</div>
-				
-				
-				
-				
-				
+	<div class="column">
+		<button class="md-trigger mobile" id="md-mobile" data-modal="modal-1">모바일</button>
+	</div>			
+		
 				<!-- 2 -->
-				
-				
-				
-				
-				
-				
-				
-	<div class="md-modal md-effect-2" id="modal-2">
-			<div class="md-content">
-				<div>
-					<div data-role="page" id="skin_page" data-url="skin_page" tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
-	<!-- panel-menu -->
-<!-- 	<div data-role="panel" id="left-panel" data-position="left" data-display="push" class="ui-panel ui-panel-position-left ui-panel-display-push ui-panel-closed ui-body-inherit ui-panel-animate">
-		<div class="menu-wrap ui-panel-inner">
-			<ul data-role="listview" data-icon="false" class="ui-listview">
-				<li data-icon="delete" class="ui-first-child"><a href="#" data-rel="close" class="ui-btn ui-btn-icon-right ui-icon-delete">Close</a></li>
-<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">결혼한다</li>				
-<li class="menu_scrolls ui-li-static ui-body-inherit" data-rel="close" id="p_topinfo" style="cursor: pointer;"><span>WEDDING VOWS</span></li>
-<li class="menu_scrolls ui-li-static ui-body-inherit" data-rel="close" id="p_gallery" style="cursor: pointer;"><span>WEDDING GALLERY</span></li>
-<li class="menu_scrolls ui-li-static ui-body-inherit" data-rel="close" id="p_snsbbs" style="cursor: pointer;"><span>GUESTBOOK</span></li>
-<li class="menu_scrolls ui-li-static ui-body-inherit ui-last-child" data-rel="close" id="p_map" style="cursor: pointer;"><span>LOCATION</span></li>			</ul>
-		</div>
-	</div> -->
-	<!--// panel-menu -->
-
-	<div class="ui-panel-wrapper"><div role="main" class="ui-content" style="padding:0">
-		<!-- main -->
-		<div class="visual_wrap" style="background:url('/dalpeng/skin/luxury_black/img/img_main.jpg') center center no-repeat;background-size:cover;" id="sk_topinfo">
-		<!--<div class="visual_wrap" id ="sk_topinfo">-->
-			<div class="contents visual">
-				<div class="main">
-					<!-- <div class="lnb_wrap"><a href="#left-panel" class="ui-link"><img src="/dalpeng/skin/luxury_black/img/btn_skip_lnb.png" alt="메뉴버튼"><span class="blind">상단메뉴</span></a></div> -->
-				</div>
-				<div class="main_info tit_type1" id="sk_basicinfo">
-						<!-- 타이틀 등  -->
-					<div style="border: 1px solid #000; width: 100%; height: 80%; margin-top:30%;">
-						${cvo.hallname}<p>
-						${cvo.hallLocation}<p>
-						${cvo.url}<p>
-						ㅁㄴ<p>
-						ㅇ<p>
-						ㅁㄴㅇ<p>
-						ㅁㄴ<p>
-						ㅇ<p>
-						ㅁㄴㅇ<p>
-						ㅁㄴ<p>
-						ㅇ<p>
-						ㅁㄴ<p>
-						ㅇㅁㄴ<p>
-						ㅇㅁ<p>
-					</div>
-						
-					<div class="w_info">
-
-						<div class="greeting">
-							<div class="header">
-		<div class="container">
-						  <script defer src="js/jquery.flexslider.js"></script>
-				
-		
-			
-			<!-- 상세 정보 등 -->
-			<div style="border: 1px solid #000; width: 100%; height: 20%;">
-				\여기ㅇ<p>
-				ㅇㄴ<p>
-				ㅁㅇ<p>
-				ㅁㄴ<p>
-				ㅇ<p>
-				ㅁㄴㅇ<p>
-				ㅁㄴ<p>
-			</div>
-				
-		</div>
-		
-		
-	</div>						
-						</div>
-					</div>
-				</div>
-				<!-- <div class="btn_scroll"><img src="/dalpeng/skin/luxury_black/img/btn_anchor.png" alt="스크롤버튼"><span class="blind">아래로스크롤</span></div> -->
-				<!-- <div class="img_wrap"><img src="/dalpeng/skin/luxury_black/img/bg_img_main1.png" alt=""><span class="blind">메인이미지</span></div>-->
-			</div>
-		</div>
-		<!--// main -->
-
-	<!-- 	<!-- sub_contents -->
-	<!-- 	<div class="contact_wrap">
-			<ul>
-<li><a href="tel:11111" class="ui-link"><span class="btn_spr ph fl">전화하기</span></a><span>신랑에게 연락하기</span><a href="sms:11111" class="ui-link"><span class="btn_spr ms fr">문자하기</span></a></li><li class="btn_send_kakao" id="bar_kakao_talk"><span class="btn_spr kat fl">카카오톡</span><span style="padding-right:60px">카카오톡 보내기</span><span class="btn_spr kas fr">카카오스토리</span></li>			</ul>
-		</div>
-
-		<div class="txt_wrap">
-			<div class="contents">
-				<div class="txt_cont_box">
-					<div class="txt_cont ta-c">
-						<p>For better or worse, till death do us part <span>I'll love you with every beat of my heart.</span></p>
-					</div>
-				</div>
-			</div>
-		</div>
- --> 
-
-
-		<!-- gallery -->
-	 	<div class="gallery_wrap col" id="sk_gallery">
-					<div class="gal_list contents cont_wrap">
-					<%-- 	<div>
-							<a href="/user/jsy1426/img/3710ed0aaeb939c1735f97fb5684bcf3.jpg" class="swipebox ui-link" data-ajax="false" alt="<div class='swipebox-comment' id='gcomment_1409039' title='사진 보기'></div><div class='swipebox-write' id='gwrite_1409039'></div>"><div class="ui-block-a" style="background:url('/user/jsy1426/img/3710ed0aaeb939c1735f97fb5684bcf3.jpg') center center no-repeat; background-size:cover;"></div></a>
-							<div class="gal-txt ui-block-b" style="border:0">
-								<ul>
-									<li class="txt_bg">Save the date</li>
-									<li class="txt_bg"><span>2016.06.03 7:00 am  </span></li>
-<li class="txt_bg"><span>웨딩홀</span></li>								</ul>
-							</div>
-							<a href="/user/jsy1426/img/c4480e066b8680f299ad472c84ad8bb9.JPG" class="swipebox ui-link" data-ajax="false" alt="<div class='swipebox-comment' id='gcomment_1409040' title='사진 보기'></div><div class='swipebox-write' id='gwrite_1409040'></div>"><div class="ui-block-c" style="background:url('/user/jsy1426/img/c4480e066b8680f299ad472c84ad8bb9.JPG') center center no-repeat; background-size:cover;"></div></a>
-							<a href="/user/jsy1426/img/c4480e066b8680f299ad472c84ad8bb9.JPG" class="swipebox ui-link" data-ajax="false" alt="<div class='swipebox-comment' id='gcomment_1' title='사진 보기'></div><div class='swipebox-write' id='gwrite_1'></div>"><div class="ui-block-a" style="background:url('/user/jsy1426/img/c4480e066b8680f299ad472c84ad8bb9.JPG') center center no-repeat; background-size:cover;"></div></a>
-						</div> --%>
-						<div class="content">
-				<!--about-->
-					<div class="about">
-					<div class="container">
-						<div class="about-head">
-						<h2>about</h2>
-							<p>Autem vel eum iriure dolor in hendrerit in volestie consequat vel illum</p>
-					</div>
-					<div class="about-grids">
-						<div class="col-md-3 about-grid test1">
-						<img src="images/p1.jpg" class="img-responsive" alt="/">
-							<div class="textbox">
-								<h4>my wedding</h4>
-								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
-							</div>
-						</div>
-						<div class="col-md-3 about-grid test1">
-						<img src="images/p2.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-								<h4>my wedding</h4>
-								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
-							</div>
-						</div>
-						<div class="col-md-3 about-grid test1">
-						<img src="images/p3.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-								<h4>my wedding</h4>
-								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
-							</div>
-						</div>
-						<div class="col-md-3 about-grid test1">
-						<img src="images/p4.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-								<h4>my wedding</h4>
-								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>	
-		<!--about-->
-		<!--hot-offer-->
-			<div class="hot-offer">
-				<div class="container">
-					<h3>hot offer</h3>
-					<h4>for your best day!</h4>
-					<img src="images/p5.jpg" class="img-responsive" alt="/">
-					<div class="offer"></div>
-				</div>
-			</div>
-			<!--hot-offer-->
-				<div class="features">
-					<div class="container">
-						<h3>features</h3>
-							<div class="features-grids">
-								<div class="col-md-3 feature-grid">
-								<div class="feature">
-									<div class="feature1">
-										<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-										<h4>scelerisque eget</h4>
-									</div>
-									<div class="feature2">
-										<p>Quisque nulla. Vestibulum libero nisl, porta vel, scelerisque eget, lesuada at, neque. Viv eget nibh. Etam cus. Nulla facilisi. </p>
-									</div>
-								</div>
-								</div>
-								<div class="col-md-3 feature-grid">
-								<div class="feature">
-									<div class="feature1">
-										<span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
-										<h4>scelerisque eget</h4>
-									</div>
-									<div class="feature2">
-										<p>Quisque nulla. Vestibulum libero nisl, porta vel, scelerisque eget, lesuada at, neque. Viv eget nibh. Etam cus. Nulla facilisi. </p>
-									</div>
-								</div>
-								</div>
-								<div class="col-md-3 feature-grid">
-								<div class="feature">
-									<div class="feature1">
-										<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
-										<h4>scelerisque eget</h4>
-									</div>
-									<div class="feature2">
-										<p>Quisque nulla. Vestibulum libero nisl, porta vel, scelerisque eget, lesuada at, neque. Viv eget nibh. Etam cus. Nulla facilisi. </p>
-									</div>
-								</div>
-								</div>
-								<div class="col-md-3 feature-grid">
-								<div class="feature">
-									<div class="feature1">
-										<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-										<h4>scelerisque eget</h4>
-									</div>
-									<div class="feature2">
-										<p>Quisque nulla. Vestibulum libero nisl, porta vel, scelerisque eget, lesuada at, neque. Viv eget nibh. Etam cus. Nulla facilisi. </p>
-									</div>
-								</div>
-								</div>
-									<div class="clearfix"></div>
-							</div>
-					</div>
-				</div>
-						
-						
-					</div>
-		</div> 
-		<!--// gallery -->
-
-	<!-- 	<div class="guestbook_wrap" id="sk_snsbbs">
-			<div class="contents">
-				<div class="gb_default_box">
-					<div class="comm-cont">
-						<div class="btn_write btn_go_snsbbs" style="cursor: pointer;"><span>신랑 신부에게 축하 메시지를 남겨주세요.<em>click~</em></span></div>
-					</div>
-				</div>
-			</div>
-			<div class="btn-snsbbs">
-				<div class="btn_go_snsbbs" style="cursor: pointer;"><span>축하글 남기기</span></div>
-			</div>
-		</div> -->
-
-		<div class="location_wrap" id="sk_map">
-			<div class="contents cont_wrap">
-				<h2 class="tit_type2"><span>location</span></h2>
-				<div class="snb_wrap col-2">
-					<div class="lo_tit ui-block-a">
-						<span class="on" id="place_name">웨딩홀</span>
-					</div>
-					<div class="ui-block-b col-2">
-						<div class="lo_w ui-block-a">
-							<span class="locationtabs on" id="tabs_wedding" style="cursor: pointer;">예식장</span>
-						</div>
-					</div>
-				</div>
-				<div class="lo_cont_box cont_sub col-2 locationdivs" id="div_wedding">
-					<input type="hidden" id="wedding_pmap_lat" value="">
-					<input type="hidden" id="wedding_pmap_lon" value="">
-					<input type="hidden" id="wedding_paddr" value="예식장 주소 (test)">
-					<input type="hidden" id="wedding_pname" value="웨딩홀">
-					<div class="lo_info ui-block-b">
-						<dl>
-							<dt>DATE</dt>
-							<dd>2016년 6월 3일 금요일 오전 7시</dd>
-						</dl>
-						<dl>
-							<dt>ADDRESS</dt>
-		<dd id="widding_paddr" class="map_initialize">예식장 주소 (test)</dd><dd>010-0000-0000</dd>						</dl>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--// sub_contents  -->
-	</div></div>
-
-<!-- footer -->
-	<!-- <div class="footer" style="background-color:#666666" id="sk_snslink">
-		<div class="contents">
-			<h4><a href="http://dalpeng.com" target="_blank" class="ui-link"><img src="/dalpeng/skin/luxury_black/img/footer_logo.png" alt="로고" title="달팽 초대장 :: dalpeng.com"></a><span></span></h4>
-			<ul>
-				<li>
-					<a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://dalpeng.com/jsy1426" class="ui-link">
-						<div class="ft_sns_wrap1 fasebook"><span>facebook logo</span></div>
-					</a>
-					<em>facebook</em>
-				</li>
-				네이버 밴드 추가용 by echos(2014-12-08)
-				<li>
-					<a target="_blank" href="http://www.band.us/plugin/share?body=http://dalpeng.com/jsy1426" class="ui-link"><div class="ft_sns_wrap1 band"><span>band logo</span></div></a>
-					<em>naver band</em>
-				</li>
-				
-				<li>
-					<a target="_blank" href="http://twitter.com/share?text=달팽초대장::ㅇㅀㅀ♥&url=http://dalpeng.com/jsy1426"><div class="ft_sns_wrap1 twitter"><span>twitter logo</span></div></a>
-					<em>twitter</em>
-				</li>
-				<li id="sk_kakao">
-					<div class="ft_sns_wrap1 kakao btn_send_kakao" id="btn_kakao_talk"><span>KAKAOTALK</span></div>
-					<em>KAKAOTALK</em>
-				</li>
-				https://story.kakao.com/share?url=http%3A%2F%2Fdalpeng.com%2Fjsy1426
-				<li>
-					<a target="_blank" href="https://story.kakao.com/share?url=http://dalpeng.com/jsy1426" class="ui-link"><div class="ft_sns_wrap1 story" id="btn_kakao_story"><span>KAKAOSTORY</span></div></a>
-					<em>KAKAOSTORY</em>
-				</li>
-				<li>
-					<div class="ft_sns_wrap1 band" id="btn_line"><span>LINE</span></div>
-					<em>LINE</em>
-				</li>
-			</ul>
-		</div>
-		<div style="position:relative;top:0px;left:0px;width:0px;height:0px;z-index:-999;">
-			<iframe id="ifmChkApp" width="0" height="0" border="0" style="border:0px;"></iframe>
-		</div>
-	</div> -->
-	<!--// footer -->
+	<!--  ============== PC ============== -->			
+	 <div class="md-modal md-effect-2" id="modal-2">
+         <div class="md-content">
+            <div data-role="page" id="skin_page" data-url="skin_page" tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
+               <div class="look_input" style="width:90%; height: 85%; margin-left:4%; ">
+                  <iframe src="preview/preview.jsp" name="left_skin_preview_pc" id="left_skin_preview_pc" style="" scrolling="auto" > </iframe>
+               </div>
+               <button class="md-close" style="margin-top:920px; background-color:#000; ">Close me!</button>
+            </div>
+            
+         </div>
+      </div>
+            
+      <div class="column">
+            <button class="md-trigger" id="md-pc" data-modal="modal-2" style="margin-left:0px; background-color:#000;">PC</button>
+          </div>
+      
+               
+            <!-- 2 -->
+            
+            <!--  -->
+         </div>
+      </div>
 </div>
-					
-				 
-				 
-				 
-				 <!-- basic -->
-				 
-				 
-				 <!--header-->
-	<div class="header">
-		<div class="container">
-						  <script defer src="js/jquery.flexslider.js"></script>
-			<!-- 타이틀 등  -->
-			<div style="border: 1px solid #000; width: 100%; height: 80%; margin-top:30%;">
-				${cvo.hallname}<p>
-				${cvo.hallLocation}<p>
-				${cvo.url}<p>
-				ㅁㄴ<p>
-				ㅇ<p>
-				ㅁㄴㅇ<p>
-				ㅁㄴ<p>
-				ㅇ<p>
-				ㅁㄴㅇ<p>
-				ㅁㄴ<p>
-				ㅇ<p>
-				ㅁㄴ<p>
-				ㅇㅁㄴ<p>
-				ㅇㅁ<p>
-			</div>
-			
-			<!-- 상세 정보 등 -->
-			<div style="border: 1px solid #000; width: 100%; height: 20%;">
-				\여기ㅇ<p>
-				ㅇㄴ<p>
-				ㅁㅇ<p>
-				ㅁㄴ<p>
-				ㅇ<p>
-				ㅁㄴㅇ<p>
-				ㅁㄴ<p>
-			</div>
-		</div>
-	</div>
 	
-	<!--header-->
-		<div data-role="panel" id="left-panel" data-position="left" data-display="push" class="ui-panel ui-panel-position-left ui-panel-display-push ui-panel-closed ui-body-inherit ui-panel-animate">
-				<!--about-->
-					<div class="about">
-					<div class="container">
-						<div class="about-head">
-						<h2>about</h2>
-							<p>Autem vel eum iriure dolor in hendrerit in volestie consequat vel illum</p>
-					</div>
-					<div class="about-grids">
-						<div class="col-md-3 about-grid test1">
-						<img src="images/p1.jpg" class="img-responsive" alt="/">
-							<div class="textbox">
-								<h4>my wedding</h4>
-								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
-							</div>
-						</div>
-						<div class="col-md-3 about-grid test1">
-						<img src="images/p2.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-								<h4>my wedding</h4>
-								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
-							</div>
-						</div>
-						<div class="col-md-3 about-grid test1">
-						<img src="images/p3.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-								<h4>my wedding</h4>
-								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
-							</div>
-						</div>
-						<div class="col-md-3 about-grid test1">
-						<img src="images/p4.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-								<h4>my wedding</h4>
-								<p>Arenean nonummy hendrerit mau phaselntes nascetur ridic ulusm dui fusce feu.</p>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>	
-		<!--about-->
-		<!--hot-offer-->
-			<div class="hot-offer">
-				<div class="container">
-					<h3>hot offer</h3>
-					<h4>for your best day!</h4>
-					<img src="images/p5.jpg" class="img-responsive" alt="/">
-					<div class="offer"></div>
-				</div>
-			</div>
-			<!--hot-offer-->
-				<div class="features">
-					<div class="container">
-						<h3>features</h3>
-							<div class="features-grids">
-								<div class="col-md-3 feature-grid">
-								<div class="feature">
-									<div class="feature1">
-										<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-										<h4>scelerisque eget</h4>
-									</div>
-									<div class="feature2">
-										<p>Quisque nulla. Vestibulum libero nisl, porta vel, scelerisque eget, lesuada at, neque. Viv eget nibh. Etam cus. Nulla facilisi. </p>
-									</div>
-								</div>
-								</div>
-								<div class="col-md-3 feature-grid">
-								<div class="feature">
-									<div class="feature1">
-										<span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
-										<h4>scelerisque eget</h4>
-									</div>
-									<div class="feature2">
-										<p>Quisque nulla. Vestibulum libero nisl, porta vel, scelerisque eget, lesuada at, neque. Viv eget nibh. Etam cus. Nulla facilisi. </p>
-									</div>
-								</div>
-								</div>
-								<div class="col-md-3 feature-grid">
-								<div class="feature">
-									<div class="feature1">
-										<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
-										<h4>scelerisque eget</h4>
-									</div>
-									<div class="feature2">
-										<p>Quisque nulla. Vestibulum libero nisl, porta vel, scelerisque eget, lesuada at, neque. Viv eget nibh. Etam cus. Nulla facilisi. </p>
-									</div>
-								</div>
-								</div>
-								<div class="col-md-3 feature-grid">
-								<div class="feature">
-									<div class="feature1">
-										<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-										<h4>scelerisque eget</h4>
-									</div>
-									<div class="feature2">
-										<p>Quisque nulla. Vestibulum libero nisl, porta vel, scelerisque eget, lesuada at, neque. Viv eget nibh. Etam cus. Nulla facilisi. </p>
-									</div>
-								</div>
-								</div>
-									<div class="clearfix"></div>
-							</div>
-					</div>
-				</div>
-					<!--news-->
-					<div class="wedding-news">
-						<div class="container">
-							<h3>wedding news</h3>
-								<div class="wedding-grid">
-									<div class="col-md-4 weeding-new">
-											<div class="wedding-inner">
-												<h4><a href="#">VESTIBULUM IACULIS</a></h4>
-												<h5>10 / 08 / 2015</h5>
-												<p>Cum sociis natoque penatibus et magnis. dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio.</p>
-											</div>
-									<a href="#" class="mask">
-									<img src="images/p6.jpg" class="img-responsive zoom-img" alt=""></a>	
-										</div>
-										<div class="col-md-4 weeding-new">
-											<div class="wedding-inner">
-												<h4><a href="#">VESTIBULUM IACULIS</a></h4>
-												<h5>10 / 08 / 2015</h5>
-												<p>Cum sociis natoque penatibus et magnis. dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio.</p>
-											</div>
-											<a href="#" class="mask">
-									<img src="images/p7.jpg" class="img-responsive zoom-img" alt=""></a>	
-										</div>
-									<div class="col-md-4 weeding-new">
-											<div class="wedding-inner">
-												<h4><a href="#">VESTIBULUM IACULIS</a></h4>
-												<h5>10 / 08 / 2015</h5>
-												<p>Cum sociis natoque penatibus et magnis. dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio.</p>
-											</div>
-											<a href="#" class="mask">
-									<img src="images/p8.jpg" class="img-responsive zoom-img" alt=""></a>	
-										</div>
-									<div class="clearfix"></div>
-								</div>
-						</div>
-					</div>
-							<!--news-->
-					<!--indicate-->
-				<div class="indicate">
-					<div class="container">
-						<div class="indicate-grids">
-							<div class="col-md-3 indicate-grid">
-								<p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>Newyork 9870 St Vincent</p>
-							</div>
-							<div class="col-md-3 indicate-grid">
-								<p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>Telephone :  +1 800 603 6035</p>
-							</div>
-							<div class="col-md-3 indicate-grid">
-								<p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Email : <a href="mailto:example@mail.com"> example@mail.com</a></p>
-							</div>
-							<div class="col-md-3 indicate-grid">
-								<p><span class="glyphicon glyphicon-send" aria-hidden="true"></span>FAX :  +1 555 999 444</p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-			<!--indicate-->
-			</div>
-			<!--footer-->
-		<div class="footer-section">
-			<div class="container">
-				<div class="footer-top">
-					<p> &copy; 2015 My Wedding . All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-				</div>
-			</div>
-		</div>
 	
-		</div>		 
-				 
-				 
-					<button class="md-close">Close me!</button>
-					
-				</div>
-			</div>
-		</div>
-		
-		
-					<div class="column">
-						<button class="md-trigger" data-modal="modal-2">데스크탑</button>
-					</div>
-				<!-- 2 -->
-				
-				
-				
-				
-				
-				
-				
-				<!--  -->
-			</div>
-		</div>
-</div>
-
+	
 
 	<div class="md-overlay"></div><!-- the overlay element -->
 
@@ -817,79 +467,208 @@
 		</script>
 		<script src="js/cssParser.js"></script>
 		<script src="js/css-filters-polyfill.js"></script>
-		
-		
-				<c:import url="tabs.jsp"></c:import>
+
+
+
+
+
+		<!-- Tab 영역 include  -->		
+		<%-- <jsp:include page="tabs.jsp"></jsp:include> --%>
+	<%-- <c:import url=""></c:import>	 --%>
+	
+	<!-- <form action="./card.do" method="post" id="weddingCard_form"
+		name="weddingCard_form"> -->
+		<input type="hidden" name="command" value="createCard">
+
+		<div id="tabs" style="width: 30%; margin-left: 70%;">
+			<ul>
+				<li><a href="#tabs-1"> <span> <i
+							class="fa fa-calendar-check-o"
+							style="font-size: 36px; margin-left: 20%;"></i>
+					</span><br> <font size="3">스킨선택</font>
+				</a></li>
+
+				<li><a href="#tabs-2"> <span> <i class="fa fa-bars"
+							style="font-size: 36px; margin-left: 20%;"></i>
+					</span><br> <font size="3">예식정보</font>
+				</a></li>
+
+				<li><a href="#tabs-3"> <span> <i class="fa fa-list"
+							style="font-size: 36px; margin-left: 20%;"></i>
+					</span><br> <font size="3">신랑신부정보</font>
+				</a></li>
+
+				<li><a href="#tabs-4" onclick="photoBookAjax()"> <span>
+							<i class="fa fa-list" style="font-size: 36px; margin-left: 20%;"></i>
+					</span><br> <font size="3">포토북</font>
+				</a></li>
+			</ul>
+
+
+			<div id="tabs-1">
+				<table>
+					<tr align="center">
+						<td><img alt="" src="images/p2.jpg"
+							style="width: 120px; heigth: 80px; margin: 0px;"> <input
+							type="radio" name="template" id="template" value="basicSkin"
+							required="required"></td>
+						<td><img alt="" src="images/p6.jpg"
+							style="width: 100px; heigth: 100px; margin: 0px;"> <input
+							type="radio" name="template" id="template" value="basicSkin2"
+							disabled="disabled"></td>
+						<td><img alt="" src="img/222.jpg"
+							style="width: 100px; heigth: 100px; margin: 0px;"> <input
+							type="radio" name="template" id="template" value="basicSkin3"
+							disabled="disabled"></td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="tabs-2">
+
+				<div class="ui-grid-f section">
+					<div class="ui-block-a">
+						<div class="ui-block-b">
+							예식일:<input type="text" id="datepicker" name="cardDate"
+								required="required">
+						</div>
+						<br>
+						<div class="ui-block-c">
+							<select name="ampm" id="ampm" class="input_box_type1"
+								required="required">
+								<option value="AM" selected="selected">오전</option>
+								<option value="PM">오후</option>
+							</select>
+						</div>
+						<div class="ui-block-d">
+							<select name="hour" id="hour" required="required">
+								<option value="1">01</option>
+								<option value="2">02</option>
+								<option value="3">03</option>
+								<option value="4">04</option>
+								<option value="5">05</option>
+								<option value="6">06</option>
+								<option value="7">07</option>
+								<option value="8">08</option>
+								<option value="9">09</option>
+								<option value="10" selected="selected">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>
+						</div>
+						<div class="ui-block-e">
+							<select name="min" id="min" class="input_box_type1"
+								required="required">
+								<!--<option value="" selected="selected">분</option>-->
+								<option value="0" selected="selected">00</option>
+								<option value="5">05</option>
+								<option value="10">10</option>
+								<option value="15">15</option>
+								<option value="20">20</option>
+								<option value="25">25</option>
+								<option value="30">30</option>
+								<option value="35">35</option>
+								<option value="40">40</option>
+								<option value="45">45</option>
+								<option value="50">50</option>
+								<option value="55">55</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				초대글<br>
+				<div class="section">
+					<textarea name="cardContext" id="cardContext"
+						class="input_box_type2" rel="tooltip"
+						title="<span class='tooltip_title'>초대글</span>
+					<br>- 초대(모시는)글을 입력 해주십시요"
+						placeholder="초대글" required="required"></textarea>
+				</div>
+				<div class="section">
+					예식장명 : <input type="text" id="hallName" name="hallName"
+						required="required"><br> 예식장 위치 :<input type="text"
+						id="hallLocation" name="hallLocation" required="required"><br>
+					지도
+					<div id="map" style="width: 100%; height: 350px;">
+
+						<script type="text/javascript"
+							src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
+						<script>
+							var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+							mapOption = {
+								center : new daum.maps.LatLng(33.450701,
+										126.570667), // 지도의 중심좌표
+								level : 3
+							// 지도의 확대 레벨
+							};
+
+							// 지도를 생성합니다    
+							var map = new daum.maps.Map(mapContainer, mapOption);
+
+							// 주소-좌표 변환 객체를 생성합니다
+							var geocoder = new daum.maps.services.Geocoder();
+
+							$('#hallLocation').change(function() {
+								
+								var loc = $(this).val();
+								// 주소로 좌표를 검색합니다
+								geocoder.addr2coord(loc, function(status, result) {
+
+								    // 정상적으로 검색이 완료됐으면 
+								     if (status === daum.maps.services.Status.OK) {
+
+								        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+
+								        // 결과값으로 받은 위치를 마커로 표시합니다
+								        var marker = new daum.maps.Marker({
+								            map: map,
+								            position: coords
+								        });
+
+								        // 인포윈도우로 장소에 대한 설명을 표시합니다
+								        var infowindow = new daum.maps.InfoWindow({
+								            content: '<div style="width:150px;text-align:center;padding:6px 0;">예식장</div>'
+								        });
+								        infowindow.open(map, marker);
+
+								        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+								        map.setCenter(coords);
+								    } 
+								});
+
+							});//change
+
+							
+						</script>
+					</div><!-- map  -->
+				</div>
+			</div>
+
+			<div id="tabs-3">
+				신랑이름 : <input type="text" id="groomName" name="groomName"
+					required="required"><br> 신랑번호 : <input type="text"
+					id="groomTel" name="groomTel" required="required"><br>
+				신부이름 : <input type="text" name="brideName" id="brideName"
+					required="required"><br> 신부번호 : <input type="text"
+					name="brideTel" id="brideTel" required="required"><br>
+				url : <input type="text" name="url" id="url" onkeyup="urlCheck()"
+					required="required"> <span id="checkResult"></span> <br>
+				<input type="button" value="초대장 생성" id="createCardBtn">
+			</div>
+
+			<!-- ###################### photobook ####################### -->
+			<input type="hidden" id="photoBookImg" name="photoBookImg" value="">
+			<input type="hidden" id="photoBookNo" name="photoBookNo" value="">
+			<div id="tabs-4">
+				<jsp:include page="weddingcard_pbresult.jsp" />
+			</div>
+
+		</div>
+		<!-- tabs -->
+
+	</form>
+	
 			
-</form>
-
-<!--======================================= Tab======================================= -->
-<!-- <form action="./card.do" method="post" id="weddingCard_form" >
-<input type="hidden" name="command" value="createCard">
-		<div id="tabs"  style=" width:35%; margin-left:70%;">
-  <ul>
-    <li><a href="#tabs-1">
-    <span>
-    <i class="fa fa-calendar-check-o" style="font-size:36px; margin-left:20%;"></i>
-    </span><br>
-    <font size="3">스킨선택</font>
-    </a></li>
-    
-    <li><a href="#tabs-2">
-    <span>
-    <i class="fa fa-bars" style="font-size:36px; margin-left:20%;"></i>
-    </span><br>
-    <font size="3">예식정보</font>
-    </a></li>
-    
-    <li><a href="#tabs-3"> 
-    <span>
-    <i class="fa fa-list" style="font-size:36px; margin-left:20%;"></i>
-    </span><br>
-    <font size="3">신랑신부정보</font>
-    </a></li>
-  </ul>
- 
-  
-  <div id="tabs-1">
-     <table >
-   <tr align="center">
-      <td >
-      <img alt="" src="images/p2.jpg" style="width: 120px; heigth: 80px; margin: 0px;">
-      <input type="radio" name="template" id="template" value="basicSkin">
-      </td>
-      <td >
-      <img alt="" src="images/p6.jpg" style="width: 100px; heigth:100px; margin: 0px;">
-      <input type="radio" name="template" id="template" value="basicSkin2" disabled="disabled">
-      </td>
-      <td >
-      <img alt="" src="img/222.jpg" style="width: 100px; heigth: 100px; margin: 0px;">
-      <input type="radio" name="template" id="template" value="basicSkin3" disabled="disabled">
-      </td>
-   </tr>
-   </table>
-  </div>
-  
-  <div id="tabs-2">
-     날짜 : <input type="text" id="datepicker" name="cardDate"><br>
-     시간 : <input type="text" id="hour" name="hour"><br>
-     분 : <input type="text" id="min" name="min"><br>
-     예식장명 : <input type="text" id="hallName" name="hallName"><br>
-   예식장 위치 :<input type="text" name="hallLocation"><br> 
-  </div>
-  
-  <div id="tabs-3">
-   신랑번호 : <input type="text" id="groomTel" name="groomTel"><br>
-   신부번호 :<input type="text" name="brideTel"><br> 
-   url : <input type="text" name="url"><br>
-      <br>
-   <input type="submit" value="초대장 생성">   
-  </div>
-</div>
-</form>	 -->
-
-
-
 
 </body>
 </html>

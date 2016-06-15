@@ -21,6 +21,12 @@
 	<property name="order" value="1"/>
 </bean>
 
+<bean id="beanNameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+	<property name="order" value="0"/>
+</bean>
+
+<bean id="JsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+
 <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="configLocation" value="classpath:config/SqlMapConfig.xml"/>
 	<property name="dataSource" ref="dataSoruce"/>
@@ -47,6 +53,9 @@
 <bean id="photoBookDao" class="model.photobook.PhotoBookDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
 <bean id="photoBookService" class="model.photobook.PhotoBookServiceImpl" p:photoBookDao-ref="photoBookDao"/>
 
+<bean id="postDao" class="model.post.PostDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
+<bean id="postService" class="model.post.PostServiceImpl" p:postDao-ref="postDao"/>
+
 <!--Controller 등록  -->
 <bean id="methodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
 	<property name="paramName" value="command"/>
@@ -61,9 +70,7 @@
    <property name="methodNameResolver" ref="methodNameResolver"/>
    <property name="cardService" ref="cardService" />
       <property name="path">
-      <value>..\\..\\MSL\\Final_WeddingCard\\src\\main\\webapp\\url\\</value> 
-       <!--<value>..\\..\\SpringPro3\\eclipse\\workspace\\Final_WeddingCard_Test\\src\\main\\webapp\\url\\</value>-->
-      
+      <value>..\\..\\MSL\\Final_WeddingCard\\src\\main\\webapp\\url\\</value>
    </property>
 </bean>
 
@@ -71,9 +78,13 @@
 	<property name="methodNameResolver" ref="methodNameResolver"/>
 	<property name="photoBookService" ref="photoBookService" />
 	<property name="path">
-		 <value>..\\..\\MSL\\\Final_WeddingCard\\src\\main\\webapp\\img\\photobook\\</value> 
-		<!--<value>..\\..\\SpringPro3\\eclipse\\workspace\\Final_WeddingCard_Test\\src\\main\\webapp\\img\\photobook\\</value>-->
+		<value>..\\..\\MSL\\\Final_WeddingCard\\src\\main\\webapp\\img\\photobook\\</value>
 	</property>
+</bean>
+
+<bean name="/post.do" class="controller.PostController">
+	<property name="methodNameResolver" ref="methodNameResolver"/>
+	<property name="postService" ref="postService"/>
 </bean>
 
 
