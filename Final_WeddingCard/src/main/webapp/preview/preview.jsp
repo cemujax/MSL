@@ -81,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <!-- ############################ photoBook ######################## -->
    <!--header-->
    <div class="content">
-         <c:if test="${param.photoBookNo != null }">
+         <c:if test="${param.photoBookNo != null && param.photoBookNo != ''}">
             <!--about-->
             <div class="about">
                <div class="container">

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Nifty Modal Window Effects with CSS Transitions and Animations" />
 <meta name="keywords" content="modal, window, overlay, modern, box, css transition, css animation, effect, 3d, perspective" />
@@ -12,22 +12,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wedding Card</title>
-
-	
-<link href="css/bootstrap-responsive.css" rel="stylesheet">
-
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/jquery-ui.css" />
-<link rel="stylesheet" href="css/uploadifive.css" />
-<link rel="stylesheet" href="css/jquery.cropbox.custom.css" />
-<link rel="stylesheet" href="css/builder.css" />
-<!-- <link rel="stylesheet" href="css/bootstrap-ko.css"/>  -->
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/common.css">
-		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<script src="js/modernizr.custom.js"></script>
-
 
 <style type="text/css">
 
@@ -92,29 +76,36 @@
         font-style: oblique;
      }
 
-
-
-
 </style>
+
+
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/jquery-ui.css" />
+<link rel="stylesheet" href="css/jquery.cropbox.custom.css" />
+<link rel="stylesheet" href="css/builder.css" />
+<!-- <link rel="stylesheet" href="css/bootstrap-ko.css"/>  -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<link rel="stylesheet" href="resources/demos/style.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
   
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="./js/jquery-1.12.3.js"></script>
+
 <!-- Google Map API -->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=KR"></script>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript" src="js/hammer.js"></script>
-<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-<script src="js/jquery.placeholder.js"></script>
-<script src="js/jquery.uploadifive.js"></script>
-<script src="js/jquery.cropbox.custom.js"></script>
 <script src="http://connect.facebook.net/ko_KR/all.js"></script>
 <script src="js/jquery.datepicker.regional.kr.js"></script>
-<script src="js/jquery.scrollTo.min.js"></script>
 
+
+<!-- ================================================ -->
 <script type="text/javascript">
 var xhr;
 var checkFlag;
@@ -202,24 +193,50 @@ function imgCallback() {
 		if (xhr.status == 200) {
 			var jsonData = JSON.parse(xhr.responseText);
 
-			document.getElementById("photoBookImg").value = jsonData.pbvo.fileName
-					+ "";
-			var myValue = document.getElementById("photoBookImg").value;
+			document.getElementById("photoBookImg").value = jsonData.pbvo.fileName;
+	         document.getElementById("photoBookComment").value = jsonData.pbvo.bookComment;
+	         
+	         var imgValue = document.getElementById("photoBookImg").value;
+	         var contentValue = document.getElementById("photoBookComment").value;
 
-			$('#photoBookImg').val(myValue).trigger('change');
+	         $('#photoBookImg').val(imgValue).trigger('change');
+	         $('#photoBookComment').val(contentValue).trigger('change');
 		}
 	}
 } // imgCallback
 
+///////////////////////////// Tel Only Input Number
+function onlyNumber(event){
+   event = event || window.event;
+   
+   var keyID = (event.which) ? event.which : event.keyCode;
+   if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+      return;
+   else {
+      alert("숫자만 입력 가능합니다");
+      return false;
+   }
+}
+
+function removeChar(event) {
+   event = event || window.event;
+   var keyID = (event.which) ? event.which : event.keyCode;
+   if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+      return;
+   else
+      event.target.value = event.target.value.replace(/[^0-9]/g, "");
+}
 
 
+/////////////////////////////////////////////////////////////////////////
    $(document).ready(function(){
     
 	   $("#tabs").tabs();
 	   
 	   $('#template').click(function(){
 	  		set_preview();
-	  	});   
+	  	});
+	   $( "#datepicker" ).datepicker({showButtonPanel: true,minDate: '0'});
 	   
    ///==================== 예식 정보 =========================
    
@@ -270,6 +287,9 @@ function imgCallback() {
       $('#photoBookImg').change(function(){
         	set_preview();
          });
+      $('#photoBookComment').change(function(){
+      	set_preview();
+       });
 	   
      ///==================== =========================   
        function set_preview(md){
@@ -285,16 +305,18 @@ function imgCallback() {
      //모바일,PC 확대버튼 클릭
      $('#md-mobile').click(function(){
     	 $('#frmDalpeng').attr('target','left_skin_preview_mobile').attr('action','./preview/preview.jsp').submit();
+    	 $('#frmDalpeng').removeAttr('target');
      });
      
      $('#md-pc').click(function(){
     	 $('#frmDalpeng').attr('target','left_skin_preview_pc').attr('action','./preview/preview.jsp').submit();
+    	 $('#frmDalpeng').removeAttr('target');
      });
 
      $('#createCardBtn').click(function(){
+    	 
     	 alert("전송중");
          var url = document.frmDalpeng.url.value;
-         alert(url);
          
          if(checkFlag){
          $('#frmDalpeng').attr('target','frmDalpeng').attr('action','./card.do?command=createCard').submit();
@@ -302,6 +324,7 @@ function imgCallback() {
          }else{
          alert("사용하실 수 없는 URL 입니다.");
          }
+         
         });// 초대장 생성 click   
         
      
@@ -328,7 +351,7 @@ function imgCallback() {
 
 <body>
 <c:if test="${sessionScope.mvo == NULL }">
-	<c:redirect url="login.jsp"/>
+	<c:redirect url="loginregister.jsp"/>
 </c:if>
 
 
@@ -391,7 +414,7 @@ function imgCallback() {
 
 
 
-<form name="frmDalpeng" id="frmDalpeng" target="left_skin_preview" method="post">
+<form name="frmDalpeng" id="frmDalpeng"  method="post">
 
 <div class="ui-grid-a contents">
 		<div class="ui-block-a">
@@ -448,7 +471,7 @@ function imgCallback() {
             <!--  -->
          </div>
       </div>
-</div>
+</div><!-- preview End -->
 	
 	
 	
@@ -473,8 +496,6 @@ function imgCallback() {
 
 
 		<!-- Tab 영역 include  -->		
-		<%-- <jsp:include page="tabs.jsp"></jsp:include> --%>
-	<%-- <c:import url=""></c:import>	 --%>
 	
 	<!-- <form action="./card.do" method="post" id="weddingCard_form"
 		name="weddingCard_form"> -->
@@ -529,19 +550,18 @@ function imgCallback() {
 				<div class="ui-grid-f section">
 					<div class="ui-block-a">
 						<div class="ui-block-b">
-							예식일:<input type="text" id="datepicker" name="cardDate"
+							예식일:<input type="text" id="datepicker" class="input_box_type1" name="cardDate"
 								required="required">
 						</div>
 						<br>
 						<div class="ui-block-c">
-							<select name="ampm" id="ampm" class="input_box_type1"
-								required="required">
+							<select name="ampm" id="ampm" class="input_box_type1" required="required">
 								<option value="AM" selected="selected">오전</option>
 								<option value="PM">오후</option>
 							</select>
 						</div>
 						<div class="ui-block-d">
-							<select name="hour" id="hour" required="required">
+							<select name="hour" id="hour"  class="input_box_type1" required="required">
 								<option value="1">01</option>
 								<option value="2">02</option>
 								<option value="3">03</option>
@@ -560,8 +580,8 @@ function imgCallback() {
 							<select name="min" id="min" class="input_box_type1"
 								required="required">
 								<!--<option value="" selected="selected">분</option>-->
-								<option value="0" selected="selected">00</option>
-								<option value="5">05</option>
+								<option value="00" selected="selected">00</option>
+								<option value="05">05</option>
 								<option value="10">10</option>
 								<option value="15">15</option>
 								<option value="20">20</option>
@@ -645,27 +665,27 @@ function imgCallback() {
 			</div>
 
 			<div id="tabs-3">
-				신랑이름 : <input type="text" id="groomName" name="groomName"
-					required="required"><br> 신랑번호 : <input type="text"
-					id="groomTel" name="groomTel" required="required"><br>
-				신부이름 : <input type="text" name="brideName" id="brideName"
-					required="required"><br> 신부번호 : <input type="text"
-					name="brideTel" id="brideTel" required="required"><br>
-				url : <input type="text" name="url" id="url" onkeyup="urlCheck()"
-					required="required"> <span id="checkResult"></span> <br>
-				<input type="button" value="초대장 생성" id="createCardBtn">
-			</div>
+         		   신랑이름 : <input type="text" id="groomName" name="groomName" required="required"><br>
+          		  신랑번호 : <input type="text" id="groomTel" name="groomTel" required="required" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'><br>                    
+         		   신부이름 : <input type="text" name="brideName" id="brideName" required="required"><br> 
+         		   신부번호 : <input type="text" name="brideTel" id="brideTel" required="required" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'><br>                     
+         		   url : <input type="text" name="url" id="url" onkeyup="urlCheck()" required="required"> <span id="checkResult"></span> <br>
+           		 
+       	  </div>
 
 			<!-- ###################### photobook ####################### -->
 			<input type="hidden" id="photoBookImg" name="photoBookImg" value="">
 			<input type="hidden" id="photoBookNo" name="photoBookNo" value="">
+			<input type="hidden" id="photoBookComment" name="photoBookComment" value="">
 			<div id="tabs-4">
 				<jsp:include page="weddingcard_pbresult.jsp" />
 			</div>
 
 		</div>
 		<!-- tabs -->
-
+		<div  style="width: 30%; margin-left: 70%;">
+			<input type="button" value="초대장 생성" id="createCardBtn">
+		</div>
 	</form>
 	
 			

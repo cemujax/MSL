@@ -60,6 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <c:if test="${sessionScope.mvo == NULL }">
+<<<<<<< HEAD
 	<c:redirect url="loginregister.jsp"/>
 </c:if>
 
@@ -114,6 +115,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 	
 <!-- //메뉴바 -->
+=======
+	<c:redirect url="login.jsp"/>
+</c:if>
+>>>>>>> 566a1df7aa52048a195eea23cd45936eb307c7a4
 
 
 <%-- <h2 align="center"> 초대장 관리</h2>

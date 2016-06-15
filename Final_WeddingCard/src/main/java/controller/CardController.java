@@ -102,17 +102,6 @@ public class CardController extends MultiActionController {
     +"<%@ taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions' %>"
     +"<!DOCTYPE html>\n<html>\n<head>\n<meta charset='UTF-8'>\n<title>Insert title here</title></head>\n<body>\n";
 			
-			/*
-			 * String read = "";
-			while( (read = br_couple.readLine()) !=null ){
-				//출력용 파일로 뿌린다.
-				System.out.println("couple::"+read);
-				bw_heaer.append(read);
-				bw_heaer.newLine();
-				
-			}//while
-			bw_heaer.flush();
-			*/
 			bw.write(format);
 			bw.write("<jsp:include page='basicSkin.jsp' flush='true'>\n");
 			
@@ -144,7 +133,6 @@ public class CardController extends MultiActionController {
 		}
 
 		System.out.println("생성중");
-		// request.setAttribute(message, "생성중");
 		return new ModelAndView("redirect:/card.do?command=getAllCards");
 	}
 	
