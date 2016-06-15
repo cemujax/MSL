@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
 			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},200);
 		});
 	});
 </script>
@@ -125,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								  	<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
 							        <ul class="dropdown-menu">
 							          <li><a href="#">익명게시판</a></li>
-							          <li><a href="#">게시판</a></li>
+							          <li><a href="post.do?command=getAllQnAs">게시판</a></li>
 							          <li><a href="#">칭찬해요</a></li>
 							        </ul>
 							      </li>
@@ -207,9 +207,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							$(window).load(function() {
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 6,
-									animationSpeed: 1000,
+									animationSpeed: 100,
 									autoPlay: true,
-									autoPlaySpeed: 3000,    		
+									autoPlaySpeed: 500,    		
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,
 									responsiveBreakpoints: { 

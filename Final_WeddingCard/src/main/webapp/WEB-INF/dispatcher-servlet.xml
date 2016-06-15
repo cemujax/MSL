@@ -21,6 +21,12 @@
 	<property name="order" value="1"/>
 </bean>
 
+<bean id="beanNameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+	<property name="order" value="0"/>
+</bean>
+
+<bean id="JsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+
 <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="configLocation" value="classpath:config/SqlMapConfig.xml"/>
 	<property name="dataSource" ref="dataSoruce"/>

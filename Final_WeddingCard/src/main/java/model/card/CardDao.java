@@ -11,4 +11,5 @@ public interface CardDao {
    void deleteCard(int cardNO) throws SQLException;
    CardVO getCard(String url) throws SQLException;
    List<CardVO>  getAllCards(String memberId) throws SQLException;
+   boolean urlCheck(String url) throws SQLException;
 }

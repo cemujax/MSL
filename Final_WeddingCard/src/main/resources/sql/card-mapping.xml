@@ -51,7 +51,7 @@
       INSERT INTO
       card(card_no, template, card_date, hall_name,
       hall_location, hall_tel, groom_info
-      ,bride_info , member_id, book_no, url,main_image, card_context)
+      ,bride_info , member_id, book_no, url, main_image, card_context)
       VALUES(#{cardNo}, #{template}, TO_DATE(#{cardDate},'YYYY-MM-DD HH24:MI'),
       #{hallName}, #{hallLocation},
       #{hallTel}, #{groomInfo}, #{brideInfo},
@@ -79,8 +79,7 @@
 
 
    <select id="urlCheck" parameterType="string" resultType="String">
-      <include refid="select-card"/>
-      where url=#{value}
+      select url from card WHERE url=#{value}
    </select>
 
    <!-- ======================== card Comment=================================== -->
