@@ -796,6 +796,7 @@ button.ui-button::-moz-focus-inner {
 	float: left;
 	padding: .5em 1em;
 	text-decoration: none;
+	background-color: /* rgba(236, 172, 85, 0.81) */ #fdc562;
 }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active {
 	margin-bottom: -1px;
@@ -853,7 +854,7 @@ body .ui-tooltip {
 }
 .ui-widget-header {
 	border: 1px solid #fff;
-	background: #a6baba url("images/ui-bg_flat_75_5FD4D3_40x100.png") 50% 50% repeat-x;
+	background: /* #a6baba */ rgba(251, 205, 145, 0.61) url("images/ui-bg_flat_75_5FD4D3_40x100.png") 50% 50% repeat-x;
 	color: #ffffff;
 	font-weight: bold;
 }
@@ -896,7 +897,7 @@ body .ui-tooltip {
 .ui-state-focus a:hover,
 .ui-state-focus a:link,
 .ui-state-focus a:visited {
-	color: #5FD4D3;
+	color: #ff8000;
 	text-decoration: none;
 }
 .ui-state-active,

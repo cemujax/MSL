@@ -1,0 +1,171 @@
+@charset "utf-8";
+@import url(/css/NanumGothic.css);
+
+/* reset */
+#skin_page {/* background-color:#fff; color:#000; */}
+
+* {
+ margin:0;
+ padding:0;
+ -webkit-text-size-adjust:none; }
+body {
+ color:#333;
+ font-size:100%;
+ font-family: AppleSDGothicNeo-Regular, Droid sans, '나눔고딕', 'Nanum Gothic', 'NanumGothic', '돋움', Dotum, Helvetica, sans-serif;
+ line-height:1.25em;
+ word-break:break-all;
+ }
+img, fieldset { border:0 }
+ul, ol, li, dl { list-style:none; }
+h1, h2, h3, h4, h5, h6 {
+ font-size:100%;
+ font-weight:normal; }
+hr { display:none; } 
+a { color:inherit; }
+a, a:link {
+ color:#333;
+ text-decoration:none; }
+a:visited { color:#333; }
+a:hover, a:active {
+ color:#333;
+ text-decoration:none; }
+em, i, address {
+ font-style:normal;
+ font-weight:normal; }
+legend, caption {
+ display:none;
+ clear:both; }
+input, textarea, select, button, table {
+ font-size:inherit;
+ font-family:inherit;
+ line-height:inherit; }
+section, nav, article, aside, hgroup, header, footer { display:block }
+textarea, input {
+ background:url('');	/*none*/
+ -webkit-border-radius:1px;
+ -webkit-apprearance:none; }
+textarea { resize:none; }
+label { cursor:pointer; }
+
+.helv { font-family:"돋움", HelveticaNeue, Dotum, "굴림", Gulim, Apple-Gothic; }
+.verd { font-family:verdana, "돋움", HelveticaNeue, Dotum, "굴림", Gulim, Apple-Gothic; }
+.nanum{ font-family:nanumFont,"돋움",dotum;}
+.bold { font-weight:bold; }
+.utsa { font-family:Utsaah, HelveticaNeue, Apple-Gothic; }
+
+.blind, legend {overflow:hidden; width:0; height:0; position:absolute; top:0; left:0; font-size:0; line-height:0; }
+.hidden {position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden;font-size:0;line-height:0}
+
+/* text-align */
+.ta-l {text-align:left;}
+.ta-r {text-align:right;}
+.ta-c {text-align:center;}
+
+/* float */
+.fl {float:left;}
+.fr {float:right;}
+.clear {clear:both;}
+
+/* padding */
+.pt5   {padding-top:5px}
+.pt7   {padding-top:7px}
+.pt10  {padding-top:10px}
+.pt30  {padding-top:30px;}
+.pt40  {padding-top:40px;}
+.pt50  {padding-top:50px;}
+.pr20  {padding-right:20px;}
+.pad20 {padding:20px;}
+
+/* margin */
+.mt10  {margin-top:10px;}
+.mt20  {margin-top:20px;}
+.mt30  {margin-top:30px;}
+.mt70  {margin-top:70px;}
+.mt100 {margin-top:100px;}
+.mr10  {margin-right:10px;}
+.mr20  {margin-right:20px;}
+.mr40  {margin-right:40px;}
+.mb20  {margin-bottom:20px;}
+.ml20  {margin-left:20px;}
+
+/* Laout */
+.contents {position:relative; max-width:1024px; margin:0 auto; background-color:rgba(202, 148, 127, 0.59);}
+
+/* gallery type2 */
+.gal_list2 {position:relative;max-width:980px;width:100%;margin:0 auto;padding-bottom:60px!important;box-sizing: border-box;}
+.gal_list2:after {display:block; content:''; clear:both}
+.gal_list2 a {display:block;}
+.gal_list2 .gal_frame img {display:block;width:100%;height:auto;box-sizing:border-box;}
+.gal_list2 .gal_frame {float:left; padding:0.5%; box-sizing:border-box;}
+
+.gal_list2 .gal_size,
+.gal_list2 .gal_frame {width:24.99%}
+/*@media all and (max-width: 1024px) {
+  .gal_list2 .gal_size,
+  .gal_list2 .gal_frame {width:24.99%}
+}*/
+@media all and (max-width: 768px) {
+  .gal_list2 .gal_size {width:33.33%}
+  .gal_list2 .gal_frame {width:33.33%; padding:1%}
+}
+@media all and (max-width: 480px) {
+  .gal_list2 .gal_size {width:49.99%}
+  .gal_list2 .gal_frame {width:49.99%; padding:1.5%}
+}
+.gal_list2 .gal_more {position:absolute;bottom:20px;}
+
+/* Footer */
+.ui-page-theme-a .ui-bar-inherit {background:none; border:none;}
+.footer {overflow:hidden; padding:1em; background-color:#eee;}
+.footer h4 {display:none;}
+.footer ul {overflow:hidden; padding-top:0.5em;}
+.footer ul li {float:left; width:25%; }
+.footer ul li div {width:60px; height:60px; margin:0 auto;}
+.footer ul li div span {display:block; text-indent:-9999px; overflow:hidden;}
+.footer ul li em {display:none; margin-top:.5em; font-size:1em; text-align:center; text-shadow:none;}
+.ft_sns_wrap,
+.ft_sns_wrap1 {background:url('http://dalpeng.com/dalpeng/skin/_common/img/ico_spr_snsg80_band2.png') 0 0 no-repeat; background-size:60px; opacity:.6;cursor:pointer;}
+.facebook	  {background-position:0 0}
+.twitter,
+.band	  {background-position:0 -60px}
+.kakao		  {background-position:0 -120px}
+.story		  {background-position:0 -180px}
+
+
+
+/* 640 이상 */
+@media all and (min-width: 640px) {
+	.footer h4 {display:block; float:left; padding-top:18px;}
+	.footer h4 span {display:inline-block; padding-left:.5em; line-height:2em; vertical-align:top; text-shadow:none; color:rgba(255,255,255,.5);}
+	.footer h4 img {width:22px; height:30px; opacity:.5;}
+	.footer ul {float:right; width:33%; padding-top:12px;}
+	.footer ul li {float:left; width:25%;}
+	.footer ul li div {width:40px; height:40px;}
+	.ft_sns_wrap,
+	.ft_sns_wrap1 {background:url('http://dalpeng.com/dalpeng/skin/_common/img/ico_spr_snsg80_band80.png') 0 0 no-repeat; background-size:40px; opacity:.5;cursor:pointer;}
+	.facebook	 {background-position:0 0}
+	.twitter,
+	.band	 {background-position:0 -40px}
+	.kakao		 {background-position:0 -80px}
+	.story	 	 {background-position:0 -120px}
+}
+
+.hide {display:none;}
+a.gallery_comment {color:white;}
+
+a.gallery_comment_link,
+a.gallery_comment_link:visited,
+a.gallery_comment_link:link {color:white;float:right;}
+
+.previewLine {border:1px solid red;}
+
+
+@media all and (min-width: 800px) {
+	.footer ul {float:right; width:22%}
+	.ui-section-b .footer ul {float:right; width:33%}
+}
+
+
+@media all and (min-width: 980px) {
+	.ui-section-b .footer ul {float:right; width:40%}
+}

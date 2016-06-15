@@ -59,8 +59,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </div>
       
          <div style="border:1px solid #000; text-align: center; margin-top: 5%;">
-           초대글<br>
-     ${param.cardContext}      
+	           초대글<br>
+	     ${param.cardContext}      
             
          </div>
       
@@ -185,15 +185,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                      </div>
                </div>
             </div> -->
-            
-            
-            
-            
-            
-            
-            
-            
-            
             <!-- location... -->
                <div class="contents cont_wrap">
             <h2 class="tit_type2"><span>location</span></h2>
@@ -225,48 +216,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          </div>
             <!-- ////location -->
             
-         
-            
-            
-            
-            
-               <!--news-->
-      <!--          <div class="wedding-news">
-                  <div class="container">
-                     <h3>wedding news</h3>
-                        <div class="wedding-grid">
-                           <div class="col-md-4 weeding-new">
-                                 <div class="wedding-inner">
-                                    <h4><a href="#">VESTIBULUM IACULIS</a></h4>
-                                    <h5>10 / 08 / 2015</h5>
-                                    <p>Cum sociis natoque penatibus et magnis. dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio.</p>
-                                 </div>
-                           <a href="#" class="mask">
-                           <img src="images/p6.jpg" class="img-responsive zoom-img" alt=""></a>   
-                              </div>
-                              <div class="col-md-4 weeding-new">
-                                 <div class="wedding-inner">
-                                    <h4><a href="#">VESTIBULUM IACULIS</a></h4>
-                                    <h5>10 / 08 / 2015</h5>
-                                    <p>Cum sociis natoque penatibus et magnis. dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio.</p>
-                                 </div>
-                                 <a href="#" class="mask">
-                           <img src="images/p7.jpg" class="img-responsive zoom-img" alt=""></a>   
-                              </div>
-                           <div class="col-md-4 weeding-new">
-                                 <div class="wedding-inner">
-                                    <h4><a href="#">VESTIBULUM IACULIS</a></h4>
-                                    <h5>10 / 08 / 2015</h5>
-                                    <p>Cum sociis natoque penatibus et magnis. dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio.</p>
-                                 </div>
-                                 <a href="#" class="mask">
-                           <img src="images/p8.jpg" class="img-responsive zoom-img" alt=""></a>   
-                              </div>
-                           <div class="clearfix"></div>
-                        </div>
-                  </div>
-               </div> -->
-                     <!--news-->
                <!--indicate-->
             <div class="indicate">
                <div class="container">

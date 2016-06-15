@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Nuptials a Wedding Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>My Sweet Love . Wedding Card</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -61,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 <body>
 <!-- banner  class="banner" id="home1" -->
-	<div class="banner">
+	<div class="banner" id="home1">
 		<div class="container">
 			<div class="banner-phone animated wow slideInLeft" data-wow-delay=".5s">
 				<p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+0000 123 456</p>
@@ -89,18 +89,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    		</div>
     </div>
 			
-			<!-- <div class="banner-social animated wow slideInRight" data-wow-delay=".5s">
-				<ul class="social-icons">
-					<li><a href="#" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a></li>
-					<li><a href="#" class="icon-button instagram"><i class="icon-instagram"></i><span></span></a></li>
-					<li><a href="#" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a></li>
-					<li><a href="#" class="icon-button g-plus"><i class="icon-g-plus"></i><span></span></a></li>
-				</ul>
-			</div> -->
 			
 			<div class="clearfix"> </div>
 			<div class="banner-info animated wow zoomIn" data-wow-delay=".5s">
-				<p>인생의 단 한번,</p>
+				<p>Special Invitation</p>
 			</div>
 			
 			<div class="navigation">
@@ -132,7 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							      
 							      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>
 							        <ul class="dropdown-menu">
-							          <li><a href="weddingCard.jsp">청첩장만들기</a></li>
+							          <li><a href="weddingCard/weddingCard.jsp">청첩장만들기</a></li>
 							          <li><a href="./card.do?command=getAllCards">청첩장보기</a></li>
 							        </ul>
 							      </li>
@@ -143,13 +135,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							          <li><a href="photoBook.do?command=list">포토북보기</a></li>
 							        </ul>
 							      </li>
-							      
-							      
-							<!-- 	<li><a href="#team" class="scroll"><span>익명게시판</span></a></li>
-								<li><a href="#services" class="scroll"><span>게시판</span></a></li> 
-								<li><a href="#events" class="scroll"><span>칭찬해요</span></a></li>
-								<li><a href="#gallery" class="scroll"><span>청첩장</span></a></li> -->
-								<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li>
+							    <!--   
+								<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->
 							</ul>
 							
 						</nav>
@@ -160,6 +147,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 <!-- //banner -->
+
+<%-- <section id="login">
+<c:import url="loginregister.jsp"></c:import>
+</section> --%>
+
+
 <!-- banner-bottom -->
 	<div class="banner-bottom" id="about">	
 		<div class="container">
@@ -1041,7 +1034,7 @@ news
 	<div class="footer">
 		<div class="container">
 			<div class="footer-pos">
-				<a href="#home" class="scroll"><img src="img_index/7.png" alt=" " class="img-responsive" /></a>
+				<a href="#home1" class="scroll"><img src="img_index/7.png" alt=" " class="img-responsive" /></a>
 			</div>
 			<div class="footer-logo">
 				<a href="index.jsp" class="animated wow zoomIn" data-wow-delay=".5s">Nuptials</a>

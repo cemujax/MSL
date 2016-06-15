@@ -7,6 +7,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
     font-size: 100%;
 	background:	#fff;
+	/* background: #ffe0e0; */
+	/* background :  url("http://thumbs.dreamstime.com/z/peach-rose-cluster-vignette-soft-coral-pink-bunch-light-background-high-key-lighting-49665818.jpg"); width:100%;
+	 *//* background-repeat : no-repeat; */
+	/* background-position: right bottom; */
+	/* background: url("img/flower.jpg");  */
+	
 	font-family: 'Open Sans', sans-serif;
 }
 p{
@@ -37,7 +43,7 @@ input[type="submit"],.btn-primary,.date-tag-right a,.news-grid-right ul li a,.na
 	-ms-transition:.5s ease-in-out;
 }
 .banner{
-	background:url(../img_index/부케03.JPG) no-repeat 0px 0px;
+	background:url(../img_index/bouquet.JPG) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -200,7 +206,7 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
 /*-- w3layouts --*/
 .navbar-nav > li > a {
     padding:15px 32px;
-    font-size: 14px;
+    font-size: 20px;
     text-transform: uppercase;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
@@ -1293,7 +1299,8 @@ h2.resp-accordion {
 		font-size: 4.5em;
 	}
 	.navbar-nav > li > a {
-		padding: 13px 18px;
+		/* padding: 13px 18px; */
+		padding-right:20%;
 	}
 	.banner {
 		min-height: 665px;
