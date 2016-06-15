@@ -37,6 +37,15 @@ public class CardDaoImpl implements CardDao{
       sqlSession.delete("cardSql.deleteCard", cardNO);
    }
 
+public boolean urlCheck(String url) throws SQLException {
+	 String rurl = null;
+     boolean flag = false;
+     rurl=sqlSession.selectOne("cardSql.urlCheck", url);
+     if(rurl != null)
+        flag = true;   //url이 존재함
+     return flag;
+}
+
 
 
 }

@@ -3,6 +3,8 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
+
   <context-param>
 		<param-name>root</param-name>
 		<param-value>/Final_WeddingCard/</param-value>
