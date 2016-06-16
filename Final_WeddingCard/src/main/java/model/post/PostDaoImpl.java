@@ -33,7 +33,7 @@ public class PostDaoImpl implements PostDao{
 		return sqlSession.selectOne("postSql.getPostByNo", postNo);
 	}
 
-	@Override
+
 	public int totalCount() throws SQLException {
 		return sqlSession.selectOne("postSql.totalCount");
 	}

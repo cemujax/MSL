@@ -236,7 +236,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	          <li><a href="#">익명게시판</a></li>
 
-	          <li><a href="#">게시판</a></li>
+	          <li><a href="./post.do?command=getAllQnAs">게시판</a></li>
 
 	          <li><a href="#">칭찬해요</a></li>
 
