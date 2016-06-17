@@ -65,7 +65,7 @@ public class JUnitCardTest {
 			System.out.println("card List\n"+session.selectList("cardSql.getAllCards", "pcp8282"));*/
 			
 			
-			System.out.println(session.selectOne("cardSql.urlCheck", "c"));
+		//	System.out.println(session.selectOne("cardSql.urlCheck", "c"));
 			
 			
 		}
