@@ -67,6 +67,12 @@
 <!-- start-smoth-scrolling -->
 </head>
 
+
+
+
+
+
+
 <body>
 	<!-- banner  class="banner" id="home1" -->
 	<div class="banner" id="home1">

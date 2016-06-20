@@ -17,7 +17,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2 align="center">목록</h2>
+
+  <div class="container" id="cardManage" style="background-image: url('weddingCard/images/cardManage.jpg'); 
+          width:100%; height: 360px; background-repeat: no-repeat;">
+      <div class="row" style="margin-top: 5%;" align="center">
+         <font color="#fff" style="font-size: 90px;">익명 게시판</font>
+      </div>
+   </div>
+
+<!-- 
+	<h2 align="center">익명 게시판</h2> -->
 	<p>
 		<!--  <table border="2px" align="center" width="650px"> -->
 	<div class="container" style="margin-top: 2%;">
@@ -27,9 +36,9 @@
 			<table class="table table-hover" align="center"">
 				<thead>
 					<tr>
-						<th width="50%">제목</th>
-						<th width="15%">작성자</th>
-						<th width="15%">작성일</th>
+						<th align="center" width="50%">제목</th>
+						<th align="center" width="15%">작성자</th>
+						<th align="center" width="15%">작성일</th>
 					</tr>
 				</thead>
 				<c:forEach items="${listVO.list}" var="post">
@@ -52,12 +61,7 @@
 	<c:set value="${listVO.pagingBean}" var="pb"></c:set>
 
 	<div align="center">
-		<a href="${initParam.root }index.jsp">메인으로</a>
 
-		<c:if test="${sessionScope.mvo!=null}">
-			<a href="postAnoneQnaWrite.jsp">글쓰기</a>
-			<p>
-		</c:if>
 
 		<!-- ================= paging Start ================ -->
 		<c:if test="${pb.previousPageGroup}">
@@ -88,6 +92,17 @@
 		</c:if>
 		<!-- ============== paging End ============ -->
 
+
+		<p>
+		<p>
+			<%-- 			<a href="${initParam.root }index.jsp">메인으로</a> --%>
+
+			<c:if test="${sessionScope.mvo!=null}">
+				<a href="postAnoneQnaWrite.jsp"><input style="width: 100px;"
+					type="button" class="btn btn-success pull-right" value="글쓰기"
+					id="writeCard"></a>
+				<p>
+			</c:if>
 	</div>
 
 </body>
