@@ -79,7 +79,7 @@
 </style>
 </head>
 <body>
-<h1 align="center">PHOTO BOOK LIST</h1><p>
+
 <%-- <c:forEach items="${pbList}" var="i" varStatus="vs">
    <a href="photoBook.do?command=detail&&no=${i.bookNo }">${vs.count}. ${i.bookName}</a><p>
 </c:forEach> --%>

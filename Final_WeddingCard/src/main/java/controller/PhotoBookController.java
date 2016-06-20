@@ -73,7 +73,7 @@ public class PhotoBookController extends MultiActionController {
 				f.transferTo(new File(filePath+ "\\"+ f.getOriginalFilename()));
 			
 		}
-		// TODO 수정
+		// TODO 
 		return new ModelAndView("redirect:/photoBook.do?command=list");
 	} // create
 	
@@ -87,8 +87,8 @@ public class PhotoBookController extends MultiActionController {
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		List<PhotoBookVO> pbList = photoBookService.getPhotoBookList(mvo.getMemberId());
 		
-		// TODO 수정
-		return new ModelAndView("pbresult", "pbList", pbList);
+		// TODO �닔�젙
+		return new ModelAndView("pbresults", "pbList", pbList);
 	} // list
 	
 	public ModelAndView detail (HttpServletRequest request, HttpServletResponse response,
@@ -101,7 +101,7 @@ public class PhotoBookController extends MultiActionController {
 		
 		pbvo = photoBookService.getPhotoBookByNo(pbvo);
 		request.setAttribute("pbImgList", photoBookService.imgList(pbvo.getFileName(), pbvo.getBookComment()));
-		// TODO 수정
+		// TODO 
 		return new ModelAndView("pbcontent", "pbvo", pbvo);
 	} // detail
 	
@@ -112,7 +112,7 @@ public class PhotoBookController extends MultiActionController {
 		List<PhotoBookVO> pbList = photoBookService.getPhotoBookList(mvo
 				.getMemberId());
 
-		// TODO 수정
+		// TODO 
 		return new ModelAndView("JsonView", "pbList", pbList);
 	} // ajaxList
 
@@ -127,7 +127,7 @@ public class PhotoBookController extends MultiActionController {
 
 		pbvo = photoBookService.getPhotoBookByNo(pbvo);
 
-		// TODO 수정
+		// TODO 
 		return new ModelAndView("JsonView", "pbvo", pbvo);
 	} // ajaxDetail
 }
