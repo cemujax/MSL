@@ -8,8 +8,7 @@
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Nuptials Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<meta name="keywords" content="Please be open-source" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
@@ -52,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
 			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},200);
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
 	});
 </script>
@@ -77,11 +76,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  <ul class="nav navbar-nav navbar-right">
 				     <c:choose>
 						<c:when test="${sessionScope.mvo==null}">
-						<li><a href="loginregister.jsp" style="margin-right:0px;"><span class="glyphicon glyphicon-log-in"></span><font size="3" color="#F15F5F"> Login</font></a></li>
-				     	<li><a href="loginregister.jsp" style="margin-left:0px; padding-left:0px;"><span class="glyphicon glyphicon-user"></span><font size="3" color="#F15F5F"> Sign Up</font></a></li>
+						<li><a href="login/loginregister.jsp" style="margin-right:0px;"><span class="glyphicon glyphicon-log-in" ></span><font size="3" color="#45CBBF"> Login</font></a></li><!-- #F15F5F -->
+				     	<li><a href="login/loginregister.jsp" style="margin-left:0px; padding-left:0px;"><span class="glyphicon glyphicon-user"></span><font size="3" color="#45CBBF"> Sign Up</font></a></li>
 				      	</c:when>
 				      <c:otherwise>
-				      <li><a href="javascript:logout()"><span class="glyphicon glyphicon-log-in"></span><font size="3" color="#F15F5F"> Logout</font></a></li>
+				      <li><a href="javascript:logout()"><span class="glyphicon glyphicon-log-in"></span><font size="3" color="#45CBBF"> Logout</font></a></li>
 				      </c:otherwise>
 				      	</c:choose>
 				   </ul>
@@ -90,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 			
 			
-			<div class="clearfix"> </div>
+		<div class="clearfix"> </div>
 			<div class="banner-info animated wow zoomIn" data-wow-delay=".5s">
 				<p>Special Invitation</p>
 			</div>
@@ -116,9 +115,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								  <li class="dropdown">
 								  	<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
 							        <ul class="dropdown-menu">
-							          <li><a href="#">익명게시판</a></li>
-							          <li><a href="post.do?command=getAllQnAs">게시판</a></li>
-							          <li><a href="#">칭찬해요</a></li>
+							          <li><a href="./post.do?command=getAllAnoneQnAs">익명게시판</a></li>
+	          							<li><a href="./post.do?command=getAllQnAs">웨딩 QnQ</a></li>
+	          							<li><a href="./reviewComment.do?command=getAllReviewComments">칭찬해요</a></li>
+
 							        </ul>
 							      </li>
 							      
@@ -131,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							      
 							       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
 							        <ul class="dropdown-menu">
-							          <li><a href="test.jsp">포토북만들기</a></li>
+							          <li><a href="pbcreate.jsp">포토북만들기</a></li>
 							          <li><a href="photoBook.do?command=list">포토북보기</a></li>
 							        </ul>
 							      </li>
@@ -200,9 +200,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							$(window).load(function() {
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 6,
-									animationSpeed: 100,
+									animationSpeed: 1000,
 									autoPlay: true,
-									autoPlaySpeed: 500,    		
+									autoPlaySpeed: 3000,    		
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,
 									responsiveBreakpoints: { 
@@ -1037,7 +1037,7 @@ news
 				<a href="#home1" class="scroll"><img src="img_index/7.png" alt=" " class="img-responsive" /></a>
 			</div>
 			<div class="footer-logo">
-				<a href="index.jsp" class="animated wow zoomIn" data-wow-delay=".5s">Nuptials</a>
+				<a href="index.jsp" class="animated wow zoomIn" data-wow-delay=".5s">MySweetLove</a>
 				<p class="animated wow slideInUp" data-wow-delay=".5s">we are social</p>
 			</div>
 			<ul class="social-icons animated wow slideInUp" data-wow-delay=".6s">
@@ -1047,7 +1047,7 @@ news
 				<li><a href="#" class="icon-button g-plus"><i class="icon-g-plus"></i><span></span></a></li>
 			</ul>
 			<div class="copyright">
-				<p class="animated wow slideInLeft" data-wow-delay=".5s">© 2016 Nuptials. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+				<p class="animated wow slideInLeft" data-wow-delay=".5s">© 2016 MySweetLove. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 			</div>
 		</div>
 	</div>

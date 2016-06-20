@@ -1,5 +1,7 @@
 package model.post;
 
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,12 +25,17 @@ public class PostDaoImpl implements PostDao{
 		return sqlSession.delete("postSql.deletePost", postNo);
 	}
 
-	public List<PostVO> getPostList(String kind) {
-		return sqlSession.selectList("postSql.getPostList", kind);
+	public List<PostVO> getPostList(HashMap<String, String> map) {
+		return sqlSession.selectList("postSql.getPostList", map);
 	}
 
-	public PostVO getPostByNo(PostVO pvo) {
-		return sqlSession.selectOne("postSql.getPostByNo", pvo);
+	public PostVO getPostByNo(int postNo) {
+		return sqlSession.selectOne("postSql.getPostByNo", postNo);
+	}
+
+	@Override
+	public int totalCount(String kind) throws SQLException {
+		return sqlSession.selectOne("postSql.totalCount", kind);
 	}
 
 }

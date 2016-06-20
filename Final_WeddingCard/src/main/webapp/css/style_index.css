@@ -1231,7 +1231,7 @@ h2.resp-accordion {
 .footer-logo a{
 	font-size: 3em;
     color: #fff;
-    background: url(../img_index/img-sp.png) no-repeat -6px -198px;
+    /* background: url(../img_index/img-sp.png) no-repeat -6px -198px; */
     text-decoration: none;
     padding-left: 1.5em;
 }

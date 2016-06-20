@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 html, body{
     font-size: 100%;
-	background:	/* #fff */ #b5b2b2;
+	background:	#fff /* #b5b2b2 */;
 	/* background: #ffe0e0; */
 	/* background :  url("http://thumbs.dreamstime.com/z/peach-rose-cluster-vignette-soft-coral-pink-bunch-light-background-high-key-lighting-49665818.jpg"); width:100%;
 	 *//* background-repeat : no-repeat; */
@@ -206,7 +206,7 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
 /*-- w3layouts --*/
 .navbar-nav > li > a {
     /* padding:15px 32px; */
-    font-size: /* 20px */ 15px;
+    font-size: /* 20px */ 18px;
     text-transform: uppercase;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {

@@ -780,7 +780,7 @@ button.ui-button::-moz-focus-inner {
 }
 .ui-tabs .ui-tabs-nav {
 	margin: 0;
-	padding: .2em .2em 0;
+	padding: .1em .1em 0;
 }
 .ui-tabs .ui-tabs-nav li {
 	list-style: none;
@@ -848,6 +848,8 @@ body .ui-tooltip {
 	border: 1px solid #5FD4D3;
 	background: #ffffff url("images/ui-bg_flat_100_ffffff_40x100.png") 50% 50% repeat-x;
 	color: #000000;
+	text-align:center;
+	
 }
 .ui-widget-content a {
 	color: #000000;

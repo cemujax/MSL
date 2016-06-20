@@ -9,14 +9,14 @@
         <meta name="description" content="Moleskine Notebook with jQuery Booklet" />
         <meta name="keywords" content="jquery, book, flip, pages, moleskine, booklet, plugin, css3 "/>
 		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
-
+<!-- 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 		<script src="booklet/jquery.easing.1.3.js" type="text/javascript"></script>
 		<script src="booklet/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
 
 		<link href="booklet/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
 		<link rel="stylesheet" href="css/photobookstyle.css" type="text/css" media="screen"/>
-
+ -->
 		<script src="cufon/cufon-yui.js" type="text/javascript"></script>
 		<script src="cufon/ChunkFive_400.font.js" type="text/javascript"></script>
 		<script src="cufon/Note_this_400.font.js" type="text/javascript"></script>
@@ -204,7 +204,7 @@ a#prev_page_button:hover{
 		</style> -->
 </head>
 <body>
-		<h1 class="title">Moleskine Notebook with jQuery Booklet</h1>
+	<h1 class="title">Moleskine Notebook with jQuery Booklet</h1>
 		<div class="book_wrapper">
 			<a id="next_page_button"></a>
 			<a id="prev_page_button"></a>

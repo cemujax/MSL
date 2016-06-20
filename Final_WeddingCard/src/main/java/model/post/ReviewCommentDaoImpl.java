@@ -12,11 +12,11 @@ public class ReviewCommentDaoImpl implements ReviewCommentDao{
 	}
 
 	public int writeReview(ReviewCommentVO rcvo) {
-		return sqlSession.insert("postSql.writeReview", rcvo);
+		return sqlSession.insert("reviewSql.writeReview", rcvo);
 	}
 
 	public List<ReviewCommentVO> getReviewList() {
-		return sqlSession.selectList("postSql.getReviewList");
+		return sqlSession.selectList("reviewSql.getReviewList");
 	}
 
 }
