@@ -99,7 +99,7 @@
 
 			<c:if test="${sessionScope.mvo!=null}">
 				<a href="postAnoneQnaWrite.jsp"><input style="width: 100px;"
-					type="button" class="btn btn-success pull-right" value="글쓰기"
+					type="button" class="btn btn-success" style="margin-right:30%;" value="글쓰기"
 					id="writeCard"></a>
 				<p>
 			</c:if>
