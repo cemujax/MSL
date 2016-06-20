@@ -1089,8 +1089,8 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #333;
-  background-color: #fff;
+  color: #fff;
+ /*  background-color: #fff; */
 }
 input,
 button,
@@ -1615,8 +1615,9 @@ pre code {
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
+  width:500px;
 }
-.col-xs-12 {
+/* .col-xs-12 {
   width: 100%;
 }
 .col-xs-11 {
@@ -1651,7 +1652,7 @@ pre code {
 }
 .col-xs-1 {
   width: 8.33333333%;
-}
+} */
 .col-xs-pull-12 {
   right: 100%;
 }
@@ -2117,7 +2118,9 @@ pre code {
     width: 33.33333333%;
   }
   .col-lg-3 {
-    width: 25%;
+    width: 28%;
+    margin-left: 5%;
+    
   }
   .col-lg-2 {
     width: 16.66666667%;
@@ -3431,14 +3434,14 @@ tbody.collapse.in {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 10%;
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
+  min-width: 150px;
   padding: 5px 0;
   margin: 2px 0 0;
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
   list-style: none;
   background-color: #fff;
@@ -3462,7 +3465,7 @@ tbody.collapse.in {
 }
 .dropdown-menu > li > a {
   display: block;
-  padding: 3px 20px;
+  padding: 3px;
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
@@ -4225,6 +4228,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-nav {
   margin: 7.5px -15px;
+  background-color: 
 }
 .navbar-nav > li > a {
   padding-top: 10px;
@@ -4352,6 +4356,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-top: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  width:160px;
 }
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
   margin-bottom: 0;
@@ -4496,7 +4501,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   border-color: #080808;
 }
 .navbar-inverse .navbar-brand {
-  color: #9d9d9d;
+  color: /* #9d9d9d */ #fff;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
@@ -4504,20 +4509,22 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-color: transparent;
 }
 .navbar-inverse .navbar-text {
-  color: #9d9d9d;
+  color: /* #9d9d9d  #fff*/ #777;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+ /*  color: #9d9d9d #fff; */
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #fff;
+  color: #fff /* #000 */;
   background-color: transparent;
+  /* color: #fff;
+  background: #000; */
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
-  color: #fff;
+  color: /* #fff */ #9d9d9d;
   background-color: #080808;
 }
 .navbar-inverse .navbar-nav > .disabled > a,

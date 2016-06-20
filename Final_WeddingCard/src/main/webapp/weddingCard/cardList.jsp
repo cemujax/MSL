@@ -6,9 +6,7 @@
 <html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
-<style>
-</style>
+<title>초대장 보기</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
    content="Nuptials Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -162,7 +160,7 @@ transition: 0.5s all;
      <a href="${initParam.root }index.jsp" ><span style="color:#777;">Home</span></a>
     </div>
     
-    	<ul class="nav navbar-nav" style=" margin-left:73%;">
+    	<ul class="nav navbar-nav" style=" margin-left:72%;">
 				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>
 					 <li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
@@ -186,9 +184,12 @@ transition: 0.5s all;
 							          <li><a href="${initParam.root }photoBook.do?command=list">포토북보기</a></li>
 							        </ul>
 							      </li>
-							      
-							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->
-							</ul>
+							<li class="lnb_icon5">
+								<a href="javascript:logout()" style="width:100%; padding:14px 15px 15px 0px; ">
+								<span class="glyphicon glyphicon-log-in"></span> 로그아웃</a>
+							</li>
+					
+						</ul>
   </div>
 </nav>
 	

@@ -425,7 +425,7 @@ function removeChar(event) {
     </div>
     <ul class="nav navbar-nav" style="margin-left:82%;">
     <li style="padding-bottom:17px; padding-right:8px; padding-left:8px;"><a href="../card.do?command=getAllCards" style="padding:0px;width:100%; margin:10px 0px 0px 0px; padding-top:3px; "><span style="padding: 5px 12px 12px 10px;">청첩장보기</span></a></li>
-	<li style="padding-top:3px; padding-bottom:12px; padding-right:8px; padding-left:8px;"   class="lnb_icon5"><a href="javascript:logout()" style="padding:0px;width:100%; margin:10px 0px 0px 0px; padding-bottom:5px; padding: 0px 5px 5px 0px;"><span class="glyphicon glyphicon-log-in"  ></span> 로그아웃</a></li>
+	<li style="padding-top:3px; padding-bottom:12px; padding-right:8px; padding-left:8px;"   class="lnb_icon5"><a href="javascript:logout()" style="padding:0px;width:100%; margin:10px 0px 0px 0px; padding-bottom:5px; padding: 0px 5px 5px 0px;"><span class="glyphicon glyphicon-log-in"></span> 로그아웃</a></li>
     </ul>
   </div>
 </nav>

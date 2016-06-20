@@ -6,7 +6,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 html, body{
     font-size: 100%;
-	background:	#fff;
+	background:	#fff /* #b5b2b2 */;
+	/* background: #ffe0e0; */
+	/* background :  url("http://thumbs.dreamstime.com/z/peach-rose-cluster-vignette-soft-coral-pink-bunch-light-background-high-key-lighting-49665818.jpg"); width:100%;
+	 *//* background-repeat : no-repeat; */
+	/* background-position: right bottom; */
+	/* background: url("img/flower.jpg");  */
+	
 	font-family: 'Open Sans', sans-serif;
 }
 p{
@@ -195,16 +201,16 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
     padding: 0;
 }
 .navbar-default .navbar-nav > li > a {
-    color: #fff;
+    color: /* #fff */ #000;
 }
 /*-- w3layouts --*/
 .navbar-nav > li > a {
-    padding:15px 32px;
-    font-size: 14px;
+    /* padding:15px 32px; */
+    font-size: /* 20px */ 18px;
     text-transform: uppercase;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: #45CBBF;
+    color: /* #45CBBF */ #000;
     background-color: transparent;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -230,8 +236,8 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
   position: absolute;
   left: 0;
   top: 0;
-  border-top: 2px solid #45CBBF;
-  border-left: 2px solid #45CBBF;
+/*   border-top: 2px solid #45CBBF;
+  border-left: 2px solid #45CBBF; */
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
   -webkit-transition: 0.3s;
@@ -246,9 +252,9 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
   position: absolute;
   right: 0;
   bottom: 0;
-  border-right: 2px solid #45CBBF;
+/*   border-right: 2px solid #45CBBF; */
 /*-- agileits --*/
-  border-bottom: 2px solid #45CBBF;
+/*   border-bottom: 2px solid #45CBBF; */
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
   -webkit-transition: 0.3s;
@@ -263,8 +269,8 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
   position: absolute;
   right: 0;
   top: 0;
-  border-right: 2px solid #45CBBF;
-  border-top: 2px solid #45CBBF;
+/*   border-right: 2px solid #45CBBF;
+  border-top: 2px solid #45CBBF; */
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
   -webkit-transition: 0.3s;
@@ -279,8 +285,8 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
   position: absolute;
   left: 0;
   bottom: 0;
-  border-left: 2px solid #45CBBF;
-  border-bottom: 2px solid #45CBBF;
+ /*  border-left: 2px solid #45CBBF;
+  border-bottom: 2px solid #45CBBF; */
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
   -webkit-transition: 0.3s;
@@ -1293,7 +1299,8 @@ h2.resp-accordion {
 		font-size: 4.5em;
 	}
 	.navbar-nav > li > a {
-		padding: 13px 18px;
+		/* padding: 13px 18px; */
+		padding-right:20%;
 	}
 	.banner {
 		min-height: 665px;

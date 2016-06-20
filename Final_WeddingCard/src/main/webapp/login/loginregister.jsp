@@ -329,7 +329,6 @@ $(document).ready(function(){
 							        </ul>
 							      </li>
 							      
-							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->
 							</ul>
   </div>
 </nav>
