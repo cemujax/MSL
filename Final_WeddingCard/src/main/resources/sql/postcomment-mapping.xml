@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="postCommentSql">
+	<resultMap type="postComment" id="postCommentRM">
+		<result property="commentNo" column="comment_no" jdbcType="NUMERIC"/>
+		<result property="content" column="content" jdbcType="VARCHAR"/>
+		<result property="writeDate" column="write_date" jdbcType="VARCHAR"/>
+		<result property="memberVO.memberId" column="member_id" jdbcType="VARCHAR"/>
+		<result property="memberVO.name" column="name" jdbcType="VARCHAR"/>
+		<result property="postVO.postNo" column="post_no" jdbcType="NUMERIC"/>
+	</resultMap>
+	
+	<insert id="writeComment" parameterType="postComment">
+		<selectKey keyProperty="commentNo" resultType="int" order="BEFORE">
+			SELECT postcomment_seq.nextVal FROM dual
+		</selectKey>
+	
+		INSERT
+		INTO postcomment (comment_no, content, write_date, member_id, post_no)
+		VALUES (
+			#{commentNo}, #{content}, sysdate, #{memberVO.memberId}, #{postVO.postNo}
+		)
+	</insert>
+	
+	<update id="modifyComment" parameterType="postComment">
+		UPDATE postcomment
+		SET content = #{content}
+		WHERE comment_no = #{commentNo}
+	</update>
+	
+	<delete id="deleteComment" parameterType="int">
+		DELETE
+		FROM postcomment
+		WHERE comment_no = #{value}
+	</delete>
+	
+	<select id="getCommentList" parameterType="int" resultMap="postCommentRM">
+		SELECT comment_no, content, write_date, member_id, post_no
+		FROM postcomment
+		WHERE post_no = #{value}
+	</select>
+</mapper>	
+
