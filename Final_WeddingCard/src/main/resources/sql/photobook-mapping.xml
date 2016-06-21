@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="photoBookSql">
+	<resultMap type="photoBook" id="photoBookRM">
+		<result property="bookNo" column="book_no"/>
+		<result property="bookName" column="book_name"/>
+		<result property="fileName" column="file_name"/>
+		<result property="createDate" column="create_date"/>
+		
+		<result property="memberVO.memberId" column="member_id"/>
+		<result property="memberVO.name" column="name"/>
+	</resultMap>
+	
+	<resultMap type="photoBook" id="photoBookByNoRM" extends="photoBookRM">
+		<result property="bookComment" column="book_comment"/>
+	</resultMap>
+	
+	<sql id="photoBook-select">
+		SELECT book_no, book_name, file_name, create_date, m.member_id, m.name
+		FROM photobook p, member m 
+	</sql>
+	
+	<sql id="photoBookByNo-select">
+		SELECT book_no, book_name, file_name, create_date, book_comment, m.member_id, m.name 
+		FROM photobook p, member m 
+	</sql>
+	
+	<select id="getPhotoBookList" parameterType="string" resultMap="photoBookRM">
+		<include refid="photoBook-select"/>
+		WHERE p.member_id=m.member_id
+		AND m.member_id = #{value}
+		ORDER BY book_no DESC
+	</select>
+	
+	<select id="getPhotoBookByNo" parameterType="photoBook" resultMap="photoBookByNoRM">
+		<include refid="photoBookByNo-select"/>
+		WHERE p.member_id=m.member_id
+			AND m.member_id = #{memberVO.memberId}
+			AND book_no = #{bookNo}
+	</select>
+	
+	<insert id="createPhotoBook" parameterType="photoBook">
+		<selectKey keyProperty="bookNo" resultType="int" order="BEFORE">
+			SELECT photobook_seq.nextVal FROM dual
+		</selectKey>
+		INSERT
+		INTO photobook(book_no, book_name, file_name, create_date, book_comment, member_id) 
+		VALUES(
+			#{bookNo}, #{bookName}, #{fileName}, sysdate, #{bookComment}, #{memberVO.memberId}
+		) 
+	</insert>
+	
+	<update id="modifyPhotoBook" parameterType="photoBook">
+		UPDATE photobook 
+		SET book_name=#{bookName}, file_name=#{fileName}, create_date= sysdate, book_comment = #{bookComment} 
+		WHERE member_id = #{memberVO.memberId}
+			AND book_no = #{bookNo}	
+	</update>
+	
+	<delete id="deletePhotoBook" parameterType="int">
+		DELETE FROM photobook WHERE book_no= #{value}
+	</delete>
+
+</mapper>	
+

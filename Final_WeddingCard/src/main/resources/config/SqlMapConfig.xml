@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	
+<configuration>
+	<properties resource="config/jdbc.properties"/>
+	
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias alias="member" type="model.member.MemberVO"/>
+		<typeAlias alias="post" type="model.post.PostVO"/>
+		<typeAlias alias="postComment" type="model.post.PostCommentVO"/>
+		<typeAlias alias="reviewComment" type="model.post.ReviewCommentVO"/>
+		<typeAlias alias="photoBook" type="model.photobook.PhotoBookVO"/>
+		<typeAlias alias="card" type="model.card.CardVO"/>
+		<typeAlias alias="cardComment" type="model.card.CardcommentVO"/>
+	</typeAliases>
+	
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="${JDBC.Driver}"/>
+				<property name="url" value="${JDBC.ConnectionURL}"/>
+				<property name="username" value="${JDBC.Username}"/>
+				<property name="password" value="${JDBC.Password}"/>
+			</dataSource>
+		</environment>		
+	</environments>
+	
+	<mappers>
+		<mapper resource="sql/member-mapping.xml"/>
+		<mapper resource="sql/post-mapping.xml"/>
+		<mapper resource="sql/photobook-mapping.xml"/>
+		<mapper resource="sql/card-mapping.xml"/>
+		<mapper resource="sql/review-mapping.xml"/>
+	</mappers>
+
+</configuration>
+
