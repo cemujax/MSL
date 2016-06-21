@@ -28,8 +28,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="container">
           <script defer src="js/jquery.flexslider.js"></script>
             sㅋㅋㅋㅋㄹ
-            param: <%= request.getParameter("pw") %>
-            id: <%= request.getParameter("id") %>
+<%--             param: <%= request.getParameter("pw") %>
+            id: <%= request.getParameter("id") %> --%>
       </div>
    </div><!-- header  -->
    
