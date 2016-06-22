@@ -59,8 +59,12 @@
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script src="js/jquery.datepicker.regional.kr.js"></script>
 <script src="js/jquery.scrollTo.min.js"></script>
-<script src="/js/jquery-1.10.2.min.js"></script>
-<script src="/js/jquery.form.js"></script>
+
+<!-- 이미지 업로드 -->
+<!-- <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>  -->
+<script src="./js/jquery.form.js"></script>
+
+
 
 <!-- 우리꺼 -->
 <script src="./js/weddingCard.js"></script>
@@ -95,9 +99,9 @@
 
 	<!-- //메뉴바 -->
 
-	<form name="frmWeddingCard" id="frmWeddingCard" method="post">
-		<input type="hidden" name="command" value="createCard">
-		<div class="ui-grid-a contents">
+	<form name="frmWeddingCard" id="frmWeddingCard" method="post" >
+		
+		<div class="ui-grid-a contents" >
 			<div class="ui-block-a">
 				<div class="cont_look">
 					<div class="look_bg">
@@ -293,22 +297,31 @@
 					style="width: 100%; margin-bottom: 10%; margin-top: 5%; height: 290px;">
 
 
-				 <jsp:include page="weddingCard_upload.jsp"></jsp:include>
-
+				 <%-- <jsp:include page="weddingCard_upload.jsp"></jsp:include> --%>
+				상단 이미지 :<input style="margin: 2%;" type="file" name="imgFile"
+			id="imgFile" >
+			<input type="hidden" name="imgSrc" value="">
+			<input type="submit" value="이미지 업로드 " id="sendImage">
+				
 
 				신랑이름 : <input style="margin: 2%;" type="text" id="groomName"
-					name="groomName" required="required"><br> 신랑번호 : <input
+					name="groomName" ><br> 
+					
+					신랑번호 : <input
 					style="margin: 2%;" type="text" id="groomTel" name="groomTel"
-					required="required" onkeydown='return onlyNumber(event)'
+					 onkeydown='return onlyNumber(event)'
 					onkeyup='removeChar(event)' style='ime-mode:disabled;'><br>
+					
 				신부이름 : <input style="margin: 2%;" type="text" name="brideName"
-					id="brideName" required="required"><br> 신부번호 : <input
+					id="brideName"><br> 
+					
+					신부번호 : <input
 					style="margin: 2%;" type="text" name="brideTel" id="brideTel"
-					required="required" onkeydown='return onlyNumber(event)'
+					 onkeydown='return onlyNumber(event)'
 					onkeyup='removeChar(event)' style='ime-mode:disabled;'><br>
-				&nbsp;&nbsp;&nbsp;url&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;<input
-					type="text" name="url" id="url" onkeyup="urlCheck()"
-					required="required"> <span id="checkResult"></span> <br>
+				&nbsp;&nbsp;&nbsp;url&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;
+				<input type="text" name="url" id="url" onkeyup="urlCheck()"
+					> <span id="checkResult"></span> <br>
 			</div>
 
 			<!-- ###################### photobook ####################### -->
@@ -406,7 +419,9 @@
 
 		</div>
 		<!-- tabs -->
-
 	</form>
+	
+			
+	
 </body>
 </html>

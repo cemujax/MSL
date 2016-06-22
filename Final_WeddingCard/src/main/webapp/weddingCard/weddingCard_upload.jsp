@@ -4,42 +4,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+<!-- <script type="text/javascript" src="./js/jquery-1.12.3.js"></script> -->
+
+<!-- 이미지 업로드 -->
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script> 
+<script src="./js/jquery.form.js"></script>
+
+
 <script type="text/javascript">
+
 
 $(document).ready(function(){
 	
 	
-	$('#uploadImage').change(function(){ 
-    	  //$("form#uploadFrm").submit();
-    	  
-    	  ////////////////
-  		
-    	  var src = $(this).val().split("\\")[2];
-    	  
-    	  alert("ddimage::"+src);
-    	 //$('#frmWeddingCard').attr('target','uploadFrm');
-    	$("#uploadFrm").ajaxSubmit({
-			
-			success : function(data) {
-
-				alert(data.result);
-
-			},
-
-			error : function(error) {
-
-				alert("요청 처리 중 오류가 발생하였습니다.");
-
-			}
-
-		});
-
-		return false;
-
+	
+	$("#sendImage").bind("click", function() {
+		
+		
+		if($('#uploadImage').val() != null && $('#uploadImage').val() != ''){
+			//폼전송
+			$('#uploadFrm').ajaxForm({
+			   //보내기전 validation check가 필요할경우
+		            beforeSubmit: function (data, frm, opt) {
+					                alert("전송전!!");
+					                return true;
+					              },
+		            //submit이후의 처리
+		            success: function(responseText, statusText){
+		            	alert("전송성공!!");
+		            },
+		            //ajax error
+		            error: function(){
+		            	alert("에러발생!!");
+		            }                               
+		    });//ajaxForm
+		}else{//이미지 선택 안했을 시
+			$(this).unbind('click');
+			alert("이미지를 선택해주세요!");
+		}
 	});
+	
+	
+	
+		
+		
 	
 });//ready
 
@@ -50,11 +61,13 @@ $(document).ready(function(){
 
 
 	<form name="uploadFrm" id="uploadFrm"
-		action="${initParam.root }card.do?command=uploadImage" method="post"
+		action="${initParam.root }card.do" method="post"
 		enctype="multipart/form-data">
 
+		<input type="hidden" name="command" value="uploadImage">
 		상단 이미지 :<input style="margin: 2%;" type="file" name="mainImage"
-			id="uploadImage"><br>
+			id="uploadImage" value="이미지 업로드"><br>
+			<input type="submit" value="업로드 파일" id="sendImage">
 	</form>
 
 </body>
