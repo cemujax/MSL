@@ -1,101 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-<context:property-placeholder location="classpath:config/jdbc.properties"/>
+  <context:property-placeholder location="classpath:config/jdbc.properties"/>
 
-<bean id= "dataSoruce" class="org.apache.commons.dbcp.BasicDataSource">
-	<property name="driverClassName" value="${JDBC.Driver}"></property>
-	<property name="url" value="${JDBC.ConnectionURL}"></property>
-	<property name="username" value="${JDBC.Username}"></property>
-	<property name="password" value="${JDBC.Password}"></property>
-</bean>
+  <bean id= "dataSoruce" class="org.apache.commons.dbcp.BasicDataSource">
+    <property name="driverClassName" value="${JDBC.Driver}"></property>
+    <property name="url" value="${JDBC.ConnectionURL}"></property>
+    <property name="username" value="${JDBC.Username}"></property>
+    <property name="password" value="${JDBC.Password}"></property>
+  </bean>
 
-<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-	<property name="prefix" value="/" />
-	<property name="suffix" value=".jsp" />	
-	<property name="order" value="1"/>
-</bean>
+  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="prefix" value="/" />
+    <property name="suffix" value=".jsp" />	
+    <property name="order" value="1"/>
+  </bean>
 
-<bean id="beanNameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
-	<property name="order" value="0"/>
-</bean>
+  <bean id="beanNameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+    <property name="order" value="0"/>
+  </bean>
 
-<bean id="JsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+  <bean id="JsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
 
-<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
-	<property name="configLocation" value="classpath:config/SqlMapConfig.xml"/>
-	<property name="dataSource" ref="dataSoruce"/>
-</bean>
+  <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="configLocation" value="classpath:config/SqlMapConfig.xml"/>
+    <property name="dataSource" ref="dataSoruce"/>
+  </bean>
 
-<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" >
-	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
-</bean>
+  <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" >
+    <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
+  </bean>
 
-<bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+  <bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
 
- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	<property name="defaultEncoding" value="euc-kr" />
-	<property name="maxUploadSize" value="-1"/>
-</bean> 
+  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="defaultEncoding" value="euc-kr" />
+    <property name="maxUploadSize" value="-1"/>
+  </bean> 
 
-<!-- 3. Model 빈 등록 -->
-<bean id="memberDao" class="model.member.MemberDaoImpl" p:sqlSession-ref="sqlSessionTemplate" />
-<bean id="memberService" class="model.member.MemberServiceImpl" p:memberDao-ref="memberDao" />
+  <!-- 3. Model 빈 등록 -->
+  <bean id="memberDao" class="model.member.MemberDaoImpl" p:sqlSession-ref="sqlSessionTemplate" />
+  <bean id="memberService" class="model.member.MemberServiceImpl" p:memberDao-ref="memberDao" />
 
-<bean id="cardDao" class="model.card.CardDaoImpl" p:sqlSession-ref="sqlSessionTemplate" />
-<bean id="cardService" class="model.card.CardServiceImpl" p:cardDao-ref="cardDao" />
+  <bean id="cardDao" class="model.card.CardDaoImpl" p:sqlSession-ref="sqlSessionTemplate" />
+  <bean id="cardService" class="model.card.CardServiceImpl" p:cardDao-ref="cardDao" />
 
-<bean id="photoBookDao" class="model.photobook.PhotoBookDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
-<bean id="photoBookService" class="model.photobook.PhotoBookServiceImpl" p:photoBookDao-ref="photoBookDao"/>
+  <bean id="photoBookDao" class="model.photobook.PhotoBookDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
+  <bean id="photoBookService" class="model.photobook.PhotoBookServiceImpl" p:photoBookDao-ref="photoBookDao"/>
 
-<bean id="postDao" class="model.post.PostDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
-<bean id="postService" class="model.post.PostServiceImpl" p:postDao-ref="postDao"/>
+  <bean id="postDao" class="model.post.PostDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
+  <bean id="postService" class="model.post.PostServiceImpl" p:postDao-ref="postDao"/>
 
-<bean id="reviewCommentDao" class="model.post.ReviewCommentDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
-<bean id="reviewCommentService" class="model.post.ReviewCommentServiceImpl" p:reviewCommentDao-ref="reviewCommentDao"/>
+  <bean id="reviewCommentDao" class="model.post.ReviewCommentDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
+  <bean id="reviewCommentService" class="model.post.ReviewCommentServiceImpl" p:reviewCommentDao-ref="reviewCommentDao"/>
 
 
-<!--Controller 등록  -->
-<bean id="methodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
-	<property name="paramName" value="command"/>
-</bean>
+  <!--Controller 등록  -->
+  <bean id="methodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+    <property name="paramName" value="command"/>
+  </bean>
 
-<bean name="/member.do" class="controller.MemberController">
-	<property name="methodNameResolver" ref="methodNameResolver"/>
-	<property name="memberService" ref="memberService" />
-</bean>
+  <bean name="/member.do" class="controller.MemberController">
+    <property name="methodNameResolver" ref="methodNameResolver"/>
+    <property name="memberService" ref="memberService" />
+  </bean>
 
-<bean name="/card.do" class="controller.CardController">
-   <property name="methodNameResolver" ref="methodNameResolver"/>
-   <property name="cardService" ref="cardService" />
-      <property name="path">
+  <bean name="/card.do" class="controller.CardController">
+    <property name="methodNameResolver" ref="methodNameResolver"/>
+    <property name="cardService" ref="cardService" />
+    <property name="path">
       <value>..\\..\\MSL\\Final_WeddingCard\\src\\main\\webapp\\url\\</value>
-   </property>
-</bean>
+    </property>
+  </bean>
 
-<bean name="/photoBook.do" class="controller.PhotoBookController">
-	<property name="methodNameResolver" ref="methodNameResolver"/>
-	<property name="photoBookService" ref="photoBookService" />
-	<property name="path">
-		<value>..\\..\\MSL\\\Final_WeddingCard\\src\\main\\webapp\\img\\photobook\\</value>
-	</property>
-</bean>
+  <bean name="/photoBook.do" class="controller.PhotoBookController">
+    <property name="methodNameResolver" ref="methodNameResolver"/>
+    <property name="photoBookService" ref="photoBookService" />
+    <property name="path">
+      <!-- <value>..\\..\\MSL\\\Final_WeddingCard\\src\\main\\webapp\\img\\photobook\\</value> -->
+      <!-- FIX HERE -->
+      <value>../img_photobook/</value>
+    </property>
+  </bean>
 
-<bean name="/post.do" class="controller.PostController">
-	<property name="methodNameResolver" ref="methodNameResolver"/>
-	<property name="postService" ref="postService"/>
-</bean>
+  <bean name="/post.do" class="controller.PostController">
+    <property name="methodNameResolver" ref="methodNameResolver"/>
+    <property name="postService" ref="postService"/>
+  </bean>
 
-<bean name="/reviewComment.do" class="controller.ReviewCommentController">
-   <property name="methodNameResolver" ref="methodNameResolver"/>
-   <property name="reviewCommentService" ref="reviewCommentService"/>
-</bean>
+  <bean name="/reviewComment.do" class="controller.ReviewCommentController">
+    <property name="methodNameResolver" ref="methodNameResolver"/>
+    <property name="reviewCommentService" ref="reviewCommentService"/>
+  </bean>
 
-<bean name="downloadView" class="util.DownloadView"/> 
+  <bean name="downloadView" class="util.DownloadView"/> 
 
 </beans>
