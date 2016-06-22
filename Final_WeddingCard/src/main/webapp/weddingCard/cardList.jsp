@@ -6,7 +6,9 @@
 <html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>초대장 보기</title>
+<title>Insert title here</title>
+<style>
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
    content="Nuptials Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -57,13 +59,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	function sendUrl(url){
 		
-		if(confirm("폰번호 "+ '${mvo.phoneNumber}'+"로 url을 전송하시겠습니까?")){
-			xhr = new XMLHttpRequest();
-			xhr.onreadystatechange = Callback;
-			var url = "${initParm.root}card.do?command=sendUrl&&url="+url;
-			xhr.open("get", url);
-			xhr.send(null);
+		var no = document.getElementsByName("cardNo");
+		
+		var count = 0;
+		for(i=0; i<no.length; i++){
+			if(no[i].checked)
+				count++;
 		}
+		
+		if(count != 1){
+			alert("하나 선택해주세요!");
+		}else{
+			if(confirm("폰번호 "+ '${mvo.phoneNumber}'+"로 url을 전송하시겠습니까?")){
+				xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = Callback;
+				var url = "${initParm.root}card.do?command=sendUrl&&url="+url;
+				xhr.open("get", url);
+				xhr.send(null);
+			}
+		}
+		
 	}//sendUrl
 	
 	function Callback() {
@@ -83,17 +98,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			var allCheck = $(this).prop('checked');
 			$('input[name=cardNo]').prop("checked", allCheck);
 			
-			var no = $('input[name=cardNo]:checked');
-			if(no.length == 0){
-				$('#deleteCard').attr('disabled',true);
-				
-			}else{
-				$('#deleteCard').removeAttr('disabled');
-			}
 		});
 		
 		$('#modifyCard').click(function(){
+			var no = $('input[name=cardNo]:checked');
 			
+			if(no.length == 1){
+				alert("수정수정");
+			}else{
+				alert("하나 선택해주세요!	");
+			}
+		
 			
 		});
 		
@@ -101,14 +116,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$('#deleteCard').click(function(){
 			var no = $('input[name=cardNo]:checked');
 			
-			var text = "";
-			no.each(function(index){
-				text += $(this).val()+ " ";
-			});
-			
-			if(confirm("정말 삭제하시겠습니까?")){
-				location.href = "${initParam.root}card.do?command=deleteCard&&cardNo="+text;
+			if(no.length == 0){
+				alert("하나 선택해주세요!	");
+			}else{
+				var cardNo = "";
+				var url = "";
+				
+				no.each(function(index){
+					var datas = $(this).val().split("`");
+					cardNo += datas[0]+ " ";
+					url += datas[1]+ " ";
+				});
+				
+		 		
+				if(confirm("정말 삭제하시겠습니까?")){
+					location.href = "${initParam.root}card.do?command=deleteCard&&cardNo="+cardNo+"&&url="+url;
+				}
 			}
+			
 		});
 	});
 </script>
@@ -160,7 +185,7 @@ transition: 0.5s all;
      <a href="${initParam.root }index.jsp" ><span style="color:#777;">Home</span></a>
     </div>
     
-    	<ul class="nav navbar-nav" style=" margin-left:72%;">
+    	<ul class="nav navbar-nav" style=" margin-left:73%;">
 				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>
 					 <li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
@@ -184,12 +209,9 @@ transition: 0.5s all;
 							          <li><a href="${initParam.root }photoBook.do?command=list">포토북보기</a></li>
 							        </ul>
 							      </li>
-							<li class="lnb_icon5">
-								<a href="javascript:logout()" style="width:100%; padding:14px 15px 15px 0px; ">
-								<span class="glyphicon glyphicon-log-in"></span> 로그아웃</a>
-							</li>
-					
-						</ul>
+							      
+							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->
+							</ul>
   </div>
 </nav>
 	
@@ -218,31 +240,32 @@ transition: 0.5s all;
                <th style="font-size: 20px; width: 20%;">초대장 주소</th>
                <th style="font-size: 20px; width: 10%;">스킨 타입</th>
                <th style="font-size: 20px; width: 30%;">예식</th>
-               <th style="font-size: 20px; width: 10%;">
-               
-                  <input style="width:50px; " type="button" class="btn btn-danger"value="삭제" id="deleteCard" >
-                  </th>
             </tr>
          </thead>
          <tbody>
             <c:forEach items="${cardList}" var="card" varStatus="i">
+            
                <tr align="center" style="font-size: 20px;" >
-                  <td><input type="checkbox" id="cardNo" name="cardNo" value="${card.cardNo}"></td>
+                  <td><input type="checkbox" id="cardNo" name="cardNo" value="${card.cardNo}`${card.url}"></td>
                   <td><a href="./card.do?command=getCard&&url=${card.url }">${card.url}</a></td>
                   <td>${card.template}</td>
                    <c:set var="cDate" value="${fn:split(card.cardDate, ':') }"/>
                   <td>${card.hallName} &nbsp;&nbsp;
                    ${cDate[0]}:${cDate[1]}</td>
-                  <td>
-                  <input style="width:50px;" type="button" class="btn btn-success"value="수정" id="modifyCard" >
-                 <input style="width:80px; " type="button" class="btn btn-info" value="url 전송" id="sendUrl" onclick="sendUrl('${card.url}')">
-				</td>
                </tr>
             </c:forEach>
+            <tr align="right" style="padding-left: 20px;">
+           		<td colspan="4" >
+                  <input style="width:100px; " type="button" class="btn btn-danger" value="삭제" id="deleteCard" >
+                  <input style="width:100px;" type="button" class="btn btn-success" value="수정" id="modifyCard" >
+                 <input style="width:100px; " type="button" class="btn btn-info" value="url 전송" id="sendUrl" onclick="sendUrl('${card.url}')">
+				</td>
+            </tr>
          </tbody>
       </table>
       </div>
-   </div>
+   </div><!-- table -->
+   
 
 
 </body>

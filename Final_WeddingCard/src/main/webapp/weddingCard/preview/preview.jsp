@@ -5,6 +5,28 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<style>
+	.header-top {
+    padding: 0.5em 0;
+	}
+	.header {
+     background: url(../images/banner2.jpg)no-repeat -170px 0px; 
+	background-size:cover;
+	}
+	
+	/* 업로드한 이미지 */
+	.header_select {
+    min-height: 400px;
+	}
+	.header_select-top {
+    padding: 0.5em 0;
+	}
+	.header_select {
+     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat -170px 0px; 
+	background-size:cover;
+	}
+
+</style>
 <title>My Wedding a Wedding Category Flat Bootstrap Responsive  Website Template | Home :: w3layouts</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -23,28 +45,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 
+
+
 <!--header-->
-   <div class="header">
-      <div class="container">
+
+	<c:choose >
+		<c:when test="${param.imgSrc != null && param.imgSrc != ''}">
+		<div class="header_select">
+     		 <div class="container">
                     <script defer src="js/jquery.flexslider.js"></script>
-         <%--    
-         <!-- 타이틀 등  -->
-         <div style="width: 100%; height: 80%; margin-top:30%;">
-         <font size="10"> ${param.cardDate}</font><p>
-           <font size="10"> ${param.hallName}</font><p>
-            <font size="5"> ${param.hallLocation}</font><p>
-            <font size="5">${param.hallTel}</font><p>
-            <p><p>
-         </div> --%>
-         
-         <!-- 상세 정보 등 -->
-        <!--  <div style="border: 1px solid #000; width: 100%; height: 20%;">
-      
-            Directory :: basicSkin.jsp
-         </div> -->
-         
-      </div>
-   </div>
+      		</div>
+   			</div>
+		</c:when>
+		<c:otherwise>
+			<div class="header">
+     		 <div class="container">
+                    <script defer src="js/jquery.flexslider.js"></script>
+      		</div>
+   			</div>
+		</c:otherwise>
+	</c:choose>
+	
+   
    
    <!--  신랑/ 신부 -->
       <div class="content" >

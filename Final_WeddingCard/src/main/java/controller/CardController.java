@@ -15,9 +15,14 @@ import javax.servlet.http.HttpSession;
 
 import model.card.CardService;
 import model.card.CardVO;
+import model.card.CardcommentVO;
 import model.member.MemberVO;
 import model.photobook.PhotoBookVO;
+import model.post.ReviewCommentVO;
 
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
@@ -45,7 +50,7 @@ public class CardController extends MultiActionController {
 			HttpServletResponse response, HttpSession session, CardVO cvo)
 			throws Exception {
 		System.out.println("createCard 컨트롤러");
-
+		System.out.println("cvo::"+cvo);
 		// 청첩장 info
 		String url = cvo.getUrl();
 		String cardDate = cvo.getCardDate();
@@ -68,9 +73,7 @@ public class CardController extends MultiActionController {
 			hour = String.valueOf(hour_int+12);
 		}
 
-		cardDate += " " + hour;
-		cardDate += " " + min;
-		System.out.println("date setting후::" + cardDate);
+		cardDate += " " + hour; cardDate += " " + min;
 		cvo.setCardDate(cardDate);
 		
 		// 신랑 신부 정보
@@ -85,11 +88,29 @@ public class CardController extends MultiActionController {
 			pvo.setBookNo(Integer.parseInt(request.getParameter("photoBookNo")));
 			cvo.setPhotobookVO(pvo);
 		}
-		cardService.createCard(cvo);
-
-		// 생성한 초대장 url
+		
+		String format = "<%@ page language='java' contentType='text/html; charset=UTF-8'\n"
+			    +"pageEncoding='UTF-8' isELIgnored='false'%><%@ taglib prefix='c'\n uri='http://java.sun.com/jsp/jstl/core'%>\n"
+			    +"<%@ taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions' %>"
+			    +"<!DOCTYPE html>\n<html>\n<head>\n<meta charset='UTF-8'>\n<title>Insert title here</title></head>\n<body>\n";
+		
+		// 상단 이미지
+		MultipartFile imgFile = cvo.getImgFile();
 		File file = new File(path + cvo.getUrl() + ".jsp");
 		File file_guestBook = new File(path +"/"+ cvo.getUrl()+"/guestBook.jsp");
+		
+		if(imgFile.getOriginalFilename() != null && imgFile.getOriginalFilename() !=""){//상단이미지 업로드 한경우
+			System.out.println("mainImage Src::"+ imgFile.getOriginalFilename());
+			
+			File tempFile = new File(path + "temp_"+rvo.getMemberId()+"//"+imgFile.getOriginalFilename());
+			File urlFile = new File(path + cvo.getUrl()+"//"+imgFile.getOriginalFilename());
+			
+			// 상단 이미지 업로드시 만들었던 temp 폴더의 이름을 url로 변경
+			if (tempFile.getParentFile().isDirectory()){
+				tempFile.getParentFile().renameTo(urlFile.getParentFile());
+			}
+			cvo.setMainImage(imgFile.getOriginalFilename());	
+		}
 		
 		if (!file.getParentFile().exists())
 			file.getParentFile().mkdirs();
@@ -104,13 +125,9 @@ public class CardController extends MultiActionController {
 		
 		try {
 			
-			String format = "<%@ page language='java' contentType='text/html; charset=UTF-8'\n"
-    +"pageEncoding='UTF-8' isELIgnored='false'%><%@ taglib prefix='c'\n uri='http://java.sun.com/jsp/jstl/core'%>\n"
-    +"<%@ taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions' %>"
-    +"<!DOCTYPE html>\n<html>\n<head>\n<meta charset='UTF-8'>\n<title>Insert title here</title></head>\n<body>\n";
 			
 			bw.write(format);
-			bw.write("<jsp:include page='basicSkin.jsp' flush='true'>\n");
+			bw.write("<jsp:include page='template/basicSkin.jsp' flush='true'>\n");
 			
 			String[] onlyDate = cardDate.split(" "); //년월일만
 			//여기에 정보들 추가하면 됨됨
@@ -130,16 +147,21 @@ public class CardController extends MultiActionController {
 					+ "<jsp:param value='"+request.getParameter("photoBookImg")+"' name='photoBookImg'/>\n"
 					+ "<jsp:param value='"+request.getParameter("photoBookComment")+"' name='photoBookComment'/>\n"
 					+ "<jsp:param value='"+rvo.getMemberId()+"' name='memberId'/>\n"
-					+"</jsp:include>\n");
+					+ "<jsp:param value='"+cvo.getUrl()+"' name='url'/>\n"
+					+ "<jsp:param value='"+cvo.getMainImage()+"' name='imgSrc'/>\n"
+					);
+			//상단 이미지 있는 
 			
-			bw.write("</body>\n</html>\n");//닫는 태그
+			// jsp 닫음
+			bw.write("</jsp:include>\n</body>\n</html>\n");
 			
 			
 			// =====================방명록=======================
 			
 			bw_guestBook.write(format);
-			bw_guestBook.write("<jsp:include page='../guestBookSample.jsp' flush='true'>\n");
-			bw_guestBook.write("</jsp:include>\n");
+			bw_guestBook.write("<jsp:include page='../template/guestBookSample.jsp' flush='true'>\n");
+			bw_guestBook.write("<jsp:param value='"+cvo.getCardNo()+"' name='cardNo'/>\n"
+					+"</jsp:include>\n");
 			bw_guestBook.write("</body>\n</html>\n");//닫는 태그
 			
 			bw_guestBook.close();
@@ -148,10 +170,35 @@ public class CardController extends MultiActionController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		cardService.createCard(cvo);
+
 
 		return new ModelAndView("redirect:/card.do?command=getAllCards");
 	}
 	
+	public ModelAndView uploadImage(HttpServletRequest request,
+			HttpServletResponse response,HttpSession session, CardVO cvo) throws Exception {
+
+		System.out.println("uploadImage controll");
+		
+		System.out.println(cvo);
+		MultipartFile imgFile = cvo.getImgFile();  
+		
+		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+		
+		//  ::: url/temp_회원ID/이미지.jpg  형식
+		File file = new File(path + "temp_"+mvo.getMemberId()+"//"+imgFile.getOriginalFilename());
+		
+		if (!file.getParentFile().exists())// 이미지 저장할 temp 디렉토리 만듬
+			file.getParentFile().mkdirs();
+		
+		// destFile Path에다가 파일 업로드 시킴
+		File destFile = new File(file.getPath());
+		imgFile.transferTo(destFile);
+		
+		return new ModelAndView("JsonView","result",imgFile.getOriginalFilename());
+	}
 	/////////////////////////////////////////////////////////////////
 	public ModelAndView getAllCards(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -165,7 +212,7 @@ public class CardController extends MultiActionController {
 			System.out.println("card목록::" + cardList);
 			return new ModelAndView("weddingCard/cardList", "cardList", cardList);
 		} else {
-			return new ModelAndView("loginregister");
+			return new ModelAndView("login/loginregister");
 		}
 	}
 
@@ -239,18 +286,55 @@ public class CardController extends MultiActionController {
 		return new ModelAndView("JsonView");
 	}
 	
+	
 	public ModelAndView deleteCard(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
 		System.out.println("deleteCard controll");
 		String cardNo = request.getParameter("cardNo");
-		cardNo.trim();
+		String url = request.getParameter("url");
+		cardNo.trim(); url.trim();
 		String[] cardNos = cardNo.split(" ");
+		String[] urls = url.split(" ");
 		
-		for(String c : cardNos){
-			cardService.deleteCard(Integer.parseInt(c));
+		for(int i=0; i< urls.length; i++){
+			//guestBook 삭제
+			File file_guestBook = new File(path +urls[i]+"/guestBook.jsp");
+			System.out.println("파일삭제:"+file_guestBook.delete());
+			if(file_guestBook.getParentFile().isDirectory())
+				System.out.println("dir삭제:"+file_guestBook.getParentFile().delete());
+			
+			// url 삭제
+			File file_url = new File(path +urls[i]+".jsp");
+			System.out.println(file_url.delete());
+			
+			cardService.deleteCard(Integer.parseInt(cardNos[i])); // db에서 삭제
 		}
 		return new ModelAndView("redirect:/card.do?command=getAllCards");
 	}
 	
+	/////////////////////// GuestBook///////////////////////////
+	public ModelAndView linkGuestBook(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		System.out.println("linkGuestBook controll");
+		String url = request.getParameter("url");
+		CardVO cardVO = cardService.getCard(url);
+		
+		List<CardcommentVO> commentList = cardService.getAllCardComments(cardVO.getCardNo());
+		return new ModelAndView("url/"+url+"/guestBook","commentList",commentList);
+	}
+	
+	public ModelAndView writeCardComment(HttpServletRequest request, HttpServletResponse response,
+			HttpSession session, CardcommentVO comvo) throws Exception {
+		System.out.println("writeCardComment 컨트롤러");
+		String url = request.getParameter("url");
+		
+		CardVO cardVO = cardService.getCard(url);
+		comvo.setCardVO(cardVO);
+		System.out.println("vo::"+comvo);
+		cardService.writeCardComment(comvo);
+		
+		return new ModelAndView("redirect:/card.do?command=linkGuestBook&&url="+url);
+	}
 }
