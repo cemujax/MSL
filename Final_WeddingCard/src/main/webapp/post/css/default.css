@@ -22,8 +22,7 @@ body, html { font-size: 100%; padding: 0; margin: 0; }
 body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	color: #fff;
-	background: rgba(255, 0, 0, 0.03);
-	
+	/* background: #e74c3c; */
 }
 
 a {

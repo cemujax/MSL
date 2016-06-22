@@ -49,7 +49,8 @@ input[type="submit"],.btn-primary,.date-tag-right a,.news-grid-right ul li a,.na
 	-moz-background-size:cover;
 	-o-background-size:cover;
 	-ms-background-size:cover;
-	min-height:800px;
+	/* min-height:800px; */
+	min-height:667px;
 	padding:2em 0 0;
 }
 .banner-phone{
@@ -193,6 +194,7 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
 }
 .navbar {
     margin-bottom: 0;
+    margin-top: 120px;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border: none;
@@ -321,7 +323,8 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
 /*-- //banner --*/
 /*-- banner-bottom --*/
 .banner-bottom,.testimonials,.team,.services,.news,.gallery,.contact{
-	padding:5em 0;
+	/* padding:5em 0; */
+	padding: 0.5em 0;
 }
 .banner-bottom h3,.team h3,.services h3,.news h3,.newsletter h3,.gallery h3,.contact h3{
 	text-align:center;
@@ -1273,7 +1276,8 @@ h2.resp-accordion {
 		
 	}
 	.banner {
-		min-height: 740px;
+		/* min-height: 740px; */
+		min-height: 667px;
 	}
 	.nav-tabs > li:nth-child(1) {
 		margin-left: 26em;

@@ -92,8 +92,8 @@
 		<div class="clearfix"> </div>
 			<div class="banner-info animated wow zoomIn" data-wow-delay=".5s">
 				<p>Special Invitation</p>
-			</div>
-			
+				
+					
 			<div class="navigation">
 				<nav class="navbar navbar-default">
 					<!-- Brand and toggle get grouped for better mobile display -->
@@ -141,6 +141,56 @@
 							
 						</nav>
 					</div>
+				
+			</div>
+		<!-- 	
+			<div class="navigation">
+				<nav class="navbar navbar-default">
+					Brand and toggle get grouped for better mobile display
+					<div class="navbar-header">
+					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>
+					</div>
+
+					Collect the nav links, forms, and other content for toggling
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						<nav class="link-effect-14" id="link-effect-14">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="index.jsp"><span>Home</span></a></li>
+								<li><a href="#about" class="scroll"><span>커뮤니티</span></a></li>
+								  <li class="dropdown">
+								  	<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
+							        <ul class="dropdown-menu">
+							          <li><a href="./post.do?command=getAllAnoneQnAs">익명게시판</a></li>
+	          							<li><a href="./post.do?command=getAllQnAs">웨딩 QnA</a></li>
+	          							<li><a href="./reviewComment.do?command=getAllReviewComments">칭찬해요</a></li>
+
+							        </ul>
+							      </li>
+							      
+							      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>
+							        <ul class="dropdown-menu">
+							          <li><a href="weddingCard/weddingCard.jsp">청첩장만들기</a></li>
+							          <li><a href="./card.do?command=getAllCards">청첩장보기</a></li>
+							        </ul>
+							      </li>
+							      
+							       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
+							        <ul class="dropdown-menu">
+							          <li><a href="pbcreate.jsp">포토북만들기</a></li>
+							          <li><a href="photoBook.do?command=list">포토북보기</a></li>
+							        </ul>
+							      </li>
+							      
+								<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li>
+							</ul>
+							
+						</nav>
+					</div> -->
 					<!-- /.navbar-collapse -->
 				</nav>
 			</div>
@@ -154,7 +204,7 @@
 
 
 <!-- banner-bottom -->
-	<div class="banner-bottom" id="about">	
+	<!-- <div class="banner-bottom" id="about">	
 		<div class="container">
 			<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Special Invitation</span></h3>
 			<p class="about-dummy animated wow slideInUp" data-wow-delay=".5s">
@@ -225,14 +275,14 @@
 					</script>
 					<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 		</div>
-	</div>
+	</div> -->
 <!-- //banner-bottom -->
 <!-- gallery -->
 	<div class="gallery" id="gallery">
 		<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Photo Gallery</span></h3>
 		<div class="gallery-grids">
 			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-				<ul id="myTab" class="nav nav-tabs" role="tablist">
+				<ul id="myTab" class="nav nav-tabs" role="tablist" style="margin-left:5%;">
 					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">All</a></li>
 					<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Wedding</a></li>
 					<li role="presentation"><a href="#costumes" role="tab" id="costumes-tab" data-toggle="tab" aria-controls="costumes">Costumes</a></li>
@@ -246,8 +296,8 @@
 								<a href="img_index/13.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/13.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>France adage</h5>
+										<p>무릇 진실로 사랑함은 그 형체가 사랑함이 아니라, <br>그 형체를 주재하는 정신이라.</p>
 									</div>
 								</a>
 							</div>
@@ -255,8 +305,8 @@
 								<a href="img_index/15.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/15.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Saint-Exupéry</h5>
+										<p>사랑은 서로를 마주보는 게 아니라,<br>서로 같은 방향을 바라보는 것이다.</p>
 									</div>
 								</a>
 							</div>
@@ -264,8 +314,8 @@
 								<a href="img_index/16.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/16.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>F-Miller</h5>
+										<p>사랑을 가르쳐 주는 사람은 아무도 없다. <BR>사랑이란 우리의 생명과 같이,<BR> 탄생할 때부터 지니고 태어나는 것이다.</p>
 									</div>
 								</a>
 							</div>
@@ -273,8 +323,8 @@
 								<a href="img_index/17.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/17.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Goethe</h5>
+										<p>20대의 사랑은 환상이다. 30대의 사랑은 외도이다.<br>사람은 40세에 와서야 처음으로 참된 사랑을 알게 된다.</p>
 									</div>
 								</a>
 							</div>
@@ -285,8 +335,8 @@
 								<a href="img_index/18.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/18.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Mounier</h5>
+										<p>말로 하는 사랑은 쉽게 외면할 수 있으나,<br> 행동으로 보여주는 사랑은 저항할 수가 없다.</p>
 									</div>
 								</a>
 							</div>
@@ -294,8 +344,8 @@
 								<a href="img_index/19.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/19.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Russell</h5>
+										<p>사랑이란 인생의 종은 될지언정,<br> 주인이 되어서는 안되는 법이다.</p>
 									</div>
 								</a>
 							</div>
@@ -303,8 +353,8 @@
 								<a href="img_index/20.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/20.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Gandhi</h5>
+										<p>만약 한 사람의 인간이 최고의 사랑을 성취한다면, <br>그것은 수백만의 사람들의 미움을 해소시키는데 충분하다.</p>
 									</div>
 								</a>
 							</div>
@@ -312,8 +362,10 @@
 								<a href="img_index/21.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/21.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<!-- <h5>Byron</h5>
+										<p>남자의 사랑은 그 일생의 일부요, 여자의 사랑은 그 일생의 전부다.</p> -->
+										<h5>Sophocles</h5>
+										<p>낱말 하나가 삶의 모든 무게와 고통에서 <br>우리를 해방시킨다. 그 말은 사랑이다.</p>
 									</div>
 								</a>
 							</div>
@@ -326,8 +378,8 @@
 								<a href="img_index/16.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/16.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Shakespeare</h5>
+										<p>구해서 얻은 사랑은 좋은 것이다. 그러나 구하지 않고 얻은 것은 더욱 좋다.</p>
 									</div>
 								</a>
 							</div>
@@ -335,8 +387,8 @@
 								<a href="img_index/17.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/17.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Shakespeare</h5>
+										<p>사랑은 첫 인상과 함께 시작된다.</p>
 									</div>
 								</a>
 							</div>
@@ -344,8 +396,8 @@
 								<a href="img_index/18.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/18.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Stendhal</h5>
+										<p>정열적으로 사랑을 해보지 못한 사람은 인생의 절반, <br>그것도 아름다운 쪽의 절반을 읽은 것과 같다.</p>
 									</div>
 								</a>
 							</div>
@@ -358,8 +410,8 @@
 								<a href="img_index/20.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/20.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Tennyson</h5>
+										<p>사랑하고 나서 잃는 것은 전혀 사랑하지 않았던 것보다 더 낫다.</p>
 									</div>
 								</a>
 							</div>
@@ -367,8 +419,8 @@
 								<a href="img_index/21.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/21.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Benjamin Disraeli</h5>
+										<p>첫 사랑이 신비로운 것은 우리가 그것이 끝날 수 있다는 것을 모르기 때문이다.</p>
 									</div>
 								</a>
 							</div>
@@ -381,8 +433,8 @@
 								<a href="img_index/13.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/13.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>English Proverb</h5>
+										<p>1년 간의 행복을 위해서는 정원을 가꾸고, <br> 평생의 행복을 원한다면 나무를 심어라.</p>
 									</div>
 								</a>
 							</div>
@@ -390,8 +442,8 @@
 								<a href="img_index/16.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/16.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Sophocles</h5>
+										<p>낱말 하나가 삶의 모든 무게와 고통에서 <br>우리를 해방시킨다. 그 말은 사랑이다.</p>
 									</div>
 								</a>
 							</div>
@@ -399,8 +451,8 @@
 								<a href="img_index/15.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/15.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Edith Wharton</h5>
+										<p>빛을 퍼뜨릴 수 있는 두가지 방법이 있다. <br>촛불이 되거나 또는 그것을 비추는 거울이 되는 것이다.</p>
 									</div>
 								</a>
 							</div>
@@ -413,8 +465,8 @@
 								<a href="img_index/22.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/22.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Helen Keller</h5>
+										<p>세상은 고통으로 가득하지만, <br> 한편 그것을 이겨내는 일로도 가득차있다.</p>
 									</div>
 								</a>
 							</div>
@@ -422,8 +474,8 @@
 								<a href="img_index/23.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/23.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Erica Jong</h5>
+										<p>사랑은 모두가 기대하는 것이다. <br> 사랑은 진정 싸우고, 용기를 내고, 모든 것을 걸 만하다.</p>
 									</div>
 								</a>
 							</div>

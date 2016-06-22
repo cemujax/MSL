@@ -406,8 +406,6 @@ function removeChar(event) {
 	background-color: #080808;
 	color:#fff;
 } 
-
-
 </style>
 
 </head>
@@ -439,8 +437,9 @@ function removeChar(event) {
 			<div class="cont_look">
 				<div class="look_bg"><img src="images/preview_mobile2.png" alt="미리보기화면"><span class="blind">미리보기영역</span></div>
 				<div class="look_input">
-					<iframe src="${initParam.root}/weddingCard/preview/preview.jsp" name="left_skin_preview" id="left_skin_preview" width="40%" height="100%" scrolling="auto" > </iframe>
-				</div>
+					<iframe src="${initParam.root}/weddingCard/preview/preview.jsp" name="left_skin_preview" id="left_skin_preview" width="40%" height="100%" scrolling="auto" ></iframe>
+				<%-- 	<iframe src="${initParam.root}/weddingCard/preview/preview.jsp" name="left_skin_preview" id="left_skin_preview" width="40%" height="100%" scrolling="auto" ></iframe>
+				 --%></div>
 		<!--  ============== 모바일 ============== -->
 		<div class="md-modal md-effect-1" id="modal-1">
 			<div class="md-content">
@@ -546,7 +545,7 @@ function removeChar(event) {
 							required="required">
 						</td>
 						<td>
-							<img src="images/p6.jpg" class="img-rounded" alt="Cinque Terre" width="150" height="120">
+							<img src="images/tabs02.PNG" class="img-rounded" alt="Cinque Terre" width="150" height="120">
 							 <input	type="radio" name="template" id="template" value="basicSkin"
 							required="required">
 						</td>

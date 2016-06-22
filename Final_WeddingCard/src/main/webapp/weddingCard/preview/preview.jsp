@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <i class="glyphicon glyphicon-earphone">${param.brideTel}</i></div>
       </div>
       
-         <div style="border:1px solid #000; text-align: center; margin-top: 5%;">
+         <div style=" text-align: center; margin-top: 5%; height:150px;">
            초대글<br>
      ${param.cardContext}      
             
@@ -203,7 +203,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- ////location -->
             
                <!--indicate-->
-            <div class="indicate">
+          <!--   <div class="indicate">
                <div class="container">
                   <div class="indicate-grids">
                      <div class="col-md-3 indicate-grid">
@@ -221,14 +221,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                      <div class="clearfix"></div>
                   </div>
                </div>
-            </div>
+            </div> -->
          <!--indicate-->
          </div>
          <!--footer-->
       <div class="footer-section">
          <div class="container">
             <div class="footer-top">
-               <p> &copy; 2016 My Wedding . All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+               <!-- <p> &copy; 2016 My Wedding . All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p> -->
+            	<p>MySweetLove</p>
             </div>
          </div>
       </div>
