@@ -8,8 +8,7 @@
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Nuptials Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<meta name="keywords" content="Please be open-source" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
@@ -93,8 +92,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="clearfix"> </div>
 			<div class="banner-info animated wow zoomIn" data-wow-delay=".5s">
 				<p>Special Invitation</p>
-			</div>
-			
+				
+					
 			<div class="navigation">
 				<nav class="navbar navbar-default">
 					<!-- Brand and toggle get grouped for better mobile display -->
@@ -117,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								  	<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
 							        <ul class="dropdown-menu">
 							          <li><a href="./post.do?command=getAllAnoneQnAs">익명게시판</a></li>
-	          							<li><a href="./post.do?command=getAllQnAs">웨딩 QnQ</a></li>
+	          							<li><a href="./post.do?command=getAllQnAs">웨딩 QnA</a></li>
 	          							<li><a href="./reviewComment.do?command=getAllReviewComments">칭찬해요</a></li>
 
 							        </ul>
@@ -132,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							      
 							       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
 							        <ul class="dropdown-menu">
-							          <li><a href="test.jsp">포토북만들기</a></li>
+							          <li><a href="pbcreate.jsp">포토북만들기</a></li>
 							          <li><a href="photoBook.do?command=list">포토북보기</a></li>
 							        </ul>
 							      </li>
@@ -142,6 +141,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							
 						</nav>
 					</div>
+				
+			</div>
+		<!-- 	
+			<div class="navigation">
+				<nav class="navbar navbar-default">
+					Brand and toggle get grouped for better mobile display
+					<div class="navbar-header">
+					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>
+					</div>
+
+					Collect the nav links, forms, and other content for toggling
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						<nav class="link-effect-14" id="link-effect-14">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="index.jsp"><span>Home</span></a></li>
+								<li><a href="#about" class="scroll"><span>커뮤니티</span></a></li>
+								  <li class="dropdown">
+								  	<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
+							        <ul class="dropdown-menu">
+							          <li><a href="./post.do?command=getAllAnoneQnAs">익명게시판</a></li>
+	          							<li><a href="./post.do?command=getAllQnAs">웨딩 QnA</a></li>
+	          							<li><a href="./reviewComment.do?command=getAllReviewComments">칭찬해요</a></li>
+
+							        </ul>
+							      </li>
+							      
+							      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>
+							        <ul class="dropdown-menu">
+							          <li><a href="weddingCard/weddingCard.jsp">청첩장만들기</a></li>
+							          <li><a href="./card.do?command=getAllCards">청첩장보기</a></li>
+							        </ul>
+							      </li>
+							      
+							       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
+							        <ul class="dropdown-menu">
+							          <li><a href="pbcreate.jsp">포토북만들기</a></li>
+							          <li><a href="photoBook.do?command=list">포토북보기</a></li>
+							        </ul>
+							      </li>
+							      
+								<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li>
+							</ul>
+							
+						</nav>
+					</div> -->
 					<!-- /.navbar-collapse -->
 				</nav>
 			</div>
@@ -155,14 +204,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!-- banner-bottom -->
-	<div class="banner-bottom" id="about">	
+	<!-- <div class="banner-bottom" id="about">	
 		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>About Us</span></h3>
-			<p class="about-dummy animated wow slideInUp" data-wow-delay=".5s">Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
-				esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas 
-				nulla pariatur.Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
-				esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas 
-				nulla pariatur.</p>
+			<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Special Invitation</span></h3>
+			<p class="about-dummy animated wow slideInUp" data-wow-delay=".5s">
+				직접 디자인해서 더 특별한 셀프 청첩장,<br>
+				당신의 아름다운 날을 더욱더 빛나게 만드는<br>
+				세상에서 하나뿐인 당신만의 초대장을 함께 준비해보세요<br>
+			</p>
 		</div>
 		<div class="banner-bottom-grids animated wow slideInLeft" data-wow-delay=".5s">
 			<ul id="flexiselDemo1">			
@@ -226,505 +275,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</script>
 					<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 		</div>
-	</div>
+	</div> -->
 <!-- //banner-bottom -->
-<!-- testimonials -->
-	<!-- <div class="testimonials">
-		<div class="container">
-			<div class="col-md-6 testimonials-grid-left">
-				<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Testimonials</span></h3>
-				<p class="testimonials-dummy animated wow slideInUp" data-wow-delay=".5s">Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
-					esse quam nihil molestiae consequatur.</p>
-				<div class="wmuSlider example1 animated wow slideInUp" data-wow-delay=".5s">
-					<div class="wmuSliderWrapper">
-						<article style="position: absolute; width: 100%; opacity: 0;"> 
-							<div class="banner-wrap">
-								<div class="testimonials-grid-left-grids">
-									<div class="testimonials-grid-left-grid">
-										<div class="testimonials-grid-left-grid-left">
-											<img src="images/1.png" alt=" " class="img-responsive" />
-										</div>
-										<div class="testimonials-grid-left-grid-right">
-											<h4>reprehenderit qui in ea voluptate velit 
-													esse quam nihil voluptas nulla pariatur.<i>Bride</i></h4>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<div class="testimonials-grid-left-grid">
-										<div class="testimonials-grid-left-grid-left">
-											<img src="images/2.png" alt=" " class="img-responsive" />
-										</div>
-										<div class="testimonials-grid-left-grid-right">
-											<h4>Neque porro quisquam est, sed quia non numquam eius modi tempora
-											incidunt.<i>Bridegroom</i></h4>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-							</div>
-						</article>
-						<article style="position: absolute; width: 100%; opacity: 0;"> 
-							<div class="banner-wrap">
-								<div class="testimonials-grid-left-grids">
-									<div class="testimonials-grid-left-grid">
-										<div class="testimonials-grid-left-grid-left">
-											<img src="images/4.png" alt=" " class="img-responsive" />
-										</div>
-										<div class="testimonials-grid-left-grid-right">
-											<h4>reprehenderit qui in ea voluptate velit 
-													esse quam nihil voluptas nulla pariatur.<i>Bride</i></h4>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<div class="testimonials-grid-left-grid">
-										<div class="testimonials-grid-left-grid-left">
-											<img src="images/3.png" alt=" " class="img-responsive" />
-										</div>
-										<div class="testimonials-grid-left-grid-right">
-											<h4>Neque porro quisquam est, sed quia non numquam eius modi tempora
-											incidunt.<i>Bridegroom</i></h4>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-							</div>
-						</article>
-					</div>
-				</div>
-						<script src="js/jquery.wmuSlider.js"></script> 
-						<script>
-							$('.example1').wmuSlider();         
-						</script> 
-			</div>
-			<div class="col-md-6 testimonials-grid-right">
-				<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Our Skills</span></h3>
-				<p class="testimonials-dummy animated wow slideInUp" data-wow-delay=".5s">Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
-					esse quam nihil molestiae consequatur.</p>
-				<div class='bar_group'>
-					<div class='bar_group__bar thin' label='Decorations' show_values='true' tooltip='true' value='343'></div>
-					<div class='bar_group__bar thin' label='Orders' show_values='true' tooltip='true' value='235'></div>
-					<div class='bar_group__bar thin' label='Amount' show_values='true' tooltip='true' value='675'></div>
-					<div class='bar_group__bar thin' label='Wedding' show_values='true' tooltip='true' value='456'></div>
-				</div>
-				<script src="js/bars.js"></script>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div> -->
-<!-- //testimonials -->
-
-<!-- services -->
-<!-- 	<div class="services" id="services">
-		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Services</span></h3>
-			<div class="services-grids">
-				<div class="col-md-3 services-grid">
-					<div class="services-grid1">
-						<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-					</div>
-					<div class="bootstrap-pop-up">
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-						  quo voluptas nulla natus
-						</button>
-						Modal
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-							<div class="modal-content">
-							  <div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Nuptials</h4>
-							  </div>
-							  <div class="modal-body">
-								"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-								doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-								inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-								Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-								sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-							  </div>
-							</div>
-						  </div>
-						</div>
-					</div>
-					<p>Totam rem aperiam, eaque ipsa quae ab illo
-						inventore veritatis et beatae vitae dicta sunt.</p>
-				</div>
-				<div class="col-md-3 services-grid">
-					<div class="services-grid1">
-						<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-					</div>
-					<div class="bootstrap-pop-up">
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-						  ipsa quae abillo aperiam
-						</button>
-						Modal
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-							<div class="modal-content">
-							  <div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Nuptials</h4>
-							  </div>
-							  <div class="modal-body">
-								"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-								doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-								inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-								Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-								sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-							  </div>
-							</div>
-						  </div>
-						</div>
-					</div>
-					<p>Totam rem aperiam, eaque ipsa quae ab illo
-						inventore veritatis et beatae vitae dicta sunt.</p>
-				</div>
-				<div class="col-md-3 services-grid">
-					<div class="services-grid1">
-						<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-					</div>
-					<div class="bootstrap-pop-up">
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-						  voluptas sit aspernatur
-						</button>
-						Modal
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-							<div class="modal-content">
-							  <div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Nuptials</h4>
-							  </div>
-							  <div class="modal-body">
-								"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-								doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-								inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-								Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-								sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-							  </div>
-							</div>
-						  </div>
-						</div>
-					</div>
-					<p>Totam rem aperiam, eaque ipsa quae ab illo
-						inventore veritatis et beatae vitae dicta sunt.</p>
-				</div>
-				<div class="col-md-3 services-grid">
-					<div class="services-grid1">
-						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-					</div>
-					<div class="bootstrap-pop-up">
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-						  error sit voluptatem eaque
-						</button>
-						Modal
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-							<div class="modal-content">
-							  <div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Nuptials</h4>
-							  </div>
-							  <div class="modal-body">
-								"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-								doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-								inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-								Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-								sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-							  </div>
-							</div>
-						  </div>
-						</div>
-					</div>
-					<p>Totam rem aperiam, eaque ipsa quae ab illo
-						inventore veritatis et beatae vitae dicta sunt.</p>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-			<div class="services-grids-wedding">
-				<div class="services-grids-wedding1">
-					<div class="services-grids-wedding-left animated wow slideInLeft" data-wow-delay=".5s">
-						<img src="images/5.png" alt=" " class="img-responsive" />
-						<h4>Michael Drew</h4>
-					</div>
-					<div class="services-grids-wedding-right animated wow slideInRight" data-wow-delay=".5s">
-						<img src="images/6.png" alt=" " class="img-responsive" />
-						<h4>Laura Carl</h4>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<h5 class="animated wow slideInUp" data-wow-delay=".5s">We are getting married !</h5>
-				<p class="animated wow slideInUp" data-wow-delay=".5s">4th avenue, Main Cross Road, New York City.</p>
-				<div id="counter"> </div>
-				<script src="js/jquery.countdown.js"></script>
-				<script src="js/script.js"></script>
-			</div>
-		</div>
-	</div>
-//services
-services-bottom
-	<div class="services-bottom">
-		<div class="container">
-			<h2 class="animated wow slideInLeft" data-wow-delay=".5s">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
-				saepe eveniet ut et voluptates repudi.</h2>
-			<p class="animated wow slideInUp" data-wow-delay=".5s">Necessitatibus</p>
-		</div>
-	</div>
-//services-bottom
-news
-	<div class="news" id="events">
-		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>News & Events</span></h3>
-			<div class="news-grids">
-				<div class="col-md-8 news-grid-left">
-					<div class="date-tag">
-						<div class="date-tag-left animated wow slideInLeft" data-wow-delay=".5s">
-							<p>20 April 2016</p>
-						</div>
-						<div class="date-tag-right animated wow slideInLeft" data-wow-delay=".5s">
-							<ul>
-								<li><a href="#"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 5 Tags</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span> Admin</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 5 Messages</a></li>
-							</ul>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="bootstrap-pop-up">
-						<button type="button" class="btn btn-primary btn-primary-news btn-lg" data-toggle="modal" data-target="#myModal">
-						  aspernatur aut odit aut fugit voluptatem quia voluptas
-						</button>
-						Modal
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-							<div class="modal-content">
-							  <div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Nuptials</h4>
-							  </div>
-							  <div class="modal-body">
-								"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-								doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-								inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-								Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-								sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-							  </div>
-							</div>
-						  </div>
-						</div>
-					</div>
-					<div class="bootstrap-pop-up1">
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-						  <img src="images/13.jpg" alt=" " class="img-responsive" />
-						</button>
-						Modal
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-							<div class="modal-content">
-							  <div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Nuptials</h4>
-							  </div>
-							  <div class="modal-body">
-								"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-								doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-								inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-								Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-								sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-							  </div>
-							</div>
-						  </div>
-						</div>
-					</div>
-					<div class="readmore-text">
-						<p class="animated wow slideInLeft" data-wow-delay=".5s">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-							sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-							 Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
-							 saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. 
-							 Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis 
-							 voluptatibus maiores alias consequatur aut perferendis doloribus asperiores 
-							 repellat.</p>
-						<div class="more">
-							<div class="bootstrap-pop-up">
-								<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-								  Learn More...
-								</button>
-								Modal
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								  <div class="modal-dialog" role="document">
-									<div class="modal-content">
-									  <div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										<h4 class="modal-title" id="myModalLabel">Nuptials</h4>
-									  </div>
-									  <div class="modal-body">
-										"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-										doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-										inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-										Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-										sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-									  </div>
-									</div>
-								  </div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 news-grid-right">
-					<h4 class="animated wow zoomIn" data-wow-delay=".5s">Tags</h4>
-					<ul class="animated wow slideInRight" data-wow-delay=".5s">
-						<li><a href="#">Wedding</a></li>
-						<li><a href="#">Rings</a></li>
-						<li><a href="#">Costumes</a></li>
-						<li><a href="#">Dinner</a></li>
-						<li><a href="#">Groomsman</a></li>
-						<li><a href="#">Bridesmaid</a></li>
-						<li><a href="#">Wedding</a></li>
-						<li><a href="#">Rings</a></li>
-						<li><a href="#">Costumes</a></li>
-						<li><a href="#">Dinner</a></li>
-						<li><a href="#">Groomsman</a></li>
-						<li><a href="#">Bridesmaid</a></li>
-						<li><a href="#">Wedding</a></li>
-						<li><a href="#">Rings</a></li>
-						<li><a href="#">Costumes</a></li>
-						<li><a href="#">Dinner</a></li>
-						<li><a href="#">Groomsman</a></li>
-						<li><a href="#">Bridesmaid</a></li>
-					</ul>
-					<div class="blog">
-						<h4 class="animated wow zoomIn" data-wow-delay=".5s"><i>From The </i>Blog</h4>
-						<div class="blog-grids">
-							<div class="blog-grid">
-								<div class="blog-grid-left">
-									<img src="images/3.png" alt=" " class="img-responsive" />
-								</div>
-								<div class="blog-grid-right">
-									<div class="bootstrap-pop-up">
-										<button type="button" class="btn btn-primary btn-primary1 btn-lg" data-toggle="modal" data-target="#myModal">
-										  aspernatur aut odit aut
-										</button>
-										Modal
-										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-										  <div class="modal-dialog" role="document">
-											<div class="modal-content">
-											  <div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-												<h4 class="modal-title" id="myModalLabel">Nuptials</h4>
-											  </div>
-											  <div class="modal-body">
-												"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-												doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-												inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-												Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-												sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-											  </div>
-											</div>
-										  </div>
-										</div>
-									</div>
-									<p>25 April 2016</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="blog-grid">
-								<div class="blog-grid-left">
-									<img src="images/4.png" alt=" " class="img-responsive" />
-								</div>
-								<div class="blog-grid-right">
-									<div class="bootstrap-pop-up">
-										<button type="button" class="btn btn-primary btn-primary1 btn-lg" data-toggle="modal" data-target="#myModal">
-										  veritatis et architecto
-										</button>
-										Modal
-										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-										  <div class="modal-dialog" role="document">
-											<div class="modal-content">
-											  <div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-												<h4 class="modal-title" id="myModalLabel">Nuptials</h4>
-											  </div>
-											  <div class="modal-body">
-												"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-												doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-												inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-												Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-												sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-											  </div>
-											</div>
-										  </div>
-										</div>
-									</div>
-									<p>28 April 2016</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="blog-grid">
-								<div class="blog-grid-left">
-									<img src="images/2.png" alt=" " class="img-responsive" />
-								</div>
-								<div class="blog-grid-right">
-									<div class="bootstrap-pop-up">
-										<button type="button" class="btn btn-primary btn-primary1 btn-lg" data-toggle="modal" data-target="#myModal">
-										  dolores eos qui ratione
-										</button>
-										Modal
-										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-										  <div class="modal-dialog" role="document">
-											<div class="modal-content">
-											  <div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-												<h4 class="modal-title" id="myModalLabel">Nuptials</h4>
-											  </div>
-											  <div class="modal-body">
-												"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-												doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-												inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-												Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-												sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-											  </div>
-											</div>
-										  </div>
-										</div>
-									</div>
-									<p>31 April 2016</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div> -->
-<!-- //news -->
-<!-- newsletter -->
-	<!-- <div class="newsletter">	
-		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Newsletter</span></h3>
-			<div class="newsletter-grids">	
-				<div class="col-md-7 newsletter-grid-left animated wow slideInLeft" data-wow-delay=".5s">
-					<form action="#" method="post">
-						<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-						<input type="submit" value="Subscribe">
-					</form>
-				</div>
-				<div class="col-md-5 newsletter-grid-right animated wow slideInRight" data-wow-delay=".5s">
-					<p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam 
-						vel illum qui dolorem eum fugiat quo volupta.</p>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div> -->
-<!-- //newsletter -->
 <!-- gallery -->
 	<div class="gallery" id="gallery">
 		<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Photo Gallery</span></h3>
 		<div class="gallery-grids">
 			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-				<ul id="myTab" class="nav nav-tabs" role="tablist">
+				<ul id="myTab" class="nav nav-tabs" role="tablist" style="margin-left:5%;">
 					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">All</a></li>
 					<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Wedding</a></li>
 					<li role="presentation"><a href="#costumes" role="tab" id="costumes-tab" data-toggle="tab" aria-controls="costumes">Costumes</a></li>
@@ -738,8 +296,8 @@ news
 								<a href="img_index/13.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/13.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>France adage</h5>
+										<p>무릇 진실로 사랑함은 그 형체가 사랑함이 아니라, <br>그 형체를 주재하는 정신이라.</p>
 									</div>
 								</a>
 							</div>
@@ -747,8 +305,8 @@ news
 								<a href="img_index/15.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/15.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Saint-Exupéry</h5>
+										<p>사랑은 서로를 마주보는 게 아니라,<br>서로 같은 방향을 바라보는 것이다.</p>
 									</div>
 								</a>
 							</div>
@@ -756,8 +314,8 @@ news
 								<a href="img_index/16.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/16.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>F-Miller</h5>
+										<p>사랑을 가르쳐 주는 사람은 아무도 없다. <BR>사랑이란 우리의 생명과 같이,<BR> 탄생할 때부터 지니고 태어나는 것이다.</p>
 									</div>
 								</a>
 							</div>
@@ -765,8 +323,8 @@ news
 								<a href="img_index/17.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/17.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Goethe</h5>
+										<p>20대의 사랑은 환상이다. 30대의 사랑은 외도이다.<br>사람은 40세에 와서야 처음으로 참된 사랑을 알게 된다.</p>
 									</div>
 								</a>
 							</div>
@@ -777,8 +335,8 @@ news
 								<a href="img_index/18.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/18.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Mounier</h5>
+										<p>말로 하는 사랑은 쉽게 외면할 수 있으나,<br> 행동으로 보여주는 사랑은 저항할 수가 없다.</p>
 									</div>
 								</a>
 							</div>
@@ -786,8 +344,8 @@ news
 								<a href="img_index/19.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/19.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Russell</h5>
+										<p>사랑이란 인생의 종은 될지언정,<br> 주인이 되어서는 안되는 법이다.</p>
 									</div>
 								</a>
 							</div>
@@ -795,8 +353,8 @@ news
 								<a href="img_index/20.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/20.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Gandhi</h5>
+										<p>만약 한 사람의 인간이 최고의 사랑을 성취한다면, <br>그것은 수백만의 사람들의 미움을 해소시키는데 충분하다.</p>
 									</div>
 								</a>
 							</div>
@@ -804,8 +362,10 @@ news
 								<a href="img_index/21.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/21.jpg" class="img-responsive" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<!-- <h5>Byron</h5>
+										<p>남자의 사랑은 그 일생의 일부요, 여자의 사랑은 그 일생의 전부다.</p> -->
+										<h5>Sophocles</h5>
+										<p>낱말 하나가 삶의 모든 무게와 고통에서 <br>우리를 해방시킨다. 그 말은 사랑이다.</p>
 									</div>
 								</a>
 							</div>
@@ -818,8 +378,8 @@ news
 								<a href="img_index/16.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/16.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Shakespeare</h5>
+										<p>구해서 얻은 사랑은 좋은 것이다. 그러나 구하지 않고 얻은 것은 더욱 좋다.</p>
 									</div>
 								</a>
 							</div>
@@ -827,8 +387,8 @@ news
 								<a href="img_index/17.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/17.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Shakespeare</h5>
+										<p>사랑은 첫 인상과 함께 시작된다.</p>
 									</div>
 								</a>
 							</div>
@@ -836,8 +396,8 @@ news
 								<a href="img_index/18.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/18.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Stendhal</h5>
+										<p>정열적으로 사랑을 해보지 못한 사람은 인생의 절반, <br>그것도 아름다운 쪽의 절반을 읽은 것과 같다.</p>
 									</div>
 								</a>
 							</div>
@@ -850,8 +410,8 @@ news
 								<a href="img_index/20.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/20.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Tennyson</h5>
+										<p>사랑하고 나서 잃는 것은 전혀 사랑하지 않았던 것보다 더 낫다.</p>
 									</div>
 								</a>
 							</div>
@@ -859,8 +419,8 @@ news
 								<a href="img_index/21.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/21.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Benjamin Disraeli</h5>
+										<p>첫 사랑이 신비로운 것은 우리가 그것이 끝날 수 있다는 것을 모르기 때문이다.</p>
 									</div>
 								</a>
 							</div>
@@ -873,8 +433,8 @@ news
 								<a href="img_index/13.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/13.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>English Proverb</h5>
+										<p>1년 간의 행복을 위해서는 정원을 가꾸고, <br> 평생의 행복을 원한다면 나무를 심어라.</p>
 									</div>
 								</a>
 							</div>
@@ -882,8 +442,8 @@ news
 								<a href="img_index/16.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/16.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Sophocles</h5>
+										<p>낱말 하나가 삶의 모든 무게와 고통에서 <br>우리를 해방시킨다. 그 말은 사랑이다.</p>
 									</div>
 								</a>
 							</div>
@@ -891,8 +451,8 @@ news
 								<a href="img_index/15.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/15.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Edith Wharton</h5>
+										<p>빛을 퍼뜨릴 수 있는 두가지 방법이 있다. <br>촛불이 되거나 또는 그것을 비추는 거울이 되는 것이다.</p>
 									</div>
 								</a>
 							</div>
@@ -905,8 +465,8 @@ news
 								<a href="img_index/22.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/22.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Helen Keller</h5>
+										<p>세상은 고통으로 가득하지만, <br> 한편 그것을 이겨내는 일로도 가득차있다.</p>
 									</div>
 								</a>
 							</div>
@@ -914,8 +474,8 @@ news
 								<a href="img_index/23.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
 									<img src="img_index/23.jpg" class="img-responsive zoom-img" alt=""/>
 									<div class="b-wrapper">
-										<h5>Nuptials</h5>
-										<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+										<h5>Erica Jong</h5>
+										<p>사랑은 모두가 기대하는 것이다. <br> 사랑은 진정 싸우고, 용기를 내고, 모든 것을 걸 만하다.</p>
 									</div>
 								</a>
 							</div>
@@ -991,68 +551,15 @@ news
 				<div class="clearfix"> </div>
 			</div>
 		</div>
+		
+		<div class="footer-pos" style="margin-top:2%;">
+				<a href="#home1" class="scroll"><img src="img_index/7.png" alt=" " class="img-responsive" /></a>
+			</div>
+		
 	</div>
 <!-- //team -->
 
 
-<!-- contact -->
-	<!-- <div class="contact" id="mail">
-		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Mail Us</span></h3>
-			<div class="mail-grids">
-				<div class="col-md-6 mail-grid-left animated wow slideInLeft" data-wow-delay=".5s">
-					<form action="#" method="post">
-						<input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-						<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-						<input type="text" name="Subject" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}" required="">
-						<textarea type="text"  name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-						<input type="submit" value="Submit Now">
-					</form>
-				</div>
-				<div class="col-md-6 mail-grid-right">
-					<div class="get-in animated wow slideInUp" data-wow-delay=".5s">
-						<h4>Get In Touch</h4>
-						<ul>
-							<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+1234 567 891</li>
-							<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+1234 567 892</li>
-						</ul>
-					</div>
-					<div class="get-in animated wow slideInUp" data-wow-delay=".6s">
-						<h4>Where We Are</h4>
-						<ul>
-							<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>4th Avenue, New Building,</li>
-							<li>3rd Cross Road, </li>
-							<li>New York City.</li>
-						</ul>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div> -->
-<!-- //contact -->
-<!-- footer -->
-	<div class="footer">
-		<div class="container">
-			<div class="footer-pos">
-				<a href="#home1" class="scroll"><img src="img_index/7.png" alt=" " class="img-responsive" /></a>
-			</div>
-			<div class="footer-logo">
-				<a href="index.jsp" class="animated wow zoomIn" data-wow-delay=".5s">Nuptials</a>
-				<p class="animated wow slideInUp" data-wow-delay=".5s">we are social</p>
-			</div>
-			<ul class="social-icons animated wow slideInUp" data-wow-delay=".6s">
-				<li><a href="#" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a></li>
-				<li><a href="#" class="icon-button instagram"><i class="icon-instagram"></i><span></span></a></li>
-				<li><a href="#" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a></li>
-				<li><a href="#" class="icon-button g-plus"><i class="icon-g-plus"></i><span></span></a></li>
-			</ul>
-			<div class="copyright">
-				<p class="animated wow slideInLeft" data-wow-delay=".5s">© 2016 Nuptials. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-			</div>
-		</div>
-	</div>
-<!-- //footer -->
 <!-- for bootstrap working -->
 	<script src="js/bootstrap_index.js"></script>
 <!-- //for bootstrap working -->

@@ -7,6 +7,7 @@ var checkFlag;
 /* 
  있는 url / 없는 url인지   */
 function urlCheck() { //Ajax 기술이 사용됨
+  
 	var url = document.getElementById("url").value;
 	xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = callback;
@@ -139,9 +140,23 @@ $(document).ready(function(){
     
 	   $("#tabs").tabs();
 	   
+	   
+	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
+	   $('#template').attr("checked", true);
+	   var sel_template = $('#template').val();
+	   
 	   $('#template').click(function(){
+		   sel_template = ($('input[name=template]:checked').val());
 	  		set_preview();
 	  	});
+	   
+	   $('#template2').click(function(){
+		  // $('#templateType]').val($(this).val());
+		   sel_template = ($('input[name=template]:checked').val());
+	  		set_preview();
+	  	});
+	   
+	   
 	   $( "#datepicker" ).datepicker({showButtonPanel: true,minDate: '0'});
 	   
 	   $( "#datepicker" ).change(function(){
@@ -187,11 +202,8 @@ $(document).ready(function(){
      	set_preview();
       });
 	
-   $('#min').change(function(){
-    	set_preview();
-     });
-   
   $('#cardContext').change(function(){
+	  
   	set_preview();
    });
    
@@ -220,38 +232,52 @@ $(document).ready(function(){
      	set_preview();
       });
    $('#photoBookComment').change(function(){
-   	set_preview();
+   		set_preview();
     });
-	   
+
    
-   $('#uploadImage').change(function(){ 
-   	  //$("form#uploadFrm").submit();
-   	  
-   	  ////////////////
- 		
-   	  var src = $(this).val().split("\\")[2];
-   	  
-   	  alert("ddimage::"+src);
-   	 //$('#frmWeddingCard').attr('target','uploadFrm');
-   	$("#uploadFrm").ajaxSubmit({
-			
-			success : function(data) {
-
-				alert(data.result);
-
-			},
-
-			error : function(error) {
-
-				alert("요청 처리 중 오류가 발생하였습니다.");
-
-			}
-
-		});
-
-		return false;
-
-	});
+   //////////////// 상단 이미지 처리 ////////////////////////
+   
+   $("#sendImage").bind("click", function() {
+   		var form = document.frmWeddingCard;
+   		var formData = new FormData(form);
+   		
+   		if($('#imgFile').val() != null && $('#imgFile').val() != ''){
+   			form.encoding="multipart/form-data"; //파일전송위해 변경
+   		 		
+	          $.ajax({
+	              url: "../card.do?command=uploadImage",
+	              data: formData,
+	              dataType: 'text',
+	              processData: false,
+	              contentType: false,
+	              type: 'POST',
+	              
+	              success: function (response) {
+	            	  // refresh 때문에 다시잡아줘야된다.
+	            	  document.frmWeddingCard.encoding="application/x-www-form-urlencoded";
+	            	 
+	            	  
+	            	  var src =  $('#imgFile').val().split('\\')[2];
+	            	  alert("imgFile::"+src);
+	     		 		$('input[name=imgSrc]').val(src);
+	     		 		
+	 	             alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
+	 	            set_preview();
+	              },
+	              error: function (jqXHR) {
+	                console.log('error');
+	              }
+	            });
+   			
+   			
+   		}else{
+	             alert("이미지를 선택해주세요!");
+   			return false;
+   			
+   		}
+   		
+   	});
    
 		
 		
@@ -279,18 +305,18 @@ $(document).ready(function(){
 			$('#scroll_to_preview').val(md);
 		
 		/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
-		$('#frmWeddingCard').attr('target','left_skin_preview').attr('action','../weddingCard/preview/preview.jsp').submit();
+		$('#frmWeddingCard').attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
 	}	
   
   
   
   //모바일,PC 확대버튼 클릭
   $('#md-mobile').click(function(){
- 	 $('#frmWeddingCard').attr('target','left_skin_preview_mobile').attr('action','../weddingCard/preview/preview.jsp').submit();
+ 	 $('#frmWeddingCard').attr('target','left_skin_preview_mobile').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
   });
   
   $('#md-pc').click(function(){
- 	 $('#frmWeddingCard').attr('target','left_skin_preview_pc').attr('action','../weddingCard/preview/preview.jsp').submit();
+ 	 $('#frmWeddingCard').attr('target','left_skin_preview_pc').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
   });
 
   $('#createCardBtn').click(function(){
@@ -298,7 +324,8 @@ $(document).ready(function(){
  	 alert("전송중");
       var url = document.frmWeddingCard.url.value;
       
-      if(checkFlag){
+      if(checkFlag){//url 사용가능
+    	  document.frmWeddingCard.encoding = "multipart/form-data";
      	 $('#frmWeddingCard').attr('target','frmWeddingCard').attr('action','../card.do?command=createCard').submit();
       }else{
       alert("사용하실 수 없는 URL 입니다.");
@@ -323,6 +350,8 @@ $(document).ready(function(){
 			}
 		}catch(e){}
 	}  
+
+    
 });//ready
 
 

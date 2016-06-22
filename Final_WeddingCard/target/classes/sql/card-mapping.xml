@@ -21,7 +21,7 @@
       <result property="memberVO.memberId" column="member_id" />
       <result property="photobookVO.bookNo" column="book_no" />
       <result property="url" column="url" jdbcType="VARCHAR" />
-      <!-- <result property="mainImage" column="main_image" jdbcType="VARCHAR" /> -->
+      <result property="mainImage" column="main_image"/>
       <result property="cardContext" column="card_context" jdbcType="VARCHAR" />
    </resultMap>
 
@@ -43,7 +43,8 @@
       WHERE member_id = #{value}
    </select>
 
-   <insert id="createCard" parameterType="card">
+   <insert id="createCard" parameterType="card" >
+   
       <selectKey keyProperty="cardNo" resultType="int" order="BEFORE">
          SELECT card_seq.nextVal FROM dual
       </selectKey>
@@ -51,13 +52,13 @@
       INSERT INTO
       card(card_no, template, card_date, hall_name,
       hall_location, hall_tel, groom_info
-      ,bride_info , member_id, book_no, url, card_context)
+      ,bride_info , member_id, book_no, url,main_image, card_context)
       VALUES(#{cardNo}, #{template}, TO_DATE(#{cardDate},'YYYY-MM-DD HH24:MI'),
       #{hallName}, #{hallLocation},
       #{hallTel}, #{groomInfo}, #{brideInfo},
       #{memberVO.memberId},
       #{photobookVO.bookNo},
-      #{url},#{cardContext})
+      #{url}, #{mainImage}, #{cardContext})
       <!--  -->
    </insert>
 
