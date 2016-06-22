@@ -111,7 +111,8 @@
       
       function writeHere1() {
          var doc = document.getElementById("bookComment1");
-         doc.innerHTML= document.getElementById("text1").value;
+         doc.innerHTML= "<p id='bookComment1'>" + document.getElementById("text1").value
+                        +"</P>";
       }
       function writeHere2() {
          var doc = document.getElementById("bookComment2");

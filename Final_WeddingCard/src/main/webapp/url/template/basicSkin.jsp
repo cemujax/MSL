@@ -5,12 +5,13 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<title>My Wedding a Wedding Category Flat Bootstrap Responsive  Website Template | Home :: w3layouts</title>
 <style>
 	.header-top {
     padding: 0.5em 0;
 	}
 	.header {
-     background: url(../images/banner2.jpg)no-repeat -170px 0px; 
+     background: url(${initParam.root}url/images/banner2.jpg)no-repeat -170px 0px; 
 	background-size:cover;
 	}
 	
@@ -22,12 +23,13 @@
     padding: 0.5em 0;
 	}
 	.header_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat -170px 0px; 
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat -170px 0px; 
 	background-size:cover;
 	}
 
 </style>
-<title>My Wedding a Wedding Category Flat Bootstrap Responsive  Website Template | Home :: w3layouts</title>
+
+
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style_d.css" rel="stylesheet" type="text/css" media="all" />
@@ -42,31 +44,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
+
+<script type="text/javascript">
+
+	function writeComment(){
+		
+		location.href= "${initParam.root}card.do?command=linkGuestBook&&url=${param.url}";
+		
+	}
+</script>
+
 </head>
 <body>
 
 
-
-<!--header-->
-
-	<c:choose >
-		<c:when test="${param.imgSrc != null && param.imgSrc != ''}">
-		<div class="header_select">
+<c:if test="${param.imgSrc == 'null' }">
+	<div class="header">
      		 <div class="container">
                     <script defer src="js/jquery.flexslider.js"></script>
       		</div>
    			</div>
-		</c:when>
-		<c:otherwise>
-			<div class="header">
+</c:if>
+
+<c:if test="${param.imgSrc != null && param.imgSrc != ''}">
+	<div class="header_select">
      		 <div class="container">
                     <script defer src="js/jquery.flexslider.js"></script>
       		</div>
    			</div>
-		</c:otherwise>
-	</c:choose>
-	
-   
+</c:if>
    
    <!--  신랑/ 신부 -->
       <div class="content" >
@@ -74,14 +80,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="panel panel-default">
         <div class="panel-body">신랑 &nbsp;${param.groomName}&nbsp;
            <i class="glyphicon glyphicon-earphone">${param.groomTel}</i></div>
-        <div class="panel-body">신부 &nbsp; ${param.brideName}&nbsp;
+        <div class="panel-body">신부 &nbsp;${param.brideName}&nbsp;
         <i class="glyphicon glyphicon-earphone">${param.brideTel}</i></div>
       </div>
       
          <div style="border:1px solid #000; text-align: center; margin-top: 5%;">
-           초대글<br>
-     ${param.cardContext}      
-            
+            소개글<br>
+            ${param.cardContext}
          </div>
       
          <!-- <div style="background-color:rgba(119, 119, 119, 0.25); width:50%; float:left; height: 70px;">
@@ -97,13 +102,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </div>
       
    
+   <div class="guestBook"> 
+      	<h2 align="center">방명록</h2>
+      	<input type="button" name="writeComment" onclick="writeComment()" value="축하글 쓰기">
+      </div>     
    
-    <!--  // 신랑/ 신부 -->
+   
+   
+   
    
    <!-- ############################ photoBook ######################## -->
    <!--header-->
    <div class="content">
-         <c:if test="${param.photoBookNo != null && param.photoBookNo != ''}">
+         <c:if test="${param.photoBookNo != null }">
             <!--about-->
             <div class="about">
                <div class="container">
@@ -117,7 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     
                   <c:forEach begin="0" end="${fn:length(pbImg)-1 }" var="i">
                   <div class="col-md-3 about-grid test1">
-                  <img src="${initParam.root }/img/photobook/${sessionScope.mvo.memberId}/${param.photoBookNo }/${pbImg[i] }" class="img-responsive" alt="/" width="280px">              
+                  <img src="${initParam.root}/img/photobook/${param.memberId}/${param.photoBookNo }/${pbImg[i] }" class="img-responsive" alt="/" width="280px">              
                      <div class="textbox">
                         <!-- <h4>my wedding</h4> -->
                         <p>${pbComment[i]}</p>
@@ -131,6 +142,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          </div>   
          <!--about-->
       </c:if>
+            
+       
             
             <!-- location... -->
                <div class="contents cont_wrap">
@@ -152,7 +165,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                <input type="hidden" id="wedding_pname" value="웨딩홀">
                <div class="lo_info ui-block-b">
                   <dl>
-                     <dt>DATE</dt>
+                    <dt>DATE</dt>
                      <c:if test="${param.cardDate != null}">
                      	 <dd>${param.cardDate} &nbsp; ${param.hour} : ${param.min} &nbsp; ${param.ampm }</dd>
                      	<dd>D-Day :  ${param.dDay }일</dd>
@@ -161,10 +174,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <dl>
                      <dt>ADDRESS</dt>
                      <dd>${param.hallName}</dd>
-                     <dd id="widding_paddr" class="map_initialize">예식장 주소 : ${param.hallLocation}</dd> 
+                     <dd id="widding_paddr" class="map_initialize">예식장 주소 : ${param.hallLocation}</dd>
                   </dl>
                </div>
-               <div id="map" style="width: 100%; height: 350px;">
+               
+                <div id="map" style="width: 100%; height: 350px;">
 
 						<script type="text/javascript"
 							src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services">
@@ -222,6 +236,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                
             </div>
          </div>
+         </div>
             <!-- ////location -->
             
                <!--indicate-->
@@ -245,7 +260,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                </div>
             </div>
          <!--indicate-->
-         </div>
          <!--footer-->
       <div class="footer-section">
          <div class="container">
