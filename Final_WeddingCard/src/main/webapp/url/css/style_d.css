@@ -12,7 +12,7 @@
 .location_wrap    {background-color:#97999D;}
 .location_wrap    {background:url('../img/bg_patt.png') 0 0 repeat,#94979c;}
 .footer           {background-color:#666; padding-top:5px; text-align:center; overflow:hidden;}
-.contents {position:relative; max-width:1024px; margin:0 auto; overflow:hidden; background-color:rgba(202, 148, 127, 0.59);}
+.contents {position:relative; max-width:2000px; margin:0 auto; overflow:hidden; background-color:rgba(202, 148, 127, 0.59);}
 .cont_wrap {padding:2em 1em}
 .cont_sub {margin-top:2em;}
 

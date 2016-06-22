@@ -140,9 +140,23 @@ $(document).ready(function(){
     
 	   $("#tabs").tabs();
 	   
+	   
+	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
+	   $('#template').attr("checked", true);
+	   var sel_template = $('#template').val();
+	   
 	   $('#template').click(function(){
+		   sel_template = ($('input[name=template]:checked').val());
 	  		set_preview();
 	  	});
+	   
+	   $('#template2').click(function(){
+		  // $('#templateType]').val($(this).val());
+		   sel_template = ($('input[name=template]:checked').val());
+	  		set_preview();
+	  	});
+	   
+	   
 	   $( "#datepicker" ).datepicker({showButtonPanel: true,minDate: '0'});
 	   
 	   $( "#datepicker" ).change(function(){
@@ -188,11 +202,8 @@ $(document).ready(function(){
      	set_preview();
       });
 	
-   $('#min').change(function(){
-    	set_preview();
-     });
-   
   $('#cardContext').change(function(){
+	  
   	set_preview();
    });
    
@@ -221,7 +232,7 @@ $(document).ready(function(){
      	set_preview();
       });
    $('#photoBookComment').change(function(){
-   	set_preview();
+   		set_preview();
     });
 
    
@@ -294,18 +305,18 @@ $(document).ready(function(){
 			$('#scroll_to_preview').val(md);
 		
 		/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
-		$('#frmWeddingCard').attr('target','left_skin_preview').attr('action','../weddingCard/preview/preview.jsp').submit();
+		$('#frmWeddingCard').attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
 	}	
   
   
   
   //모바일,PC 확대버튼 클릭
   $('#md-mobile').click(function(){
- 	 $('#frmWeddingCard').attr('target','left_skin_preview_mobile').attr('action','../weddingCard/preview/preview.jsp').submit();
+ 	 $('#frmWeddingCard').attr('target','left_skin_preview_mobile').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
   });
   
   $('#md-pc').click(function(){
- 	 $('#frmWeddingCard').attr('target','left_skin_preview_pc').attr('action','../weddingCard/preview/preview.jsp').submit();
+ 	 $('#frmWeddingCard').attr('target','left_skin_preview_pc').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
   });
 
   $('#createCardBtn').click(function(){

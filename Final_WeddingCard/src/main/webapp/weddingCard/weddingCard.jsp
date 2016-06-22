@@ -109,7 +109,8 @@
 							class="blind">미리보기영역</span>
 					</div>
 					<div class="look_input">
-						<iframe src="${initParam.root}/weddingCard/preview/preview.jsp"
+					<!-- 왼쪽 미리보기 부분 -->
+						<iframe src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
 							name="left_skin_preview" id="left_skin_preview" width="40%"
 							height="100%" scrolling="auto"> </iframe>
 					</div>
@@ -125,7 +126,7 @@
 								<div class="look_input"
 									style="margin-left: 40.5%; margin-top: 5%;">
 
-									<iframe src="preview/preview.jsp"
+									<iframe src="preview_Fall In Love/preview.jsp"
 										name="left_skin_preview_mobile" id="left_skin_preview_mobile"
 										style="width: 320px; height: 570px;" scrolling="auto">
 									</iframe>
@@ -151,7 +152,7 @@
 								tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
 								<div class="look_input"
 									style="width: 90%; height: 80%; margin-left: 4%;">
-									<iframe src="preview/preview.jsp" name="left_skin_preview_pc"
+									<iframe src="preview_Fall In Love/preview.jsp" name="left_skin_preview_pc"
 										id="left_skin_preview_pc" style="" scrolling="auto">
 									</iframe>
 								</div>
@@ -220,74 +221,32 @@
 
 			<!-- style="position: relative;background: rgba(0,0,0,0.5);" -->
 			<div id="tabs-1">
+				<input type="hidden" name="templateType" value="" id="templateType">
 				<table>
 					<tr align="center">
 						<td>
-							<!-- <img alt="" src="images/p2.jpg"
-							style="width: 120px; heigth: 80px; margin: 0px;"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"> --> <img src="images/tabs01.jpg"
-							class="img-rounded" alt="Cinque Terre" width="150" height="120">
+							 <img src="./preview_Fall In Love/images/Fall In Love.jpg"
+							class="img-rounded" width="150" height="120">
 							<input type="radio" name="template" id="template"
-							value="basicSkin" required="required">
+							value="Fall In Love" required="required">
 						</td>
-						<td><img src="images/p6.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
+						<td>
+							 <img src="./preview_Innocent Bride/images/Innocent Bride.jpg"
+							class="img-rounded" width="150" height="120">
+							<input type="radio" name="template" id="template2"
+							value="Innocent Bride" required="required">
+						</td>
 						<td><img src="images/222.jpg" class="img-rounded"
 							alt="Cinque Terre" width="150" height="120"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-
+							type="radio" name="template" id="template3" value="basicSkin"
+							disabled="disabled"></td>
 					</tr>
-					<!--  -->
-					<tr>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-					</tr>
-					<!--  -->
-					<tr>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-					</tr>
-					<!--  -->
-					<tr>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-					</tr>
-
-				</table>
+					
+				</table><p>
+				상단 이미지 :<input style="margin: 2%;" type="file" name="imgFile"
+							id="imgFile" >
+							<input type="hidden" name="imgSrc" value="">
+							<input type="submit" value="이미지 업로드 " id="sendImage">
 			</div>
 
 
@@ -295,14 +254,6 @@
 			<div id="tabs-2">
 				<img alt="" src="images/111.png"
 					style="width: 100%; margin-bottom: 10%; margin-top: 5%; height: 290px;">
-
-
-				 <%-- <jsp:include page="weddingCard_upload.jsp"></jsp:include> --%>
-				상단 이미지 :<input style="margin: 2%;" type="file" name="imgFile"
-			id="imgFile" >
-			<input type="hidden" name="imgSrc" value="">
-			<input type="submit" value="이미지 업로드 " id="sendImage">
-				
 
 				신랑이름 : <input style="margin: 2%;" type="text" id="groomName"
 					name="groomName" ><br> 
@@ -405,7 +356,9 @@
 
 						<script
 							src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
-						<script src="./js/map.js"></script>
+						<script 
+						
+						src="./js/map.js"></script>
 					</div>
 					<!-- map  -->
 				</div>
@@ -420,8 +373,6 @@
 		</div>
 		<!-- tabs -->
 	</form>
-	
-			
 	
 </body>
 </html>
