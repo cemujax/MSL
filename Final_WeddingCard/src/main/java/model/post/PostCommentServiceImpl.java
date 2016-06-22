@@ -16,11 +16,15 @@ public class PostCommentServiceImpl implements PostCommentService{
 		postCommentDao.modifyComment(pcvo);
 	}
 
-	public void deleteComment(int commentNo) {
+	public void deleteComment(String commentNo) {
 		postCommentDao.deleteComment(commentNo);
 	}
+	
+	public PostCommentVO getCommentByNo(String commentNo) {
+		return postCommentDao.getCommentByNo(commentNo);
+	}
 
-	public List<PostCommentVO> getCommentList(int postNo) {
+	public List<PostCommentVO> getCommentList(String postNo) {
 		return postCommentDao.getCommentList(postNo);
 	}
 

@@ -35,6 +35,7 @@
 	<mappers>
 		<mapper resource="sql/member-mapping.xml"/>
 		<mapper resource="sql/post-mapping.xml"/>
+		<mapper resource="sql/postcomment-mapping.xml"/>
 		<mapper resource="sql/photobook-mapping.xml"/>
 		<mapper resource="sql/card-mapping.xml"/>
 		<mapper resource="sql/review-mapping.xml"/>

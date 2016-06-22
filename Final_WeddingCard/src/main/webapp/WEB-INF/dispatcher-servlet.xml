@@ -53,8 +53,14 @@
 <bean id="photoBookDao" class="model.photobook.PhotoBookDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
 <bean id="photoBookService" class="model.photobook.PhotoBookServiceImpl" p:photoBookDao-ref="photoBookDao"/>
 
+<bean id="postCommentDao" class="model.post.PostCommentDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
+<bean id="postCommentService" class="model.post.PostCommentServiceImpl" p:postCommentDao-ref="postCommentDao"/>
+
 <bean id="postDao" class="model.post.PostDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
-<bean id="postService" class="model.post.PostServiceImpl" p:postDao-ref="postDao"/>
+<bean id="postService" class="model.post.PostServiceImpl" 
+	p:postDao-ref="postDao"
+	p:postCommentService-ref="postCommentService"
+/>
 
 <bean id="reviewCommentDao" class="model.post.ReviewCommentDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
 <bean id="reviewCommentService" class="model.post.ReviewCommentServiceImpl" p:reviewCommentDao-ref="reviewCommentDao"/>
@@ -89,6 +95,11 @@
 <bean name="/post.do" class="controller.PostController">
 	<property name="methodNameResolver" ref="methodNameResolver"/>
 	<property name="postService" ref="postService"/>
+</bean>
+
+<bean name="/comment.do" class="controller.PostCommentController">
+	<property name="methodNameResolver" ref="methodNameResolver"/>
+	<property name="postCommentService" ref="postCommentService"/>
 </bean>
 
 <bean name="/reviewComment.do" class="controller.ReviewCommentController">
