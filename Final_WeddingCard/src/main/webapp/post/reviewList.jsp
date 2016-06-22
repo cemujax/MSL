@@ -28,6 +28,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <style type="text/css">
+/* 	.applyImage{
+		background-image: url("http://previews.123rf.com/images/aleksangel/aleksangel1205/aleksangel120500020/13753847-paper-notice-with-pin-on-wooden-plate-isolated-on-white-background-Transparent-objects-and-opacity-m-Stock-Vector.jpg");
+		background-repeat: repeat;
+	} */
    body table{
    margin: 0px;
    margin-left: auto;
@@ -39,9 +43,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    text-align: center;
       
    }
-   table tr:HOVER{
+/*    table tr:HOVER{
    background-color: pink;
-   }
+   } */
    th{
    	text-align: center;
    }
@@ -100,44 +104,71 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 <!-- //메뉴바 -->
 
-<h2 align="center">칭찬해요</h2><p>
-
 
 <!-- 새로운 리뷰 작성 폼 시작 -->
-<div align="center">
-<c:if test="${sessionScope.mvo!=null}">
-<form action="./reviewComment.do" method="post">
-<input type="hidden" name="command" value="writeReviewComment">
-작성자 :: <input type="text" name="name" value="${mvo.name}" readonly="readonly">
-content :: <input type="text" name="content">
-<input type="submit" value="작성하기">
-</form>
-</c:if>
-</div>
+<!-- <div class="applyImage"> -->
 
+<div class="container" style="background-image: url('http://www.asrgo.com/files/attach/images/8131/356/059/w-19.jpg'); width: 100%; height: 300px; ">
+<h2 class="margin-top-0 wow fadeIn" align="center" style="margin-top: 150px;">칭찬해요</h2>
+</div>
+<br><br>
+ <!-- <section id="last" style="padding-left: 100px; padding-right: 100px;"> -->
+  <section id="last" >
+        <div class="container">
+        <div class="jumbotron" >
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <hr class="primary">
+                    <p> 사용 후기를 남겨주세요</p>
+                    <p> 등록된 내용은 수정/삭제가 불가능합니다.</p>
+                </div>
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <form class="contact-form row" action="./reviewComment.do" method="post">
+                	    <input type="hidden" name="command" value="writeReviewComment">
+                        <div class="col-md-4">
+                            <label></label>
+                            <input type="text" name="name" value="${mvo.name}" readonly="readonly" class="form-control">
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">
+                            <label></label>
+                            <input type="submit" value="submit" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg"><i class="ion-android-arrow-forward"></i>
+                        </div>
+                      
+                        <div class="col-md-12">
+                            <label></label>
+                            <textarea class="form-control" rows="9" placeholder="Your message here.." name="content"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    
+    
 <!-- 새로운 리뷰 작성 폼 끝 -->
 
-<table class="table">
-<thead>
-	<tr>
-		<th>내용</th>
-		<th>작성자</th>
-		<th>작성일</th>
-	</tr>
-</thead>	
 	<c:forEach items="${reviewList}" var="review" >
-		<tr>
-			<%-- <td><a href="${initParam.root}reviewComment.do?command=getQnA&&postNo=${post.postNo}">${post.content}</a></td> --%>
-			<td>${review.content}</td>
-			<td>${review.memberVO.memberId}</td>
-			<td>${review.writeDate}</td>
-		</tr>
+<div class="container">
+<div class="jumbotron" >
+
+	${review.memberVO.memberId} &nbsp;
+	${review.writeDate}
+
+<hr>
+
+
+			${review.content}
+
+</div>
+</div>
 	</c:forEach>
-</table><p>
+<!-- </table><p></p> -->
 <div align="center">
 <a href="${initParam.root }index.jsp" >메인으로</a><p>
 </div>
 
+<!-- </div> -->
 
 
 </body>
