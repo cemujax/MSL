@@ -1,0 +1,29 @@
+th{
+    width: 33%;
+    padding: 20px;
+    text-align: center;
+}
+
+td{
+    padding: 20px;
+    text-align: center;
+}
+
+.block-left { float: left; }
+.block-right { float: right; }
+.block-center { float: center; }
+
+
+
+table{
+    width: 100%;
+    border-collapse:collapse;
+    
+}
+
+
+
+table-hover > tbody > tr.select-row:hover > td,
+.select-row > td {
+    background-color: #ffffff;
+}    
