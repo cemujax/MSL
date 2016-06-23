@@ -125,6 +125,8 @@ public class PostController extends MultiActionController{
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
 		System.out.println(postNo);
 		PostVO rpvo = postService.getPostByNo(postNo);
+
+		request.setAttribute("commentList", postService.getCommentList(postNo+ ""));
 		
 		return new ModelAndView("post/postAnoneQna", "pvo", rpvo);
 	}

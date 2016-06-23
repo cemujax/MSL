@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 <c:if test="${sessionScope.mvo == NULL }">
-	<c:redirect url="${initParam.root }login/loginregister.jsp"/>
+	<c:redirect url="login/loginregister.jsp"/>
 </c:if>
  
    <!-- 메뉴바 -->
@@ -184,7 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<%-- 			<a href="${initParam.root }index.jsp">메인으로</a> --%>
 
 			<c:if test="${sessionScope.mvo!=null}">
-				<a href="postAnoneQnaWrite.jsp"><input style="width: 100px;"
+				<a href="post/postAnoneQnaWrite.jsp"><input style="width: 100px;"
 					type="button" class="btn btn-success" style="margin-right:30%;"value="글쓰기"
 					id="writeCard"></a>
 				<p>

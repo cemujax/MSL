@@ -14,7 +14,7 @@
 	</resultMap>
 	
 	<sql id="post-select">
-		SELECT post_no, title, content, write_date, kind, member_id
+		SELECT post_no, title, content, TO_CHAR(write_date, 'YYYY-MM-DD') write_date, kind, member_id
 		FROM post
 	</sql>
 	
@@ -46,7 +46,7 @@
 	<select id="getPostList" parameterType="hashmap" resultMap="postRM">
 		SELECT post_no, title, content, write_date, kind, member_id
 		FROM (
-			SELECT post_no, title, content, write_date, kind, member_id, CEIL(rownum/5) page
+			SELECT post_no, title, content, TO_CHAR(write_date, 'YYYY-MM-DD') write_date, kind, member_id, CEIL(rownum/5) page
 			FROM post
 			WHERE kind = #{kind} 
 			ORDER BY post_no DESC

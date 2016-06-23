@@ -19,12 +19,44 @@ public class PostCommentController extends MultiActionController{
 		this.postCommentService = postCommentService;
 	}
 
-	public ModelAndView write(HttpServletRequest request, HttpServletResponse response,
+	/*public ModelAndView write(HttpServletRequest request, HttpServletResponse response,
 							HttpSession session, PostCommentVO pcvo) throws Exception {
 		MemberVO mvo = new MemberVO();
 		mvo.setMemberId(((MemberVO) session.getAttribute("mvo")).getMemberId());
 		PostVO pvo = new PostVO();
-		pvo.setPostNo(Integer.parseInt(request.getParameter("pno")));
+		pvo.setPostNo(Integer.parseInt(request.getParameter("postNo")));
+
+		pcvo.setMemberVO(mvo);
+		pcvo.setPostVO(pvo);
+
+		postCommentService.writeComment(pcvo);
+
+		return new ModelAndView("redirect:/post/postAnoneQna.jsp");
+	} // write
+
+	public ModelAndView update(HttpServletRequest request,
+							HttpServletResponse response, PostCommentVO pcvo) throws Exception {
+		postCommentService.modifyComment(pcvo);
+
+		return new ModelAndView("redirect:/post/postComment.jsp");
+	} // update
+
+	public ModelAndView delete(HttpServletRequest request,
+							HttpServletResponse response, PostCommentVO pcvo) throws Exception {
+		String commentNo = request.getParameter("commentNo");
+
+		postCommentService.deleteComment(commentNo);
+
+		return new ModelAndView("redirect:/post/postComment.jsp");
+	} // delete
+*/	
+	//////////////// ajax
+	public ModelAndView writeAjax(HttpServletRequest request, HttpServletResponse response,
+							HttpSession session, PostCommentVO pcvo) throws Exception {
+		MemberVO mvo = new MemberVO();
+		mvo.setMemberId(((MemberVO) session.getAttribute("mvo")).getMemberId());
+		PostVO pvo = new PostVO();
+		pvo.setPostNo(Integer.parseInt(request.getParameter("postNo")));
 		
 		pcvo.setMemberVO(mvo);
 		pcvo.setPostVO(pvo);
@@ -32,23 +64,23 @@ public class PostCommentController extends MultiActionController{
 		postCommentService.writeComment(pcvo);
 		
 		return new ModelAndView("JsonView", "pcvo", postCommentService.getCommentByNo(pcvo.getCommentNo()+ ""));
-	} // write
+	} // writeAjax
 	
-	public ModelAndView update(HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView updateAjax(HttpServletRequest request, HttpServletResponse response,
 							PostCommentVO pcvo) throws Exception {
 		postCommentService.modifyComment(pcvo);
 		
 		return new ModelAndView("JsonView", "pcvo", pcvo);
-	} // update
+	} // updateAjax
 	
-	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView deleteAjax(HttpServletRequest request, HttpServletResponse response,
 							PostCommentVO pcvo) throws Exception {
 		String commentNo = request.getParameter("commentNo");
 		
 		postCommentService.deleteComment(commentNo);
 
 		return new ModelAndView("JsonView", "commentNo", commentNo);
-	} // delete
+	} // deleteAjax
 	
 	public ModelAndView detail(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String cno = request.getParameter("cno");
@@ -61,4 +93,5 @@ public class PostCommentController extends MultiActionController{
 		
 		return new ModelAndView("JsonView", "commentList", postCommentService.getCommentList(pno));
 	} // list
+	
 }

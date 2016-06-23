@@ -7,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-
 	function deleteQnA() {
 
 		if(confirm("정말 삭제하시겠습니까?")){
@@ -23,6 +22,7 @@
 		}
 	}
 	
+
 </script>
 </head>
 <body>
@@ -67,5 +67,10 @@
 			</td>
 		</tr>
 	</table>	
+
+<!-- ===================== Comment Start ================= -->
+<jsp:include page="postComment.jsp"/>
+<!-- ===================== Comment End ================= -->
+	
 </body>
 </html>
