@@ -159,7 +159,7 @@ public class CardController extends MultiActionController {
 			// =====================방명록=======================
 			
 			bw_guestBook.write(format);
-			bw_guestBook.write("<jsp:include page='../template/guestBookSample.jsp' flush='true'>\n");
+			bw_guestBook.write("<jsp:include page='template/guestBookSample.jsp' flush='true'>\n");
 			bw_guestBook.write("<jsp:param value='"+cvo.getCardNo()+"' name='cardNo'/>\n"
 					+"</jsp:include>\n");
 			bw_guestBook.write("</body>\n</html>\n");//닫는 태그
