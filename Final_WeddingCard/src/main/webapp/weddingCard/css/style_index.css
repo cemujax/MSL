@@ -193,6 +193,7 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
 }
 .navbar {
     margin-bottom: 0;
+    height: 10px;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border: none;
@@ -1278,6 +1279,7 @@ h2.resp-accordion {
 	.nav-tabs > li:nth-child(1) {
 		margin-left: 26em;
 	}
+	
 }
 @media (max-width: 1280px){
 	.services-bottom {
@@ -1569,6 +1571,8 @@ h2.resp-accordion {
 	.map iframe {
 		min-height: 300px;
 	}
+	
+	
 }
 @media (max-width:767px){
 	.navbar-default .navbar-toggle {
@@ -1589,7 +1593,7 @@ h2.resp-accordion {
 	}
 	.navbar-nav {
 		margin: 1em 0 0;
-		background: #525252;
+		background: #f8f8f8;
 		text-align: center;
 		padding:1em 0;
 	}
@@ -2257,5 +2261,9 @@ h2.resp-accordion {
 	}
 	.services-grids {
 		margin: 2em 0;
+	}
+	
+	.navbar{
+		width:20px;
 	}
 }

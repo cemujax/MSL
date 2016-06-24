@@ -66,13 +66,19 @@
 				<p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+0000 123 456</p>
 			</div>
 			
-			<div class="logo animated wow zoomIn" data-wow-delay=".5s">
-				<h2><a href="index.jsp"><span></span>MySweetLove</a></h2>
+			<div class="banner-phone animated wow slideInRight" data-wow-delay=".5s" style="float: right;">
+				<c:choose>
+						<c:when test="${sessionScope.mvo==null}">
+						<p><a href="login/loginregister.jsp" style="margin-right:15px;"><span class="glyphicon glyphicon-log-in" ></span><font size="2" color="#fff"> Login</font></a><!-- #F15F5F -->
+				     	<a href="login/loginregister.jsp" style="margin-left:0px; padding-left:0px;"><span class="glyphicon glyphicon-user"></span><font size="2" color="#fff"> Sign Up</font></a></p><!-- #45CBBF -->
+				      	</c:when>
+				      <c:otherwise>
+				      <p><a href="javascript:logout()"><span class="glyphicon glyphicon-log-in"></span><font size="2" color="#fff"> Logout</font></a></p>
+				      </c:otherwise>
+				      	</c:choose>
+				      	
 			</div>
-			
-			<div class="banner-social animated wow slideInRight" data-wow-delay=".5s">
-			<div class="navigation" >
-				<nav class="navbar navbar-default" style="margin-top:2%;" >
+			<%-- 	<nav class="navbar navbar-default" >
 				  <ul class="nav navbar-nav navbar-right">
 				     <c:choose>
 						<c:when test="${sessionScope.mvo==null}">
@@ -84,10 +90,21 @@
 				      </c:otherwise>
 				      	</c:choose>
 				   </ul>
-		    </nav>
-   		</div>
-    </div>
+		    </nav> --%>
 			
+			
+		<!-- <div class="banner-social animated wow slideInRight" data-wow-delay=".5s">
+			<div class="navigation" >
+				
+   		</div>
+    </div> -->
+			
+			
+			<div class="logo animated wow zoomIn" data-wow-delay=".5s">
+				<h2><a href="index.jsp"><span></span>MySweetLove</a></h2>
+			</div>
+			
+	
 			
 		<div class="clearfix"> </div>
 			<div class="banner-info animated wow zoomIn" data-wow-delay=".5s">

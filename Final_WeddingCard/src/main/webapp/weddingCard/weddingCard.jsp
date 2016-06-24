@@ -21,7 +21,9 @@
 <!-- <link href="css/bootstrap-responsive.css" rel="stylesheet"> -->
 
 <link rel="stylesheet"
-	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"><!-- http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/ -->
+<link rel="stylesheet"
+	href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/jquery-ui.css" />
 <link rel="stylesheet" href="css/uploadifive.css" />
 <link rel="stylesheet" href="css/jquery.cropbox.custom.css" />
@@ -67,6 +69,33 @@
 
 
 <!-- 우리꺼 -->
+<script type="text/javascript">
+function pbCallback() {
+	if (xhr.readyState == 4) {
+		if (xhr.status == 200) {
+			var jsonData = JSON.parse(xhr.responseText);
+			var pb = "";
+
+			for (var i = 0; i < jsonData.pbList.length; i++) {
+				pb += "<li class='col-lg-3 col-sm-4 col-xs-6' >"
+						+ "<a onclick='chooseBook("
+						+ jsonData.pbList[i].bookNo
+						+ ")'>"
+						/* + "<img src='http://www.freeiconspng.com/uploads/vector-book-icon-vector-graphic--creattor-7.jpg' alt='Barca' class='img-responsive' height='130px' />" */         
+						+ "<img src='"+ '../'+ "img\\photobook\\"+ '${mvo.memberId}'+ "\\"+ jsonData.pbList[i].bookNo+ "\\"+ jsonData.pbList[i].fileName.split('`')[0]+ "' alt='photo' class='img-responsive' height='130px' />"       
+						+ jsonData.pbList[i].bookName
+						/* + "<span class='glyphicon glyphicon-share-alt' ></span>" */
+						+ "<span class='duration'>" + i + "</span>"
+						+ "</a></li>";
+			}
+
+			document.getElementById("pbList-tab").innerHTML = pb;
+		}
+	}
+} // pbCallback
+
+
+</script>
 <script src="./js/weddingCard.js"></script>
 
 </head>
@@ -82,17 +111,10 @@
 			<div class="navbar-header">
 				<a class="navbar-brand" href="../index.jsp" style="color: #777;">Home</a>
 			</div>
-			<ul class="nav navbar-nav" style="margin-left: 82%;">
-				<li
-					style="padding-bottom: 17px; padding-right: 8px; padding-left: 8px;"><a
-					href="../card.do?command=getAllCards"
-					style="padding: 0px; width: 100%; margin: 10px 0px 0px 0px; padding-top: 3px;"><span
-						style="padding: 5px 12px 12px 10px;">청첩장보기</span></a></li>
-				<li
-					style="padding-top: 3px; padding-bottom: 12px; padding-right: 8px; padding-left: 8px;"
-					class="lnb_icon5"><a href="javascript:logout()"
-					style="padding: 0px; width: 100%; margin: 10px 0px 0px 0px; padding-bottom: 5px; padding: 0px 5px 5px 0px;"><span
-						class="glyphicon glyphicon-log-in"></span> 로그아웃</a></li>
+			<ul class="nav navbar-nav" ><!-- style="margin-left: 82%;" -->
+				<li><a href="../card.do?command=getAllCards">청첩장보기</a></li>
+				<li class="lnb_icon5"><a href="javascript:logout()" style="padding-bottom: 5px;">
+				<span class="glyphicon glyphicon-log-in"></span> 로그아웃</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -110,8 +132,9 @@
 					</div>
 					<div class="look_input">
 						<iframe src="${initParam.root}/weddingCard/preview/preview.jsp"
-							name="left_skin_preview" id="left_skin_preview" width="40%"
-							height="100%" scrolling="auto"> </iframe>
+							name="left_skin_preview" id="left_skin_preview" scrolling="auto"> </iframe>
+						<!-- width="40%"
+							height="100%" -->
 					</div>
 					<!--  ============== 모바일 ============== -->
 					<div class="md-modal md-effect-1" id="modal-1">
@@ -119,15 +142,18 @@
 							<div class="cont_preview mobile" id="cont_preview">
 
 								<div class="look_bg">
-									<img src="images/preview_mobile2.png" alt="미리보기화면"
-										style="width: 370px; height: 740px; margin-left: 40%; margin-top: 5%;">
+								<img src="images/preview_mobile2.png" alt="미리보기화면" 
+								style="width: 250px;height: 500px;margin-left: 40%;margin-top: 15%;">
+								
+								
 								</div>
 								<div class="look_input"
-									style="margin-left: 40.5%; margin-top: 5%;">
+									style="margin-left: 40.5%; margin-top: 9%;">
 
 									<iframe src="preview/preview.jsp"
 										name="left_skin_preview_mobile" id="left_skin_preview_mobile"
 										style="width: 320px; height: 570px;" scrolling="auto">
+										
 									</iframe>
 								</div>
 								<button class="md-close"
@@ -137,11 +163,10 @@
 						</div>
 					</div>
 
-					<div class="column"
-						style="padding: 0px 0px 0px 0px; margin-left: 25%; margin-top: 2%; width: 30%;">
-						<button class="md-trigger mobile" id="md-mobile"
-							data-modal="modal-1"
-							style="margin-left: 0px; background-color: #ff752f; font-color: #fff; border-radius: 10px;">PHONE</button>
+					<div class="column">
+						<button class="md-trigger mobile" id="md-mobile" 
+						style="background-color: #ff752f; border-radius: 10px;"
+							data-modal="modal-1">PHONE</button>
 					</div>
 
 					<!--  ============== PC ============== -->
@@ -150,23 +175,24 @@
 							<div data-role="page" id="skin_page" data-url="skin_page"
 								tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
 								<div class="look_input"
-									style="width: 90%; height: 80%; margin-left: 4%;">
+									style="width: 90%; height: 60%;margin-left: 4%;margin-top: 3%;">
+									    
 									<iframe src="preview/preview.jsp" name="left_skin_preview_pc"
 										id="left_skin_preview_pc" style="" scrolling="auto">
 									</iframe>
 								</div>
 								<button class="md-close"
-									style="margin-top: 880px; background-color: #ff752f;">Close
+									style="margin-top: 770px; background-color: #ff752f;">Close
 									me!</button>
 							</div>
 
 						</div>
 					</div>
 
-					<div class="column"
-						style="padding: 0px 0px 0px 0px; margin-top: 2%; width: 30%;">
+					<div class="column">
 						<button class="md-trigger" id="md-pc" data-modal="modal-2"
-							style="margin-left: 0px; background-color: /* #ff7f00 */ #ff752f; font-color: #fff; border-radius: 10px;">PC</button>
+						style="background-color: #ff752f; border-radius: 10px;"
+							>PC</button>
 					</div>
 
 				</div>
@@ -192,28 +218,28 @@
 		<!-- Tab 영역 include  -->
 
 
-		<div id="tabs" style="width: 30%; margin-left: 70%; height: 800px;">
-			<ul style="width: 80%; margin-left: 10%; padding-left: 2%;">
+		<div id="tabs" ><!-- style="width: 30%; margin-left: 70%; height: 800px;" -->
+			<ul ><!-- style="width: 80%; margin-left: 10%; padding-left: 2%;" -->
 
 				<li><a href="#tabs-1"> <span> <i
 							class="fa fa-calendar-check-o"
-							style="font-size: 36px; margin-left: 20%;"></i>
-					</span><br> <font size="3">스킨선택</font>
+							></i><!-- style="font-size: 36px; margin-left: 20%;" -->
+					</span><br><font size="1">스킨선택</font>
 				</a></li>
 
 				<li><a href="#tabs-2"> <span> <i class="fa fa-list"
-							style="font-size: 36px; margin-left: 20%;"></i>
-					</span><br> <font size="3">신랑신부</font>
+							></i>
+					</span><br> <font size="1">신랑신부</font>
 				</a></li>
 
 				<li><a href="#tabs-3" onclick="photoBookAjax()"> <span>
-							<i class="fa fa-list" style="font-size: 36px; margin-left: 20%;"></i>
-					</span><br> <font size="3">&nbsp;포토북&nbsp;</font>
+							<i class="fa fa-list"></i>
+					</span><br> <font size="1">&nbsp;포토북&nbsp;</font>
 				</a></li>
 
 				<li><a href="#tabs-4"> <span> <i class="fa fa-bars"
-							style="font-size: 36px; margin-left: 20%;"></i>
-					</span><br> <font size="3">&nbsp;예식장&nbsp;</font>
+							></i>
+					</span><br> <font size="1">&nbsp;예식장&nbsp;</font>
 				</a></li>
 
 			</ul>
@@ -227,16 +253,17 @@
 							style="width: 120px; heigth: 80px; margin: 0px;"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"> --> <img src="images/tabs01.jpg"
-							class="img-rounded" alt="Cinque Terre" width="150" height="120">
+							class="img-rounded" alt="Cinque Terre" style="height: 70px;">
 							<input type="radio" name="template" id="template"
 							value="basicSkin" required="required">
 						</td>
 						<td><img src="images/p6.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
+							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
+							alt="Cinque Terre" ><!-- width="150" height="120" -->
+							 <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 
@@ -244,173 +271,263 @@
 					<!--  -->
 					<tr>
 						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
+							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
+							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
+							alt="Cinque Terre" > <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 					</tr>
 					<!--  -->
 					<tr>
 						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
+							alt="Cinque Terre" > <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
+							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
+							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 					</tr>
 					<!--  -->
-					<tr>
+				<tr>
 						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
+							alt="Cinque Terre" > <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
+							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" width="150" height="120"> <input
+							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 					</tr>
-
 				</table>
 			</div>
 
-
-
-			<div id="tabs-2">
-				<img alt="" src="images/111.png"
-					style="width: 100%; margin-bottom: 10%; margin-top: 5%; height: 290px;">
-
-
-				 <%-- <jsp:include page="weddingCard_upload.jsp"></jsp:include> --%>
-				상단 이미지 :<input style="margin: 2%;" type="file" name="imgFile"
-			id="imgFile" >
-			<input type="hidden" name="imgSrc" value="">
-			<input type="submit" value="이미지 업로드 " id="sendImage">
+		<div id="tabs-2" style="font-size:13px; text-align:left;">
+			<table style="width:330px;">
+				<tr>
+					<td colspan="3"><input type="hidden" name="imgSrc" value="">
+						<img alt ="" src="images/111.png" style="margin-top:10%; margin-bottom:5%;margin-left: 30px;">
+					</td>
+				</tr>
 				
-
-				신랑이름 : <input style="margin: 2%;" type="text" id="groomName"
-					name="groomName" ><br> 
+			<tr>
+				<td>
+					메인사진:
+				</td>
+				<td>
+					<input type="file" name="imgFile"id="imgFile" style="font-size:10px; width:150px;padding-left: 5px;"><!-- style="font-size:10px; width:150px;padding-left: 5px;" -->
+				</td>
+				<td>
+					<input type="submit" value="업로드 " id="sendImage">
+				</td>
+			</tr>
+				
+			<tr>
+				<td>
+					신랑이름:
+				</td>
+				<td colspan="2">
+					<input type="text" id="groomName" name="groomName" > <!-- style="margin: 2%;" -->
+				</td>
+			</tr>
 					
-					신랑번호 : <input
-					style="margin: 2%;" type="text" id="groomTel" name="groomTel"
+			<tr>
+				<td>
+					신랑번호:
+				</td>
+				<td colspan="2">
+					<input type="text" id="groomTel" name="groomTel" onkeydown='return onlyNumber(event)'
+					onkeyup='removeChar(event)' style='ime-mode:disabled;'>
+				</td>
+			</tr>
+					
+			<tr>
+				<td>
+					신부이름:
+				</td>
+				<td>
+					 <input type="text" name="brideName" id="brideName">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					신부번호:
+				</td>
+				<td>
+					<input type="text" name="brideTel" id="brideTel"
 					 onkeydown='return onlyNumber(event)'
-					onkeyup='removeChar(event)' style='ime-mode:disabled;'><br>
+					onkeyup='removeChar(event)' style='ime-mode:disabled;'>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					&nbsp;&nbsp;&nbsp;url&nbsp;&nbsp;:
+				</td>
+				<td>
+					<input type="text" name="url" id="url" onkeyup="urlCheck()"> <span id="checkResult"></span>
+				</td>
+			</tr>
 					
-				신부이름 : <input style="margin: 2%;" type="text" name="brideName"
-					id="brideName"><br> 
-					
-					신부번호 : <input
-					style="margin: 2%;" type="text" name="brideTel" id="brideTel"
-					 onkeydown='return onlyNumber(event)'
-					onkeyup='removeChar(event)' style='ime-mode:disabled;'><br>
-				&nbsp;&nbsp;&nbsp;url&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;
-				<input type="text" name="url" id="url" onkeyup="urlCheck()"
-					> <span id="checkResult"></span> <br>
-			</div>
+		</table>
+	</div>
 
 			<!-- ###################### photobook ####################### -->
 			<input type="hidden" id="photoBookImg" name="photoBookImg" value="">
 			<input type="hidden" id="photoBookNo" name="photoBookNo" value="">
-			<input type="hidden" id="photoBookComment" name="photoBookComment"
-				value="">
+			<input type="hidden" id="photoBookComment" name="photoBookComment" value="">
 
 			<div id="tabs-3">
 				<jsp:include page="weddingCard_pbList.jsp" />
 			</div>
 
 			<div id="tabs-4">
-
-				<div class="ui-grid-f section">
-					<div class="ui-block-a">
-						<div class="ui-block-b">
-							예식일:<input type="text" id="datepicker" class="input_box_type1"
-								name="cardDate" required="required">
-						</div>
-						<br>
-						<div class="ui-block-c">
-							<input type="hidden" id="dDay" name="dDay" value=""> <select
-								name="ampm" id="ampm" class="input_box_type1"
-								required="required">
-								<option value="AM" selected="selected">오전</option>
-								<option value="PM">오후</option>
-							</select>
-						</div>
-						<div class="ui-block-d">
-							<select name="hour" id="hour" class="input_box_type1"
-								required="required">
-								<option value="1">01</option>
-								<option value="2">02</option>
-								<option value="3">03</option>
-								<option value="4">04</option>
-								<option value="5">05</option>
-								<option value="6">06</option>
-								<option value="7">07</option>
-								<option value="8">08</option>
-								<option value="9">09</option>
-								<option value="10" selected="selected">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-							</select>
-						</div>
-						<div class="ui-block-e">
-							<select name="min" id="min" class="input_box_type1"
-								required="required">
-								<!--<option value="" selected="selected">분</option>-->
-								<option value="00" selected="selected">00</option>
-								<option value="05">05</option>
-								<option value="10">10</option>
-								<option value="15">15</option>
-								<option value="20">20</option>
-								<option value="25">25</option>
-								<option value="30">30</option>
-								<option value="35">35</option>
-								<option value="40">40</option>
-								<option value="45">45</option>
-								<option value="50">50</option>
-								<option value="55">55</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				초대글<br>
+				<div class="ui-grid-f section" >
+					<table style="width: 330px; font-size:15px;">
+						<tr>
+							<td colspan="2">
+								예식일
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="2">
+							<div class="ui-block-b" >
+							     <input type="text" id="datepicker" class="input_box_type1" name="cardDate" required="required">
+								</div>
+								<div class="ui-block-c">
+									<input type="hidden" id="dDay" name="dDay" value=""> 
+									
+									<select name="ampm" id="ampm" class="input_box_type1" required="required">
+										<option value="AM" selected="selected">오전</option>
+										<option value="PM">오후</option>
+									</select>
+								</div>
+								<div class="ui-block-d">
+									<select name="hour" id="hour" class="input_box_type1"
+										required="required">
+										<option value="1">01</option>
+										<option value="2">02</option>
+										<option value="3">03</option>
+										<option value="4">04</option>
+										<option value="5">05</option>
+										<option value="6">06</option>
+										<option value="7">07</option>
+										<option value="8">08</option>
+										<option value="9">09</option>
+										<option value="10" selected="selected">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+									</select>
+								</div>
+								<div class="ui-block-e">
+									<select name="min" id="min" class="input_box_type1"
+										required="required">
+										<option value="" selected="selected">분</option>
+										<option value="00" selected="selected">00</option>
+										<option value="05">05</option>
+										<option value="10">10</option>
+										<option value="15">15</option>
+										<option value="20">20</option>
+										<option value="25">25</option>
+										<option value="30">30</option>
+										<option value="35">35</option>
+										<option value="40">40</option>
+										<option value="45">45</option>
+										<option value="50">50</option>
+										<option value="55">55</option>
+									</select>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="2">
+								초대글
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="2">
+								<div class="section">
+									<textarea name="cardContext" id="cardContext"
+										class="input_box_type2" rel="tooltip"
+										title="<span class='tooltip_title'>초대글</span>
+									<br>- 초대(모시는)글을 입력 해주십시요"
+										placeholder="초대글" required="required"></textarea>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="2">
+								예식장 : &nbsp;&nbsp;
+								<input type="text" id="hallName" name="hallName" required="required">
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="2">
+								예식장소 : &nbsp;
+								<input type="text" id="hallLocation"name="hallLocation" required="required">
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="2">
+								지도
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="2">	
+								<div id="map" style="width: 100%; height: 200px;">
+									<script src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
+									<script src="./js/map.js"></script>
+								</div>
+							</td>
+						</tr>
+				</table>
+			</div>
+			<%-- 	초대글<br>
 				<div class="section">
 					<textarea name="cardContext" id="cardContext"
 						class="input_box_type2" rel="tooltip"
 						title="<span class='tooltip_title'>초대글</span>
 					<br>- 초대(모시는)글을 입력 해주십시요"
 						placeholder="초대글" required="required"></textarea>
-				</div>
-				<div class="section">
-					&nbsp;&nbsp;예식장&nbsp;&nbsp; : <input style="margin: 2%;"
-						type="text" id="hallName" name="hallName" required="required"><br>
-					예식 장소 :<input style="margin: 2%;" type="text" id="hallLocation"
-						name="hallLocation" required="required"><br> 지도
+				</div> --%>
+				<!-- <div class="section">
+					&nbsp;&nbsp;예식장&nbsp;&nbsp; : 
+					<input type="text" id="hallName" name="hallName" required="required"><br>
+					예식 장소 :<input type="text" id="hallLocation"name="hallLocation" required="required">
+					<br> 
+					지도
 					<div id="map" style="width: 100%; height: 200px;">
 
 						<script
 							src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
 						<script src="./js/map.js"></script>
-					</div>
+					</div> -->
 					<!-- map  -->
-				</div>
+				<!-- </div>
 			</div>
-
+ -->
 
 			<div>
 				<input style="background: #f96; width: 100%; height: 50px;"
