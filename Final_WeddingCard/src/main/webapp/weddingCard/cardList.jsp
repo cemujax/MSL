@@ -17,14 +17,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- <script src="js/jquery-ddorai.js"></script> -->
 <link rel="stylesheet" href="weddingCard/css/bootstrap.min.css">
 
-<link rel="stylesheet"
+<!-- <link rel="stylesheet"
    href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+ -->
 
 <!-- <link
    href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/less/navbar.less"
    rel="stylesheet" type="text/css" media="all" /> -->
-<link href="css/style_index.css" rel="stylesheet" type="text/css"
+<link href="${initParam.root }weddingCard/css/style_index.css" rel="stylesheet" type="text/css"
    media="all" />
 
 <!-- <link rel="stylesheet" href="css/chocolat.css" type="text/css"
@@ -257,6 +257,8 @@ th{
 </style>
 
 
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css">
+ -->
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script
@@ -372,7 +374,7 @@ th{
      <a href="${initParam.root }index.jsp" ><span style="color:#777;">Home</span></a>
     </div>
     
-    	<ul class="nav navbar-nav" style=" margin-left:73%;">
+    	<ul class="nav navbar-nav" ><!-- style=" margin-left:73%;" -->
 				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>
 					 <li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
