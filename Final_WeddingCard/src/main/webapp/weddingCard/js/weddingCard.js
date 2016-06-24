@@ -144,18 +144,23 @@ $(document).ready(function(){
 	   ///=========== 템플릿쪽===================================
 	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
 	   $('#template').attr("checked", true);
-	   var sel_template = $('#template').val();
 	   
+	   var sel_template = $('#template').val();
 	   $('#template').click(function(){
 		   sel_template = ($('input[name=template]:checked').val());
 	  		set_preview();
 	  	});
 	   
 	   $('#template2').click(function(){
-		  // $('#templateType]').val($(this).val());
 		   sel_template = ($('input[name=template]:checked').val());
 	  		set_preview();
 	  	});
+	   
+	   $('#template3').click(function(){
+			   sel_template = ($('input[name=template]:checked').val());
+		  		set_preview();
+		  	});
+	   
 	 ///=========== 템플릿쪽 End===================================
 	   
 	   $( "#datepicker" ).datepicker({showButtonPanel: true,minDate: '0'});

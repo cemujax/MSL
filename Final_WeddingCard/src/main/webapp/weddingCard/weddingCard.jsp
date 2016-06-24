@@ -220,19 +220,19 @@
 						<td>
 							<img src="./preview_Fall In Love/images/Fall In Love.jpg" class="img-rounded" style="height: 70px;">
 							<input type="radio" name="template" id="template"
-							value="Fall In Love" required="required">
+							value="Fall In Love">
 						</td>
 						<td>
 							 <img src="./preview_Innocent Bride/images/Innocent Bride.jpg"
 							class="img-rounded" >
 							<input type="radio" name="template" id="template2"
-							value="Innocent Bride" required="required">
+							value="Innocent Bride">
 						</td>
 						
-						<td><img src="images/p6.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
+						<td><img src="./preview_Garden Wedding/images/twitter.png" 
+						class="img-rounded">
+							<input type="radio" name="template" id="template3" value="Garden Wedding">
+						</td>
 
 					</tr>
 					<!--  -->

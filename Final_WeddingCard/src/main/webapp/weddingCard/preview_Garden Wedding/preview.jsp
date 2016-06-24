@@ -124,10 +124,11 @@ img.wp-smiley, img.emoji {
 
 							<div class="col-md-12 wednames">
 								제목
-								<!-- <span> Sally Springs, California </span> -->
+								<span> Sally Springs, California </span>
 							</div>
 
 							<div class="col-md-6">
+							
 								<div class="bridecol">
 									<div class="bridepic">
 										<img
@@ -151,6 +152,7 @@ img.wp-smiley, img.emoji {
 											src="http://cdn.demo.fabthemes.com/zenith/files/2013/12/groomcup-180x180.png"
 											alt="groom">
 									</div>
+									
 									<div class="groominfo">
 										<h3>신랑</h3>
 										<p>Tel</p>
