@@ -7,17 +7,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
-<style>
-</style>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
    content="Nuptials Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
 
-
 <!-- <script src="js/jquery-ddorai.js"></script> -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="weddingCard/css/bootstrap.min.css">
 
 <link rel="stylesheet"
    href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -38,7 +36,226 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
    rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="weddingCard/css/bootstrap.min.css">
+
+<style type="text/css">
+	/* 스마트폰 가로+세로 */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+}
+ 
+ /* 스마트폰 가로 */
+@media only screen and (min-width : 321px) {
+}
+ 
+ /* 스마트폰 세로 */
+@media only screen and (max-width : 320px) {
+
+}
+ 
+/* 세로 모드 */
+@media all and (orientation:portrait) {
+}
+ 
+/* 가로 모드 */
+@media all and (orientation:landscape) {
+}
+ 
+ 
+/* 데스크탑 브라우저 가로 */
+@media only screen and (min-width : 1224px) {
+}
+ 
+/* 큰 모니터 */
+@media only screen and (min-width : 1824pxhttp://localhost:8888/Final_WeddingCard/weddingCard/cardListTest.jsp#) {
+}
+
+.cardManage{
+	position: relative;
+	padding-top: 100%;
+	overflow: hidden; 
+ 	/*  border: solid 2px; */
+ 	padding:0px;
+   
+	 
+}
+.cardManage .centered  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+img {
+    
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    height: 350px;
+} 
+
+ img.landscape {
+    width: auto;
+    height: 100%;    
+} 
+
+/* table 쪽 */
+.table-users {
+  border: 1px solid #327a81;
+ /*  border-radius: 10px; */
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  max-width: calc(100% - 2em);
+  margin: 1em auto;
+  overflow: hidden;
+  width: 1200px;
+}
+
+table {
+  width: 100%;
+}
+table td, table th {
+  color: #000;
+  padding: 10px;
+}
+table td {
+  text-align: center;
+  vertical-align: middle;
+}
+table td:last-child {
+  font-size: 0.95em;
+  line-height: 1.4;
+  text-align: center;
+  width: 100px;
+}
+table th {
+  background-color: #fdc562;
+  font-size: 20px;
+   text-align: center;
+}
+table tr:nth-child(2n) {
+  background-color: white;
+}
+table tr:nth-child(2n+1) {
+  background-color: rgba(251, 205, 145, 0.61);
+}
+tr:last-child .s{
+  	width: 100px;
+  }
+
+@media screen and (max-width: 700px) {
+  table, tr, td {
+    display: block;
+  }
+th{
+	text-align: center;
+}
+  td:first-child {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 80px;
+  }
+  td:not(:first-child) {
+    clear: both;
+    margin-left: 100px;
+    padding: 4px 20px 4px 130px;
+    position: relative;
+    text-align: left;
+  }
+  td:not(:first-child):before {
+    color: #000;
+    display: block;
+    left: 0;
+    position: absolute;
+    margin-right: 10px;
+  }
+  td:nth-child(2):before {
+    content: '초대장 주소:';
+  }
+  td:nth-child(3):before {
+    content: '스킨타입:';
+  }
+  td:nth-child(4):before {
+    content: '예식장:';
+  }
+	td:nth-child(5):before {
+    content: '예식일:';
+  }
+  
+  tr {
+    padding: 10px 0;
+    position: relative;
+  }
+  tr:first-child {
+    display: none;
+  }
+  tr:last-child {
+   /* float: right; */
+       height: 100px;
+  }
+  
+    tr:last-child .s{
+  	width: 350px;
+    margin-bottom: 5%;
+    margin-left: 20%;
+  }
+}
+@media screen and (max-width: 500px) {
+
+
+  td:first-child {
+    background-color: #fdc562;
+    border-bottom: 1px solid #91ced4;
+    /* border-radius: 10px 10px 0 0; */
+    position: relative;
+    top: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    width: 100%;
+    
+    
+  }
+
+  td:not(:first-child) {
+    margin: 0;
+    padding: 5px 1em;
+    width: 100%;
+  }
+  td:not(:first-child):before {
+    font-size: .8em;
+    padding-top: 0.3em;
+    position: relative;
+  }
+  /* td:last-child {
+    padding-bottom: 1rem !important;
+  } */
+
+  tr {
+    background-color: white !important;
+    border: 1px solid #6cbec6;
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    margin: 0.5rem 0;
+    padding: 0;
+  }
+
+	tr:last-child .s{
+  	width: 150px;
+    margin-bottom: 5%;
+    margin-left: 10%;
+  }
+  .table-users {
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+  }
+}
+
+</style>
+
 
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -139,36 +356,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 
 
-
-<style type="text/css">
-body table {
-   margin: 0px;
-   margin-left: auto;
-   margin-right: auto;
-   width: 70% border-collapse: collapse;
-}
-tr th {
-   text-align: center;
-   font-size: 40;
-}
-tr td {
-   text-align: center;
-}
-
-table tr:HOVER {
-   background-color:#E8FFFF;
-}
-
-.cardManage{
-}
-
-body li {
-transition: 0.5s all;
-}
-
-
-</style>
-
 </head>
 <body>
  <c:if test="${sessionScope.mvo == NULL }">
@@ -213,58 +400,48 @@ transition: 0.5s all;
 							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->
 							</ul>
   </div>
-</nav>
+</nav><!-- nav div End -->
 	
-	
-<!-- //메뉴바 -->
-   
-   <!-- nav div End -->
 
-   <div class="container" id="cardManage" style="background-image: url('weddingCard/images/cardManage.jpg'); 
-          width:100%; height: 360px; background-repeat: no-repeat;">
-      <div class="row" style="margin-top: 5%;" align="center">
-         <font color="#fff" style="font-size: 90px;">초대장 관리</font>
-      </div>
+   <div class="cardManage" >
+      	<img alt="" src="weddingCard/images/cardManage.jpg">
    </div>
 
+  <!--================= table=============== -->
+  <div class="table-users">
 
-   <div class="container" style="margin-top: 2%;">
-      <div class="table-responsive">
-      <table class="table">
-         <thead>
-            <tr align="center" class="thead">
-               <th style="font-size: 20px; width: 10%;" >
-               <input type="checkbox" id="allCheck" name="allCheck" >
-               <!-- <span class="glyphicon glyphicon-check"></span> -->
-               </th>
-               <th style="font-size: 20px; width: 20%;">초대장 주소</th>
-               <th style="font-size: 20px; width: 10%;">스킨 타입</th>
-               <th style="font-size: 20px; width: 30%;">예식</th>
-            </tr>
-         </thead>
-         <tbody>
-            <c:forEach items="${cardList}" var="card" varStatus="i">
-            
+   <table>
+      <tr align="center">
+         <th width="5%"><input type="checkbox" id="allCheck" name="allCheck" ></th>
+         <th width="15%">초대장 주소</th>
+         <th width="15%">스킨타입</th>
+         <th width="10%">예식장</th>
+         <th width="20%">예식일</th>
+      </tr>
+
+      <c:forEach items="${cardList}" var="card" varStatus="i">
                <tr align="center" style="font-size: 20px;" >
                   <td><input type="checkbox" id="cardNo" name="cardNo" value="${card.cardNo}`${card.url}"></td>
                   <td><a href="./card.do?command=getCard&&url=${card.url }">${card.url}</a></td>
                   <td>${card.template}</td>
                    <c:set var="cDate" value="${fn:split(card.cardDate, ':') }"/>
-                  <td>${card.hallName} &nbsp;&nbsp;
-                   ${cDate[0]}:${cDate[1]}</td>
+                  <td>${card.hallName} </td>
+                   <td>${cDate[0]}:${cDate[1]}</td>
                </tr>
             </c:forEach>
-            <tr align="right" style="padding-left: 20px;">
-           		<td colspan="4" >
-                  <input style="width:100px; " type="button" class="btn btn-danger" value="삭제" id="deleteCard" >
-                  <input style="width:100px;" type="button" class="btn btn-success" value="수정" id="modifyCard" >
-                 <input style="width:100px; " type="button" class="btn btn-info" value="url 전송" id="sendUrl" onclick="sendUrl('${card.url}')">
+		<tr>
+           		<td colspan="5" align="right">
+                  <input class="s" type="button" class="btn btn-danger" value="삭제" id="deleteCard" >
+                  <input class="s" type="button" class="btn btn-success" value="수정" id="modifyCard" >
+                 <input  class="s" type="button" class="btn btn-info" value="url 전송" id="sendUrl" onclick="sendUrl('${card.url}')">
 				</td>
-            </tr>
-         </tbody>
-      </table>
-      </div>
-   </div><!-- table -->
+         </tr>
+		
+      
+   </table>
+</div>
+  
+  
    
 
 

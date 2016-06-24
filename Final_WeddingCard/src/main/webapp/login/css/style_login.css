@@ -188,6 +188,8 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
     padding: .3em;
     /* background: rgba(33, 33, 33, 0.57); */
 }
+/* nav */
+/* 
 .navbar-default {
     background: none;
     border: none;
@@ -204,7 +206,7 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
 .navbar-default .navbar-nav > li > a {
     color: #fff;
 }
-/*-- w3layouts --*/
+-- w3layouts --
 .navbar-nav > li > a {
     padding:15px 32px;
     font-size: 20px;
@@ -216,7 +218,7 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color:#45CBBF;
-}
+} */
 /*-- link-effect-14 --*/
 .link-effect-14 a {
   color: #797878;

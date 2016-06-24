@@ -64,36 +64,13 @@
 <!-- <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>  -->
 <script src="./js/jquery.form.js"></script>
 
+
+
 <!-- 우리꺼 -->
 <script src="./js/weddingCard.js"></script>
 
 </head>
 <body>
-	<c:if test="${sessionScope.mvo == NULL }">
-		<c:redirect url="../login/loginregister.jsp" />
-	</c:if>
-
-	<!-- 메뉴바 -->
-	<nav class="navbar navbar-inverse"
-		style="background-color: #f8f8f8; border-color: #e7e7e7;">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="../index.jsp" style="color: #777;">Home</a>
-			</div>
-			<ul class="nav navbar-nav" style="margin-left: 82%;">
-				<li
-					style="padding-bottom: 17px; padding-right: 8px; padding-left: 8px;"><a
-					href="../card.do?command=getAllCards"
-					style="padding: 0px; width: 100%; margin: 10px 0px 0px 0px; padding-top: 3px;"><span
-						style="padding: 5px 12px 12px 10px;">청첩장보기</span></a></li>
-				<li
-					style="padding-top: 3px; padding-bottom: 12px; padding-right: 8px; padding-left: 8px;"
-					class="lnb_icon5"><a href="javascript:logout()"
-					style="padding: 0px; width: 100%; margin: 10px 0px 0px 0px; padding-bottom: 5px; padding: 0px 5px 5px 0px;"><span
-						class="glyphicon glyphicon-log-in"></span> 로그아웃</a></li>
-			</ul>
-		</div>
-	</nav>
 
 	<!-- //메뉴바 -->
 
@@ -274,13 +251,8 @@
 			</div>
 
 			<!-- ###################### photobook ####################### -->
-			<input type="hidden" id="photoBookImg" name="photoBookImg" value="">
-			<input type="hidden" id="photoBookNo" name="photoBookNo" value="">
-			<input type="hidden" id="photoBookComment" name="photoBookComment"
-				value="">
 
 			<div id="tabs-3">
-				<jsp:include page="weddingCard_pbList.jsp" />
 			</div>
 
 			<div id="tabs-4">
@@ -352,7 +324,7 @@
 						name="hallLocation" required="required"><br> 
 					지도
 					<div id="map" style="width: 100%; height: 200px;">
-					
+					<script src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
 						
 					</div><!-- map  -->
 					

@@ -51,6 +51,7 @@ html {
 
 body {
   background: #c1bdba;
+  display :block;
  
   font-family: 'Titillium Web', sans-serif;
 }
@@ -72,7 +73,8 @@ a:hover {
 
 .form {
   padding: 40px;
-  max-width: 600px;
+  max-width: 500px;
+  max-height: 600px;
   margin: 80px auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
@@ -304,7 +306,7 @@ $(document).ready(function(){
      <a href="${initParam.root }index.jsp" ><span style="color:#777;">Home</span></a>
     </div>
     
-    	<ul class="nav navbar-nav" style=" margin-left:73%;">
+    	<ul class="nav navbar-nav" style=" margin-left:70%;">
 				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>
 					 <li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
@@ -332,7 +334,7 @@ $(document).ready(function(){
 							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->
 							</ul>
   </div>
-</nav>
+</nav><!-- nav Bar -->
 	
 	
 <!-- //메뉴바 -->
@@ -434,5 +436,7 @@ $(document).ready(function(){
       </div><!-- tab-content -->
       
 </div> <!-- /form -->
+
+
 </body>
 </html>

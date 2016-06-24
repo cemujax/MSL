@@ -59,8 +59,7 @@
   <bean id="postDao" class="model.post.PostDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
   <bean id="postService" class="model.post.PostServiceImpl" 
   	p:postDao-ref="postDao"
-  	p:postCommentService-ref="postCommentService"
-  />
+  	p:postCommentService-ref="postCommentService" />
 
   <bean id="reviewCommentDao" class="model.post.ReviewCommentDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
   <bean id="reviewCommentService" class="model.post.ReviewCommentServiceImpl" p:reviewCommentDao-ref="reviewCommentDao"/>
@@ -80,8 +79,8 @@
     <property name="methodNameResolver" ref="methodNameResolver"/>
     <property name="cardService" ref="cardService" />
     <property name="path">
-     <!--  <value>..\\..\\MSL\\Final_WeddingCard\\src\\main\\webapp\\url\\</value> -->
-   	<value>../webapps/Final_WeddingCard/url/</value>
+      <value>..\\..\\MSL\\Final_WeddingCard\\src\\main\\webapp\\url\\</value>
+   <!-- 	<value>../webapps/Final_WeddingCard/url/</value> -->
    
     </property>
   </bean>
@@ -90,9 +89,9 @@
     <property name="methodNameResolver" ref="methodNameResolver"/>
     <property name="photoBookService" ref="photoBookService" />
     <property name="path">
-      <!-- <value>..\\..\\MSL\\\Final_WeddingCard\\src\\main\\webapp\\img\\photobook\\</value> -->
+      <value>..\\..\\MSL\\\Final_WeddingCard\\src\\main\\webapp\\img\\photobook\\</value>
       <!-- FIX HERE -->
-      <value>../webapps/Final_WeddingCard/img_photobook/</value>
+      <!-- <value>../webapps/Final_WeddingCard/img_photobook/</value> -->
     </property>
   </bean>
 
