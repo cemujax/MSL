@@ -125,9 +125,9 @@ public class CardController extends MultiActionController {
 		
 		try {
 			
-			
+			String template = request.getParameter("template");
 			bw.write(format);
-			bw.write("<jsp:include page='template/basicSkin.jsp' flush='true'>\n");
+			bw.write("<jsp:include page='template/"+template+".jsp' flush='true'>\n");
 			
 			String[] onlyDate = cardDate.split(" "); //년월일만
 			//여기에 정보들 추가하면 됨됨
@@ -159,7 +159,7 @@ public class CardController extends MultiActionController {
 			// =====================방명록=======================
 			
 			bw_guestBook.write(format);
-			bw_guestBook.write("<jsp:include page='../template/guestBookSample.jsp' flush='true'>\n");
+			bw_guestBook.write("<jsp:include page='template/guestBookSample.jsp' flush='true'>\n");
 			bw_guestBook.write("<jsp:param value='"+cvo.getCardNo()+"' name='cardNo'/>\n"
 					+"</jsp:include>\n");
 			bw_guestBook.write("</body>\n</html>\n");//닫는 태그

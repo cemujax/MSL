@@ -103,11 +103,7 @@
 	  </div>
 	</div>
       </div>
-
-
-
       <h1><input type="submit" value="Submit"></h1>
-
     </form>
     <script src="./js/pbcreate.js"></script>
   </body>

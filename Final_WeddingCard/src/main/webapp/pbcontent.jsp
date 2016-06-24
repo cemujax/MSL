@@ -43,7 +43,7 @@
 	  <c:forEach items="${pbImgList}" var="i">
 
 	    <div>
-	      <img alt="" src="./img/photobook/${pbvo.memberVO.memberId}/${pbvo.bookNo}/${i[0]}">
+	      <img alt="" src="img_photobook/${pbvo.memberVO.memberId}/${pbvo.bookNo}/${i[0]}">
 	      <h1>Slider Gallery</h1>
 	      <p><!-- This tutorial is about creating a creative gallery with a
 		      slider for the thumbnails. The idea is to have an expanding

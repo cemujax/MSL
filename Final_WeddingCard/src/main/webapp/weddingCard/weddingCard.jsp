@@ -131,11 +131,14 @@ function pbCallback() {
 							class="blind">미리보기영역</span>
 					</div>
 					<div class="look_input">
-						<iframe src="${initParam.root}/weddingCard/preview/preview.jsp"
-							name="left_skin_preview" id="left_skin_preview" scrolling="auto"> </iframe>
-						<!-- width="40%"
-							height="100%" -->
+					
+					<!-- 왼쪽 미리보기 부분 -->
+						<iframe src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
+							name="left_skin_preview" id="left_skin_preview" width="40%"
+							height="100%" scrolling="auto"> </iframe>
 					</div>
+					
+					
 					<!--  ============== 모바일 ============== -->
 					<div class="md-modal md-effect-1" id="modal-1">
 						<div class="md-content">
@@ -150,7 +153,7 @@ function pbCallback() {
 								<div class="look_input"
 									style="margin-left: 40.5%; margin-top: 9%;">
 
-									<iframe src="preview/preview.jsp"
+									<iframe src="preview_Fall In Love/preview.jsp"
 										name="left_skin_preview_mobile" id="left_skin_preview_mobile"
 										style="width: 320px; height: 570px;" scrolling="auto">
 										
@@ -174,11 +177,10 @@ function pbCallback() {
 						<div class="md-content">
 							<div data-role="page" id="skin_page" data-url="skin_page"
 								tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
-								<div class="look_input"
-									style="width: 90%; height: 60%;margin-left: 4%;margin-top: 3%;">
+								<div class="look_input" style="width: 90%; height: 60%;margin-left: 4%;margin-top: 3%;">
 									    
-									<iframe src="preview/preview.jsp" name="left_skin_preview_pc"
-										id="left_skin_preview_pc" style="" scrolling="auto">
+									<iframe src="preview_Fall In Love/preview.jsp" name="left_skin_preview_pc"
+										id="left_skin_preview_pc" style="width: 90%; height: 80%; margin-left: 4%;" scrolling="auto">
 									</iframe>
 								</div>
 								<button class="md-close"
@@ -246,24 +248,24 @@ function pbCallback() {
 
 			<!-- style="position: relative;background: rgba(0,0,0,0.5);" -->
 			<div id="tabs-1">
+				<input type="hidden" name="templateType" value="" id="templateType">
 				<table>
 					<tr align="center">
 						<td>
-							<!-- <img alt="" src="images/p2.jpg"
-							style="width: 120px; heigth: 80px; margin: 0px;"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"> --> <img src="images/tabs01.jpg"
-							class="img-rounded" alt="Cinque Terre" style="height: 70px;">
+							 <img src="./preview_Fall In Love/images/Fall In Love.jpg"
+							class="img-rounded" >
 							<input type="radio" name="template" id="template"
-							value="basicSkin" required="required">
+							value="Fall In Love" required="required">
 						</td>
+						<td>
+							 <img src="./preview_Innocent Bride/images/Innocent Bride.jpg"
+							class="img-rounded" >
+							<input type="radio" name="template" id="template2"
+							value="Innocent Bride" required="required">
+						</td>
+						
 						<td><img src="images/p6.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" ><!-- width="150" height="120" -->
-							 <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 
@@ -345,6 +347,7 @@ function pbCallback() {
 				</td>
 			</tr>
 					
+					
 			<tr>
 				<td>
 					신랑번호:
@@ -385,7 +388,7 @@ function pbCallback() {
 			</tr>
 					
 		</table>
-	</div>
+	</div><!-- tab2 End  -->
 
 			<!-- ###################### photobook ####################### -->
 			<input type="hidden" id="photoBookImg" name="photoBookImg" value="">
@@ -501,33 +504,10 @@ function pbCallback() {
 									<script src="./js/map.js"></script>
 								</div>
 							</td>
-						</tr>
+						</tr><!-- map  -->
 				</table>
 			</div>
-			<%-- 	초대글<br>
-				<div class="section">
-					<textarea name="cardContext" id="cardContext"
-						class="input_box_type2" rel="tooltip"
-						title="<span class='tooltip_title'>초대글</span>
-					<br>- 초대(모시는)글을 입력 해주십시요"
-						placeholder="초대글" required="required"></textarea>
-				</div> --%>
-				<!-- <div class="section">
-					&nbsp;&nbsp;예식장&nbsp;&nbsp; : 
-					<input type="text" id="hallName" name="hallName" required="required"><br>
-					예식 장소 :<input type="text" id="hallLocation"name="hallLocation" required="required">
-					<br> 
-					지도
-					<div id="map" style="width: 100%; height: 200px;">
-
-						<script
-							src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
-						<script src="./js/map.js"></script>
-					</div> -->
-					<!-- map  -->
-				<!-- </div>
-			</div>
- -->
+					
 
 			<div>
 				<input style="background: #f96; width: 100%; height: 50px;"
@@ -537,8 +517,6 @@ function pbCallback() {
 		</div>
 		<!-- tabs -->
 	</form>
-	
-			
 	
 </body>
 </html>

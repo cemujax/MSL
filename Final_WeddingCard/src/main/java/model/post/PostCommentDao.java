@@ -5,7 +5,8 @@ import java.util.List;
 public interface PostCommentDao {
 	int writeComment(PostCommentVO pcvo);
 	int modifyComment(PostCommentVO pcvo);
-	int deleteComment(int commentNo);
-	List<PostCommentVO> getCommentList(int postNo);
+	int deleteComment(String commentNo);
+	PostCommentVO getCommentByNo(String commentNo);
+	List<PostCommentVO> getCommentList(String postNo);
 
 }

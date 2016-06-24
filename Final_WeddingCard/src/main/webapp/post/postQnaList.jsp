@@ -141,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div align="center">
 <a href="${initParam.root }index.jsp" >메인으로</a>
 <c:if test="${sessionScope.mvo!=null}">
-	<a href="postQnaWrite.jsp">글쓰기</a><p>
+	<a href="post/postQnaWrite.jsp">글쓰기</a><p>
 </c:if>
 
 <!-- ===================== 페이징 Start ================== -->
