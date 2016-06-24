@@ -38,7 +38,7 @@ h1,h2,h3,h4,h5,h6{
 
 }	
 p{
-	margin:0;
+	margin-left: 10px;
 	font-family: 'Open Sans', sans-serif;
 }
 ul{
@@ -3241,7 +3241,8 @@ ul.bottom i {
 		font-size: 1.8em;
 	}
 	.hands h4 {
-		font-size: 1em;
+		/* font-size: 1em; */
+		font-size: 0.5em;
 		margin-bottom: 6px;
 		/* margin-top: 40%; */
 	}
@@ -3259,8 +3260,15 @@ ul.bottom i {
 	.groom, .bride {
 		padding: 0.5em 0em;
 		/* width: 48.55%; */
-		width: 45%;
+		/* width: 45%; */
+		/*  width: 44%; */
+		width: 29%;
+   		font-size: 2px;
 	}
+	p {
+    font-size: 1px;
+    margin-left: 5px;
+}
 	.couple h5 {
 		font-size: 1em;
 		padding: 0;

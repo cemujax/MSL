@@ -67,7 +67,6 @@
 <script src="./js/jquery.form.js"></script>
 
 
-
 <!-- 우리꺼 -->
 <script type="text/javascript">
 function pbCallback() {
@@ -134,8 +133,7 @@ function pbCallback() {
 					
 					<!-- 왼쪽 미리보기 부분 -->
 						<iframe src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
-							name="left_skin_preview" id="left_skin_preview" width="40%"
-							height="100%" scrolling="auto"> </iframe>
+							name="left_skin_preview" id="left_skin_preview"  scrolling="auto"> </iframe>
 					</div>
 					
 					
@@ -155,7 +153,7 @@ function pbCallback() {
 
 									<iframe src="preview_Fall In Love/preview.jsp"
 										name="left_skin_preview_mobile" id="left_skin_preview_mobile"
-										style="width: 320px; height: 570px;" scrolling="auto">
+										 scrolling="auto">
 										
 									</iframe>
 								</div>
@@ -180,7 +178,7 @@ function pbCallback() {
 								<div class="look_input" style="width: 90%; height: 60%;margin-left: 4%;margin-top: 3%;">
 									    
 									<iframe src="preview_Fall In Love/preview.jsp" name="left_skin_preview_pc"
-										id="left_skin_preview_pc" style="width: 90%; height: 80%; margin-left: 4%;" scrolling="auto">
+										id="left_skin_preview_pc"  scrolling="auto">
 									</iframe>
 								</div>
 								<button class="md-close"
@@ -221,16 +219,13 @@ function pbCallback() {
 
 
 		<div id="tabs" ><!-- style="width: 30%; margin-left: 70%; height: 800px;" -->
-			<ul ><!-- style="width: 80%; margin-left: 10%; padding-left: 2%;" -->
+			<ul><!-- style="width: 80%; margin-left: 10%; padding-left: 2%;" -->
 
-				<li><a href="#tabs-1"> <span> <i
-							class="fa fa-calendar-check-o"
-							></i><!-- style="font-size: 36px; margin-left: 20%;" -->
+				<li><a href="#tabs-1"> <span> <i class="fa fa-calendar-check-o"></i><!-- style="font-size: 36px; margin-left: 20%;" -->
 					</span><br><font size="1">스킨선택</font>
 				</a></li>
 
-				<li><a href="#tabs-2"> <span> <i class="fa fa-list"
-							></i>
+				<li><a href="#tabs-2"> <span> <i class="fa fa-list" ></i>
 					</span><br> <font size="1">신랑신부</font>
 				</a></li>
 
@@ -239,8 +234,7 @@ function pbCallback() {
 					</span><br> <font size="1">&nbsp;포토북&nbsp;</font>
 				</a></li>
 
-				<li><a href="#tabs-4"> <span> <i class="fa fa-bars"
-							></i>
+				<li><a href="#tabs-4"> <span> <i class="fa fa-bars"></i>
 					</span><br> <font size="1">&nbsp;예식장&nbsp;</font>
 				</a></li>
 
@@ -252,8 +246,7 @@ function pbCallback() {
 				<table>
 					<tr align="center">
 						<td>
-							 <img src="./preview_Fall In Love/images/Fall In Love.jpg"
-							class="img-rounded" >
+							<img src="./preview_Fall In Love/images/Fall In Love.jpg" class="img-rounded" style="height: 70px;">
 							<input type="radio" name="template" id="template"
 							value="Fall In Love" required="required">
 						</td>
@@ -316,7 +309,7 @@ function pbCallback() {
 							required="required"></td>
 					</tr>
 				</table>
-			</div>
+			</div><!-- tabs-1 -->
 
 		<div id="tabs-2" style="font-size:13px; text-align:left;">
 			<table style="width:330px;">
@@ -507,7 +500,7 @@ function pbCallback() {
 						</tr><!-- map  -->
 				</table>
 			</div>
-					
+		</div><!-- tabs-4 -->	
 
 			<div>
 				<input style="background: #f96; width: 100%; height: 50px;"
