@@ -91,7 +91,7 @@
     <property name="path">
       <value>../../MSL/Final_WeddingCard/src/main/webapp/img/photobook/</value>
       <!-- FIX HERE -->
-      <!-- <value>../webapps/Final_WeddingCard/img_photobook/</value> -->
+      <!-- <value>../webapps/Final_WeddingCard/img/photobook/</value> -->
     </property>
   </bean>
 
