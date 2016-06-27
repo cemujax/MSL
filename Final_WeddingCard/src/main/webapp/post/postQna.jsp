@@ -117,6 +117,16 @@ QnA 게시판<hr><p>
 <!-- ===================== Comment End ================= -->
 
 <div class="postButtonView">
+	<c:if test="${pvo.memberVO.memberId == mvo.memberId }">
+		<button class="list-write-btn list-write-btn-color" onclick="deleteQnA()">          
+			<i class="fa fa-times"></i> 
+			<b>삭제</b>
+		</button>
+		<button class="list-write-btn list-write-btn-color" onclick="modifyQnA()">          
+			<b>수정</b>
+		</button>
+	</c:if>
+
 	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post.do?command=getAllQnAs&&page=${param.page }'">          
 		<i class="fa fa-bars"></i> 
 		<b>목록</b>
@@ -126,10 +136,6 @@ QnA 게시판<hr><p>
 		<b>글쓰기</b>
 	</button>
 </div>
-
-<!-- ===================== Comment Start ================= -->
-<jsp:include page="postComment.jsp"/>
-<!-- ===================== Comment End ================= -->
 
 </body>
 </html>
