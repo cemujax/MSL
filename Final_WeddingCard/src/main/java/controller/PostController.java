@@ -36,7 +36,7 @@ public class PostController extends MultiActionController{
 			return new ModelAndView("redirect:/post.do?command=getQnA&&postNo="+ pvo.getPostNo());
 			
 		}else{
-			return new ModelAndView("loginregister");
+			return new ModelAndView("login/loginregister");
 		}
 		
 	}
@@ -112,7 +112,7 @@ public class PostController extends MultiActionController{
 		return new ModelAndView("redirect:/post.do?command=getAnoneQnA&&postNo="+ pvo.getPostNo());
 		
 		}else{
-		return new ModelAndView("post/loginregister");
+		return new ModelAndView("login/loginregister");
 		}
 	
 	}

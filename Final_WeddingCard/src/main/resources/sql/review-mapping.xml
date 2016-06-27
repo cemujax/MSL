@@ -21,6 +21,12 @@
 	<select id="getReviewList" resultMap="reviewCommentRM">
 		SELECT content, write_date, member_id
 		FROM reviewcomment
+		order by write_date desc
 	</select>
+	
+
+	
+
+	
 </mapper>	
 

@@ -9,7 +9,7 @@
 
 <script type="text/javascript">
 	function update_submit() {
-		var f = document.update_form;
+		var f = document.qna_update_form;
 		if(f.title.value==""){
 			alert("제목을 입력하세요!");
 			f.title.focus();
@@ -26,7 +26,7 @@
 
 </head>
 <body>
-<form action="post.do" method="post" name="update_form" onsubmit="return update_submit()">
+<form action="${initParam.root }post.do" method="post" name="qna_update_form" onsubmit="return update_submit()">
 <input type="hidden" name="command" value="modifyQnA">
 <input type="hidden" name="postNo" value="${pvo.postNo}">		
 <table cellpadding="5">

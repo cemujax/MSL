@@ -34,8 +34,8 @@ public class PostDaoImpl implements PostDao{
 	}
 
 
-	public int totalCount() throws SQLException {
-		return sqlSession.selectOne("postSql.totalCount");
+	public int totalCount(String kind) throws SQLException {
+		return sqlSession.selectOne("postSql.totalCount", kind);
 	}
 
 }

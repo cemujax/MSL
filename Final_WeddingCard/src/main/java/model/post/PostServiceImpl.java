@@ -30,7 +30,7 @@ public class PostServiceImpl implements PostService{
 		
 		System.out.println("page = "+ map.get("page"));
 		List<PostVO> postList = postDao.getPostList(map);
-		PagingBean pb = new PagingBean(postDao.totalCount(),
+		PagingBean pb = new PagingBean(postDao.totalCount(map.get("kind")),
 				Integer.parseInt(map.get("page")));
 		
 		System.out.println("pagingBean getNowPageGroup::"+pb.getNowPageGroup());

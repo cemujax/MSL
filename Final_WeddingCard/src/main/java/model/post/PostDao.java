@@ -11,6 +11,6 @@ public interface PostDao {
 	List<PostVO> getPostList(HashMap<String, String> map);
 	PostVO getPostByNo(int postNo);
 	
-	int totalCount() throws SQLException;
+	int totalCount(String kind) throws SQLException;
 
 }

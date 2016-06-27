@@ -56,6 +56,10 @@
 <bean id="postDao" class="model.post.PostDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
 <bean id="postService" class="model.post.PostServiceImpl" p:postDao-ref="postDao"/>
 
+<bean id="reviewCommentDao" class="model.post.ReviewCommentDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
+<bean id="reviewCommentService" class="model.post.ReviewCommentServiceImpl" p:reviewCommentDao-ref="reviewCommentDao"/>
+
+
 <!--Controller 등록  -->
 <bean id="methodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
 	<property name="paramName" value="command"/>
@@ -87,6 +91,10 @@
 	<property name="postService" ref="postService"/>
 </bean>
 
+<bean name="/reviewComment.do" class="controller.ReviewCommentController">
+   <property name="methodNameResolver" ref="methodNameResolver"/>
+   <property name="reviewCommentService" ref="reviewCommentService"/>
+</bean>
 
 <bean name="downloadView" class="util.DownloadView"/> 
 

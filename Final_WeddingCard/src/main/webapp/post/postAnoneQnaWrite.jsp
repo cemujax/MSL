@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="./post.do" method="post">
+<form action="${initParam.root }post.do" method="post">
 <input type="hidden" name="command" value="writeAnoneQnA">
 title :: <input type="text" name="title">
 content :: <input type="text" name="content">

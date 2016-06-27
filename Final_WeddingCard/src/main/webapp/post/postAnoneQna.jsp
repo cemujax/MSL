@@ -11,14 +11,14 @@
 	function deleteQnA() {
 
 		if(confirm("정말 삭제하시겠습니까?")){
-			location.href="./post.do?command=deleteAnoneQnA&&postNo="+${pvo.postNo};
+			location.href="${initParam.root }post.do?command=deleteAnoneQnA&&postNo="+${pvo.postNo};
 		}
 	}
 	
 	function modifyQnA() {
 
 		if(confirm("정말 수정하시겠습니까?")){
-			location.href="./post.do?command=modifyViewAnoneQnA&&postNo="+${pvo.postNo};
+			location.href="${initParam.root }post.do?command=modifyViewAnoneQnA&&postNo="+${pvo.postNo};
 			/* location.href="postQnaUpdate.jsp?postNo="+${pvo.postNo}; */
 		}
 	}
@@ -37,7 +37,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>작성자 :  ${requestScope.pvo.memberVO.memberId} |
+						<td>작성자 :  익명 |
 							작성일시 : ${requestScope.pvo.writeDate}
 						</td>
 					</tr>
@@ -49,7 +49,7 @@
 					</tr>
 					<tr>
 						<td valign="middle">
-						<a href="./post.do?command=getAllAnoneQnAs">전체글목록</a>
+						<a href="${initParam.root }post.do?command=getAllAnoneQnAs">전체글목록</a>
 						<!-- 
 							현재 로그인한 사람이 자신이 쓴 게시글을 볼때만 버튼이 보여지도록 한다
 							로그인한 사람의 id가 글쓴 사람의 id와 일치할때만 보여지도록...

@@ -59,7 +59,7 @@
 		where post_no = #{value}
 	</select>
 	
-	<select id="totalCount" resultType="int">
-	select count(-1) as totalCount from post
+	<select id="totalCount" parameterType="string" resultType="int">
+	select count(-1) as totalCount from post where kind = #{value}
 	</select>
 </mapper>	
