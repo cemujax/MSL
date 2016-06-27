@@ -12,4 +12,9 @@ public interface CardDao {
    CardVO getCard(String url) throws SQLException;
    List<CardVO>  getAllCards(String memberId) throws SQLException;
    boolean urlCheck(String url) throws SQLException;
+   
+   /////////// cardComment
+   void writeCardComment(CardcommentVO comvo) throws SQLException;
+   List<CardcommentVO>  getAllCardComments(int cardNo) throws SQLException;
+   
 }

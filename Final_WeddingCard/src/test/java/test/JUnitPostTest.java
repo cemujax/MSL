@@ -74,7 +74,7 @@ public class JUnitPostTest {
 			session.update("postSql.modifyPost", pvo);
 			session.commit();
 			
-			System.out.println(session.selectOne("postSql.getPostByNo", 3));
+		//	System.out.println(session.selectOne("postSql.getPostByNo", 3));
 			
 		}
 }

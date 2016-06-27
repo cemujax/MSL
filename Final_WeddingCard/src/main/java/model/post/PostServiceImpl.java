@@ -7,9 +7,14 @@ import java.util.List;
 
 public class PostServiceImpl implements PostService{
 	private PostDao postDao;
+	private PostCommentService postCommentService;
 
 	public void setPostDao(PostDao postDao) {
 		this.postDao = postDao;
+	}
+	
+	public void setPostCommentService(PostCommentService postCommentService) {
+		this.postCommentService = postCommentService;
 	}
 	
 	public void writePost(PostVO pvo) {
@@ -43,6 +48,10 @@ public class PostServiceImpl implements PostService{
 
 	public PostVO getPostByNo(int postNo) {
 		return postDao.getPostByNo(postNo);
+	}
+
+	public List<PostCommentVO> getCommentList(String postNo) {
+		return postCommentService.getCommentList(postNo);
 	}
 
 }

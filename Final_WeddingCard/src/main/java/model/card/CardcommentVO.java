@@ -11,31 +11,31 @@ public class CardcommentVO {
 	private String content;
 	private String guest;
 	private String writeDate; // write_date
-	private String password;
 	// reference
 	private CardVO cardVO;
+	private String password;
+	private int cardCommentNo;
 
-	public CardcommentVO() {
-		super();
-	}
+	public CardcommentVO() {}
+
 
 	public CardcommentVO(String content, String guest, String writeDate,
-			String password) {
+			CardVO cardVO, String password, int cardCommentNo) {
 		super();
 		this.content = content;
 		this.guest = guest;
 		this.writeDate = writeDate;
-		this.password = password;
-	}
-
-	public CardcommentVO(String content, String guest, String writeDate,
-			String password, CardVO cardVO) {
-		super();
-		this.content = content;
-		this.guest = guest;
-		this.writeDate = writeDate;
-		this.password = password;
 		this.cardVO = cardVO;
+		this.password = password;
+		this.cardCommentNo = cardCommentNo;
+	}
+
+	public int getCardCommentNo() {
+		return cardCommentNo;
+	}
+
+	public void setCardCommentNo(int cardCommentNo) {
+		this.cardCommentNo = cardCommentNo;
 	}
 
 	public String getContent() {

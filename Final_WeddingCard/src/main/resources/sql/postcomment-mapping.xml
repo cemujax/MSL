@@ -8,18 +8,21 @@
 		<result property="content" column="content" jdbcType="VARCHAR"/>
 		<result property="writeDate" column="write_date" jdbcType="VARCHAR"/>
 		<result property="memberVO.memberId" column="member_id" jdbcType="VARCHAR"/>
-		<result property="memberVO.name" column="name" jdbcType="VARCHAR"/>
 		<result property="postVO.postNo" column="post_no" jdbcType="NUMERIC"/>
 	</resultMap>
+	
+	<sql id="postComment-select">
+		SELECT comment_no, content, write_date, member_id, post_no
+		FROM postcomment
+	</sql>
 	
 	<insert id="writeComment" parameterType="postComment">
 		<selectKey keyProperty="commentNo" resultType="int" order="BEFORE">
 			SELECT postcomment_seq.nextVal FROM dual
 		</selectKey>
-	
 		INSERT
-		INTO postcomment (comment_no, content, write_date, member_id, post_no)
-		VALUES (
+		INTO postcomment(comment_no, content, write_date, member_id, post_no)
+		VALUES(
 			#{commentNo}, #{content}, sysdate, #{memberVO.memberId}, #{postVO.postNo}
 		)
 	</insert>
@@ -30,16 +33,20 @@
 		WHERE comment_no = #{commentNo}
 	</update>
 	
-	<delete id="deleteComment" parameterType="int">
+	<delete id="deleteComment">
 		DELETE
 		FROM postcomment
 		WHERE comment_no = #{value}
 	</delete>
 	
-	<select id="getCommentList" parameterType="int" resultMap="postCommentRM">
-		SELECT comment_no, content, write_date, member_id, post_no
-		FROM postcomment
+	<select id="getCommentByNo" resultMap="postCommentRM">
+		<include refid="postComment-select"/>
+		WHERE comment_no = #{value}
+	</select>
+	
+	<select id="getCommentList" resultMap="postCommentRM">
+		<include refid="postComment-select"/>
 		WHERE post_no = #{value}
+		ORDER BY comment_no
 	</select>
 </mapper>	
-

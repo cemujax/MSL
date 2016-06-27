@@ -45,7 +45,7 @@ body{
 	/* font-family: 'OpenSans-Regular' */
 }
 .header {
-    background: url(../images/banner2.jpg)no-repeat 0px 0px;
+   /*  background: url(../images/banner2.jpg)no-repeat 0px 0px; */
     background-size: cover;
     min-height: 755px;
 }
@@ -1440,7 +1440,7 @@ span.glyphicon.glyphicon-heart, span.glyphicon.glyphicon-camera, span.glyphicon.
     font-size: 0.9em;
 }
 .header {
-    background: url(../images/banner2.jpg)no-repeat -90px 0px;
+    /* background: url(../images/banner2.jpg)no-repeat -90px 0px; */
     background-size: cover;
 }
 .slider-info h3 {
@@ -1527,7 +1527,7 @@ padding:6em 0 2em;
 }
 .header.head-top {
     background-size: cover;
-    background: url(../images/banner2.jpg)no-repeat 0px 0px;
+    /* background: url(../images/banner2.jpg)no-repeat 0px 0px; */
 }
 .team-grids a .captn {
     right: 0%;
@@ -1597,7 +1597,7 @@ address {
     padding: 0.5em 0;
 }
 .header {
-    background: url(../images/banner2.jpg)no-repeat -170px 0px;
+   /*  background: url(../images/banner2.jpg)no-repeat -170px 0px; */
 	background-size:cover;
 }
 .slider-info p {

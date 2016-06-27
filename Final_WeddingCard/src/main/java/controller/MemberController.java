@@ -21,12 +21,15 @@ public class MemberController extends MultiActionController{
    }
    
    public ModelAndView login(HttpServletRequest request,
-         HttpServletResponse response,  HttpSession session, MemberVO pvo) throws Exception{
+         HttpServletResponse response, MemberVO pvo) throws Exception{
       System.out.println("login call..");
       System.out.println(pvo);
       MemberVO rvo = memberService.login(pvo);
       System.out.println("login call2222222");
-      if(rvo != null){//로그인 성공
+
+      HttpSession session = request.getSession();
+      
+      if(session!=null && rvo != null){//로그인 성공
          session.setAttribute("mvo", rvo);
       }
       //이미 바인딩 됐다...
@@ -34,10 +37,15 @@ public class MemberController extends MultiActionController{
    }
    
    public ModelAndView logout(HttpServletRequest request,
-         HttpServletResponse response,  HttpSession session) throws Exception{
-      
-      MemberVO mvo =(MemberVO)session.getAttribute("mvo");
-      if(mvo != null)
+         HttpServletResponse response) throws Exception{
+	   
+	   HttpSession session = request.getSession();
+	   
+       MemberVO mvo = null;
+       if(session != null){
+	   mvo =(MemberVO)session.getAttribute("mvo");
+       }
+       if(mvo != null)
          session.invalidate();
       
       return new ModelAndView("redirect:/index.jsp");

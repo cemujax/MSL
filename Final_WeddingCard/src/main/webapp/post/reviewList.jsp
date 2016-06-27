@@ -118,6 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="jumbotron" >
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <hr class="primary">
                     <p> 사용 후기를 남겨주세요</p>
                     <p> 등록된 내용은 수정/삭제가 불가능합니다.</p>
                 </div>
