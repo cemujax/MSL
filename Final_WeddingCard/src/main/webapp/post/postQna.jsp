@@ -6,7 +6,69 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<title>My Sweet Love . Wedding Card</title>
+<style type="text/css">
+.postInfoPanel {
+	background-color: #f5f5f5;
+	padding: 10px 15px;
+	border: 1px solid;
+	border-color: #ddd;
+	margin-bottom: 20px;
+	font-size: 12px;
+}
+
+.postContentView {
+	padding: 0px 15px 20px;
+}
+
+.postCommentView {
+	margin: 0px 0px 10px;
+	padding: 0px 0px 5px;
+}
+
+.postButtonView {
+	margin: 5px 0px 30px;
+	text-align: right;
+}
+
+.list-write-btn {
+	font-family: "Roboto", sans-serif;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    font-weight: normal;
+    vertical-align: middle;
+    white-space: nowrap;
+    cursor: pointer;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    
+    display: inline-block;
+    text-align: center;
+
+	padding: 5px 10px;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.list-write-btn-color {
+	border: 1px solid #D7D7D7;
+	color: #000;
+	background-color: #FFF;
+}
+
+.list-write-btn-color:hover {
+	border-color: rgb(213, 7, 15);
+	color: rgb(255, 255, 255);
+	background-color: rgb(213, 7, 15);
+}
+
+</style>
 
 <script type="text/javascript">
 	function deleteQnA() {
@@ -19,7 +81,7 @@
 	function modifyQnA() {
 
 		if(confirm("정말 수정하시겠습니까?")){
-			location.href="${initParam.root }post.do?command=modifyViewQnA&&postNo="+${pvo.postNo};
+			location.href="${initParam.root }post.do?command=modifyViewQnA&&postNo=${pvo.postNo}&&page=${param.page}";
 			/* location.href="postQnaUpdate.jsp?postNo="+${pvo.postNo}; */
 		}
 	} // modifyQnA
@@ -27,55 +89,53 @@
 </script>
 
 </head>
-<body>
-<table cellpadding="5">
-<tr>
-	<td>
-		<table width="550">
-		<tr>
-			<td>
-				글번호 : ${requestScope.pvo.postNo} |
-				타이틀 : ${requestScope.pvo.title}
-				<hr style="color: #6691BC; border-style: dotted; margin: 0">
-			</td>
-		</tr>
-		<tr>  
-			<td>
-				작성자 :  ${requestScope.pvo.memberVO.memberId} |
-				작성일시 : ${requestScope.pvo.writeDate}
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<hr style="color: #6691BC; margin: 0">
-				<pre>${requestScope.pvo.content}</pre>					
-			</td>
-		</tr>
-						
-		<tr>
-			<td valign="middle">
-				<a href="${initParam.root }post.do?command=getAllQnAs">전체글목록</a>
-				<!-- 
-					현재 로그인한 사람이 자신이 쓴 게시글을 볼때만 버튼이 보여지도록 한다
-					로그인한 사람의 id가 글쓴 사람의 id와 일치할때만 보여지도록...
-					c:if을 사용하다록 한다.
-				 -->
-											
-				<c:if test="${sessionScope.mvo.memberId == pvo.memberVO.memberId}">
-					<input type="button" value="삭제" onclick="deleteQnA()">
-					<input type="button" value="수정" onclick="modifyQnA()">
-				</c:if>
-						
-			</td>
-		</tr>
-		</table> 	
-	</td>
-</tr>
-</table>	
+<body style=" padding-left: 300px; padding-right: 300px;">
+QnA 게시판<hr><p>
+
+<h1>${requestScope.pvo.title}</h1>
+
+<div class="postInfoPanel" >
+		${requestScope.pvo.memberVO.memberId }
+		<span style="margin-left: 10px; color: #5D5D5D;">
+			<i class="fa fa-comment"></i>
+			${fn:length(commentList) }
+		</span>
+		<span style="float:right; color: #5D5D5D;">
+			<i class="fa fa-clock-o" aria-hidden="true"></i>
+			<c:set var="writeDate" value="${fn:split(pvo.writeDate, ' ') }"/>
+			<c:set var="writeTime" value="${fn:split(writeDate[1], ':') }"/>
+			${writeDate[0] } ${writeTime[0] }:${writeTime[1] }
+		</span>
+</div>
+
+<div class="postContentView">
+	${requestScope.pvo.content}
+</div>
 
 <!-- ===================== Comment Start ================= -->
 <jsp:include page="postComment.jsp"/>
 <!-- ===================== Comment End ================= -->
+
+<div class="postButtonView">
+	<c:if test="${pvo.memberVO.memberId == mvo.memberId }">
+		<button class="list-write-btn list-write-btn-color" onclick="deleteQnA()">          
+			<i class="fa fa-times"></i> 
+			<b>삭제</b>
+		</button>
+		<button class="list-write-btn list-write-btn-color" onclick="modifyQnA()">          
+			<b>수정</b>
+		</button>
+	</c:if>
+
+	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post.do?command=getAllQnAs&&page=${param.page }'">          
+		<i class="fa fa-bars"></i> 
+		<b>목록</b>
+	</button>
+	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post/postQnaWrite.jsp'">             
+		<i class="fa fa-pencil"></i> 
+		<b>글쓰기</b>
+	</button>
+</div>
 
 </body>
 </html>

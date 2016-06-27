@@ -475,6 +475,12 @@
 		// sample : validate that content exists
 		var validator = new Trex.Validator();
 		var content = editor.getContent();
+		
+		if(document.tx_editor_form.title.value == "") {
+			alert("제목을 입력하세요");
+			return false;
+		}
+		
 		if (!validator.exists(content)) {
 			alert('내용을 입력하세요');
 			return false;

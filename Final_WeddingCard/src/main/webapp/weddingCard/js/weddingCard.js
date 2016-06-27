@@ -119,21 +119,24 @@ $(document).ready(function(){
 	   $("#tabs").tabs();
 	   
 	   
+	   ///=========== 템플릿 추가 여기다===================================
 	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
 	   $('#template').attr("checked", true);
-	   var sel_template = $('#template').val();
 	   
+	   var sel_template = $('#template').val();
 	   $('#template').click(function(){
 		   sel_template = ($('input[name=template]:checked').val());
 	  		set_preview();
 	  	});
-	   
 	   $('#template2').click(function(){
-		  // $('#templateType]').val($(this).val());
 		   sel_template = ($('input[name=template]:checked').val());
 	  		set_preview();
 	  	});
-	   
+	   $('#template3').click(function(){
+			   sel_template = ($('input[name=template]:checked').val());
+		  		set_preview();
+		 });
+	 ///=========== 템플릿쪽 End===================================
 	   
 	   $( "#datepicker" ).datepicker({showButtonPanel: true,minDate: '0'});
 	   
@@ -175,17 +178,77 @@ $(document).ready(function(){
    $('#hour').change(function(){
      	set_preview();
       });
-   
    $('#min').change(function(){
      	set_preview();
       });
-	
   $('#cardContext').change(function(){
 	  
   	set_preview();
    });
-   
+  $('#hallName').change(function(){
+	  
+	  	set_preview();
+	   });
+  
+  
+	
+					
+  $('#map').hide();				
   $('#hallLocation').change(function(){
+	  
+	  $('#map').html("");
+	  
+	  if($(this).val() != ""){
+		  alert("mapmap");
+		  
+		  var mapContainer = document.getElementById('map'), // 지도를
+			// 표시할
+			// div
+		  mapOption = {
+			  center : new daum.maps.LatLng(33.450701,
+					  126.570667), // 지도의 중심좌표
+					  level : 3
+					  // 지도의 확대 레벨
+		  };
+
+		// 지도를 생성합니다
+			var map = new daum.maps.Map(mapContainer, mapOption);
+
+			// 주소-좌표 변환 객체를 생성합니다
+			var geocoder = new daum.maps.services.Geocoder();				
+		 
+			$('#map').show();
+			
+		  var loc = $(this).val();
+			// 주소로 좌표를 검색합니다
+			geocoder.addr2coord(loc, function(status, result) {
+
+			    // 정상적으로 검색이 완료됐으면
+			     if (status === daum.maps.services.Status.OK) {
+
+			        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+
+			        // 결과값으로 받은 위치를 마커로 표시합니다
+			        var marker = new daum.maps.Marker({
+			            map: map,
+			            position: coords
+			        });
+
+			        // 인포윈도우로 장소에 대한 설명을 표시합니다
+			        var infowindow = new daum.maps.InfoWindow({
+			            content: '<div style="width:150px;text-align:center;padding:6px 0;">예식장</div>'
+			        });
+			        infowindow.open(map, marker);
+
+			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			        map.setCenter(coords);
+			    } 
+			});
+		  
+	  }else{
+		  $('#map').hide();
+	  }
+	  
    	set_preview();
     });
    
@@ -256,10 +319,6 @@ $(document).ready(function(){
    		}
    		
    	});
-   
-		
-		
-		
  
    function readURL1(input) {
        //alert(input.files[0].name);
@@ -279,8 +338,6 @@ $(document).ready(function(){
    
   ///==================== =========================   
     function set_preview(md){
-		if(md) 
-			$('#scroll_to_preview').val(md);
 		
 		/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
 		$('#frmWeddingCard').attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
@@ -299,16 +356,68 @@ $(document).ready(function(){
 
   $('#createCardBtn').click(function(){
  	 
- 	 alert("전송중");
+ 	 alert("createCard");
       var url = document.frmWeddingCard.url.value;
       
-      if(checkFlag){//url 사용가능
-    	  document.frmWeddingCard.encoding = "multipart/form-data";
-     	 $('#frmWeddingCard').attr('target','frmWeddingCard').attr('action','../card.do?command=createCard').submit();
-      }else{
-      alert("사용하실 수 없는 URL 입니다.");
+      
+      // ==========2번째 탭(신랑 신부)
+      if($('#groomName').val() == ""){
+    	  $( '#tabs' ).tabs( { active: 1,} );
+    	  $('#groomName').focus();
+    	  return false;
+      }
+      if($('#groomTel').val() == ""){
+    	  $( '#tabs' ).tabs( { active: 1,} );
+    	  $('#groomTel').focus();
+    	  return false;
+      }
+      if($('#brideName').val() == ""){
+    	  $( '#tabs' ).tabs( { active: 1,} );
+    	  $('#brideName').focus();
+    	  return false;
+      }
+      if($('#brideTel').val() == ""){
+    	  $( '#tabs' ).tabs( { active: 1,} );
+    	  $('#brideTel').focus();
+    	  
+    	  return false;
+      }
+      if($('#url').val() == ""){
+    	  $( '#tabs' ).tabs( { active: 1,} );
+    	  $('#url').focus();
+    	  alert("초대장 url 입력하세요!!!"	);
+    	  return false;
       }
       
+   // ==========4번째 탭(예식장)
+      
+      if($('#datepicker').val() == ""){
+    	  $( '#tabs' ).tabs( { active: 3,} );
+    	  $('#datepicker').focus();
+    	  return false;
+      }
+      if($('#cardContext').val() == ""){
+    	  $( '#tabs' ).tabs( { active: 3,} );
+    	  $('#cardContext').focus();
+    	  return false;
+      }
+      if($('#hallName').val() == ""){
+    	  $( '#tabs' ).tabs( { active: 3,} );
+    	  $('#hallName').focus();
+    	  return false;
+      }
+      if($('#hallLocation').val() == ""){
+    	  $( '#tabs' ).tabs( { active: 3,} );
+    	  $('#hallLocation').focus();
+    	  return false;
+      }
+      
+      document.frmWeddingCard.encoding = "multipart/form-data";
+	  $('#frmWeddingCard').attr('target','frmWeddingCard').attr('action','../card.do?command=createCard').submit();
+  
+      
+      
+      		
      });// 초대장 생성 click   
      
   

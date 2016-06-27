@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <%-- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
 <!DOCTYPE html>
 <html>
@@ -273,7 +273,7 @@ a#prev_page_button:hover{
 					<div>
 						<img src="images/6.jpg" alt="" />
 						<h1>Custom Animation Banner</h1>
-						<p>In today¡¯s tutorial we will be creating a custom animation banner with jQuery.
+						<p>In todayâ€™s tutorial we will be creating a custom animation banner with jQuery.
 							The idea is to have different elements in a banner that will
 							animate step-wise in a custom way.</p>
 						<p>We will be using the jQuery Easing Plugin and the jQuery 2D
@@ -322,7 +322,7 @@ a#prev_page_button:hover{
 					<div>
 						<img src="images/10.jpg" alt="" />
 						<h1>Compact News Previewer</h1>
-						<p>Today we will create a news previewer that let¡¯s you
+						<p>Today we will create a news previewer that letâ€™s you
 							show your latest articles or news in a compact way.
 							The news previewer will show some list of articles
 							on the left side and the preview of the article with a
