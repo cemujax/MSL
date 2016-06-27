@@ -22,7 +22,6 @@ public class PostController extends MultiActionController{
 		this.postService = postService;
 	}
 	
-	// TODO ==================================== QnA ==============================
 	public ModelAndView writeQnA(HttpServletRequest request, HttpServletResponse response,
 							HttpSession session, PostVO pvo) throws Exception {
 		System.out.println("writeQnA 컨트롤러");
@@ -80,14 +79,15 @@ public class PostController extends MultiActionController{
 	public ModelAndView modifyQnA(HttpServletRequest request, HttpServletResponse response,HttpSession session,PostVO pvo)
 			throws Exception {
 		System.out.println("modifyQnA 컨트롤러");
-		
+		int postNo = Integer.parseInt(request.getParameter("postNo"));
+		System.out.println(postNo);
 		MemberVO mvo=(MemberVO)session.getAttribute("mvo");
-		
 		pvo.setMemberVO(mvo);
-		
+		System.out.println("실행 전==="+pvo);
 		postService.modifyPost(pvo);
+		System.out.println(pvo);
 		
-		return new ModelAndView("redirect:/post.do?command=getQnA&&postNo="+pvo.getPostNo()+ "&&page="+ request.getParameter("page"));
+		return new ModelAndView("redirect:/post.do?command=getQnA&&postNo="+pvo.getPostNo());
 		
 		}
 	public ModelAndView deleteQnA(HttpServletRequest request, HttpServletResponse response, PostVO pvo)
@@ -100,7 +100,6 @@ public class PostController extends MultiActionController{
 		return new ModelAndView("redirect:/post.do?command=getAllQnAs");
 		}
 	
-	// TODO =============================== Anonymous ==========================
 	public ModelAndView writeAnoneQnA(HttpServletRequest request, HttpServletResponse response,
 				HttpSession session, PostVO pvo) throws Exception {
 		System.out.println("writeAnoneQnA 컨트롤러");
@@ -158,14 +157,15 @@ public class PostController extends MultiActionController{
 	public ModelAndView modifyAnoneQnA(HttpServletRequest request, HttpServletResponse response,HttpSession session,PostVO pvo)
 	throws Exception {
 		System.out.println("modifyAnoneQnA 컨트롤러");
-		
+		int postNo = Integer.parseInt(request.getParameter("postNo"));
+		System.out.println(postNo);
 		MemberVO mvo=(MemberVO)session.getAttribute("mvo");
-		
 		pvo.setMemberVO(mvo);
-		
+		System.out.println("실행 전==="+pvo);
 		postService.modifyPost(pvo);
+		System.out.println(pvo);
 		
-		return new ModelAndView("redirect:/post.do?command=getAnoneQnA&&postNo="+pvo.getPostNo()+ "&&page="+ request.getParameter("page"));
+		return new ModelAndView("redirect:/post.do?command=getAnoneQnA&&postNo="+pvo.getPostNo());
 	
 	}
 	public ModelAndView deleteAnoneQnA(HttpServletRequest request, HttpServletResponse response, PostVO pvo)

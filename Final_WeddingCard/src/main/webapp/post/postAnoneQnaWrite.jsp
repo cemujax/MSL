@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>My Sweet Love . Wedding Card</title>
+<title>Anonymous Community Write</title>
 
 	<!-- Daum Editor -->
 	<link rel="stylesheet" href="css/editor.css" type="text/css" charset="utf-8"/>
