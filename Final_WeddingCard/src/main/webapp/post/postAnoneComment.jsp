@@ -150,7 +150,7 @@ $(document).ready(function(){
   <c:forEach items="${commentList }" var="cmt">	
  	<div class="area">
 	  <div class="area-heading">
-		<b><span class="commentMemberId">${cmt.memberVO.memberId }</span></b>
+		<b><span class="commentMemberId">익명</span></b>
 		<span class="commentWriteDate">
 			<i class="fa fa-clock-o" aria-hidden="true"></i>
 			<c:set var="commentDate" value="${fn:split(cmt.writeDate, ' ') }"/>

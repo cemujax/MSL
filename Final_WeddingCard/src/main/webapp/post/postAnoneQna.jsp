@@ -74,28 +74,29 @@
 	function deleteQnA() {
 
 		if(confirm("정말 삭제하시겠습니까?")){
-			location.href="${initParam.root }post.do?command=deleteQnA&&postNo="+${pvo.postNo};
+			location.href="${initParam.root }post.do?command=deleteAnoneQnA&&postNo="+${pvo.postNo};
 		}
-	} // deleteQnA
+	}
 	
 	function modifyQnA() {
 
 		if(confirm("정말 수정하시겠습니까?")){
-			location.href="${initParam.root }post.do?command=modifyViewQnA&&postNo=${pvo.postNo}&&page=${param.page}";
+			location.href="${initParam.root }post.do?command=modifyViewAnoneQnA&&postNo=${pvo.postNo}&&page=${param.page}";
 			/* location.href="postQnaUpdate.jsp?postNo="+${pvo.postNo}; */
 		}
-	} // modifyQnA
+	}
 	
+
 </script>
 
 </head>
 <body style=" padding-left: 300px; padding-right: 300px;">
-QnA 게시판<hr><p>
+익명 게시판<hr><p>
 
 <h1>${requestScope.pvo.title}</h1>
 
 <div class="postInfoPanel" >
-		${requestScope.pvo.memberVO.memberId }
+		익명
 		<span style="margin-left: 10px; color: #5D5D5D;">
 			<i class="fa fa-comment"></i>
 			${fn:length(commentList) }
@@ -113,23 +114,19 @@ QnA 게시판<hr><p>
 </div>
 
 <!-- ===================== Comment Start ================= -->
-<jsp:include page="postComment.jsp"/>
+<jsp:include page="postAnoneComment.jsp"/>
 <!-- ===================== Comment End ================= -->
 
 <div class="postButtonView">
-	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post.do?command=getAllQnAs&&page=${param.page }'">          
+	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post.do?command=getAllAnoneQnAs&&page=${param.page }'">          
 		<i class="fa fa-bars"></i> 
 		<b>목록</b>
 	</button>
-	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post/postQnaWrite.jsp'">             
+	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post/postAnoneQnaWrite.jsp'">             
 		<i class="fa fa-pencil"></i> 
 		<b>글쓰기</b>
 	</button>
 </div>
-
-<!-- ===================== Comment Start ================= -->
-<jsp:include page="postComment.jsp"/>
-<!-- ===================== Comment End ================= -->
-
+	
 </body>
 </html>
