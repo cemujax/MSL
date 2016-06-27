@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	 pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>익명게시판</title>
+    <title>My Sweet Love . Wedding Card</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords"
 	content="Nuptials Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -41,16 +42,51 @@
 	 location.href = "member.do?command=logout"; //Controller에서 기능으로 연결..
 	}
 </script>
+
+<style>
+   .cardManage{
+   position: relative;
+   padding-top: 100%;
+   overflow: hidden; 
+    /*  border: solid 2px; */
+    padding:0px;
+   
+    
+}
+.cardManage .centered  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+img {
+    
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    height: 300px;
+} 
+
+ img.landscape {
+    width: auto;
+    height: 100%;    
+} 
+</style>
+
 </head>
 
 <body>
 
   <c:if test="${sessionScope.mvo == NULL }">
-    <c:redirect url="${initParam.root }login/loginregister.jsp" />
+    <c:redirect url="login/loginregister.jsp" />
   </c:if>
 
   <!-- 메뉴바 -->
-  <nav class="navbar navbar-inverse"
+  <%-- <nav class="navbar navbar-inverse"
        style="background-color: #f8f8f8; border-color: #e7e7e7;">
     <div class="container-fluid">
       <div class="navbar-header" style="margin-top: 10px; font-size: 20px;">
@@ -59,7 +95,7 @@
       </div>
 
       <ul class="nav navbar-nav" style="margin-left: 72%;">
-	<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>
+	<li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li>
 	<li class="dropdown"><a class="dropdown-toggle"
 data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
 	  <ul class="dropdown-menu">
@@ -89,21 +125,22 @@ class="glyphicon glyphicon-log-in"></span> 로그아웃
       </ul>
     </div>
   </nav>
-
+ --%>
 
   <!-- //메뉴바 -->
 
 
-  <div class="container" id="cardManage"
+<!--   <div class="container" id="cardManage"
 style="background-image: url('post/images/anon_pic.png'); background-repeat: no-repeat; background-size: contain; background-position: center;">
     <div class="row" style="margin-top: 5%;" align="center">
-      <!-- <font color="#fff" style="font-size: 90px;">익명 게시판</font> -->
+      <font color="#fff" style="font-size: 90px;">익명 게시판</font>
       <font color="#fff" style="font-size: 5.9vw;">익명 게시판</font>
     </div>
-  </div>
-
-
-
+  </div> -->
+  
+  <div class="cardManage" >
+         <img alt="" src="./post/images/anon_pic.jpg">
+   </div>
 
   
   <div class="container" style="margin-top: 2%;">
@@ -124,9 +161,13 @@ style="background-image: url('post/images/anon_pic.png'); background-repeat: no-
 	<tbody>
 	  <c:forEach items="${listVO.list}" var="post">
 	    <tr>
-	      <td class="not_mapped_style" style="text-align: center"><a href="${initParam.root }post.do?command=getAnoneQnA&&postNo=${post.postNo}">${post.title}</a></td>
+	      <td class="not_mapped_style" style="text-align: center"><a href="${initParam.root }post.do?command=getAnoneQnA&&postNo=${post.postNo}&&page=${listVO.pagingBean.nowPage}">${post.title}</a></td>                
 	      <td class="not_mapped_style" style="text-align: center">익명</td>
-	      <td class="not_mapped_style" style="text-align: center">${post.writeDate }</td>
+	      <td class="not_mapped_style" style="text-align: center">
+	      	<c:set var="listDate" value="${fn:split(post.writeDate, ' ') }"/>
+			<c:set var="listTime" value="${fn:split(listDate[1], ':') }"/>
+			${listDate[0] } ${listTime[0] }:${listTime[1] }
+	      </td>
 	      <!-- </tr> -->
 	  </c:forEach>
 
@@ -153,7 +194,7 @@ class="btn btn-warning" value="글쓰기" id="writeCard" style="margin-right:15%
       
       
        <c:if test="${sessionScope.mvo!=null}">
-		<a href="postAnoneQnaWrite.jsp"> <input type="button"
+		<a href="post/postAnoneQnaWrite.jsp"> <input type="button"
 class="btn btn-warning" value="글쓰기" id="writeCard" style="margin-left: 85%;" ></a>
 	      </c:if>
       
@@ -163,10 +204,13 @@ class="btn btn-warning" value="글쓰기" id="writeCard" style="margin-left: 85%
 
   <div align="center">
     <!-- ================= paging Start ================ -->
+     <c:set value="${listVO.pagingBean}" var="pb"></c:set>
+      
     <c:if test="${pb.previousPageGroup}">
       <a href="${initParam.root }post.do?command=getAllAnoneQnAs&&postNo=${pb.startPageOfPageGroup-1}">
 	이전페이지</a>
-    </c:if> <c:forEach var="i" begin="${pb.startPageOfPageGroup}"
+    </c:if>
+     <c:forEach var="i" begin="${pb.startPageOfPageGroup}"
 		       end="${pb.endPageOfPageGroup}">
       <c:choose>
 	<c:when test="${pb.nowPage != i}">
@@ -185,17 +229,6 @@ class="btn btn-warning" value="글쓰기" id="writeCard" style="margin-left: 85%
       <br>
     </c:if> <!-- ============== paging End ============ -->
   </div>
-
-
-
-  <c:set value="${listVO.pagingBean}" var="pb"></c:set>
-
-
-
-
-
-
-
 
 
 </body>

@@ -33,7 +33,7 @@ public class MemberController extends MultiActionController{
          session.setAttribute("mvo", rvo);
       }
       //이미 바인딩 됐다...
-      return new ModelAndView("member/login_result");
+      return new ModelAndView("login/login_result");
    }
    
    public ModelAndView logout(HttpServletRequest request,

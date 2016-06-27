@@ -781,7 +781,6 @@ button.ui-button::-moz-focus-inner {
 .ui-tabs .ui-tabs-nav {
 	margin: 0;
 	padding: .1em .1em 0;
-	
 }
 .ui-tabs .ui-tabs-nav li {
 	list-style: none;
@@ -798,8 +797,6 @@ button.ui-button::-moz-focus-inner {
 	padding: .5em 1em;
 	text-decoration: none;
 	background-color: /* rgba(236, 172, 85, 0.81) */ #fdc562;
-	width: 75px;
-    height: 55px;
 }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active {
 	margin-bottom: -1px;
@@ -816,11 +813,8 @@ button.ui-button::-moz-focus-inner {
 .ui-tabs .ui-tabs-panel {
 	display: block;
 	border-width: 0;
-	/* padding: 1em 1.4em; */
-	 /*    padding: 0px 10px; */
+	padding: 1em 1.4em;
 	background: none;
-	width: 330px;
-	/* padding: 19px; */
 }
 .ui-tooltip {
 	padding: 8px;
@@ -848,7 +842,7 @@ body .ui-tooltip {
 .ui-widget textarea,
 .ui-widget button {
 	font-family: NanumGothic, Verdana,Arial,sans-serif;
-	/* font-size: 1em; */
+	font-size: 1em;
 }
 .ui-widget-content {
 	border: 1px solid #5FD4D3;
