@@ -112,7 +112,7 @@ function pbCallback() {
 			</div>
 			<ul class="nav navbar-nav" ><!-- style="margin-left: 82%;" -->
 				<li><a href="../card.do?command=getAllCards">청첩장보기</a></li>
-				<li class="lnb_icon5"><a href="javascript:logout()" style="padding-bottom: 5px;">
+				<li class="lnb_icon5"><a href="javascript:logout()">
 				<span class="glyphicon glyphicon-log-in"></span> 로그아웃</a></li>
 			</ul>
 		</div>
@@ -132,10 +132,11 @@ function pbCallback() {
 					<div class="look_input">
 					
 					<!-- 왼쪽 미리보기 부분 -->
-						<iframe src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
+						<%-- <iframe src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
+							name="left_skin_preview" id="left_skin_preview"  scrolling="auto"> </iframe> --%>
+							<iframe src="${initParam.root}/weddingCard/preview03/index.jsp"
 							name="left_skin_preview" id="left_skin_preview"  scrolling="auto"> </iframe>
 					</div>
-					
 					
 					<!--  ============== 모바일 ============== -->
 					<div class="md-modal md-effect-1" id="modal-1">
@@ -150,11 +151,9 @@ function pbCallback() {
 								</div>
 								<div class="look_input"
 									style="margin-left: 40.5%; margin-top: 9%;">
-
 									<iframe src="preview_Fall In Love/preview.jsp"
 										name="left_skin_preview_mobile" id="left_skin_preview_mobile"
 										 scrolling="auto">
-										
 									</iframe>
 								</div>
 								<button class="md-close"
@@ -176,7 +175,6 @@ function pbCallback() {
 							<div data-role="page" id="skin_page" data-url="skin_page"
 								tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
 								<div class="look_input" style="width: 90%; height: 60%;margin-left: 4%;margin-top: 3%;">
-									    
 									<iframe src="preview_Fall In Love/preview.jsp" name="left_skin_preview_pc"
 										id="left_skin_preview_pc"  scrolling="auto">
 									</iframe>

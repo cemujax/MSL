@@ -10,7 +10,7 @@
     padding: 0.5em 0;
 	}
 	.header {
-     background: url(../images/banner2.jpg)no-repeat 0px 0px; 
+     background: url(../images/banner2.jpg)no-repeat -170px 0px; 
 	background-size:cover;
 	}
 	
@@ -164,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                      <dd id="widding_paddr" class="map_initialize">예식장 주소 : ${param.hallLocation}</dd> 
                   </dl>
                </div>
-               <div id="map">
+               <div id="map" style="width: 100%; height: 350px;">
 
 						<script type="text/javascript"
 							src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services">

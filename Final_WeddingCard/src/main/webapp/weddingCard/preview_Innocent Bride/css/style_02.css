@@ -3280,14 +3280,12 @@ ul.bottom i {
 		width: 29%;
 		text-align: center;
 		margin: 0 auto;
-		
 	}
 	.main-drop{
 		margin-top: 83%;
 	}
 	.couple img {
 		width: 62%;
-		
 	}
 	.welcome-top h2 {
 		margin-top: 20px;
@@ -3315,5 +3313,10 @@ ul.bottom i {
 	}
 	.banner-info h3{
 		margin-top:60%;
+	}
+	#map{
+	width:100%;
+	height:200px;
+	
 	}
 }
