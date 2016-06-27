@@ -65,6 +65,33 @@
 <script src="./js/jquery.form.js"></script>
 
 <!-- 우리꺼 -->
+<script type="text/javascript">
+function pbCallback() {
+	if (xhr.readyState == 4) {
+		if (xhr.status == 200) {
+			var jsonData = JSON.parse(xhr.responseText);
+			var pb = "";
+
+			for (var i = 0; i < jsonData.pbList.length; i++) {
+				pb += "<li class='col-lg-3 col-sm-4 col-xs-6' >"
+						+ "<a onclick='chooseBook("
+						+ jsonData.pbList[i].bookNo
+						+ ")'>"
+						/* + "<img src='http://www.freeiconspng.com/uploads/vector-book-icon-vector-graphic--creattor-7.jpg' alt='Barca' class='img-responsive' height='130px' />" */         
+						+ "<img src='"+ '../'+ "img\\photobook\\"+ '${mvo.memberId}'+ "\\"+ jsonData.pbList[i].bookNo+ "\\"+ jsonData.pbList[i].fileName.split('`')[0]+ "' alt='photo' class='img-responsive' height='130px' />"       
+						+ jsonData.pbList[i].bookName
+						/* + "<span class='glyphicon glyphicon-share-alt' ></span>" */
+						+ "<span class='duration'>" + i + "</span>"
+						+ "</a></li>";
+			}
+
+			document.getElementById("pbList-tab").innerHTML = pb;
+		}
+	}
+} // pbCallback
+
+
+</script>
 <script src="./js/weddingCard.js"></script>
 
 <script src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>

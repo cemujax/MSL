@@ -142,6 +142,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="panel-body">
 				신부 &nbsp;${param.brideName}&nbsp; <i
 					class="glyphicon glyphicon-earphone">${param.brideTel}</i>
+					
+					adsf::
+					<%= request.getAttribute( "javax.servlet.include.request_uri" ) %>
 			</div>
 		</div>
 
