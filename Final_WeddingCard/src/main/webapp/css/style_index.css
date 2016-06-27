@@ -1593,7 +1593,7 @@ h2.resp-accordion {
 	}
 	.navbar-nav {
 		margin: 1em 0 0;
-		background: #525252;
+		/* background: #525252; */
 		text-align: center;
 		padding:1em 0;
 	}
@@ -1700,7 +1700,7 @@ h2.resp-accordion {
 		background-position: -120px 0px;
 	}
 	.link-effect-14 a {
-		margin: 0 170px;
+		margin: 0 200px;
 	}
 }
 @media (max-width: 568px){
@@ -2082,7 +2082,8 @@ h2.resp-accordion {
 		font-size: 1.7em;
 	}
 	.link-effect-14 a {
-		margin: 0 65px;
+		/* margin: 0 65px; */
+		margin: 0 10px;
 	}
 	.navbar-toggle {
 		margin: 0 0 0 9.3em;

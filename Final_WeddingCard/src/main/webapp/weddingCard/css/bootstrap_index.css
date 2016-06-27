@@ -186,7 +186,7 @@ table {
 }
 td,
 th {
-  padding: 0;
+ padding: 10px 10px 0px 10px;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -1096,9 +1096,16 @@ input,
 button,
 select,
 textarea {
-  font-family: inherit;
+  /* font-family: inherit;
   font-size: inherit;
-  line-height: inherit;
+  line-height: inherit; */
+    font-family: inherit;
+    /* font-size: inherit; */
+    line-height: inherit;
+    font-size: 12px;
+   /*  background-color: #ff752f;
+    border-radius: 10px; */
+    margin-bottom: 15px;
 }
 a {
   color: #337ab7;
@@ -1119,6 +1126,10 @@ figure {
 }
 img {
   vertical-align: middle;
+  width:250px;
+ /*  width: 120px; */
+  margin-top:30%;
+ /*  margin-top: 1%; */
 }
 .img-responsive,
 .thumbnail > img,
@@ -1131,6 +1142,7 @@ img {
 }
 .img-rounded {
   border-radius: 6px;
+  width: 90px;
 }
 .img-thumbnail {
   display: inline-block;
@@ -4071,7 +4083,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
+ /*  min-height: 50px; */
+  min-height: 40px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -4228,7 +4241,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-nav {
   margin: 7.5px -15px;
-  background-color: 
+  /* background-color:  */
+	
+	
 }
 .navbar-nav > li > a {
   padding-top: 10px;
@@ -4262,9 +4277,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-nav {
     float: left;
     margin: 0;
+    margin-left: 81%;
   }
   .navbar-nav > li {
     float: left;
+    padding-bottom: 10px;
+    padding-right: 8px;
+    padding-left: 8px;
   }
   .navbar-nav > li > a {
     padding-top: 15px;
@@ -4513,6 +4532,16 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-nav > li > a {
  /*  color: #9d9d9d #fff; */
+     padding: 0px;
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+    font-size: 15px;
+}
+.navbar-brand {
+    height: 23px;
+    font-size: 15px;
+    padding-top: 5px;
+    margin-bottom: 13px;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
