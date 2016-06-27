@@ -19,30 +19,26 @@ public class PostCommentController extends MultiActionController{
 		this.postCommentService = postCommentService;
 	}
 
-	public ModelAndView write(HttpServletRequest request, HttpServletResponse response,
+	/*public ModelAndView write(HttpServletRequest request, HttpServletResponse response,
 							HttpSession session, PostCommentVO pcvo) throws Exception {
 		MemberVO mvo = new MemberVO();
 		mvo.setMemberId(((MemberVO) session.getAttribute("mvo")).getMemberId());
-		
 		PostVO pvo = new PostVO();
-		int pno = Integer.parseInt(request.getParameter("postNo"));
-		pvo.setPostNo(pno);
+		pvo.setPostNo(Integer.parseInt(request.getParameter("postNo")));
 
 		pcvo.setMemberVO(mvo);
 		pcvo.setPostVO(pvo);
 
 		postCommentService.writeComment(pcvo);
 
-		return new ModelAndView("redirect:/post.do?command=getAnoneQnA&&postNo="+ pno+ "&&page="+ request.getParameter("page"));
+		return new ModelAndView("redirect:/post/postAnoneQna.jsp");
 	} // write
 
 	public ModelAndView update(HttpServletRequest request,
 							HttpServletResponse response, PostCommentVO pcvo) throws Exception {
-		int pno = Integer.parseInt(request.getParameter("postNo"));
-		
 		postCommentService.modifyComment(pcvo);
 
-		return new ModelAndView("redirect:/post.do?command=getAnoneQnA&&postNo="+ pno+ "&&page="+ request.getParameter("page"));
+		return new ModelAndView("redirect:/post/postComment.jsp");
 	} // update
 
 	public ModelAndView delete(HttpServletRequest request,
@@ -51,11 +47,11 @@ public class PostCommentController extends MultiActionController{
 
 		postCommentService.deleteComment(commentNo);
 
-		return new ModelAndView("redirect:/post.do?command=getAnoneQnA&&postNo="+ request.getParameter("postNo")+ "&&page="+ request.getParameter("page"));
+		return new ModelAndView("redirect:/post/postComment.jsp");
 	} // delete
-	
+*/	
 	//////////////// ajax
-	/*public ModelAndView writeAjax(HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView writeAjax(HttpServletRequest request, HttpServletResponse response,
 							HttpSession session, PostCommentVO pcvo) throws Exception {
 		MemberVO mvo = new MemberVO();
 		mvo.setMemberId(((MemberVO) session.getAttribute("mvo")).getMemberId());
@@ -85,10 +81,8 @@ public class PostCommentController extends MultiActionController{
 
 		return new ModelAndView("JsonView", "commentNo", commentNo);
 	} // deleteAjax
-*/	
 	
-	///////////////////////////////// NOT USE /////////////////////////////
-	/*public ModelAndView detail(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView detail(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String cno = request.getParameter("cno");
 		
 		return new ModelAndView("JsonView", "pcvo", postCommentService.getCommentByNo(cno));
@@ -99,5 +93,5 @@ public class PostCommentController extends MultiActionController{
 		
 		return new ModelAndView("JsonView", "commentList", postCommentService.getCommentList(pno));
 	} // list
-*/	
+	
 }

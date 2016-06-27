@@ -50,12 +50,10 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-
 <script src="js/modernizr.custom.js"></script>
 <!-- <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
  -->
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
 <script src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/hammer.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
@@ -68,6 +66,8 @@
 
 <!-- 우리꺼 -->
 <script src="./js/weddingCard.js"></script>
+
+<script src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
 
 </head>
 <body>
@@ -465,8 +465,8 @@
 						<tr>
 							<td colspan="2">	
 								<div id="map" style="width: 100%; height: 200px;">
-									<script src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
-									<script src="./js/map.js"></script>
+									<!-- <script src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
+									<script src="./js/map.js"></script> -->
 								</div>
 							</td>
 						</tr><!-- map  -->

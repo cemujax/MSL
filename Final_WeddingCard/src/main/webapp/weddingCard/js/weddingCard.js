@@ -141,7 +141,7 @@ $(document).ready(function(){
 	   $("#tabs").tabs();
 	   
 	   
-	   ///=========== 템플릿쪽===================================
+	   ///=========== 템플릿 추가 여기다===================================
 	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
 	   $('#template').attr("checked", true);
 	   
@@ -150,17 +150,14 @@ $(document).ready(function(){
 		   sel_template = ($('input[name=template]:checked').val());
 	  		set_preview();
 	  	});
-	   
 	   $('#template2').click(function(){
 		   sel_template = ($('input[name=template]:checked').val());
 	  		set_preview();
 	  	});
-	   
 	   $('#template3').click(function(){
 			   sel_template = ($('input[name=template]:checked').val());
 		  		set_preview();
-		  	});
-	   
+		 });
 	 ///=========== 템플릿쪽 End===================================
 	   
 	   $( "#datepicker" ).datepicker({showButtonPanel: true,minDate: '0'});
@@ -218,17 +215,13 @@ $(document).ready(function(){
   
 	
 					
-					
+  $('#map').hide();				
   $('#hallLocation').change(function(){
+	  
+	  $('#map').html("");
 	  
 	  if($(this).val() != ""){
 		  alert("mapmap");
-		  
-		  var mapScript = 
-				"<script src='./js/map.js'></script>";
-			  $('#map').html("<script src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>");
-			  $('#map').html(mapScript);
-		  
 		  
 		  var mapContainer = document.getElementById('map'), // 지도를
 			// 표시할
@@ -240,13 +233,14 @@ $(document).ready(function(){
 					  // 지도의 확대 레벨
 		  };
 
-							// 지도를 생성합니다
-							var map = new daum.maps.Map(mapContainer, mapOption);
+		// 지도를 생성합니다
+			var map = new daum.maps.Map(mapContainer, mapOption);
 
-							// 주소-좌표 변환 객체를 생성합니다
-							var geocoder = new daum.maps.services.Geocoder();
+			// 주소-좌표 변환 객체를 생성합니다
+			var geocoder = new daum.maps.services.Geocoder();				
 		 
-		  
+			$('#map').show();
+			
 		  var loc = $(this).val();
 			// 주소로 좌표를 검색합니다
 			geocoder.addr2coord(loc, function(status, result) {
@@ -274,7 +268,7 @@ $(document).ready(function(){
 			});
 		  
 	  }else{
-		  alert("gg");
+		  $('#map').hide();
 	  }
 	  
    	set_preview();
