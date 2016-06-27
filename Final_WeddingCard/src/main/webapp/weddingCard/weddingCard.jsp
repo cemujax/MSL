@@ -133,7 +133,7 @@ function pbCallback() {
 					<!-- 왼쪽 미리보기 부분 -->
 						<%-- <iframe src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
 							name="left_skin_preview" id="left_skin_preview"  scrolling="auto"> </iframe> --%>
-							<iframe src="${initParam.root}/weddingCard/preview03/index.jsp"
+							<iframe src="${initParam.root}weddingCard/preview03/index.jsp"
 							name="left_skin_preview" id="left_skin_preview"  scrolling="auto"> </iframe>
 					</div>
 					
