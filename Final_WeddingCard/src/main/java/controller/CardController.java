@@ -89,11 +89,6 @@ public class CardController extends MultiActionController {
 			cvo.setPhotobookVO(pvo);
 		}
 		
-		String format = "<%@ page language='java' contentType='text/html; charset=UTF-8'\n"
-			    +"pageEncoding='UTF-8' isELIgnored='false'%><%@ taglib prefix='c'\n uri='http://java.sun.com/jsp/jstl/core'%>\n"
-			    +"<%@ taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions' %>"
-			    +"<!DOCTYPE html>\n<html>\n<head>\n<meta charset='UTF-8'>\n<title>Insert title here</title></head>\n<body>\n";
-		
 		// 상단 이미지
 		MultipartFile imgFile = cvo.getImgFile();
 		File file = new File(path + cvo.getUrl() + ".jsp");
@@ -111,6 +106,14 @@ public class CardController extends MultiActionController {
 			}
 			cvo.setMainImage(imgFile.getOriginalFilename());	
 		}
+		
+		cardService.createCard(cvo);
+		cvo = cardService.getCard(url); // cardNo 알기 위해
+		
+		String format = "<%@ page language='java' contentType='text/html; charset=UTF-8'\n"
+			    +"pageEncoding='UTF-8' isELIgnored='false'%><%@ taglib prefix='c'\n uri='http://java.sun.com/jsp/jstl/core'%>\n"
+			    +"<%@ taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions' %>"
+			    +"<!DOCTYPE html>\n<html>\n<head>\n<meta charset='UTF-8'>\n<title>Insert title here</title></head>\n<body>\n";
 		
 		if (!file.getParentFile().exists())
 			file.getParentFile().mkdirs();
@@ -149,6 +152,7 @@ public class CardController extends MultiActionController {
 					+ "<jsp:param value='"+rvo.getMemberId()+"' name='memberId'/>\n"
 					+ "<jsp:param value='"+cvo.getUrl()+"' name='url'/>\n"
 					+ "<jsp:param value='"+cvo.getMainImage()+"' name='imgSrc'/>\n"
+					+"<jsp:param value='"+cvo.getCardNo()+"' name='cardNo'/>\n"
 					);
 			//상단 이미지 있는 
 			
@@ -159,7 +163,7 @@ public class CardController extends MultiActionController {
 			// =====================방명록=======================
 			
 			bw_guestBook.write(format);
-			bw_guestBook.write("<jsp:include page='template/guestBookSample.jsp' flush='true'>\n");
+			bw_guestBook.write("<jsp:include page='../template/guestBookSample.jsp' flush='true'>\n");
 			bw_guestBook.write("<jsp:param value='"+cvo.getCardNo()+"' name='cardNo'/>\n"
 					+"</jsp:include>\n");
 			bw_guestBook.write("</body>\n</html>\n");//닫는 태그
@@ -171,7 +175,7 @@ public class CardController extends MultiActionController {
 			e.printStackTrace();
 		}
 		
-		cardService.createCard(cvo);
+		
 
 
 		return new ModelAndView("redirect:/card.do?command=getAllCards");
@@ -337,4 +341,18 @@ public class CardController extends MultiActionController {
 		
 		return new ModelAndView("redirect:/card.do?command=linkGuestBook&&url="+url);
 	}
+	
+	public ModelAndView getAllCardComments(HttpServletRequest request, HttpServletResponse response
+			) throws Exception {
+		
+		System.out.println("getAllCardComments 컨트롤러");
+		int cardNo = Integer.parseInt(request.getParameter("cardNo"));
+		
+		List<CardcommentVO> commentList = cardService.getAllCardComments(cardNo);
+		
+		request.setAttribute("comments", commentList);
+		System.out.println(commentList);
+		return new ModelAndView("JsonView","commentList",commentList);
+	}
+	
 }

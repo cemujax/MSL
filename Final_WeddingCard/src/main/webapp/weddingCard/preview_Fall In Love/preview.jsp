@@ -42,6 +42,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
+<script type="text/javascript"
+							src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services">
+						</script>
+
+
 </head>
 <body>
 
@@ -164,12 +169,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                      <dd id="widding_paddr" class="map_initialize">예식장 주소 : ${param.hallLocation}</dd> 
                   </dl>
                </div>
-               <div id="map" style="width: 100%; height: 350px;">
+              
 
-						<script type="text/javascript"
-							src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services">
-						</script>
-						<script >
+						<c:if test="${param.hallLocation != ''}">
+							 <div id="map" style="width: 100%; height: 350px;">
+							<script >
 						
 							var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
 							var loc = '${param.hallLocation}';
@@ -187,9 +191,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							// 주소-좌표 변환 객체를 생성합니다
 							var geocoder = new daum.maps.services.Geocoder();
-							
-							
-							
 							
 							// 주소로 좌표를 검색합니다
 							geocoder.addr2coord(loc, function(status, result) {
@@ -218,7 +219,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							});  
 
 						</script>
-					</div><!-- map  -->
+						</div><!-- map  -->
+						</c:if>
+						
+					
                
             </div>
          </div>
