@@ -39,6 +39,12 @@
 		WHERE comment_no = #{value}
 	</delete>
 	
+	<delete id="deleteCommentListByPostNo">
+		DELETE
+		FROM postcomment
+		WHERE post_no = #{value}
+	</delete>
+	
 	<select id="getCommentByNo" resultMap="postCommentRM">
 		<include refid="postComment-select"/>
 		WHERE comment_no = #{value}

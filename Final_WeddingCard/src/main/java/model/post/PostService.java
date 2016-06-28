@@ -10,5 +10,6 @@ public interface PostService {
 	ListVO getPostList(HashMap<String, String> map) throws Exception;
 	PostVO getPostByNo(int postNo);
 	
-	public List<PostCommentVO> getCommentList(String postNo);
+	List<PostCommentVO> getCommentList(String postNo);
+	void deleteCommentListByPostNo(String postNo);
 }

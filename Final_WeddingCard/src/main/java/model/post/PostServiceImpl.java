@@ -30,7 +30,7 @@ public class PostServiceImpl implements PostService{
 	}
 
 	public ListVO getPostList(HashMap<String, String> map) throws SQLException{
-		if(map.get("page") == null)
+		if(map.get("page") == null || map.get("page") == "")
 			map.put("page", "1");
 		
 		System.out.println("page = "+ map.get("page"));
@@ -52,6 +52,10 @@ public class PostServiceImpl implements PostService{
 
 	public List<PostCommentVO> getCommentList(String postNo) {
 		return postCommentService.getCommentList(postNo);
+	}
+
+	public void deleteCommentListByPostNo(String postNo) {
+		postCommentService.deleteCommentListByPostNo(postNo);
 	}
 
 }

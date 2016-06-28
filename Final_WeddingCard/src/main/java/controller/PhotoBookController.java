@@ -32,52 +32,44 @@ public class PhotoBookController extends MultiActionController {
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 
 		pbvo.setMemberVO(mvo);
-		//////////////////////////////// bookComment
-		for (String c : pbvo.getComment()) {
-			c += "";
 
-			if (pbvo.getBookComment() == null)
-				pbvo.setBookComment(c);
-
-			else
-				pbvo.setBookComment(pbvo.getBookComment() + "`END`" + c);
-		}
-
-		//////////////////////////////// fileName
+		List<String> cmt = pbvo.getComment();
 		List<MultipartFile> files = pbvo.getFile();
 
-		if (!files.isEmpty()) {
-			for (MultipartFile f : files) {
-				String fileName = f.getOriginalFilename();
+		for (int i=0; i< files.size(); i++) {
+			if(!files.get(i).isEmpty()) {
+				String fileName = files.get(i).getOriginalFilename();
+				String msg = ""+ cmt.get(i);
 
-				if (pbvo.getFileName() == null)
+				if (pbvo.getFileName() == null) {
 					pbvo.setFileName(fileName);
-
-				else
+					
+					pbvo.setBookComment(msg);
+				}
+				
+				else {
 					pbvo.setFileName(pbvo.getFileName() + "`" + fileName);
-
+					pbvo.setBookComment(pbvo.getBookComment()+ "`END`"+ msg);
+				}
+					
 			}
+			
+		}
 
-			photoBookService.createPhotoBook(pbvo);
+		photoBookService.createPhotoBook(pbvo);
 
-			System.out.println("[path]" + path);
-			System.out.println("[mvo.getMemberId()]" + mvo.getMemberId());
-			System.out.println("[pbvo.getBookNo()]" + pbvo.getBookNo());
+		File filePath = new File(path + mvo.getMemberId() + "/" + pbvo.getBookNo());
 
-			File filePath = new File(path + mvo.getMemberId() + "/" + pbvo.getBookNo());
+		if (!filePath.getAbsoluteFile().getParentFile().exists())
+			filePath.getAbsoluteFile().getParentFile().mkdirs();
 
-			System.out.println("[filePath]" + filePath);
-			System.out.println("[parent]: " + filePath.getAbsoluteFile().getParentFile());
-			if (!filePath.getAbsoluteFile().getParentFile().exists())
-				filePath.getAbsoluteFile().getParentFile().mkdirs();
+		if (!filePath.exists())
+			filePath.mkdir();
 
-			if (!filePath.exists())
-				filePath.mkdir();
-
-			for (MultipartFile f : files)
+		for (MultipartFile f : files)
+			if(!f.isEmpty())
 				f.transferTo(new File(filePath + "/" + f.getOriginalFilename()));
 
-		}
 		// TODO 수정
 		return new ModelAndView("redirect:/photoBook.do?command=list");
 	} // create
