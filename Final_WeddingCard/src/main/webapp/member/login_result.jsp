@@ -18,7 +18,7 @@
 <c:otherwise>
 	<script type="text/javascript">
 		alert('${mvo.name}'+"님, 로그인 성공"	);
-		location.href="index.jsp"; 	
+		location.href="index.jsp";
 	</script>
 </c:otherwise>
 </c:choose>

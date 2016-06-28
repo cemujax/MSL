@@ -87,12 +87,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				var commentList = jsonData.commentList;
 				
-				alert(commentList.length);
-				
 				//$('.guestBook').innerHTML = "123123213";
 				
-				var table = "<table class='table'><thead><tr>"
-					+"<th>내용</th><th>작성자</th><th>작성일</th></tr></thead>";
+				var table = "<table class='table'><tr>"
+					+"<th>내용</th><th>작성자</th><th>작성일</th></tr>";
 				 $('.guestBook').append(table);
 				 
 				 for (i = 0; i < commentList.length; i++) {
@@ -167,12 +165,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<p>
 	<input type="hidden" name="comments" value="">
 	<div class="guestBook">
+	
 		<h2 align="center">방명록</h2>
 		<br>
-		
 		<input type="button" name="writeComment" onclick="writeComment()"
 				value="축하글 쓰기">
+		<!-- 
+			수연아 요쪽에 방명록 잡아줭
 		
+		 -->		
 			
 			
 	</div>
