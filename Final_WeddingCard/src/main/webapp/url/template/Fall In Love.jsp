@@ -142,6 +142,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="panel-body">
 				신부 &nbsp;${param.brideName}&nbsp; <i
 					class="glyphicon glyphicon-earphone">${param.brideTel}</i>
+					
+					adsf::
+					<%= request.getAttribute( "javax.servlet.include.request_uri" ) %>
 			</div>
 		</div>
 
@@ -370,8 +373,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         height: '200'
       },
       webButton: {
-        text: '카카오 디벨로퍼스',
-        url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+        text: '',
+        url: 'http://mysweetlove.org/url/'+ '${param.url}' +'.jsp' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
       }
     });
   //]]>

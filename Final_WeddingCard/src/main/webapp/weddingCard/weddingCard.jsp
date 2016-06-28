@@ -50,6 +50,28 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+<script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+<!-- <script type="text/javascript">
+  WebFont.load({
+ 
+    // For google fonts
+  
+    // For early access or custom font
+    custom: {
+        families: ['Nanum Gothic'],
+        urls: ['http://fonts.googleapis.com/earlyaccess/nanumgothic.css']
+    }
+ 
+  });
+</script> -->
+ 
+
+
+
+
+
+
+
 <script src="js/modernizr.custom.js"></script>
 <!-- <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
  -->
@@ -65,12 +87,42 @@
 <script src="./js/jquery.form.js"></script>
 
 <!-- 우리꺼 -->
+<script type="text/javascript">
+function pbCallback() {
+	if (xhr.readyState == 4) {
+		if (xhr.status == 200) {
+			var jsonData = JSON.parse(xhr.responseText);
+			var pb = "";
+
+			for (var i = 0; i < jsonData.pbList.length; i++) {
+				pb += "<li class='col-lg-3 col-sm-4 col-xs-6' >"
+						+ "<a onclick='chooseBook("
+						+ jsonData.pbList[i].bookNo
+						+ ")'>"
+						/* + "<img src='http://www.freeiconspng.com/uploads/vector-book-icon-vector-graphic--creattor-7.jpg' alt='Barca' class='img-responsive' height='130px' />" */         
+						+ "<img src='"+ '../'+ "img/photobook/"+ '${mvo.memberId}'+ "/"+ jsonData.pbList[i].bookNo+ "/"+ jsonData.pbList[i].fileName.split('`')[0]+ "' alt='photo' class='img-responsive' height='130px' />"       
+						+ jsonData.pbList[i].bookName
+						/* + "<span class='glyphicon glyphicon-share-alt' ></span>" */
+						+ "<span class='duration'>" + i + "</span>"
+						+ "</a></li>";
+			}
+
+			document.getElementById("pbList-tab").innerHTML = pb;
+		}
+	}
+} // pbCallback
+
+
+</script>
 <script src="./js/weddingCard.js"></script>
 
 <script src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
 
 </head>
 <body>
+
+	font-family: "Nanum Gothic", sans-serif;
+
 	<c:if test="${sessionScope.mvo == NULL }">
 		<c:redirect url="../login/loginregister.jsp" />
 	</c:if>
@@ -84,7 +136,7 @@
 			</div>
 			<ul class="nav navbar-nav" ><!-- style="margin-left: 82%;" -->
 				<li><a href="../card.do?command=getAllCards">청첩장보기</a></li>
-				<li class="lnb_icon5"><a href="javascript:logout()" style="padding-bottom: 5px;">
+				<li class="lnb_icon5"><a href="javascript:logout()">
 				<span class="glyphicon glyphicon-log-in"></span> 로그아웃</a></li>
 			</ul>
 		</div>
@@ -104,10 +156,11 @@
 					<div class="look_input">
 					
 					<!-- 왼쪽 미리보기 부분 -->
-						<iframe src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
+						<%-- <iframe src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
+							name="left_skin_preview" id="left_skin_preview"  scrolling="auto"> </iframe> --%>
+							<iframe src="${initParam.root}weddingCard/preview03/index.jsp"
 							name="left_skin_preview" id="left_skin_preview"  scrolling="auto"> </iframe>
 					</div>
-					
 					
 					<!--  ============== 모바일 ============== -->
 					<div class="md-modal md-effect-1" id="modal-1">
@@ -122,11 +175,9 @@
 								</div>
 								<div class="look_input"
 									style="margin-left: 40.5%; margin-top: 9%;">
-
 									<iframe src="preview_Fall In Love/preview.jsp"
 										name="left_skin_preview_mobile" id="left_skin_preview_mobile"
 										 scrolling="auto">
-										
 									</iframe>
 								</div>
 								<button class="md-close"
@@ -148,7 +199,6 @@
 							<div data-role="page" id="skin_page" data-url="skin_page"
 								tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
 								<div class="look_input" style="width: 90%; height: 60%;margin-left: 4%;margin-top: 3%;">
-									    
 									<iframe src="preview_Fall In Love/preview.jsp" name="left_skin_preview_pc"
 										id="left_skin_preview_pc"  scrolling="auto">
 									</iframe>

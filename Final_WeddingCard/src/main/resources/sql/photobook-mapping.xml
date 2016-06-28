@@ -62,6 +62,10 @@
 	<delete id="deletePhotoBook" parameterType="int">
 		DELETE FROM photobook WHERE book_no= #{value}
 	</delete>
+	
+	<delete id="delete_photo" parameterType="int">
+		DELETE FROM photobook WHERE book_no= #{value}
+	</delete>
 
 </mapper>	
 

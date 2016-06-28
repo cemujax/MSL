@@ -290,6 +290,10 @@ border:1px solid #fff; background-color:#000; background:#000 url(/dalpeng/skin/
 
 /* 640 이상 */
 @media all and (min-width: 40em) {
+	#map {
+	    height: 350px;
+	    width: 100%;
+	}
 	.contents {overflow: visible!important}
 	.contact_wrap {display:none;}
 

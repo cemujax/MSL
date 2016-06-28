@@ -78,6 +78,50 @@ public class PhotoBookController extends MultiActionController {
 	 * modifyPhotoBook deletePhotoBook
 	 */
 
+/*	public ModelAndView modify_photo(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+			PhotoBookVO pbvo) throws Exception {*/
+		
+/*
+	} // modify
+*/	
+	
+	
+	
+	
+	
+	
+	///////////DELETE////////////
+	
+	
+	public ModelAndView delete_photo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		System.out.println("DELETE PHOTO");
+		HttpSession session = request.getSession();
+		
+		String bookNo = (String)request.getParameter("bookNo");
+
+		System.out.println("bookNo:" + bookNo);
+		
+		
+		photoBookService.delete_photo(Integer.parseInt(bookNo));
+
+
+		// TODO 수정
+		return new ModelAndView("redirect:/photoBook.do?command=list");
+	} // delete
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public ModelAndView list(HttpServletRequest request, HttpServletResponse response, HttpSession session)
 			throws Exception {
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");

@@ -6,9 +6,36 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	.write_box {
+    width: 30%;
+    border: 1px solid #a4a6aa;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.write_box .text-box {
+    color: #837e7e;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #fff;
+}
+
+#contents {
+    color: #837e7e;
+    
+    border: 0;
+    height: 50px;
+}
+
+</style>
+
+
 </head>
 <body>
-<h2 align="center"> 방명록</h2>
+
+<h2 align="center"> GuestBook</h2>
 
 <h3>cardNo: ${param.cardNo }</h3>
 
@@ -17,6 +44,14 @@
 <form action="./card.do" method="post">
 <input type="hidden" name="command" value="writeCardComment">
 <input type="hidden" name="url" value="${param.url}">
+
+
+<div class="write_box" >
+						<div class="text-box">
+							<textarea class="ui-state-disabled" id='contents' placeholder="로그인후 방명록 사용이 가능합니다."></textarea>
+							<input type="submit" value="작성하기"><p>	
+						</div>
+</div>
 
 작성자 :: <input type="text" name="guest" id="guest"><br>
 password <input type="password" name="password" id="password"><br>
