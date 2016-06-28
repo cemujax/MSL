@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page  language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -133,8 +133,8 @@ h1.page-header {
 	                                </label>
 	                            </div>
 	                            <div class="pull-right action-buttons">
-	                                <a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-pencil"></span></a>
-	                                <a href="http://www.jquery2dotnet.com" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+	                                <a href="admin.do?command=modifyMember&&member_id=${l.memberId}"><span class="glyphicon glyphicon-pencil"></span></a>
+	                                <a href="admin.do?command=deleteMember&&member_id=${l.memberId}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
 	                                <a href="http://www.jquery2dotnet.com" class="flag"><span class="glyphicon glyphicon-flag"></span></a>
 	                            </div>
 	                        </li>

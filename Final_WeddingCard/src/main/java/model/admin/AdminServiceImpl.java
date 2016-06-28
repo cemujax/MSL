@@ -27,4 +27,21 @@ public class AdminServiceImpl implements AdminService{
 		return adminDao.totalCount();
 	}
 
+
+	public int modifyMember(MemberVO memberVO) {
+
+
+		return adminDao.modifyMember(memberVO);
+	}
+
+
+	public int deleteMember(String member_id) {
+		return adminDao.deleteMember(member_id);
+	}
+
+
+	public int executeUpdate(MemberVO mvo) {
+		return adminDao.executeUpdate(mvo);
+	}
+
 }

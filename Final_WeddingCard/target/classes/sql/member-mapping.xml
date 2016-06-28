@@ -3,62 +3,85 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="memberSql">
-   
-   <resultMap type="member" id="memberRM">
-      <result property="memberId" column="member_id" jdbcType="VARCHAR"/>
-      <result property="password" column="password" jdbcType="VARCHAR"/>
-      <result property="name" column="name" jdbcType="VARCHAR"/>
-      <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
-   </resultMap>
-   
-   <sql id="select-member">
-      SELECT member_id as memberId, password, name, phone_number as phoneNumber
-      FROM member
-   </sql>
-   
-   <insert id="registerMember" parameterType="member">
-      INSERT INTO
-      member(member_id, password, name, phone_number)
-      VALUES(#{memberId}, #{password}, #{name}, #{phoneNumber})
-   </insert>
-   
-   <select id="idCheck" parameterType="string" resultMap="memberRM">
-      <include refid="select-member"/>
-      WHERE member_id = #{value}
-   </select>
-   
-   <select id="login" parameterType="member" resultMap="memberRM">
-      <include refid="select-member"/>
-      WHERE member_id=#{memberId} AND password=#{password} 
-   </select>
-   
-   <select id="findId" parameterType="member" resultType="string">
-      select member_id
-      from member
-      WHERE name = #{name} AND phone_number = #{phoneNumber}
-   </select>
-   
-   <select id="findPassword" parameterType="member" resultType="string">
-      select member_id
-      from member
-      WHERE
-         member_id = #{memberId}
-         AND name = #{name}
-         AND phone_number = #{phoneNumber}
-   </select>
-   
-   <select id="getAllMembers" resultMap="memberRM">
-      SELECT member_id, password, name, phone_number
-      FROM (
-      	SELECT member_id, password, name, phone_number, CEIL(ROWNUM/10) page
-      	FROM member
-      	ORDER BY member_id DESC
-      )
-      WHERE page = #{value}
-   </select>
-   
+
+	<resultMap type="member" id="memberRM">
+		<result property="memberId" column="member_id" jdbcType="VARCHAR" />
+		<result property="password" column="password" jdbcType="VARCHAR" />
+		<result property="name" column="name" jdbcType="VARCHAR" />
+		<result property="phoneNumber" column="phone_number" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<sql id="select-member">
+		SELECT member_id as memberId, password, name, phone_number as phoneNumber
+		FROM member
+	</sql>
+
+	<insert id="registerMember" parameterType="member">
+		INSERT INTO
+		member(member_id, password, name, phone_number)
+		VALUES(#{memberId}, #{password}, #{name}, #{phoneNumber})
+	</insert>
+
+	<select id="idCheck" parameterType="string" resultMap="memberRM">
+		<include refid="select-member" />
+		WHERE member_id = #{value}
+	</select>
+
+	<select id="login" parameterType="member" resultMap="memberRM">
+		<include refid="select-member" />
+		WHERE member_id=#{memberId} AND password=#{password}
+	</select>
+
+	<select id="findId" parameterType="member" resultType="string">
+		select member_id
+		from member
+		WHERE name = #{name} AND phone_number = #{phoneNumber}
+	</select>
+
+	<select id="findPassword" parameterType="member" resultType="string">
+		select member_id
+		from member
+		WHERE
+		member_id = #{memberId}
+		AND name = #{name}
+		AND phone_number = #{phoneNumber}
+	</select>
+
+	<select id="getAllMembers" resultMap="memberRM">
+		SELECT member_id, password, name, phone_number
+		FROM (
+		SELECT member_id, password, name, phone_number, CEIL(ROWNUM/10) page
+		FROM member
+		ORDER BY member_id DESC
+		)
+		WHERE page = #{value}
+	</select>
+
 	<select id="totalCount" resultType="int">
-		SELECT COUNT(-1) AS totalCount
+		SELECT COUNT(-1) AS
+		totalCount
 		FROM member
 	</select>
+
+
+
+	<update id="executeUpdate" parameterType="member">
+		UPDATE member
+		SET
+		password = #{password}, name = #{name}, phone_number = #{phoneNumber}
+		WHERE member_id = #{memberId}
+	</update>
+
+	<delete id="deleteMember" parameterType="int">
+		DELETE
+		FROM member
+		WHERE
+		member_id = #{member_id}
+	</delete>
+
+
+
+
+
+
 </mapper>   
