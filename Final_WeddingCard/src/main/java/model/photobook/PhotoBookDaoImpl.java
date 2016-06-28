@@ -31,4 +31,9 @@ public class PhotoBookDaoImpl implements PhotoBookDao{
 		return sqlSession.delete("photoBookSql.deletePhotoBook", bookNo);
 	}
 
+	public void delete_photo(int bookNo) {
+		sqlSession.delete("photoBookSql.delete_photo", bookNo);
+		
+	}
+
 }

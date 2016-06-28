@@ -8,4 +8,5 @@ public interface PhotoBookDao {
 	int createPhotoBook(PhotoBookVO pbvo);
 	int modifyPhotoBook(PhotoBookVO pbvo);
 	int deletePhotoBook(int bookNo);
+	void delete_photo(int bookNo);
 }

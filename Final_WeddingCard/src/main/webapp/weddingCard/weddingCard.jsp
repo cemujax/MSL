@@ -50,6 +50,28 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+<script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+<!-- <script type="text/javascript">
+  WebFont.load({
+ 
+    // For google fonts
+  
+    // For early access or custom font
+    custom: {
+        families: ['Nanum Gothic'],
+        urls: ['http://fonts.googleapis.com/earlyaccess/nanumgothic.css']
+    }
+ 
+  });
+</script> -->
+ 
+
+
+
+
+
+
+
 <script src="js/modernizr.custom.js"></script>
 <!-- <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
  -->
@@ -78,7 +100,7 @@ function pbCallback() {
 						+ jsonData.pbList[i].bookNo
 						+ ")'>"
 						/* + "<img src='http://www.freeiconspng.com/uploads/vector-book-icon-vector-graphic--creattor-7.jpg' alt='Barca' class='img-responsive' height='130px' />" */         
-						+ "<img src='"+ '../'+ "img\\photobook\\"+ '${mvo.memberId}'+ "\\"+ jsonData.pbList[i].bookNo+ "\\"+ jsonData.pbList[i].fileName.split('`')[0]+ "' alt='photo' class='img-responsive' height='130px' />"       
+						+ "<img src='"+ '../'+ "img/photobook/"+ '${mvo.memberId}'+ "/"+ jsonData.pbList[i].bookNo+ "/"+ jsonData.pbList[i].fileName.split('`')[0]+ "' alt='photo' class='img-responsive' height='130px' />"       
 						+ jsonData.pbList[i].bookName
 						/* + "<span class='glyphicon glyphicon-share-alt' ></span>" */
 						+ "<span class='duration'>" + i + "</span>"
@@ -98,6 +120,9 @@ function pbCallback() {
 
 </head>
 <body>
+
+	font-family: "Nanum Gothic", sans-serif;
+
 	<c:if test="${sessionScope.mvo == NULL }">
 		<c:redirect url="../login/loginregister.jsp" />
 	</c:if>
