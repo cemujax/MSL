@@ -20,6 +20,10 @@ public class PostCommentServiceImpl implements PostCommentService{
 		postCommentDao.deleteComment(commentNo);
 	}
 	
+	public void deleteCommentListByPostNo(String postNo) {
+		postCommentDao.deleteCommentListByPostNo(postNo);
+	}
+	
 	public PostCommentVO getCommentByNo(String commentNo) {
 		return postCommentDao.getCommentByNo(commentNo);
 	}

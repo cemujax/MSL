@@ -53,8 +53,8 @@
 		      by using the slider controls. When a thumbnail is clicked,
 		      it moves to the center and the full image preview opens. -->
 		${i[1] }</p>
-	      <a href="http://tympanus.net/codrops/2010/10/07/slider-gallery/" target="_blank" class="article">Article</a>
-	      <a href="http://tympanus.net/Tutorials/SliderGallery/" target="_blank" class="demo">Demo</a>
+	      <a href="photoBook.do?command=modify_photo" target="_blank" class="article">Modify Photo</a>
+	      <a href="photoBook.do?command=delete_photo&&bookNo=${pbvo.bookNo}" target="_blank" class="demo">Delete Photo</a>
 	    </div>
 	  </c:forEach>
 	  <a href="index.jsp">

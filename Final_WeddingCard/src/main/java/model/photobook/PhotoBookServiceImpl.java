@@ -50,4 +50,9 @@ public class PhotoBookServiceImpl implements PhotoBookService{
 		}
 		return list;
 	}
+
+	public void delete_photo(int bookNo) {
+		photoBookDao.delete_photo(bookNo);
+		
+	}
 }

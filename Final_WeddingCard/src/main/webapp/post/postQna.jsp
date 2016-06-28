@@ -78,14 +78,6 @@
 		}
 	} // deleteQnA
 	
-	function modifyQnA() {
-
-		if(confirm("정말 수정하시겠습니까?")){
-			location.href="${initParam.root }post.do?command=modifyViewQnA&&postNo=${pvo.postNo}&&page=${param.page}";
-			/* location.href="postQnaUpdate.jsp?postNo="+${pvo.postNo}; */
-		}
-	} // modifyQnA
-	
 </script>
 
 </head>
@@ -122,7 +114,7 @@ QnA 게시판<hr><p>
 			<i class="fa fa-times"></i> 
 			<b>삭제</b>
 		</button>
-		<button class="list-write-btn list-write-btn-color" onclick="modifyQnA()">          
+		<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post.do?command=modifyViewQnA&&postNo=${pvo.postNo}&&page=${param.page}'">           
 			<b>수정</b>
 		</button>
 	</c:if>

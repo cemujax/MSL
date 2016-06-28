@@ -1,7 +1,6 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	 pageEncoding="UTF-8" isELIgnored="false"%>
-<%-- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -44,61 +43,26 @@
 	<div id="loading" class="loading">Loading pages...</div>
 	<div id="mybook" style="display: none;">
 	  <div class="b-load">
-	    <div>
-	      <input type="file" name="file[0]" id="imgefile1"
-		     style="text-align: center;">
-	      <p>
-		<img
-		    src="http://104.244.124.250/~conollyp/diyFiles/123_File_Upload_Donload_m.jpg   "
-		    id="original1" style="width: 300px; height: 163px;" alt="" />
-		<h1>
-		  Book Comment <input type="text" name="comment[0]" id="text1"
-				      value="" style="width: 40%; height: 90%;"
-				      onkeyup="writeHere1()">
-		</h1>
-
-
-
-		<a href="http://tympanus.net/Tutorials/SliderGallery/"
-		   target="_blank" class="demo">Demo</a> <a href="index.jsp"
-							    target="_blank" class="article">Index</a>
-	    </div>
-
-
-
-	    <div>
-	      <input type="file" name="file[1]" id="imgefile2">
-	      <p>
-		<img src="images/2.jpg" id="original2" alt="" />
-		<h1>
-		  Book Comment <input type="text" name="comment[1]" id="text2"
-				      value="" style="width: 40%; height: 90%;"
-				      onkeyup="writeHere2()">
-		</h1>
-		<a href="http://tympanus.net/Tutorials/SliderGallery/"
-		   target="_blank" class="demo">Demo</a> <a href="index.jsp"
-							    target="_blank" class="article">Index</a>
-	    </div>
-
-	    <div>
-
-	      <input type="file" name="file[2]" id="imgefile3">
-	      <p>
-
-		<img src="images/3.jpg" id="original3" alt="" />
-		<h1>
-		  Book Comment <input type="text" name="comment[2]" id="text3"
-				      value="" style="width: 40%; height: 90%;"
-				      onkeyup="writeHere3()">
-		</h1>
-
-
-
-
-		<a href="http://tympanus.net/Tutorials/SliderGallery/"
-		   target="_blank" class="demo">Demo</a> <a href="index.jsp"
-							    target="_blank" class="article">Index</a>
-	    </div>
+	  
+		<c:forEach begin="0" end="9" var="i">
+			<div>
+		      <input type="file" name="file[${i }]" id="imgefile1"
+			     style="text-align: center;">
+		      <p>
+			<img
+			    src="http://104.244.124.250/~conollyp/diyFiles/123_File_Upload_Donload_m.jpg   "
+			    id="original1" style="width: 300px; height: 163px;" alt="" />
+			<h1>
+			  Book Comment <input type="text" name="comment[0]" id="text1"
+					      value="" style="width: 40%; height: 90%;"
+					      onkeyup="writeHere1()">
+			</h1>
+	
+			<a href="http://tympanus.net/Tutorials/SliderGallery/"
+			   target="_blank" class="demo">Demo</a> <a href="index.jsp"
+								    target="_blank" class="article">Index</a>
+		    </div>
+		</c:forEach>	  
 
 	  </div>
 	</div>

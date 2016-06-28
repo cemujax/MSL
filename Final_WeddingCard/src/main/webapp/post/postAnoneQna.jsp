@@ -78,15 +78,6 @@
 		}
 	}
 	
-	function modifyQnA() {
-
-		if(confirm("정말 수정하시겠습니까?")){
-			location.href="${initParam.root }post.do?command=modifyViewAnoneQnA&&postNo=${pvo.postNo}&&page=${param.page}";
-			/* location.href="postQnaUpdate.jsp?postNo="+${pvo.postNo}; */
-		}
-	}
-	
-
 </script>
 
 </head>
@@ -118,6 +109,17 @@
 <!-- ===================== Comment End ================= -->
 
 <div class="postButtonView">
+	<c:if test="${pvo.memberVO.memberId == mvo.memberId }">
+		<button class="list-write-btn list-write-btn-color" onclick="deleteQnA()">          
+			<i class="fa fa-times"></i> 
+			<b>삭제</b>
+		</button>
+		<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post.do?command=modifyViewAnoneQnA&&postNo=${pvo.postNo}&&page=${param.page}'">             
+			<i class="fa fa-plus"></i>
+			<b>수정</b>
+		</button>
+	</c:if>
+
 	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post.do?command=getAllAnoneQnAs&&page=${param.page }'">          
 		<i class="fa fa-bars"></i> 
 		<b>목록</b>

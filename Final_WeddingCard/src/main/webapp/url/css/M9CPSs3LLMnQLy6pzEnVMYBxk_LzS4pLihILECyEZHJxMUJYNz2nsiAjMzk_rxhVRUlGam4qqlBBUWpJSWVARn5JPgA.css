@@ -503,6 +503,8 @@ a {
 	display: none
 }
 
+
+
 .page-content img.wp-smiley, .entry-content img.wp-smiley,
 	.comment-content img.wp-smiley {
 	border: none;
@@ -1128,6 +1130,16 @@ dd {
 }
 
 @media ( min-width : 768px) {
+	.backstretch{
+		width:600px;
+		
+	}	
+	.backstretch img {
+		width: 600px;
+	}
+}
+
+@media ( min-width : 768px) {
 	.dl-horizontal
 dt {
 		float: left;
@@ -1533,7 +1545,14 @@ code {
 	}
 }
 
+/* 시작 */
 @media ( min-width : 992px) {
+	
+	#ctimer{
+		width: 100px;
+		margin: 0px auto;
+    margin-bottom: 20px;
+	}
 	.container {
 		max-width: 970px
 	}
@@ -7784,7 +7803,15 @@ img {
 	padding: 50px 0px;
 	background: #555
 }
-
+/* 맵 */
+div#map{
+	width: 100%; 
+	height: 350px; 
+	position: relative; 
+	overflow: hidden; 
+    background: url(&quot;http://i1.daumcdn.net/dmaps/apis/loading_n.png&quot;);
+	}
+/* //맵 */
 img.subheadbg {
 	display: block;
 	margin: 0px auto
@@ -7914,9 +7941,21 @@ h2.section-title span
 a {
 	color: #666
 }
-
+/* 추가 */
+	h2#wedding {
+    /* margin-right: 15px; */
+    margin-left: 110px;
+	}
+	.site-info{
+		/* padding-left: 70%; */
+		width: 1200px;
+    text-align: center;
+    /* height: 50px; */
+	}
+	
+	/* //추가 */
 .timer-box {
-	background: url(/zenith/wp-content/themes/Zenith/images/swirl.png);
+	/* background: url(/zenith/wp-content/themes/Zenith/images/swirl.png); */
 	border-bottom: 1px solid #efefef
 }
 
@@ -8449,39 +8488,124 @@ li.recentcomments {
 	float: right;
 	margin-top: 10px
 }
-
+/* 수정 */
 @media ( max-width : 992px) {
+	/* 수정 및 추가 */
+	.wednames{
+		font-size: 40px;
+	    text-align: center;
+	    color: #fff;
+	    font-family: Cherry swash;
+	    margin-bottom: 20px;
+	    text-shadow: 2px 2px 2px #111;
+	}
+	h2.timehead{
+		font-size: 22px;
+	    color: #555;
+	    text-align: center;
+	    font-family: Cherry swash;
+	    margin-top: 20px;
+	}
+	.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, 
+	.col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, 
+	.col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
+	.col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, 
+	.col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, 
+	.col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, 
+	.col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, 
+	.col-lg-11, .col-lg-12{
+		position: relative;
+	    min-height: 1px;
+	    padding-right: 15px;
+	    padding-left: 5px;
+	}
+	#ctimer
+	span{
+		display: inline-block;
+	   /*  background: #769a38; */
+	    color: #fff;
+	    text-align: center;
+	    margin: 5px 5px;
+	    width: 60px;
+	    height: 80px;
+	    border-radius: 3px;
+	    padding-right: 0px;
+	    margin-right: 0px;
+	}
+	#ctimer{
+		width: 200px;
+	    /* margin: 0px auto; */
+	    margin-bottom: 0px;
+	    padding-right: 0px;
+	    margin-left: 0px;
+	    margin-right: 50px;
+	}
 	.cplus {
 		display: none
 	}
 	.bridecol, .groomcol {
-		height: 160px;
+		height: 100px;
 		border-radius: 80px;
 		background: rgba(255, 255, 255, .8);
 		margin-bottom: 20px;
 		position: relative;
 		/* min-width: 300px */
-		min-width: 280px
+		/* min-width: 280px */
+		min-width: 100px
 	}
 	.bridepic {
-		height: 120px;
-		width: 120px;
+		/* height: 120px;
+		width: 120px; */
+		height: 80px;
+		width: 80px;
 		border-radius: 60px;
-		margin: 20px;
+		margin: 10px;
 		float: left;
 		overflow: hidden
 	}
 	.groompic {
-		height: 120px;
-		width: 120px;
+		/* height: 120px;
+		width: 120px; */
+		height: 80px;
+		width: 80px;
 		border-radius: 60px;
-		margin: 20px;
+		margin: 10px;
 		float: right;
 		overflow: hidden
 	}
-	.brideinfo, .groominfo {
-		margin-top: 30px
+	img{
+	    vertical-align: middle;
+	   /*  width: 80px; */
 	}
+	.brideinfo, .groominfo {
+		margin-top: 2px
+	}
+	h2.section-title{
+		padding-left: 20px;
+	}
+	h2#section-title2{
+		padding-left: 20px;
+		color: #008f7f;
+		font-size: 25px;
+		margin-top: 30px;
+		
+	}
+	h2#wedding {
+	    margin-left: 0px;
+	    font-size: 25px;
+	    margin-bottom: 10px;
+	    margin-top: 0px;
+	}
+	div#map {
+	    width: 100%;
+	    height: 200px;
+	}
+	.site-info{
+		/* padding-left: 30%; */
+		padding-left: 15%;
+		width: 100%;
+	}
+	/* //수정 및 추가 */
 	.social-buttons
 ul {
 		margin: 10px auto;
@@ -9728,3 +9852,6 @@ div.dark_rounded #pp_full_res .pp_inline, div.dark_square #pp_full_res
 img {
 	display: none
 }
+
+
+

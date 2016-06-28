@@ -8,7 +8,7 @@ public interface PhotoBookService {
 	PhotoBookVO getPhotoBookByNo(PhotoBookVO pbvo);
 	void createPhotoBook(PhotoBookVO pbvo);
 	void modifyPhotoBook(PhotoBookVO pbvo);
-	void deletePhotoBook(int bookNo);
+	void delete_photo(int bookNo);
 	/////////////////////////////////////////
 	public List<String[]> imgList(String url, String comment);
 
