@@ -48,6 +48,17 @@
    </select>
    
    <select id="getAllMembers" resultMap="memberRM">
-      <include refid="select-member"/>
+      SELECT member_id, password, name, phone_number
+      FROM (
+      	SELECT member_id, password, name, phone_number, CEIL(ROWNUM/10) page
+      	FROM member
+      	ORDER BY member_id DESC
+      )
+      WHERE page = #{value}
    </select>
+   
+	<select id="totalCount" resultType="int">
+		SELECT COUNT(-1) AS totalCount
+		FROM member
+	</select>
 </mapper>   
