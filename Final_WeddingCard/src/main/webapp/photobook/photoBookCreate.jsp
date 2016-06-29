@@ -8,8 +8,8 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+    <link 
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
 	rel="stylesheet">
     <script type="text/javascript"
 	    src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
@@ -27,6 +27,12 @@
      Cufon.replace('.reference a', {textShadow: '1px 1px #C59471'});
      Cufon.replace('.loading', {textShadow: '1px 1px #000'});
     </script>
+    
+    <!-- font style -->
+    <link rel="stylesheet" type="text/css" 
+    href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
+    <link rel="stylesheet" type="text/css" 
+    href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css">
   </head>
 
 
@@ -37,9 +43,10 @@
   	</script>
   </c:if>
     <form method="post" action="../photoBook.do" enctype="multipart/form-data">
-      <h1 class="title" style="text-align: center;">
-	BookName: <input type="text" name="bookName">
-      </h1>
+      <h2 class="title" 
+      style="margin-left: 20%; font-family: 'Noto Sans KR', sans-serif; ">
+	 책 제목&nbsp;<input type="text" name="bookName"><input type="submit" value="전송">
+      </h2>
       <div class="book_wrapper">
 	<input type="hidden" name="command" value="create"> <a
 								id="next_page_button"></a> <a id="prev_page_button"></a>
@@ -54,16 +61,16 @@
 		<img
 		    src="http://104.244.124.250/~conollyp/diyFiles/123_File_Upload_Donload_m.jpg   "
 		    id="original${i}" style="width: 300px; height: 163px;" alt="" />
-		<h1>
-		  Book Comment${i+1} <input type="text" name="comment[${i}]" id="text${i}"
+		<h5 style="font-family: 'Nanum Pen Script', serif; font-size: ">
+		  옆 빈 칸에 사진${i+1}에 대한 설명을 넣어주세요 <input type="text" name="comment[${i}]" id="text${i}"
 				      value="" style="width: 40%; height: 90%;"
 				      onkeyup="writeHere(${i})">
-		</h1>
-		<p id="bookComment${i}">This tutorial is about creating a creative gallery with a
-							slider for the thumbnails. The idea is to have an expanding
-							thumbnails area which opens once an album is chosen.
-							The thumbnails will scroll to the end and move back to
-							the first image.</p>
+		</h5>
+		<p id="bookComment${i}" style="font-size: 150%; font-family: 'Nanum Pen Script', serif;">
+		이 글은 써지는 순간 지워집니다.<br>
+		저는 당신의 행복한 추억을 기억하는데 도움이 되고자 합니다.<br>
+		
+		</p>
 
 
 		<a href="http://tympanus.net/Tutorials/SliderGallery/"
@@ -75,10 +82,6 @@
 	  </div>
 	</div>
       </div>
-
-
-
-      <h1><input type="submit" value="Submit"></h1>
 
     </form>
     <script src="../js/pbcreate.js"></script>
