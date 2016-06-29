@@ -33,42 +33,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 </script> -->
 
-<!-- <style>
-	.header-top {
-    padding: 0.5em 0;
-	}
-	.header {
-     background: url(img/banner.jpg)no-repeat 0px 0px; 
-	background-size:cover;
-	}
-	
-	/* 업로드한 이미지 */
-	.header_select {
-    min-height: 600px;
-	}
-	.header_select-top {
-    padding: 0.5em 0;
-	}
-	.header_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
-	 background-size:cover;
-	}
-	
-	@media ( max-width : 320px ){
-		.header_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat -100px 0px; 
-	background-size:cover;
-	min-height: 250px;
-		}
-		
-	}
-</style> -->
-
 <style>
 	
-	 .banner {
+	.banner {
      background: url(img/banner.jpg)no-repeat 0px 0px; 
-	background-size:cover;
+	 background-size:cover;
 	}
 	
 	.banner_select {
@@ -84,9 +53,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	@media ( max-width : 320px ){
 		.banner_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
-	background-size:cover;
-	min-height: 250px;
+    		 background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
+			 background-size:cover;
+			 min-height: 170px;
+		}
+	
+	@media ( max-width : 320px ){
+		.banner{
+			 max-height: 170px;
 		}
 		
 	}  
@@ -174,7 +148,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 
 				 <div class="groom">
 				 	<c:choose>
-				 		<c:when test="${param.imgBride == '' }">
+				 		<c:when test="${param.imgGroom == '' }">
 				 			<img src="img/groom.jpg" class="img-responsive" alt="">
 				 		</c:when>
 				 		<c:otherwise>
@@ -232,9 +206,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--about-->
             <div class="about">
                <div class="container">
-                  <div class="about-head">
+                <!--   <div class="about-head">
                   <h2>PhotoBook</h2>
-               </div>
+               </div> -->
                <div class="about-grids">
                
                     <c:set var="pbImg" value="${fn:split(param.photoBookImg, '`') }"/>

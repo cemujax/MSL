@@ -498,6 +498,7 @@ select option {
 .couple {
        position: absolute;
     z-index: 9999;
+    max-width: 26.4%;
 }
 .couple h5 {
         text-align: center;
@@ -519,6 +520,9 @@ select option {
 	-moz-border-radius: 50%;
 	-o-border-radius: 50%;
 	-ms-border-radius: 50%;
+	
+	    width: 250px;
+    padding: 0px 50px 5px 10px;
 }
 /*--welcome--*/
 .welcome-top {
