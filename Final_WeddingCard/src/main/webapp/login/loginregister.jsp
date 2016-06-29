@@ -245,6 +245,7 @@ textarea {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
 <script type="text/javascript">
+	
 $(document).ready(function(){
    $('.form').find('input, textarea').on('keyup blur focus', function (e) {
         
@@ -350,7 +351,7 @@ $(document).ready(function(){
         <div id="login">   
           <h1 style="color: black;">Welcome Back!</h1>
           
-          <form method="post" action="${initParam.root }member.do">
+          <form method="post" action="${initParam.root}member.do">
           <input type="hidden" name="command" value="login">
             <div class="field-wrap">
             <label>
@@ -372,7 +373,7 @@ $(document).ready(function(){
           </div>
          
           
-          <button class="button button-block" type="submit">Log In</button>
+          <button class="button button-block" type="submit" >Log In</button>
           
           </form>
 

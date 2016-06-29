@@ -324,7 +324,8 @@ public class CardController extends MultiActionController {
 		System.out.println("linkGuestBook controll");
 		String url = request.getParameter("url");
 		CardVO cardVO = cardService.getCard(url);
-		
+		System.out.println("cardvo::"+cardVO);
+			
 		List<CardcommentVO> commentList = cardService.getAllCardComments(cardVO.getCardNo());
 		return new ModelAndView("url/"+url+"/guestBook","commentList",commentList);
 	}
@@ -336,6 +337,9 @@ public class CardController extends MultiActionController {
 		
 		CardVO cardVO = cardService.getCard(url);
 		comvo.setCardVO(cardVO);
+		if(request.getParameter("passwordNoLogin") != null)
+			comvo.setPassword(request.getParameter("passwordNoLogin"));
+		
 		System.out.println("vo::"+comvo);
 		cardService.writeCardComment(comvo);
 		

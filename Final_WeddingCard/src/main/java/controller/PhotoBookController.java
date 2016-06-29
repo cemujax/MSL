@@ -60,7 +60,7 @@ public class PhotoBookController extends MultiActionController {
 		}
 
 		photoBookService.createPhotoBook(pbvo);
-
+		System.out.println(path);
 		File filePath = new File(path + mvo.getMemberId() + "/" + pbvo.getBookNo());
 
 		if (!filePath.getAbsoluteFile().getParentFile().exists())

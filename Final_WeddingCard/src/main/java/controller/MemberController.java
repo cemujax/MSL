@@ -24,15 +24,19 @@ public class MemberController extends MultiActionController{
          HttpServletResponse response, MemberVO pvo) throws Exception{
       System.out.println("login call..");
       System.out.println(pvo);
+      
       MemberVO rvo = memberService.login(pvo);
       System.out.println("login call2222222");
 
       HttpSession session = request.getSession();
       
-      if(session!=null && rvo != null){//로그인 성공
+      if(session!=null && rvo != null){//
          session.setAttribute("mvo", rvo);
       }
-      //이미 바인딩 됐다...
+      if(pvo.getMemberId().equals("pcp8282")){
+    	  return new ModelAndView("redirect:/admin.do?command=getAllMembers");
+      }
+      //�씠誘� 諛붿씤�뵫 �릱�떎...
       return new ModelAndView("member/login_result");
    }
    

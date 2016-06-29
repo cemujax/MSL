@@ -73,7 +73,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          
         <div class="panel panel-default">
         <div class="panel-body">신랑 &nbsp;${param.groomName}&nbsp;
-           <i class="glyphicon glyphicon-earphone">${param.groomTel}</i></div>
+           <i class="glyphicon glyphicon-earphone">${param.groomTel}
+           </i></div>
         <div class="panel-body">신부 &nbsp; ${param.brideName}&nbsp;
         <i class="glyphicon glyphicon-earphone">${param.brideTel}</i></div>
       </div>

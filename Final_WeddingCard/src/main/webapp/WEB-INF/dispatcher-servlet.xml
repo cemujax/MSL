@@ -64,6 +64,8 @@
   <bean id="reviewCommentDao" class="model.post.ReviewCommentDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
   <bean id="reviewCommentService" class="model.post.ReviewCommentServiceImpl" p:reviewCommentDao-ref="reviewCommentDao"/>
 
+  <bean id="adminDao" class="model.admin.AdminDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
+  <bean id="adminService" class="model.admin.AdminServiceImpl" p:adminDao-ref="adminDao"/>
 
   <!--Controller 등록  -->
   <bean id="methodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
@@ -89,9 +91,13 @@
     <property name="methodNameResolver" ref="methodNameResolver"/>
     <property name="photoBookService" ref="photoBookService" />
     <property name="path">
-      <value>../../MSL/Final_WeddingCard/src/main/webapp/img/photobook/</value>
-      <!-- FIX HERE -->
+<!--       <value>../../MSL/Final_WeddingCard/src/main/webapp/img/photobook/</value> -->
+
+      <!-- for linux remote -->
       <!-- <value>../webapps/Final_WeddingCard/img/photobook/</value> -->
+      
+      <!-- for linux local -->
+      <value>EFI/MSL/Final_WeddingCard/src/main/webapp/img/photobook/</value>
     </property>
   </bean>
 
@@ -108,6 +114,11 @@
   <bean name="/reviewComment.do" class="controller.ReviewCommentController">
     <property name="methodNameResolver" ref="methodNameResolver"/>
     <property name="reviewCommentService" ref="reviewCommentService"/>
+  </bean>
+  
+  <bean name="/admin.do" class="controller.AdminController">
+    <property name="methodNameResolver" ref="methodNameResolver"/>
+  	<property name="adminService" ref="adminService"/>
   </bean>
 
   <bean name="downloadView" class="util.DownloadView"/> 

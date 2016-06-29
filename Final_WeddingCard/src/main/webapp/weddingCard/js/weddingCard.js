@@ -1,7 +1,7 @@
 /**
  * 
  */
-var xhr;
+	var xhr;
 var checkFlag;
 
 /* 
