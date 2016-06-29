@@ -241,7 +241,7 @@ html,body{height:100%;}
                            
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
                              <ul class="dropdown-menu">
-                               <li><a href="photobook/pbcreate.jsp">포토북만들기</a></li>
+                               <li><a href="photobook/photoBookCreate.jsp">포토북만들기</a></li>
                                <li><a href="photoBook.do?command=list">포토북보기</a></li>
                              </ul>
                            </li>
