@@ -5,29 +5,26 @@
 <html>
   <head>
     <title>My Sweet Love . Wedding Card</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="description" content="Moleskine Notebook with jQuery Booklet" />
+    <meta name="keywords" content="jquery, book, flip, pages, moleskine, booklet, plugin, css3 "/>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <script src="photobook/booklet/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="photobook/booklet/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
 
-    <link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
-	rel="stylesheet">
-    <script type="text/javascript"
-	    src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-    <script src="booklet/jquery.easing.1.3.js" type="text/javascript"></script>
-    <script src="booklet/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
-    <link href="booklet/jquery.booklet.1.1.0.css" type="text/css"
-	  rel="stylesheet" media="screen" />
-    <link rel="stylesheet" href="css/photobookstyle.css" type="text/css"
-	  media="screen" />
-    <script src="cufon/cufon-yui.js" type="text/javascript"></script>
-    <script src="cufon/ChunkFive_400.font.js" type="text/javascript"></script>
-    <script src="cufon/Note_this_400.font.js" type="text/javascript"></script>
+    <link href="photobook/booklet/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" href="css/photobookstyle.css" type="text/css" media="screen"/>
+
+    <script src="photobook/cufon/cufon-yui.js" type="text/javascript"></script>
+    
     <script type="text/javascript">
      Cufon.replace('h1,p,.b-counter');
      Cufon.replace('.book_wrapper a', {hover:true});
-     Cufon.replace('.title', {textShadow: '1px 1px #C59471', fontFamily:'ChunkFive'});
-     Cufon.replace('.reference a', {textShadow: '1px 1px #C59471', fontFamily:'ChunkFive'});
-     Cufon.replace('.loading', {textShadow: '1px 1px #000', fontFamily:'ChunkFive'});
+     Cufon.replace('.title', {textShadow: '1px 1px #C59471'});
+     Cufon.replace('.reference a', {textShadow: '1px 1px #C59471'});
+     Cufon.replace('.loading', {textShadow: '1px 1px #000'});
     </script>
     
   </head>
