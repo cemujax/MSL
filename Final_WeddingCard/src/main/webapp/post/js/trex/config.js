@@ -73,8 +73,8 @@ var TrexConfig = function() {
 		cmnHost: "http://editor.daum.net",
 		wrapper: "tx_trex_container", 
 		form: 'tx_editor_form',
-        txIconPath: "images/icon/editor/",
-        txDecoPath: "images/deco/contents/",
+        txIconPath: "img/icon/editor/",
+        txDecoPath: "img/deco/contents/",
 		params: [],
 		events: {
 			preventUnload: _TRUE,

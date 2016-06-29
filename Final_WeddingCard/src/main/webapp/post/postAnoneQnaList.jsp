@@ -95,7 +95,7 @@ class="glyphicon glyphicon-log-in"></span> 로그아웃
 
 
   <div class="container" id="cardManage"
-style="background-image: url('post/images/anon_pic.png'); background-repeat: no-repeat; background-size: contain; background-position: center;">
+style="background-image: url('post/img/anon_pic.png'); background-repeat: no-repeat; background-size: contain; background-position: center;">
     <div class="row" style="margin-top: 5%;" align="center">
       <!-- <font color="#fff" style="font-size: 90px;">익명 게시판</font> -->
       <font color="#fff" style="font-size: 5.9vw;">익명 게시판</font>

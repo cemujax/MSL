@@ -29,7 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <style type="text/css">
 /* 	.applyImage{
-		background-image: url("http://previews.123rf.com/images/aleksangel/aleksangel1205/aleksangel120500020/13753847-paper-notice-with-pin-on-wooden-plate-isolated-on-white-background-Transparent-objects-and-opacity-m-Stock-Vector.jpg");
+		background-image: url("http://previews.123rf.com/img/aleksangel/aleksangel1205/aleksangel120500020/13753847-paper-notice-with-pin-on-wooden-plate-isolated-on-white-background-Transparent-objects-and-opacity-m-Stock-Vector.jpg");
 		background-repeat: repeat;
 	} */
    body table{
@@ -112,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <h2 class="margin-top-0 wow fadeIn" align="center" style="margin-top: 150px;">칭찬해요</h2>
 </div>
 <br><br>
- <!-- <section id="last" style="padding-left: 100px; padding-right: 100px;"> -->
+ <!-- <section id="last" style="padding-left: 100px; padding-right: 100px;"> --> 
   <section id="last" >
         <div class="container">
         <div class="jumbotron" >

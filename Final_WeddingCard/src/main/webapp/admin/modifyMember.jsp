@@ -52,7 +52,7 @@ html {
 body {
   background: #c1bdba;
   display :block;
- 
+ 	    background-image: url("${initParam.root}img/login_bg.jpg");
   font-family: 'Titillium Web', sans-serif;
 }
 

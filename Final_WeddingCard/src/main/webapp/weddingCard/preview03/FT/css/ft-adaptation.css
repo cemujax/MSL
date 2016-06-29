@@ -176,7 +176,7 @@
 }
 #ft-adaptation .menu input.spinner
 {
-	background: url('/order/images/loader.gif') no-repeat;
+	background: url('/order/img/loader.gif') no-repeat;
 	background-position: 98%, center;
 	padding-right: 30px;
 }

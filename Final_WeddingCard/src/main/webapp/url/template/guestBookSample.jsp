@@ -147,7 +147,7 @@ $(document).ready(function() {
 			<div class="container-fluid text-center">
 				<div class="row content">
 					<div class="col-sm-2 sidenav">
-						<img alt="" src="url/images/user.png" style="width: 40%; height: 40%;"><br>
+						<img alt="" src="url/img/user.png" style="width: 40%; height: 40%;"><br>
 						<c:choose>
 							<c:when test="${sessionScope.mvo == NULL }">
 								<input type="text" name="memberId" id="memberId" placeholder="MSL Id" 
@@ -191,7 +191,7 @@ $(document).ready(function() {
 								<c:forEach items="${commentList}" var="comment">
 									<tr style="border: 1px solid black;">
 										<td rowspan="2" style="width: 100px;" align="center">
-											<img alt="" src="url/images/user.png" style="width: 20%; height: 20%;">
+											<img alt="" src="url/img/user.png" style="width: 20%; height: 20%;">
 										</td>
 										<td>${comment.guest} &nbsp;&nbsp;${comment.writeDate}</td>
 										

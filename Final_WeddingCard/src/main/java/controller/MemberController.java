@@ -37,7 +37,7 @@ public class MemberController extends MultiActionController{
     	  return new ModelAndView("redirect:/admin.do?command=getAllMembers");
       }
       //�씠誘� 諛붿씤�뵫 �릱�떎...
-      return new ModelAndView("member/login_result");
+      return new ModelAndView("authentication/login_result");
    }
    
    public ModelAndView logout(HttpServletRequest request,

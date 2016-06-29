@@ -7995,7 +7995,7 @@ a {
 	
 	/* //추가 */
 .timer-box {
-	/* background: url(/zenith/wp-content/themes/Zenith/images/swirl.png); */
+	/* background: url(/zenith/wp-content/themes/Zenith/img/swirl.png); */
 	border-bottom: 1px solid #efefef
 }
 
@@ -8676,21 +8676,21 @@ div.pp_default .pp_top, div.pp_default .pp_top .pp_middle, div.pp_default .pp_to
 div.pp_default .pp_top
 .pp_left {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite.png)
 		-78px -93px no-repeat
 }
 
 div.pp_default .pp_top
 .pp_middle {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite_x.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite_x.png)
 		top left repeat-x
 }
 
 div.pp_default .pp_top
 .pp_right {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite.png)
 		-112px -93px no-repeat
 }
 
@@ -8702,7 +8702,7 @@ div.pp_default .pp_content
 div.pp_default .pp_content_container
 .pp_left {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite_y.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite_y.png)
 		-7px 0 repeat-y;
 	padding-left: 13px
 }
@@ -8710,21 +8710,21 @@ div.pp_default .pp_content_container
 div.pp_default .pp_content_container
 .pp_right {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite_y.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite_y.png)
 		top right repeat-y;
 	padding-right: 13px
 }
 
 div.pp_default .pp_next:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite_next.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite_next.png)
 		center right no-repeat;
 	cursor: pointer
 }
 
 div.pp_default .pp_previous:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite_prev.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite_prev.png)
 		center left no-repeat;
 	cursor: pointer
 }
@@ -8732,7 +8732,7 @@ div.pp_default .pp_previous:hover {
 div.pp_default
 .pp_expand {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite.png)
 		0 -29px no-repeat;
 	cursor: pointer;
 	width: 28px;
@@ -8741,7 +8741,7 @@ div.pp_default
 
 div.pp_default .pp_expand:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite.png)
 		0 -56px no-repeat;
 	cursor: pointer
 }
@@ -8749,7 +8749,7 @@ div.pp_default .pp_expand:hover {
 div.pp_default
 .pp_contract {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite.png)
 		0 -84px no-repeat;
 	cursor: pointer;
 	width: 28px;
@@ -8758,7 +8758,7 @@ div.pp_default
 
 div.pp_default .pp_contract:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite.png)
 		0 -113px no-repeat;
 	cursor: pointer
 }
@@ -8768,7 +8768,7 @@ div.pp_default
 	width: 30px;
 	height: 30px;
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite.png)
 		2px 1px no-repeat;
 	cursor: pointer
 }
@@ -8776,7 +8776,7 @@ div.pp_default
 div.pp_default .pp_gallery ul li
 a {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/default_thumb.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/default_thumb.png)
 		center center #f8f8f8;
 	border: 1px solid #aaa
 }
@@ -8795,7 +8795,7 @@ a.pp_arrow_next {
 div.pp_default .pp_nav .pp_play, div.pp_default .pp_nav
 .pp_pause {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite.png)
 		-51px 1px no-repeat;
 	height: 30px;
 	width: 30px
@@ -8809,7 +8809,7 @@ div.pp_default .pp_nav
 div.pp_default a.pp_arrow_previous, div.pp_default
 a.pp_arrow_next {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite.png)
 		-31px -3px no-repeat;
 	height: 20px;
 	width: 20px;
@@ -8866,55 +8866,55 @@ div.pp_default
 div.pp_default .pp_bottom
 .pp_left {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite.png)
 		-78px -127px no-repeat
 }
 
 div.pp_default .pp_bottom
 .pp_middle {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite_x.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite_x.png)
 		bottom left repeat-x
 }
 
 div.pp_default .pp_bottom
 .pp_right {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/sprite.png)
 		-112px -127px no-repeat
 }
 
 div.pp_default
 .pp_loaderIcon {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/default/loader.gif)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/default/loader.gif)
 		center center no-repeat
 }
 
 div.light_rounded .pp_top
 .pp_left {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		-88px -53px no-repeat
 }
 
 div.light_rounded .pp_top
 .pp_right {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		-110px -53px no-repeat
 }
 
 div.light_rounded .pp_next:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/btnNext.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/btnNext.png)
 		center right no-repeat;
 	cursor: pointer
 }
 
 div.light_rounded .pp_previous:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/btnPrevious.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/btnPrevious.png)
 		center left no-repeat;
 	cursor: pointer
 }
@@ -8922,14 +8922,14 @@ div.light_rounded .pp_previous:hover {
 div.light_rounded
 .pp_expand {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		-31px -26px no-repeat;
 	cursor: pointer
 }
 
 div.light_rounded .pp_expand:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		-31px -47px no-repeat;
 	cursor: pointer
 }
@@ -8937,14 +8937,14 @@ div.light_rounded .pp_expand:hover {
 div.light_rounded
 .pp_contract {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		0 -26px no-repeat;
 	cursor: pointer
 }
 
 div.light_rounded .pp_contract:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		0 -47px no-repeat;
 	cursor: pointer
 }
@@ -8954,7 +8954,7 @@ div.light_rounded
 	width: 75px;
 	height: 22px;
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		-1px -1px no-repeat;
 	cursor: pointer
 }
@@ -8962,7 +8962,7 @@ div.light_rounded
 div.light_rounded .pp_nav
 .pp_play {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		-1px -100px no-repeat;
 	height: 15px;
 	width: 14px
@@ -8971,7 +8971,7 @@ div.light_rounded .pp_nav
 div.light_rounded .pp_nav
 .pp_pause {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		-24px -100px no-repeat;
 	height: 15px;
 	width: 14px
@@ -8980,69 +8980,69 @@ div.light_rounded .pp_nav
 div.light_rounded
 .pp_arrow_previous {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		0 -71px no-repeat
 }
 
 div.light_rounded
 .pp_arrow_next {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		-22px -71px no-repeat
 }
 
 div.light_rounded .pp_bottom
 .pp_left {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		-88px -80px no-repeat
 }
 
 div.light_rounded .pp_bottom
 .pp_right {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/sprite.png)
 		-110px -80px no-repeat
 }
 
 div.dark_rounded .pp_top
 .pp_left {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		-88px -53px no-repeat
 }
 
 div.dark_rounded .pp_top
 .pp_right {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		-110px -53px no-repeat
 }
 
 div.dark_rounded .pp_content_container
 .pp_left {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/contentPattern.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/contentPattern.png)
 		top left repeat-y
 }
 
 div.dark_rounded .pp_content_container
 .pp_right {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/contentPattern.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/contentPattern.png)
 		top right repeat-y
 }
 
 div.dark_rounded .pp_next:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/btnNext.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/btnNext.png)
 		center right no-repeat;
 	cursor: pointer
 }
 
 div.dark_rounded .pp_previous:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/btnPrevious.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/btnPrevious.png)
 		center left no-repeat;
 	cursor: pointer
 }
@@ -9050,14 +9050,14 @@ div.dark_rounded .pp_previous:hover {
 div.dark_rounded
 .pp_expand {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		-31px -26px no-repeat;
 	cursor: pointer
 }
 
 div.dark_rounded .pp_expand:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		-31px -47px no-repeat;
 	cursor: pointer
 }
@@ -9065,14 +9065,14 @@ div.dark_rounded .pp_expand:hover {
 div.dark_rounded
 .pp_contract {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		0 -26px no-repeat;
 	cursor: pointer
 }
 
 div.dark_rounded .pp_contract:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		0 -47px no-repeat;
 	cursor: pointer
 }
@@ -9082,7 +9082,7 @@ div.dark_rounded
 	width: 75px;
 	height: 22px;
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		-1px -1px no-repeat;
 	cursor: pointer
 }
@@ -9096,7 +9096,7 @@ div.dark_rounded
 div.dark_rounded .pp_nav
 .pp_play {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		-1px -100px no-repeat;
 	height: 15px;
 	width: 14px
@@ -9105,7 +9105,7 @@ div.dark_rounded .pp_nav
 div.dark_rounded .pp_nav
 .pp_pause {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		-24px -100px no-repeat;
 	height: 15px;
 	width: 14px
@@ -9114,35 +9114,35 @@ div.dark_rounded .pp_nav
 div.dark_rounded
 .pp_arrow_previous {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		0 -71px no-repeat
 }
 
 div.dark_rounded
 .pp_arrow_next {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		-22px -71px no-repeat
 }
 
 div.dark_rounded .pp_bottom
 .pp_left {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		-88px -80px no-repeat
 }
 
 div.dark_rounded .pp_bottom
 .pp_right {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/sprite.png)
 		-110px -80px no-repeat
 }
 
 div.dark_rounded
 .pp_loaderIcon {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/loader.gif)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/loader.gif)
 		center center no-repeat
 }
 
@@ -9161,21 +9161,21 @@ div.dark_square
 div.dark_square
 .pp_loaderIcon {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/loader.gif)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/loader.gif)
 		center center no-repeat
 }
 
 div.dark_square
 .pp_expand {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/sprite.png)
 		-31px -26px no-repeat;
 	cursor: pointer
 }
 
 div.dark_square .pp_expand:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/sprite.png)
 		-31px -47px no-repeat;
 	cursor: pointer
 }
@@ -9183,14 +9183,14 @@ div.dark_square .pp_expand:hover {
 div.dark_square
 .pp_contract {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/sprite.png)
 		0 -26px no-repeat;
 	cursor: pointer
 }
 
 div.dark_square .pp_contract:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/sprite.png)
 		0 -47px no-repeat;
 	cursor: pointer
 }
@@ -9200,7 +9200,7 @@ div.dark_square
 	width: 75px;
 	height: 22px;
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/sprite.png)
 		-1px -1px no-repeat;
 	cursor: pointer
 }
@@ -9213,7 +9213,7 @@ div.dark_square
 div.dark_square .pp_nav
 .pp_play {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/sprite.png)
 		-1px -100px no-repeat;
 	height: 15px;
 	width: 14px
@@ -9222,7 +9222,7 @@ div.dark_square .pp_nav
 div.dark_square .pp_nav
 .pp_pause {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/sprite.png)
 		-24px -100px no-repeat;
 	height: 15px;
 	width: 14px
@@ -9231,27 +9231,27 @@ div.dark_square .pp_nav
 div.dark_square
 .pp_arrow_previous {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/sprite.png)
 		0 -71px no-repeat
 }
 
 div.dark_square
 .pp_arrow_next {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/sprite.png)
 		-22px -71px no-repeat
 }
 
 div.dark_square .pp_next:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/btnNext.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/btnNext.png)
 		center right no-repeat;
 	cursor: pointer
 }
 
 div.dark_square .pp_previous:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_square/btnPrevious.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_square/btnPrevious.png)
 		center left no-repeat;
 	cursor: pointer
 }
@@ -9259,14 +9259,14 @@ div.dark_square .pp_previous:hover {
 div.light_square
 .pp_expand {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_square/sprite.png)
 		-31px -26px no-repeat;
 	cursor: pointer
 }
 
 div.light_square .pp_expand:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_square/sprite.png)
 		-31px -47px no-repeat;
 	cursor: pointer
 }
@@ -9274,14 +9274,14 @@ div.light_square .pp_expand:hover {
 div.light_square
 .pp_contract {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_square/sprite.png)
 		0 -26px no-repeat;
 	cursor: pointer
 }
 
 div.light_square .pp_contract:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_square/sprite.png)
 		0 -47px no-repeat;
 	cursor: pointer
 }
@@ -9291,7 +9291,7 @@ div.light_square
 	width: 75px;
 	height: 22px;
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_square/sprite.png)
 		-1px -1px no-repeat;
 	cursor: pointer
 }
@@ -9299,7 +9299,7 @@ div.light_square
 div.light_square .pp_nav
 .pp_play {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_square/sprite.png)
 		-1px -100px no-repeat;
 	height: 15px;
 	width: 14px
@@ -9308,7 +9308,7 @@ div.light_square .pp_nav
 div.light_square .pp_nav
 .pp_pause {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_square/sprite.png)
 		-24px -100px no-repeat;
 	height: 15px;
 	width: 14px
@@ -9317,27 +9317,27 @@ div.light_square .pp_nav
 div.light_square
 .pp_arrow_previous {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_square/sprite.png)
 		0 -71px no-repeat
 }
 
 div.light_square
 .pp_arrow_next {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_square/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_square/sprite.png)
 		-22px -71px no-repeat
 }
 
 div.light_square .pp_next:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_square/btnNext.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_square/btnNext.png)
 		center right no-repeat;
 	cursor: pointer
 }
 
 div.light_square .pp_previous:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_square/btnPrevious.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_square/btnPrevious.png)
 		center left no-repeat;
 	cursor: pointer
 }
@@ -9345,49 +9345,49 @@ div.light_square .pp_previous:hover {
 div.facebook .pp_top
 .pp_left {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		-88px -53px no-repeat
 }
 
 div.facebook .pp_top
 .pp_middle {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/contentPatternTop.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/contentPatternTop.png)
 		top left repeat-x
 }
 
 div.facebook .pp_top
 .pp_right {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		-110px -53px no-repeat
 }
 
 div.facebook .pp_content_container
 .pp_left {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/contentPatternLeft.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/contentPatternLeft.png)
 		top left repeat-y
 }
 
 div.facebook .pp_content_container
 .pp_right {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/contentPatternRight.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/contentPatternRight.png)
 		top right repeat-y
 }
 
 div.facebook
 .pp_expand {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		-31px -26px no-repeat;
 	cursor: pointer
 }
 
 div.facebook .pp_expand:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		-31px -47px no-repeat;
 	cursor: pointer
 }
@@ -9395,14 +9395,14 @@ div.facebook .pp_expand:hover {
 div.facebook
 .pp_contract {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		0 -26px no-repeat;
 	cursor: pointer
 }
 
 div.facebook .pp_contract:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		0 -47px no-repeat;
 	cursor: pointer
 }
@@ -9412,7 +9412,7 @@ div.facebook
 	width: 22px;
 	height: 22px;
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		-1px -1px no-repeat;
 	cursor: pointer
 }
@@ -9425,14 +9425,14 @@ div.facebook
 div.facebook
 .pp_loaderIcon {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/loader.gif)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/loader.gif)
 		center center no-repeat
 }
 
 div.facebook
 .pp_arrow_previous {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		0 -71px no-repeat;
 	height: 22px;
 	margin-top: 0;
@@ -9448,7 +9448,7 @@ div.facebook
 div.facebook
 .pp_arrow_next {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		-32px -71px no-repeat;
 	height: 22px;
 	margin-top: 0;
@@ -9475,7 +9475,7 @@ p {
 div.facebook .pp_nav
 .pp_play {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		-1px -123px no-repeat;
 	height: 22px;
 	width: 22px
@@ -9484,7 +9484,7 @@ div.facebook .pp_nav
 div.facebook .pp_nav
 .pp_pause {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		-32px -123px no-repeat;
 	height: 22px;
 	width: 22px
@@ -9492,14 +9492,14 @@ div.facebook .pp_nav
 
 div.facebook .pp_next:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/btnNext.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/btnNext.png)
 		center right no-repeat;
 	cursor: pointer
 }
 
 div.facebook .pp_previous:hover {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/btnPrevious.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/btnPrevious.png)
 		center left no-repeat;
 	cursor: pointer
 }
@@ -9507,21 +9507,21 @@ div.facebook .pp_previous:hover {
 div.facebook .pp_bottom
 .pp_left {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		-88px -80px no-repeat
 }
 
 div.facebook .pp_bottom
 .pp_middle {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/contentPatternBottom.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/contentPatternBottom.png)
 		top left repeat-x
 }
 
 div.facebook .pp_bottom
 .pp_right {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/sprite.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/sprite.png)
 		-110px -80px no-repeat
 }
 
@@ -9688,7 +9688,7 @@ li {
 .pp_gallery li.default
 a {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/facebook/default_thumbnail.gif)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/facebook/default_thumbnail.gif)
 		0 0 no-repeat;
 	display: block;
 	height: 33px;
@@ -9702,7 +9702,7 @@ a {
 
 a.pp_next {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/btnNext.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/btnNext.png)
 		10000px 10000px no-repeat;
 	display: block;
 	float: right;
@@ -9713,7 +9713,7 @@ a.pp_next {
 
 a.pp_previous {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/btnNext.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/btnNext.png)
 		10000px 10000px no-repeat;
 	display: block;
 	float: left;
@@ -9838,14 +9838,14 @@ div.light_rounded .pp_arrow_next.disabled, div.dark_rounded .pp_arrow_next.disab
 div.light_rounded .pp_loaderIcon, div.light_square
 .pp_loaderIcon {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/light_rounded/loader.gif)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/light_rounded/loader.gif)
 		center center no-repeat
 }
 
 div.dark_rounded .pp_top .pp_middle, div.dark_rounded .pp_content, div.dark_rounded .pp_bottom
 .pp_middle {
 	background:
-		url(/zenith/wp-content/themes/Zenith/images/prettyPhoto/dark_rounded/contentPattern.png)
+		url(/zenith/wp-content/themes/Zenith/img/prettyPhoto/dark_rounded/contentPattern.png)
 		top left repeat
 }
 

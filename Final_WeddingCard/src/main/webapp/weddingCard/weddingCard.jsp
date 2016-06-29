@@ -125,7 +125,7 @@ function pbCallback() {
 			<div class="ui-block-a">
 				<div class="cont_look">
 					<div class="look_bg">
-						<img src="images/preview_mobile2.png" alt="미리보기화면"><span
+						<img src="${initParam.root}img/preview_mobile2.png" alt="미리보기화면"><span
 							class="blind">미리보기영역</span>
 					</div>
 					<div class="look_input">
@@ -143,7 +143,7 @@ function pbCallback() {
 							<div class="cont_preview mobile" id="cont_preview">
 
 								<div class="look_bg">
-								<img src="images/preview_mobile2.png" alt="미리보기화면" 
+								<img src="${initParam.root}img/preview_mobile2.png" alt="미리보기화면" 
 								style="width: 250px;height: 500px;margin-left: 40%;margin-top: 15%;">
 								
 								
@@ -242,18 +242,18 @@ function pbCallback() {
 				<table>
 					<tr align="center">
 						<td>
-							<img src="./preview_Fall In Love/images/Fall In Love.jpg" class="img-rounded" style="height: 70px;">
+							<img src="./preview_Fall In Love/img/Fall In Love.jpg" class="img-rounded" style="height: 70px;">
 							<input type="radio" name="template" id="template"
 							value="Fall In Love">
 						</td>
 						<td>
-							 <img src="./preview_Innocent Bride/images/Innocent Bride.jpg"
+							 <img src="./preview_Innocent Bride/img/Innocent Bride.jpg"
 							class="img-rounded" >
 							<input type="radio" name="template" id="template2"
 							value="Innocent Bride">
 						</td>
 						
-						<td><img src="./preview_Garden Wedding/images/ze.PNG" 
+						<td><img src="./preview_Garden Wedding/img/ze.PNG" 
 						class="img-rounded">
 							<input type="radio" name="template" id="template3" value="Garden Wedding">
 						</td>
@@ -261,60 +261,56 @@ function pbCallback() {
 					</tr>
 					<!--  -->
 					<tr>
-						<td><img src="images/222.jpg" class="img-rounded"
+						<td><img src="img/222.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 							
-						<td><img src="images/15.jpg" class="img-rounded"
+						<td><img src="img/15.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
-						<td><img src="images/17.jpg" class="img-rounded"
+						<td><img src="img/17.jpg" class="img-rounded"
 							alt="Cinque Terre" > <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 					</tr>
 					<!--  -->
 					<tr>
-						<td><img src="images/bouquet02.png" class="img-rounded"
+						<td><img src="img/bouquet02.png" class="img-rounded"
 							alt="Cinque Terre" > <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
-						<td><img src="images/wedding00.jpg" class="img-rounded"
+						<td><img src="img/wedding00.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
-						<td><img src="images/bbb.jpg" class="img-rounded"
+						<td><img src="img/bbb.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 					</tr>
 					<!--  -->
 				<!-- <tr>
-						<td><img src="images/222.jpg" class="img-rounded"
+						<td><img src="img/222.jpg" class="img-rounded"
 							alt="Cinque Terre" > <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
+						<td><img src="img/222.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
+						<td><img src="img/222.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 					</tr> -->
 				</table>
 			</div><!-- tabs-1 -->
-
+		
+		<input type="hidden" name="imgSrc" value="">
 		<div id="tabs-2" style="font-size:13px; text-align:left;">
 			<table style="width:330px;">
-				<tr>
-					<td colspan="3"><input type="hidden" name="imgSrc" value="">
-						<img alt ="" src="images/111.png" style="margin-top:10%; margin-bottom:5%;margin-left: 30px;">
-					</td>
-				</tr>
 				
 			<tr>
 				<td>

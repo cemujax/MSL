@@ -207,7 +207,7 @@ nav a:focus {
 	 span.menu {
 	  width: 35px;
 	  height: 35px;
-	  background: url('../images/nav.png') no-repeat;
+	  background: url('../img/nav.png') no-repeat;
 	  display: inline-block;
 	  cursor: pointer;
 	  float: right;
@@ -246,7 +246,7 @@ nav a:focus {
     background: #fff;
 }
 .banner{
-    background: url(../images/banner.jpg) no-repeat center top;
+    background: url(../img/banner.jpg) no-repeat center top;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -324,7 +324,7 @@ nav a:focus {
     text-decoration: none;
     height: 70px;
     width:40px;
-    background: transparent url("../images/arrows.png") no-repeat left top;
+    background: transparent url("../img/arrows.png") no-repeat left top;
     margin-top:3%;
 }
  .callbacks_nav:hover{
@@ -465,7 +465,7 @@ select {
     padding: 5.3px;
     outline: none;
     color: #777;
-    background: url(../images/down.png) no-repeat 95% 50% #f3f5f7;
+    background: url(../img/down.png) no-repeat 95% 50% #f3f5f7;
     border: 1px solid #fff;
     cursor: pointer;
     -webkit-appearance: none;
@@ -670,7 +670,7 @@ img.zoom-img {
 }
 /*--friends--*/
 .friends{
-    background: url(../images/friends.jpg) no-repeat center top;
+    background: url(../img/friends.jpg) no-repeat center top;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -717,7 +717,7 @@ img.zoom-img {
 }
 /*--rsvp--*/
 .attend {
-    background: url(../images/bg.jpg)no-repeat 0px 0px;
+    background: url(../img/bg.jpg)no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -789,7 +789,7 @@ h3.tittle.atd {
     padding:9px;
     outline: none;
     color: #777;
-    background: url(../images/down.png) no-repeat 95% 50% #fff;
+    background: url(../img/down.png) no-repeat 95% 50% #fff;
     border: 1px solid #ddd;
     cursor: pointer;
     -webkit-appearance: none;
@@ -939,7 +939,7 @@ text-align:center;
 }
 /*--our-story--*/
 .banner.two {
-    background: url(../images/banner2.jpg) no-repeat center top;
+    background: url(../img/banner2.jpg) no-repeat center top;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1518,7 +1518,7 @@ ul.bottom i {
   height: 22px;
   border: none;
   text-indent: 100%;
-  background: url(../images/move-top.png) no-repeat 0px 0px;
+  background: url(../img/move-top.png) no-repeat 0px 0px;
 }
 /*--responsive--*/
 @media (max-width:1440px){
@@ -1943,7 +1943,7 @@ ul.bottom i {
 		top: 17%;
 		height: 70px;
 		width: 40px;
-		background: transparent url("../images/arrows.png") no-repeat left top;
+		background: transparent url("../img/arrows.png") no-repeat left top;
 		margin-top: 0%;
 	}
 	.friends {
@@ -2689,7 +2689,7 @@ ul.bottom i {
 	span.menu {
 		width: 35px;
 		height: 35px;
-		background: url('../images/nav.png') no-repeat;
+		background: url('../img/nav.png') no-repeat;
 		display: inline-block;
 		cursor: pointer;
 		float: right;
@@ -2749,7 +2749,7 @@ ul.bottom i {
 		top: 4%;
 		height: 70px;
 		width: 40px;
-		background: transparent url("../images/arrows.png") no-repeat left top;
+		background: transparent url("../img/arrows.png") no-repeat left top;
 		margin-top: 0%;
 	}
 	.single-page {
@@ -2917,7 +2917,7 @@ ul.bottom i {
 	span.menu {
 		width: 35px;
 		height: 35px;
-		background: url('../images/nav.png') no-repeat;
+		background: url('../img/nav.png') no-repeat;
 		display: inline-block;
 		cursor: pointer;
 		float: right;
@@ -2977,7 +2977,7 @@ ul.bottom i {
 		top: 4%;
 		height: 70px;
 		width: 40px;
-		background: transparent url("../images/arrows.png") no-repeat left top;
+		background: transparent url("../img/arrows.png") no-repeat left top;
 		margin-top: 0%;
 	}
 	.single-page {
@@ -3145,7 +3145,7 @@ ul.bottom i {
 	span.menu {
 		width: 35px;
 		height: 35px;
-		background: url('../images/nav.png') no-repeat;
+		background: url('../img/nav.png') no-repeat;
 		display: inline-block;
 		cursor: pointer;
 		float: right;
@@ -3205,7 +3205,7 @@ ul.bottom i {
 		top: 4%;
 		height: 70px;
 		width: 40px;
-		background: transparent url("../images/arrows.png") no-repeat left top;
+		background: transparent url("../img/arrows.png") no-repeat left top;
 		margin-top: 0%;
 	}
 	.single-page {

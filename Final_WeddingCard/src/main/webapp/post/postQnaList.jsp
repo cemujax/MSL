@@ -129,7 +129,7 @@ class="glyphicon glyphicon-log-in"></span> 로그아웃
 
 
 <!--   <div class="container" id="cardManage"
-style="background-image: url('post/images/qna_pic.png'); background-repeat: no-repeat; background-size: contain; background-position: center;">
+style="background-image: url('post/img/qna_pic.png'); background-repeat: no-repeat; background-size: contain; background-position: center;">
     <div class="row" style="margin-top: 5%;" align="center">
       <font color="#fff" style="font-size: 90px;">익명 게시판</font>
       <font color="#fff" style="font-size: 5.9vw;">QnA 게시판</font>
@@ -137,7 +137,7 @@ style="background-image: url('post/images/qna_pic.png'); background-repeat: no-r
   </div> -->
 
  <div class="cardManage" >
-         <img alt="" src="./post/images/qna_pic.jpg">
+         <img alt="" src="./post/img/qna_pic.jpg">
    </div>
 
 

@@ -5,7 +5,7 @@
 	$options[] = array( 'name' => 'Banner 1 Image',
 						'desc' => 'Enter your 125 x 125 banner image url here..',
 						'id' => 'fabthemes_banner1',
-						'std' => 'http://fabthemes.com/images/webhostinghub.png',
+						'std' => 'http://fabthemes.com/img/webhostinghub.png',
 						'type' => 'text');		
 						
 	$options[] = array( 'name' => 'Banner 1 Image alt tag',
@@ -31,7 +31,7 @@
 	$options[] = array( 'name' => 'Banner 2 Image',
 						'desc' => 'Enter your 125 x 125 banner image url here..',
 						'id' => 'fabthemes_banner2',
-						'std' => 'http://fabthemes.com/images/pcnames.png',
+						'std' => 'http://fabthemes.com/img/pcnames.png',
 						'type' => 'text');		
 
 	$options[] = array( 'name' => 'Banner 2 Image alt tag',
@@ -57,7 +57,7 @@
 	$options[] = array( 'name' => 'Banner 3 Image',
 						'desc' => 'Enter your 125 x 125 banner image url here..',
 						'id' => 'fabthemes_banner3',
-						'std' => 'http://fabthemes.com/images/designcontest.png',
+						'std' => 'http://fabthemes.com/img/designcontest.png',
 						'type' => 'text');		
 
 	$options[] = array( 'name' => 'Banner 3 Image alt tag',
@@ -81,7 +81,7 @@
 	$options[] = array( 'name' => 'Banner 4 Image',
 						'desc' => 'Enter your 125 x 125 banner image url here..',
 						'id' => 'fabthemes_banner4',
-						'std' => 'http://fabthemes.com/images/webhostingrating.png',
+						'std' => 'http://fabthemes.com/img/webhostingrating.png',
 						'type' => 'text');		
 
 	$options[] = array( 'name' => 'Banner 4 Image alt tag',

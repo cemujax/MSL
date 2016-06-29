@@ -29,8 +29,8 @@
         initializedId: "",
         wrapper: "tx_trex_container",
         form: 'tx_editor_form',
-        txIconPath: "post/images/icon/editor/",
-        txDecoPath: "post/images/deco/contents/",
+        txIconPath: "post/img/icon/editor/",
+        txDecoPath: "post/img/deco/contents/",
         events: {
             preventUnload: false
         },

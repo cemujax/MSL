@@ -888,7 +888,7 @@ and (orientation : portrait) and (-webkit-max-device-pixel-ratio : 3) {
 
 
 /* 로그인박스 */
-.login_wrap {position:relative; background:#333 url(/img/join/login_bg.jpg) no-repeat 50% 50%;background-size:cover;box-sizing:border-box;}
+.login_wrap {position:relative; background:#333 url(${initParam.root}img/login_bg.jpg) no-repeat 50% 50%;background-size:cover;box-sizing:border-box;}
 
 .login_wrap.signup {background:#333 url(/img/join/signup_bg.jpg) no-repeat 50% 50%; background-size:cover;}
 

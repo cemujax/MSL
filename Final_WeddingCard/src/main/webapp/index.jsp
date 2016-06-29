@@ -193,8 +193,8 @@ html,body{height:100%;}
          <div class="banner-phone animated wow slideInRight" data-wow-delay=".5s" style="float: right;">
             <c:choose>
                   <c:when test="${sessionScope.mvo==null}">
-                  <p><a href="login/loginregister.jsp" style="margin-right:15px;"><span class="glyphicon glyphicon-log-in" ></span><font size="2" color="#fff"> Login</font></a><!-- #F15F5F -->
-                    <a href="login/loginregister.jsp" style="margin-left:0px; padding-left:0px;"><span class="glyphicon glyphicon-user"></span><font size="2" color="#fff"> Sign Up</font></a></p><!-- #45CBBF -->
+                  <p><a href="authentication/login.jsp" style="margin-right:15px;"><span class="glyphicon glyphicon-log-in" ></span><font size="2" color="#fff"> Login</font></a><!-- #F15F5F -->
+                    <a href="authentication/signup.jsp" style="margin-left:0px; padding-left:0px;"><span class="glyphicon glyphicon-user"></span><font size="2" color="#fff"> Sign Up</font></a></p><!-- #45CBBF -->
                      </c:when>
                   <c:otherwise>
                   <p><a href="javascript:logout()"><span class="glyphicon glyphicon-log-in"></span><font size="2" color="#fff"> Logout</font></a></p>
@@ -241,7 +241,7 @@ html,body{height:100%;}
                            
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
                              <ul class="dropdown-menu">
-                               <li><a href="pbcreate.jsp">포토북만들기</a></li>
+                               <li><a href="photobook/pbcreate.jsp">포토북만들기</a></li>
                                <li><a href="photoBook.do?command=list">포토북보기</a></li>
                              </ul>
                            </li>
@@ -255,7 +255,7 @@ html,body{height:100%;}
 
                              </ul>
                            </li>
-                     </ul>
+                     </ul>	
                      
                   </nav>
                </div>
@@ -307,13 +307,13 @@ html,body{height:100%;}
 			
 			<table style="margin: auto; padding-top: 30px; margin-top: 50px;">
 				<tr>
-					<td><img alt="" src="img_index/monitor1.png"  style="width: 600px; height: 400px;" /></td>
-					<td><img alt="" src="img_index/point2.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s"  style="padding-left: 10px;  width: 20px; height: 20px;"/></td>
-					<td><img alt="" src="img_index/sub1.png" class="team-grid animated wow slideInRight " data-wow-delay=".5s"  style="padding-left: 10px; " ></td>
-					<td><img alt="" src="img_index/point2.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; width: 20px; height: 20px;"/></td>
-					<td><img alt="" src="img_index/sub2.png"class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; " ></td>
-					<td><img alt="" src="img_index/point2.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; width: 20px; height: 20px;"/></td>
-					<td><img alt="" src="img_index/sub3.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; " ></td>
+					<td><img alt="" src="${initParam.root}img/monitor1.png"  style="width: 600px; height: 400px;" /></td>
+					<td><img alt="" src="${initParam.root}img/point2.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s"  style="padding-left: 10px;  width: 20px; height: 20px;"/></td>
+					<td><img alt="" src="${initParam.root}img/sub1.png" class="team-grid animated wow slideInRight " data-wow-delay=".5s"  style="padding-left: 10px; " ></td>
+					<td><img alt="" src="${initParam.root}img/point2.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; width: 20px; height: 20px;"/></td>
+					<td><img alt="" src="${initParam.root}img/sub2.png"class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; " ></td>
+					<td><img alt="" src="${initParam.root}img/point2.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; width: 20px; height: 20px;"/></td>
+					<td><img alt="" src="${initParam.root}img/sub3.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; " ></td>
 				</tr>
 			</table>
 
@@ -358,11 +358,11 @@ html,body{height:100%;}
 				<!-- style="padding-top: 6%" -->
                 
                 <a href="#" class="scrollpoint sp-effect3">
-                    <img src="img_index/logo.png" alt=""  style="text-align: center; width: 350px;"><!-- width: 100% -->
+                    <img src="${initParam.root}img/logo.png" alt=""  style="text-align: center; width: 350px;"><!-- width: 100% -->
                 </a>
                 
                 <a href="#home1" class="scroll">
-                <img src="img_index/7.png" alt=" " style="float: right;margin-top: 50px;" >
+                <img src="${initParam.root}img/7.png" alt=" " style="float: right;margin-top: 50px;" >
 				</a>
                 <div class=" social">
                     <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-twitter fa-lg"></i></a>
@@ -373,7 +373,7 @@ html,body{height:100%;}
 							<li><span>(주)MSL</span><span>대표이사 : 홍길동</span>
 							<li><span>대표전화 : 031-111-1004 </span><span>팩스 : 02-559-1001~3</span><span>고객센터 : abc@naver.com</span></li>
 							<li><span>경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 8층</span></li>
-							<li class="copy"><span>Copyright ©MSL  Co.,Ltd. All rights reserved.</span></li>
+			 					<li class="copy"><span>Copyright ©MSL  Co.,Ltd. All rights reserved.</span></li>
 						</ul>
             </div>
         </footer>
