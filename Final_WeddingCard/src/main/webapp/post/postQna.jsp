@@ -76,7 +76,7 @@
 		if(confirm("정말 삭제하시겠습니까?")){
 			location.href="${initParam.root }post.do?command=deleteQnA&&postNo="+${pvo.postNo};
 		}
-	} // deleteQnA
+	}
 	
 </script>
 
@@ -87,7 +87,7 @@ QnA 게시판<hr><p>
 <h1>${requestScope.pvo.title}</h1>
 
 <div class="postInfoPanel" >
-		${requestScope.pvo.memberVO.memberId }
+		${pvo.memberVO.memberId }
 		<span style="margin-left: 10px; color: #5D5D5D;">
 			<i class="fa fa-comment"></i>
 			${fn:length(commentList) }
@@ -105,7 +105,7 @@ QnA 게시판<hr><p>
 </div>
 
 <!-- ===================== Comment Start ================= -->
-<jsp:include page="postComment.jsp"/>
+<jsp:include page="postQnaComment.jsp"/>
 <!-- ===================== Comment End ================= -->
 
 <div class="postButtonView">
@@ -114,7 +114,8 @@ QnA 게시판<hr><p>
 			<i class="fa fa-times"></i> 
 			<b>삭제</b>
 		</button>
-		<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post.do?command=modifyViewQnA&&postNo=${pvo.postNo}&&page=${param.page}'">           
+		<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post.do?command=modifyViewQnA&&postNo=${pvo.postNo}&&page=${param.page}'">             
+			<i class="fa fa-plus"></i>
 			<b>수정</b>
 		</button>
 	</c:if>
@@ -128,6 +129,6 @@ QnA 게시판<hr><p>
 		<b>글쓰기</b>
 	</button>
 </div>
-
+	
 </body>
 </html>

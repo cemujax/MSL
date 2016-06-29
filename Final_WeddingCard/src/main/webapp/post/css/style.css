@@ -45,7 +45,7 @@ body{
 	/* font-family: 'OpenSans-Regular' */
 }
 .header {
-    background: url(../img/banner2.jpg)no-repeat 0px 0px;
+    background: url(../images/banner2.jpg)no-repeat 0px 0px;
     background-size: cover;
     min-height: 755px;
 }
@@ -300,7 +300,7 @@ transition: all 0.7s ease;
 	margin-top: 0.2em;
 }
 .offer  {
-    background: url("../img/abs-1.png") no-repeat 0px 0px;
+    background: url("../images/abs-1.png") no-repeat 0px 0px;
     width:159px;
     height: 159px;
     position: absolute;
@@ -663,7 +663,7 @@ span.glyphicon.glyphicon-send {
   top: 0px;
   width: 348px;
   height: 227px;
-  background: rgba(101, 40, 64, 0.61)url(../img/zoom.png) center center no-repeat;
+  background: rgba(101, 40, 64, 0.61)url(../images/zoom.png) center center no-repeat;
   cursor: pointer;
   transition: all .2s ease-in-out;
   -webkit-transition: all .2s ease-in-out;
@@ -755,7 +755,7 @@ span.glyphicon.glyphicon-send {
   color: #eee;
   font-size: 1em;
   padding: 6px 24px;
-  background: url(../img/list-arrow.png) no-repeat 0px 10px;
+  background: url(../images/list-arrow.png) no-repeat 0px 10px;
   line-height:2em;
   text-decoration:none;
  }
@@ -1440,7 +1440,7 @@ span.glyphicon.glyphicon-heart, span.glyphicon.glyphicon-camera, span.glyphicon.
     font-size: 0.9em;
 }
 .header {
-    background: url(../img/banner2.jpg)no-repeat -90px 0px;
+    background: url(../images/banner2.jpg)no-repeat -90px 0px;
     background-size: cover;
 }
 .slider-info h3 {
@@ -1527,7 +1527,7 @@ padding:6em 0 2em;
 }
 .header.head-top {
     background-size: cover;
-    background: url(../img/banner2.jpg)no-repeat 0px 0px;
+    background: url(../images/banner2.jpg)no-repeat 0px 0px;
 }
 .team-grids a .captn {
     right: 0%;
@@ -1597,7 +1597,7 @@ address {
     padding: 0.5em 0;
 }
 .header {
-    background: url(../img/banner2.jpg)no-repeat -170px 0px;
+    background: url(../images/banner2.jpg)no-repeat -170px 0px;
 	background-size:cover;
 }
 .slider-info p {

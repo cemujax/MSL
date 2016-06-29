@@ -19,10 +19,12 @@ public class PostCommentController extends MultiActionController{
 		this.postCommentService = postCommentService;
 	}
 
-	/*public ModelAndView write(HttpServletRequest request, HttpServletResponse response,
-							HttpSession session, PostCommentVO pcvo) throws Exception {
+	public ModelAndView write(HttpServletRequest request, HttpServletResponse response,
+							PostCommentVO pcvo) throws Exception {
+		System.out.println("Post Comment Controller :: write");
+		
 		MemberVO mvo = new MemberVO();
-		mvo.setMemberId(((MemberVO) session.getAttribute("mvo")).getMemberId());
+		mvo.setMemberId(((MemberVO) request.getSession().getAttribute("mvo")).getMemberId());
 		PostVO pvo = new PostVO();
 		pvo.setPostNo(Integer.parseInt(request.getParameter("postNo")));
 
@@ -31,27 +33,34 @@ public class PostCommentController extends MultiActionController{
 
 		postCommentService.writeComment(pcvo);
 
-		return new ModelAndView("redirect:/post/postAnoneQna.jsp");
+		return new ModelAndView("redirect:/post.do?command="+ request.getParameter("return")+ "&&postNo="
+				+ pvo.getPostNo() + "&&page=" + request.getParameter("page"));
 	} // write
 
 	public ModelAndView update(HttpServletRequest request,
 							HttpServletResponse response, PostCommentVO pcvo) throws Exception {
+		System.out.println("Post Comment Controller :: update");
+		
 		postCommentService.modifyComment(pcvo);
 
-		return new ModelAndView("redirect:/post/postComment.jsp");
+		return new ModelAndView("redirect:/post.do?command="+ request.getParameter("return")+ "&&postNo="
+				+ request.getParameter("postNo") + "&&page=" + request.getParameter("page"));
 	} // update
 
 	public ModelAndView delete(HttpServletRequest request,
 							HttpServletResponse response, PostCommentVO pcvo) throws Exception {
+		System.out.println("Post Comment Controller :: delete");
+		
 		String commentNo = request.getParameter("commentNo");
 
 		postCommentService.deleteComment(commentNo);
 
-		return new ModelAndView("redirect:/post/postComment.jsp");
+		return new ModelAndView("redirect:/post.do?command="+ request.getParameter("return")+ "&&postNo="
+				+ request.getParameter("postNo") + "&&page=" + request.getParameter("page"));
 	} // delete
-*/	
+	
 	//////////////// ajax
-	public ModelAndView writeAjax(HttpServletRequest request, HttpServletResponse response,
+	/*public ModelAndView writeAjax(HttpServletRequest request, HttpServletResponse response,
 							HttpSession session, PostCommentVO pcvo) throws Exception {
 		MemberVO mvo = new MemberVO();
 		mvo.setMemberId(((MemberVO) session.getAttribute("mvo")).getMemberId());
@@ -93,5 +102,5 @@ public class PostCommentController extends MultiActionController{
 		
 		return new ModelAndView("JsonView", "commentList", postCommentService.getCommentList(pno));
 	} // list
-	
+*/	
 }
