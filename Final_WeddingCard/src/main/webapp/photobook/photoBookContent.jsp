@@ -11,15 +11,15 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-    <script src="booklet/jquery.easing.1.3.js" type="text/javascript"></script>
-    <script src="booklet/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
+    <script src="photobook/booklet/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="photobook/booklet/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
 
-    <link href="booklet/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="photobook/booklet/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
     <link rel="stylesheet" href="css/photobookstyle.css" type="text/css" media="screen"/>
 
-    <script src="cufon/cufon-yui.js" type="text/javascript"></script>
-    <script src="cufon/ChunkFive_400.font.js" type="text/javascript"></script>
-    <script src="cufon/Note_this_400.font.js" type="text/javascript"></script>
+    <script src="photobook/cufon/cufon-yui.js" type="text/javascript"></script>
+    <script src="photobook/cufon/ChunkFive_400.font.js" type="text/javascript"></script>
+    <script src="photobook/cufon/Note_this_400.font.js" type="text/javascript"></script>
     <script type="text/javascript">
      Cufon.replace('h1,p,.b-counter');
      Cufon.replace('.book_wrapper a', {hover:true});
@@ -38,6 +38,12 @@ function delete_photoBook(index) {
 
   </head>
   <body>
+  <c:if test="${sessionScope.mvo.memberId == null }">
+  	<script>
+  		location.href ="authentication/login.jsp";
+  	</script>
+  </c:if>
+  
     <h1 class="title">${pbvo.bookName}</h1>
     <%-- 	<h2>${vs} </h2>
     </h2>${i}</h2> --%>
