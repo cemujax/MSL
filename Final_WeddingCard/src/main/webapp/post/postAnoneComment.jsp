@@ -179,6 +179,7 @@ $(document).ready(function(){
 		  <input type="hidden" name="commentNo" value="${cmt.commentNo }">
 		  <input type="hidden" name="postNo" value="${requestScope.pvo.postNo}">
 		  <input type="hidden" name="page" value="${param.page }">
+		  <input type="hidden" name="return" value="getQnA">
 		  
 		  <textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 680px; height: 132px;">${cmt.content }</textarea>       
 		  <!-- <div> -->
@@ -196,6 +197,7 @@ $(document).ready(function(){
 	<input type="hidden" name="command" value="write">
 	<input type="hidden" name="postNo" value="${requestScope.pvo.postNo}">
 	<input type="hidden" name="page" value="${param.page }">
+	<input type="hidden" name="return" value="getQnA">
 		  
 	<textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 680px; height: 132px;">${cmt.content }</textarea>       
 
