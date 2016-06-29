@@ -125,15 +125,13 @@ function pbCallback() {
 			<div class="ui-block-a">
 				<div class="cont_look">
 					<div class="look_bg">
-						<img src="${initParam.root}img/preview_mobile2.png" alt="미리보기화면"><span
+						<img src="../img/preview_mobile2.png" alt="미리보기화면"><span
 							class="blind">미리보기영역</span>
 					</div>
 					<div class="look_input">
 					
 					<!-- 왼쪽 미리보기 부분 -->
-						<%-- <iframe src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
-							name="left_skin_preview" id="left_skin_preview"  scrolling="auto"> </iframe> --%>
-							<iframe src="${initParam.root}weddingCard/preview_Garden Wedding/preview.jsp"
+						<iframe src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
 							name="left_skin_preview" id="left_skin_preview"  scrolling="auto"> </iframe>
 					</div>
 					
@@ -143,7 +141,7 @@ function pbCallback() {
 							<div class="cont_preview mobile" id="cont_preview">
 
 								<div class="look_bg">
-								<img src="${initParam.root}img/preview_mobile2.png" alt="미리보기화면" 
+								<img src="../img/preview_mobile2.png" alt="미리보기화면" 
 								style="width: 250px;height: 500px;margin-left: 40%;margin-top: 15%;">
 								
 								
@@ -236,7 +234,6 @@ function pbCallback() {
 
 			</ul>
 
-			<!-- style="position: relative;background: rgba(0,0,0,0.5);" -->
 			<div id="tabs-1">
 				<input type="hidden" name="templateType" value="" id="templateType">
 				<table>
@@ -307,10 +304,14 @@ function pbCallback() {
 					</tr> -->
 				</table>
 			</div><!-- tabs-1 -->
-		
-		<input type="hidden" name="imgSrc" value="">
+
 		<div id="tabs-2" style="font-size:13px; text-align:left;">
 			<table style="width:330px;">
+				<tr>
+					<td colspan="3"><input type="hidden" name="imgSrc" value="">
+						<img alt ="" src="../img/222.jpg" style="margin-top:10%; margin-bottom:5%;margin-left: 30px;">
+					</td>
+				</tr>
 				
 			<tr>
 				<td>
@@ -323,7 +324,19 @@ function pbCallback() {
 					<input type="submit" value="업로드 " id="sendImage">
 				</td>
 			</tr>
-				
+			
+			<tr id="BrideDiv">
+				<td>
+					신부사진:
+				</td>
+				<td>
+					<input type="file" name="imgBride" id="imgBride" style="font-size:10px; width:150px;padding-left: 5px;"><!-- style="font-size:10px; width:150px;padding-left: 5px;" -->
+				</td>
+				<td>
+					<input type="submit" value="업로드 " id="sendBride">
+				</td>
+			</tr>	
+			
 			<tr>
 				<td>
 					신부이름:
@@ -343,6 +356,19 @@ function pbCallback() {
 					onkeyup='removeChar(event)' style='ime-mode:disabled;'>
 				</td>
 			</tr>
+				
+			<!--  신랑 영역 -->
+			<tr id="GroomDiv">
+				<td>
+					신랑사진:
+				</td>
+				<td>
+					<input type="file" name="imgGroom" id="imgGroom" style="font-size:10px; width:150px;padding-left: 5px;"><!-- style="font-size:10px; width:150px;padding-left: 5px;" -->
+				</td>
+				<td>
+					<input type="submit" value="업로드 " id="sendGroom">
+				</td>
+			</tr>		
 					
 			<tr>
 				<td>

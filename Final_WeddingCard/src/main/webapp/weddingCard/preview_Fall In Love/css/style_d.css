@@ -816,6 +816,14 @@ em {
 }
 
 @media ( max-width : 320px) {
+	.tit_type2 {
+	font-family: serif;
+	font-size: 1.5em;
+	line-height: 1em;
+	text-transform: uppercase;
+	text-align: center;
+	color: #000;
+}
 	.gal_list2 .gal_more {
 		width: 97%;
 		right: 1.5%;

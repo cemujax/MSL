@@ -7,11 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<style type="text/css">
-
-
-
-</style>
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,112 +24,179 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--/script-->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 			jQuery(document).ready(function($) {
 				$(".scroll").click(function(event){		
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
 				});
 			});
-</script>
+</script> -->
+
+<!-- <style>
+	.header-top {
+    padding: 0.5em 0;
+	}
+	.header {
+     background: url(img/banner.jpg)no-repeat 0px 0px; 
+	background-size:cover;
+	}
+	
+	/* 업로드한 이미지 */
+	.header_select {
+    min-height: 600px;
+	}
+	.header_select-top {
+    padding: 0.5em 0;
+	}
+	.header_select {
+     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
+	 background-size:cover;
+	}
+	
+	@media ( max-width : 320px ){
+		.header_select {
+     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat -100px 0px; 
+	background-size:cover;
+	min-height: 250px;
+		}
+		
+	}
+</style> -->
+
+<style>
+	
+	 .banner {
+     background: url(img/banner.jpg)no-repeat 0px 0px; 
+	background-size:cover;
+	}
+	
+	.banner_select {
+    min-height: 600px;
+	}
+	.banner_select-top {
+    padding: 0.5em 0;
+	}
+	.banner_select {
+     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
+	 background-size:cover;
+	}
+	
+	@media ( max-width : 320px ){
+		.banner_select {
+     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
+	background-size:cover;
+	min-height: 250px;
+		}
+		
+	}  
+
+   /* .header {
+     background: url(img/banner.jpg)no-repeat 0px 0px; 
+	background-size:cover;
+	}
+	
+	/* 업로드한 이미지 
+	.header_select {
+    min-height: 600px;
+	}
+	.header_select-top {
+    padding: 0.5em 0;
+	}
+	.header_select {
+     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
+	 background-size:cover;
+	}
+	
+	@media ( max-width : 320px ){
+		.header_select {
+     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
+	background-size:cover;
+	min-height: 250px;
+		}
+		
+	}
+  */
+</style>
+
 </head>
 <body>
 
-<!--start-home-->
-	<div id="home" class="header">
-       </div>
-	<div class="banner">
-	     	<div class="container">
-					<div  class="callbacks_container">
-					<ul class="rslides" id="slider4">
+
+<c:choose>
+   	<c:when test="${param.imgSrc == ''}">
+			<div class="banner"><!-- banner -->
+		 		<script defer src="js/jquery.flexslider.js"></script>
+		 	</div>
+		 </c:when>
+		 <c:otherwise>
+		 <div class="banner_select"><!-- banner -->
+		 <script defer src="js/jquery.flexslider.js"></script>
+		 </div>
+		 </c:otherwise> 
+</c:choose>
+		 
+		 
+	<div class="ban"><!-- banner -->
+	     <!--	<div class="container">
+					 <div  class="callbacks_container">
+						<ul class="rslides" id="slider4">
 						<li>
-							<div class="banner-info">
-								<h3> <span>Wedding</span></h3>
-							</div>
-						</li>
-							
-					</ul>
-			</div>
-			<!--//banner-->
+								<div class="banner-info">
+									<h3> <span>Wedding</span></h3>
+								</div>
+							</li>
+						</ul>
+					</div> -->
+					<!--banner-->
 	  			<script src="js/responsiveslides.min.js"></script>
-			<!--  <script>
-			    // You can also use "$(window).load(function() {"
-			    $(function () {
-			      // Slideshow 4
-			      $("#slider4").responsiveSlides({
-			        auto: true,
-			        pager:true,
-			        nav:false,
-			        speed: 500,
-			        namespace: "callbacks",
-			        before: function () {
-			          $('.events').append("<li>before event fired.</li>");
-			        },
-			        after: function () {
-			          $('.events').append("<li>after event fired.</li>");
-			        }
-			      });
-			
-			    });
-			  </script> -->
-			 <!--main-drop-->
+
 			 <div class="main-drop" ><!-- style="margin-top: 50%;" -->
 			   <img src="img/hands.jpg" alt=""  /><!-- style="width:25%;" -->
 			    <div class="hands"> <!-- style="margin-left:1%;" -->
 				    <h4>Companion</h4>
-			        <!--  <div class="section_room">
-								<select id="country" onchange="change_country(this.value)" class="frm-field required">
-									<option value="null">Select</option>
-									<option value="null">Stands out </option>         
-									<option value="AX">where lets</option>
-									<option value="AX">Vitae lorem</option>
-								</select>
-							</div> -->	
-
 				</div>
-			<div class="couple"><!-- style="width:25%;" -->
+				
+				
+			<div class="couple">
 				 <div class="bride">
-				   
-				   <c:choose>
-				 		<c:when test="${param.imgBride == ''}">
+				 	<c:choose>
+				 		<c:when test="${param.imgBride == ''  }">
 				 			<img src="img/bride.jpg" class="img-responsive" alt="">
 				 		</c:when>
 				 		<c:otherwise>
 				 			<img src="${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgBride}" class="img-responsive" alt="">
 				 		</c:otherwise>
-				 	</c:choose>	
-				   
+				 	</c:choose>
 				   <h5>${param.brideName}</h5>
-				   <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">&nbsp;
-				   <%-- ${fn:substring(param.brideTel, 0,3) }<br>
-				   ${fn:substring(param.brideTel, 0,3) }<br>
-				   ${fn:substring(param.brideTel, 0,3) }<br> --%>
-				   ${param.brideTel}</i></p>
+				   <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.brideTel}</i></p>
 				 </div>
 				 
-				 
 				 <div class="groom">
-				 <c:choose>
-				 		<c:when test="${param.imgGroom == ''}">
+				 	<c:choose>
+				 		<c:when test="${param.imgBride == '' }">
 				 			<img src="img/groom.jpg" class="img-responsive" alt="">
 				 		</c:when>
 				 		<c:otherwise>
 				 			<img src="${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgGroom}" class="img-responsive" alt="">
 				 		</c:otherwise>
-				 	</c:choose>	
-				  
+				 	</c:choose>
 				 <h5>${param.groomName}</h5>
-				 <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">&nbsp;
-				<%--   ${fn:substring(param.groomTel, 0,3) }<br>
-				  ${fn:substring(param.groomTel, 0,3) }<br>
-				  ${fn:substring(param.groomTel, 0,3) }<br> --%>
-				  ${param.groomTel}</i></p>
+				 <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.groomTel}</i></p>
 				 </div>
 			 </div>
-			 </div>
-			 <!--//main-drop-->
-			</div>
-		 </div>
+			 </div><!--//main-drop-->
+			 
+			<!-- </div> -->
+	</div><!-- //banner -->
+	
+
+
+	
+		 
+		 
+		 
+		 
 	<!--welcome-->
 	   <div class="welcome">
 		    <div class="container">
@@ -142,11 +204,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				    <img src="img/couple.jpg" class="img-responsive" alt="">
 					 <h2>초대글</h2>
 					 <p>${param.cardContext}</p>
-					   <!-- <a class="read" href="single.html">Read More</a> -->
 				    </div>
 				</div>
 			</div>
 		 <!--//welcome-->
+		 
+		 	 <!-- 방명록 -->
+	<div class="content">
+	<input type="hidden" name="comments" value="">
+		<div class="container">
+			<div class="guestBook">
+	        	<div class="about-head">
+	               <h3 class="tittle">GuestBook</h3>
+	               <input style="float: right;margin-right: 4%;" type="button" class="button4" name="writeComment" onclick="writeComment()" value="축하글 쓰기" />
+	            </div>
+			</div>
+		</div>
+	</div>
+  <!-- //방명록 -->
+		 
 	<!--registry-->
 	     <div class="registry-section">
 		     <h3 class="tittle">PhotoBook</h3>
@@ -181,81 +257,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          <!--about-->
       </c:if>
 		     
-		     
-		     
-			 <!--  <div class="registry">
-				   <div class="col-md-6 registry-left">
-				   
-					<div class="registry-text">
-					<h4>Church Of San Paul</h4>
-					<h6>11 : 30 am In The Square</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus sed tempus ornare. Sed convallis eu orci ut sodales. Nam rhoncus laoreet elit, a condimentum augue tempor vitae in faucibus cura. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus sed tempus ornare. Sed convallis eu orci ut sodales. Nam rhoncus laoreet elit, a condimentum augue tempor.</p>
-					</div>
-					 <a href="single.html" class="mask"><img src="img/r1.jpg" alt="image" class="img-responsive zoom-img"></a>
-				   </div>
-				    <div class="col-md-6 registry-right">
-					 <a href="single.html" class="mask"><img src="img/r2.jpg" alt="image" class="img-responsive zoom-img"></a>
-					<div class="registry-text">
-					<h4>Restaurant Golf Club</h4>
-					<h6>1 : 30 pm In The Garden</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus sed tempus ornare. Sed convallis eu orci ut sodales. Nam rhoncus laoreet elit, a condimentum augue tempor vitae in faucibus cura. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus sed tempus ornare. Sed convallis eu orci ut sodales. Nam rhoncus laoreet elit, a condimentum augue tempor.</p>
-					</div>
-					 
-					</div>
-					<div class="clearfix"> </div>
-			  </div> -->
 		 </div>
 	<!--//registry-->
 	
-	<!--start-services-->
-<!-- <div class="friends-section">
-				    <h3 class="tittle">Friends says</h3>
-    <div class="friends">
-	     	<div class="container">
-			<div class="testimonial-content">
-			    <p> <img src="img/quote.png" class="img-responsive" alt=""> Congratulations! &nbsp;Christine an Peter I am glad to here that you are starting your new life after the excellent moments together&nbsp;I wish you for all your dreams of tomorrow<img src="img/quote1.png" class="img-responsive" alt=""> </p>
-		    </div>
-			 
-					<div  class="callbacks_container">
-					<ul class="rslides" id="slider3">
-					          <li>
-								 <div  class="test"> <img src="img/t1.jpg" class="img-responsive" alt=""><h5>Sarah Norton</h5></div>
-							   </li>
-							<li>
-								  <div  class="test">  <img src="img/t3.jpg" class="img-responsive" alt=""><h5>Frank Miller</h5></div>							
-							</li>
-							<li>
-								   <div  class="test"> <img src="img/t4.jpg" class="img-responsive" alt=""><h5>Laura Green</h5></div>
-	
-							</li>
-						</ul>
-					</div>
-					banner
-	  			<script src="js/responsiveslides.min.js"></script>
-			 <script>
-			    // You can also use "$(window).load(function() {"
-			    $(function () {
-			      // Slideshow 3
-			      $("#slider3").responsiveSlides({
-			        auto: true,
-			        pager:false,
-			        nav:true,
-			        speed: 500,
-			        namespace: "callbacks",
-			        before: function () {
-			          $('.events').append("<li>before event fired.</li>");
-			        },
-			        after: function () {
-			          $('.events').append("<li>after event fired.</li>");
-			        }
-			      });
-			
-			    });
-			  </script>
-	</div>
- </div>
- </div> -->
- <!--//testimonials-->
  <!--/program-->
 			 <%--   <div class="program">
 		           <div class="container">
@@ -430,7 +434,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								    <div class="popular-post-grids">
 										<div class="popular-post-grid">
 											<div class="post-time">
-												<!-- <a href="single.html">11 : 30 </a> -->
 												
 											</div>
 											<div class="post-text">
@@ -548,13 +551,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <div class="clearfix"> </div>
 			       </div>
 			    </div>
+			    
+			 <!--footer-->    
 		<div class="copy">
 		   <!--  <p>&copy; 2015 Best Day. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p> -->
 				<p>MySweetLove</p>
+				<a id="kakao-link-btn" href="javascript:;">
+<img style="width:40px; height: 40px;" src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
+</a>
 				<a href="#home" id="toTop" class="scroll" style="display: block;"> 
 				<span id="toTopHover" style="opacity: 1;"> </span></a>
 		</div>
-		<!--//footer-->
+		
+<script type='text/javascript'>
+  //<![CDATA[
+    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('150642152529d54760872b2abd33da63');
+    
+    // // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    Kakao.Link.createTalkLinkButton({
+      container: '#kakao-link-btn',
+      label: '카카오링크 샘플에 오신 것을 환영합니다.',
+      image: {
+        src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
+        width: '60',
+        height: '60'
+      },
+      webButton: {
+        text: '카카오 디벨로퍼스',
+        url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+      }
+    });
+  //]]>
+</script>
+		
 			<!--start-smooth-scrolling-->
 						<script type="text/javascript">
 									$(document).ready(function() {

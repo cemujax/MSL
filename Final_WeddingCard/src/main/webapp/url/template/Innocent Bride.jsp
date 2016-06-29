@@ -21,49 +21,118 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--/script-->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
+
 			jQuery(document).ready(function($) {
 				$(".scroll").click(function(event){		
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
 				});
 			});
+</script> -->
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<!-- 방명록 -->
+<script type="text/javascript">
+function writeComment() {
+	location.href = "${initParam.root}card.do?command=linkGuestBook&&url=${param.url}";
+}
+	$(document).ready(function() {
+
+		$.ajax({
+			type : "get",
+			url : "../card.do",
+			data : "command=getAllCardComments&&cardNo=" + '${param.cardNo}',
+			dataType : "json",
+
+			success : function(jsonData) {
+
+				var commentList = jsonData.commentList;
+				//$('.guestBook').innerHTML = "123123213";
+
+				for (i = 0; i < commentList.length; i++) {
+					 $('.guestBook').append(
+						"<div class='pricingtable pricing_free'><ul class='pricing_iconlist iconset_free'>"
+						+"<li style='background-color:#c791a6; font-size:15px; border-radius: 10px;'><font style='color: black;'>"+"작성자"+"&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"+commentList[i].guest+"</font><br>"
+						+"<font style='float:right;'>"+commentList[i].writeDate+"</font></li>"
+						+"<li style='font-size: 15px; margin-top:20px;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
+						+ "<p><li>&nbsp;&nbsp;</li>"
+						+ "<li>&nbsp;&nbsp;</li>"+
+						/* +"<li style='border-style: ridge;'>"+commentList[i].guest+":: &nbsp;"+commentList[i].writeDate+"</li>"+ */
+						"</ul></div>"
+					 );
+				}//for
+			}//success
+		});//ajax
+	});//ready
 </script>
+<!-- //방명록 -->
+
+<style>
+	.header-top {
+    padding: 0.5em 0;
+	}
+	.banner {
+     background: url(../img/banner.jpg)no-repeat 0px 0px; 
+	 background-size:cover;
+	}
+	
+	/* 업로드한 이미지 */
+	.banner_select {
+    min-height: 600px;
+	}
+	.banner_select-top {
+    padding: 0.5em 0;
+	}
+	.banner_select {
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px;
+	 background-size:cover;
+	}
+	
+	@media ( max-width : 320px ){
+	.banner_select {
+     background: url(${initParam.root}url/temp_${param.url}/${param.imgSrc})no-repeat -170px 0px; 
+	background-size:cover;
+		}
+	}
+	
+.button4 {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+</style>
+
 </head>
 <body>
 
 <!--start-home-->
 	<div id="home" class="header">
-	<!-- 	<div class="header-top">
-			<div class="container">
-				<div class="logo">
-					<a href="index.html"><h1>Best<span> Day</span></h1></a>
-				</div>
-				<span class="menu"> </span>
-				    <div class="top-menu">
-						<ul class="cl-effect-7">
-								<li><a class="active" href="index.html">Home</a></li>
-								<li><a href="story.html">Our Story</a></li>
-								<li><a href="ceremony.html">Ceremony</a></li>
-								<li><a href="albums.html">Our Albums</a></li>
-								<li><a href="contact.html">contact</a></li>
-							</ul>
-				</div>
-            script-for-menu
-				<script>
-				$( "span.menu" ).click(function() {
-				  $( ".top-menu" ).slideToggle( "slow", function() {
-				    // Animation complete.
-				  });
-				});
-			</script>
-			<div class="clearfix"></div> 
-	<!--End-top-nav-script
-			</div>
-		</div>-->
+	<%-- <c:choose >
+		<c:when test="${param.imgSrc == '' || param.Src == null }">
+	   		<div class="header">
+	     		 <div class="container">
+	                  <script defer src="js/jquery.flexslider.js"></script>
+	      		</div>
+	   		</div>
+		</c:when>
+		<c:otherwise>
+	   		<div class="header_select">
+	     		 <div class="container">
+	                  <script defer src="js/jquery.flexslider.js"></script>
+	      		</div>
+   			</div>
+		</c:otherwise>
+	</c:choose> --%>
        </div>
-	<div class="banner">
+       
+       
+   <c:choose >
+   	<c:when test="${param.imgSrc == '' || param.Src == null }">
+	<div class="banner"><!-- banner -->
+		 <script defer src="js/jquery.flexslider.js"></script>
 	     	<div class="container">
+	     		
 					<div  class="callbacks_container">
 					<ul class="rslides" id="slider4">
 					<li>
@@ -71,56 +140,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h3> <span>Wedding</span></h3>
 								</div>
 							</li>
-							<!-- <li>
-								<div class="banner-info">
-								   <h3>Jack & <span> Julie</span> </h3>
-								</div>
-							</li>
-							<li>
-								<div class="banner-info">
-								    <h3>Getting <span>Married</span></h3>
-								</div>								
-							</li> -->
 						</ul>
 					</div>
 					<!--banner-->
 	  			<script src="js/responsiveslides.min.js"></script>
-			<!--  <script>
-			    // You can also use "$(window).load(function() {"
-			    $(function () {
-			      // Slideshow 4
-			      $("#slider4").responsiveSlides({
-			        auto: true,
-			        pager:true,
-			        nav:false,
-			        speed: 500,
-			        namespace: "callbacks",
-			        before: function () {
-			          $('.events').append("<li>before event fired.</li>");
-			        },
-			        after: function () {
-			          $('.events').append("<li>after event fired.</li>");
-			        }
-			      });
-			
-			    });
-			  </script> -->
-			 <!--main-drop-->
+
 			 <div class="main-drop" ><!-- style="margin-top: 50%;" -->
 			   <img src="img/hands.jpg" alt=""  /><!-- style="width:25%;" -->
 			    <div class="hands"> <!-- style="margin-left:1%;" -->
 				    <h4>Companion</h4>
-			        <!--  <div class="section_room">
-								<select id="country" onchange="change_country(this.value)" class="frm-field required">
-									<option value="null">Select</option>
-									<option value="null">Stands out </option>         
-									<option value="AX">where lets</option>
-									<option value="AX">Vitae lorem</option>
-								</select>
-							</div> -->	
 
 				</div>
-			<div class="couple"  ><!-- style="width:25%;" -->
+			<div class="couple">
 				 <div class="bride">
 				 	<c:choose>
 				 		<c:when test="${param.imgBride == ''}">
@@ -149,7 +180,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 </div>
 			 <!--//main-drop-->
 			</div>
-		 </div>
+	</div><!-- //banner -->
+	</c:when>
+	<c:otherwise>
+		<div class="banner_select"><!-- banner_select -->
+		 <script defer src="js/jquery.flexslider.js"></script>
+	     	<div class="container">
+	     		
+					<div  class="callbacks_container">
+					<ul class="rslides" id="slider4">
+					<li>
+								<div class="banner-info">
+									<h3> <span>Wedding</span></h3>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!--banner-->
+	  			<script src="js/responsiveslides.min.js"></script>
+
+			 <div class="main-drop" ><!-- style="margin-top: 50%;" -->
+			   <img src="img/hands.jpg" alt=""  /><!-- style="width:25%;" -->
+			    <div class="hands"> <!-- style="margin-left:1%;" -->
+				    <h4>Companion</h4>
+
+				</div>
+			<div class="couple">
+				 <div class="bride">
+				 	<c:choose>
+				 		<c:when test="${param.imgBride == ''}">
+				 			<img src="img/bride.jpg" class="img-responsive" alt="">
+				 		</c:when>
+				 		<c:otherwise>
+				 			<img src="${param.url}/${param.imgBride}" class="img-responsive" alt="">
+				 		</c:otherwise>
+				 	</c:choose>
+				   <h5>${param.brideName}</h5>
+				   <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.brideTel}</i></p>
+				 </div>
+				 <div class="groom">
+				 	<c:choose>
+				 		<c:when test="${param.imgBride == ''}">
+				 			<img src="img/groom.jpg" class="img-responsive" alt="">
+				 		</c:when>
+				 		<c:otherwise>
+				 			<img src="${param.url}/${param.imgGroom}" class="img-responsive" alt="">
+				 		</c:otherwise>
+				 	</c:choose>
+				 <h5>${param.groomName}</h5>
+				 <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.groomTel}</i></p>
+				 </div>
+			 </div>
+			 </div>
+			 <!--//main-drop-->
+			</div>
+	</div><!-- //banner -->	
+	
+	</c:otherwise>
+</c:choose>
+	
+	
 	<!--welcome-->
 	   <div class="welcome">
 		    <div class="container">
@@ -162,6 +252,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 		 <!--//welcome-->
+		 
+		 <!-- 방명록 -->
+	<div class="content">
+	<input type="hidden" name="comments" value="">
+		<div class="container">
+			<div class="guestBook">
+	        	<div class="about-head">
+	               <h2>GuestBook</h2>
+	               <input style="float: right;margin-right: 4%;" type="button" class="button4" name="writeComment" onclick="writeComment()" value="축하글 쓰기" />
+	            </div>
+			</div>
+		</div>
+	</div>
+  <!-- //방명록 -->
+		 
+		 
 	<!--registry-->
 	     <div class="registry-section">
 		     <h3 class="tittle">PhotoBook</h3>
@@ -197,28 +303,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </c:if>
 		     
 		     
-		     
-			 <!--  <div class="registry">
-				   <div class="col-md-6 registry-left">
-				   
-					<div class="registry-text">
-					<h4>Church Of San Paul</h4>
-					<h6>11 : 30 am In The Square</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus sed tempus ornare. Sed convallis eu orci ut sodales. Nam rhoncus laoreet elit, a condimentum augue tempor vitae in faucibus cura. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus sed tempus ornare. Sed convallis eu orci ut sodales. Nam rhoncus laoreet elit, a condimentum augue tempor.</p>
-					</div>
-					 <a href="single.html" class="mask"><img src="img/r1.jpg" alt="image" class="img-responsive zoom-img"></a>
-				   </div>
-				    <div class="col-md-6 registry-right">
-					 <a href="single.html" class="mask"><img src="img/r2.jpg" alt="image" class="img-responsive zoom-img"></a>
-					<div class="registry-text">
-					<h4>Restaurant Golf Club</h4>
-					<h6>1 : 30 pm In The Garden</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus sed tempus ornare. Sed convallis eu orci ut sodales. Nam rhoncus laoreet elit, a condimentum augue tempor vitae in faucibus cura. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus sed tempus ornare. Sed convallis eu orci ut sodales. Nam rhoncus laoreet elit, a condimentum augue tempor.</p>
-					</div>
-					 
-					</div>
-					<div class="clearfix"> </div>
-			  </div> -->
+		 
 		 </div>
 	<!--//registry-->
 	

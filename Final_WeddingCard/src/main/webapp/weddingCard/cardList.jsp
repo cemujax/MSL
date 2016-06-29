@@ -406,7 +406,7 @@ th{
 	
 
    <div class="cardManage" >
-      	<img alt="" src="${initParam.root}img/cardManage.jpg">
+      	<img alt="" src="weddingCard/img/cardManage.jpg">
    </div>
 
   <!--================= table=============== -->
