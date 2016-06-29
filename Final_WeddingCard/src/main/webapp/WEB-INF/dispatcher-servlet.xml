@@ -91,13 +91,13 @@
     <property name="methodNameResolver" ref="methodNameResolver"/>
     <property name="photoBookService" ref="photoBookService" />
     <property name="path">
-<!--       <value>../../MSL/Final_WeddingCard/src/main/webapp/img/photobook/</value> -->
+      <value>../../MSL/Final_WeddingCard/src/main/webapp/img/photobook/</value>
 
       <!-- for linux remote -->
       <!-- <value>../webapps/Final_WeddingCard/img/photobook/</value> -->
       
       <!-- for linux local -->
-      <value>EFI/MSL/Final_WeddingCard/src/main/webapp/img/photobook/</value>
+      <!-- <value>EFI/MSL/Final_WeddingCard/src/main/webapp/img/photobook/</value> -->
     </property>
   </bean>
 
