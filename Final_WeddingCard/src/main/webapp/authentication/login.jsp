@@ -19,7 +19,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+	<link rel="stylesheet" href="css/bootstrap_index.css">
 <link href="css/style_login.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8">
 
@@ -240,6 +240,9 @@ textarea {
 	background-color: white	;
 }
 
+.navbar-inverse .navbar-nav > li:hover{		
+	background-color: #000;		
+}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -296,18 +299,54 @@ $(document).ready(function(){
 </head>
 
 <body>
-	
+<!-- 메뉴바 -->		
+<nav class="navbar navbar-inverse" style="background-color: #f8f8f8; border-color: #e7e7e7;">		
+  <div class="container-fluid">		
+    <div class="navbar-header" >		
+     <!--  <a class="navbar-brand" href="#">Home</a> -->		
+     <a href="${initParam.root }index.jsp" class="navbar-brand" style="color: #777;" >Home</a>		
+    </div>		
+    		
+    	<ul class="nav navbar-nav" >		
+				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>		
+					 <li class="dropdown">		
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>		
+							  <ul class="dropdown-menu">		
+							      <li><a href="#">익명게시판</a></li>		
+							         <li><a href="#">게시판</a></li>		
+							         <li><a href="#">칭찬해요</a></li>		
+							   </ul>		
+					</li>		
+							      		
+							      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>		
+							        <ul class="dropdown-menu">		
+							          <li><a href="${initParam.root }weddingCard.jsp">청첩장만들기</a></li>		
+							          <li><a href="${initParam.root }./card.do?command=getAllCards">청첩장보기</a></li>		
+							        </ul>		
+							      </li>		
+							      		
+							       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>		
+							        <ul class="dropdown-menu">		
+							          <li><a href="${initParam.root }test.jsp">포토북만들기</a></li>		
+							          <li><a href="${initParam.root }photoBook.do?command=list">포토북보기</a></li>		
+							        </ul>		
+							      </li>		
+							      		
+							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->		
+							</ul>		
+  </div>		
+</nav><!-- nav Bar -->
 	
 <!-- //메뉴바 -->
 
 
 <div class="form test">
-     <!--  <ul class="tab-group">
+      <ul class="tab-group">
         <li class="tab active"><a href="#login">Log In</a></li>
         <li class="tab"><a href="#signup">Sign Up</a></li>
-      </ul> -->
+      </ul>
       
-      <!-- <div class="tab-content"> -->
+      <div class="tab-content">
       
       
         <div id="login">   
@@ -338,7 +377,60 @@ $(document).ready(function(){
           <button class="button button-block" type="submit">Log In</button>
           
           </form>
-
+		</div>
+		 <div id="signup">   		
+          <h1 style="color: black;">Sign Up for Free</h1>		
+          		
+          <form action="${initParam.root }member.do" method="post">		
+          <input type="hidden" name="command" value="register">		
+          		
+          <!-- <div class="top-row"> -->		
+            <!-- <div class="field-wrap">		
+              <label>		
+                First Name<span class="req">*</span>		
+              </label>		
+              <input type="text" required autocomplete="off" />		
+            </div> -->		
+        		
+            <!-- <div class="field-wrap">		
+              <label>		
+                Name<span class="req">*</span>		
+              </label>		
+              <input type="text" name="name" required autocomplete="off"/>		
+            </div> -->		
+         <!--  </div> -->		
+         <!-- <br> -->		
+          <div class="field-wrap">		
+            <label>		
+              Email Address<span class="req">*</span>		
+            </label>		
+            <input type="email" name="memberId" required autocomplete="off"/>		
+          </div>		
+          		
+          <div class="field-wrap">		
+            <label>		
+              Set A Password<span class="req">*</span>		
+            </label>		
+            <input type="password" name="password" autocomplete="off"/>		
+          </div>		
+          		
+          <div class="field-wrap">		
+              <label>		
+                Name<span class="req">*</span>		
+              </label>		
+              <input type="text" name="name" required autocomplete="off"/>		
+           </div>		
+           		
+           <div class="field-wrap">		
+              <label>		
+                Phone Number<span class="req">*</span>		
+              </label>		
+              <input type="text" name="phoneNumber" required autocomplete="off"/>		
+            </div>		
+          <button type="submit" class="button button-block">Get Started</button>		
+          		
+          </form>		
+        </div>
         
         
       </div><!-- tab-content -->
