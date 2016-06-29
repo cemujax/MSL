@@ -1,17 +1,13 @@
 var count = 0;
 
-function writeHere1() {
-    var doc = document.getElementById("bookComment1");
-    doc.innerHTML= document.getElementById("text1").value;
+function writeHere(index) {
+    var doc = document.getElementById("bookComment"+index);
+    doc.innerHTML= 
+    	"<p id='bookComment"+index + "'>"+
+    	document.getElementById("text"+index).value;
+    	+"</p>";
 }
-function writeHere2() {
-    var doc = document.getElementById("bookComment2");
-    doc.innerHTML= document.getElementById("text2").value;
-}
-function writeHere3() {
-    var doc = document.getElementById("bookComment3");
-    doc.innerHTML= document.getElementById("text3").value;
-}
+
 
 $(function() {
     var $mybook       = $('#mybook');
@@ -24,50 +20,19 @@ $(function() {
     //preload all the images in the book,
     //and then call the booklet plugin
     
+    //////////////////////////
     
-    $("#imgefile1").change(function(){
+    $("input[name*='file']").change(function(){
         //alert(this.value); //¼±ÅÃÇÑ ÀÌ¹ÌÁö °æ·Î Ç¥½Ã
-        readURL1(this);
+        readURL(this);
     });
     
-    function readURL1(input) {
+    function readURL(input) {
         //alert(input.files[0].name);
         if (input.files && input.files[0]) {
             var reader = new FileReader(); 
             reader.onload = function(e) {
-                $('#original1').attr('src', e.target.result); 
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-        
-    }
-    $("#imgefile2").change(function(){
-        //alert(this.value); //¼±ÅÃÇÑ ÀÌ¹ÌÁö °æ·Î Ç¥½Ã
-        readURL2(this);
-    });
-    
-    function readURL2(input) {
-        //alert(input.files[0].name);
-        if (input.files && input.files[0]) {
-            var reader = new FileReader(); 
-            reader.onload = function(e) {
-                $('#original2').attr('src', e.target.result); 
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-        
-    }
-    $("#imgefile3").change(function(){
-        //alert(this.value); //¼±ÅÃÇÑ ÀÌ¹ÌÁö °æ·Î Ç¥½Ã
-        readURL3(this);
-    });
-    
-    function readURL3(input) {
-        //alert(input.files[0].name);
-        if (input.files && input.files[0]) {
-            var reader = new FileReader(); 
-            reader.onload = function(e) {
-                $('#original3').attr('src', e.target.result); 
+                $('#original'+ input.name.charAt(5)).attr('src', e.target.result); 
             }
             reader.readAsDataURL(input.files[0]);
         }

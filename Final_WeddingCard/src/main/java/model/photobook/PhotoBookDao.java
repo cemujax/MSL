@@ -4,9 +4,8 @@ import java.util.List;
 
 public interface PhotoBookDao {
 	List<PhotoBookVO> getPhotoBookList(String memberId);
-	PhotoBookVO getPhotoBookByNo(PhotoBookVO pbvo);
+	PhotoBookVO getPhotoBookByNo(String bookNo);
 	int createPhotoBook(PhotoBookVO pbvo);
 	int modifyPhotoBook(PhotoBookVO pbvo);
-	int deletePhotoBook(int bookNo);
-	void delete_photo(int bookNo);
+	int deletePhotoBook(String bookNo);
 }

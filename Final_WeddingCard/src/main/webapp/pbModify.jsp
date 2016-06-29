@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PbcreTest</title>
+    <title>My Sweet Love . Wedding Card</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -29,40 +29,69 @@
      Cufon.replace('.reference a', {textShadow: '1px 1px #C59471', fontFamily:'ChunkFive'});
      Cufon.replace('.loading', {textShadow: '1px 1px #000', fontFamily:'ChunkFive'});
     </script>
+    
   </head>
 
 
   <body>
     <form method="post" action="photoBook.do" enctype="multipart/form-data">
       <h1 class="title" style="text-align: center;">
-	BookName: <input type="text" name="bookName">
+	BookName: <input type="text" name="bookName" value="${pbvo.bookName }">
       </h1>
       <div class="book_wrapper">
-	<input type="hidden" name="command" value="create"> <a
-								id="next_page_button"></a> <a id="prev_page_button"></a>
+      
+      <!-- Modify Addition -->
+      <input type="hidden" name="oldFile" value="${pbvo.fileName }">
+      
+	<input type="hidden" name="command" value="modify">
+	<input type="hidden" name="bookNo" value="${pbvo.bookNo }">
+	
+	<a id="next_page_button"></a> <a id="prev_page_button"></a>
 	<div id="loading" class="loading">Loading pages...</div>
 	<div id="mybook" style="display: none;">
 	  <div class="b-load">
 	  <c:forEach begin="0" end="9" var="i">
+	  <c:set value="${pbImgList[i] }" var="list"/>
 	    <div>
-	      <input type="file" name="file[${i}]" id="imgefile${i}"
-		     style="text-align: center;">
-	      <p>
-		<img
-		    src="http://104.244.124.250/~conollyp/diyFiles/123_File_Upload_Donload_m.jpg   "
-		    id="original${i}" style="width: 300px; height: 163px;" alt="" />
-		<h1>
-		  Book Comment${i+1} <input type="text" name="comment[${i}]" id="text${i}"
+	    <input type="file" name="file[${i}]" id="imgefile${i}"style="text-align: center;"><p>    
+	    
+	    <!-- modify addition -->
+	    <c:choose>
+	    	<c:when test="${list[0] != null && list[0] != '' }">
+	    		<img
+				    src="img/photobook/${pbvo.memberVO.memberId}/${pbvo.bookNo}/${list[0]}"
+				    id="original${i}" style="width: 300px; height: 163px;" alt="" 
+				/>
+				
+				<h1>
+		  			Book Comment${i+1}
+		  			<input type="text" name="comment[${i}]" id="text${i}"
+		  				value="${list[1] }" style="width: 40%; height: 90%;"
+				     	onkeyup="writeHere(${i})">
+				</h1>
+				
+				<p id="bookComment${i}">${list[1] }</p>
+	    	</c:when>
+	    	
+	    	<c:otherwise>
+	    		<%-- <input type="file" name="file[${i}]" id="imgefile${i}"style="text-align: center;"><p>        --%>
+	    		
+	    		<img
+				    src="http://104.244.124.250/~conollyp/diyFiles/123_File_Upload_Donload_m.jpg   "
+				    id="original${i}" style="width: 300px; height: 163px;" alt="" 
+				/>
+				
+				<h1>
+		  			Book Comment${i+1}
+		  			<input type="text" name="comment[${i}]" id="text${i}"
 				      value="" style="width: 40%; height: 90%;"
 				      onkeyup="writeHere(${i})">
-		</h1>
-		<p id="bookComment${i}">This tutorial is about creating a creative gallery with a
-							slider for the thumbnails. The idea is to have an expanding
-							thumbnails area which opens once an album is chosen.
-							The thumbnails will scroll to the end and move back to
-							the first image.</p>
-
-
+				</h1>
+				
+				<p id="bookComment${i}"> </p>
+	    	</c:otherwise>
+	    </c:choose>
+		
 		<a href="http://tympanus.net/Tutorials/SliderGallery/"
 		   target="_blank" class="demo">Demo</a> <a href="index.jsp"
 							    target="_blank" class="article">Index</a>

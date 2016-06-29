@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Moleskine Notebook with jQuery Booklet</title>
+    <title>My Sweet Love . Wedding Card</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="description" content="Moleskine Notebook with jQuery Booklet" />
     <meta name="keywords" content="jquery, book, flip, pages, moleskine, booklet, plugin, css3 "/>
@@ -28,6 +28,13 @@
      Cufon.replace('.loading', {textShadow: '1px 1px #000', fontFamily:'ChunkFive'});
     </script>
 
+<script type="text/javascript">
+function delete_photoBook(index) {
+	if(confirm("해당 포토북을 삭제하시겠습니까?")) {
+		location.href="photoBook.do?command=delete&&bookNo="+ index;
+	}
+}
+</script>
 
   </head>
   <body>
@@ -41,11 +48,10 @@
       <div id="mybook" style="display:none;">
 	<div class="b-load">
 	  <c:forEach items="${pbImgList}" var="i">
-
 	    <div>
 	      <img alt="" src="img/photobook/${pbvo.memberVO.memberId}/${pbvo.bookNo}/${i[0]}">
 	      <h1>Slider Gallery</h1>
-	      <p><!-- This tutorial is about creating a creative gallery with a
+	      <p style="font-family: serif;"><!-- This tutorial is about creating a creative gallery with a
 		      slider for the thumbnails. The idea is to have an expanding
 		      thumbnails area which opens once an album is chosen.
 		      The thumbnails will scroll to the end and move back to
@@ -53,8 +59,8 @@
 		      by using the slider controls. When a thumbnail is clicked,
 		      it moves to the center and the full image preview opens. -->
 		${i[1] }</p>
-	      <a href="photoBook.do?command=modify_photo" target="_blank" class="article">Modify Photo</a>
-	      <a href="photoBook.do?command=delete_photo&&bookNo=${pbvo.bookNo}" target="_blank" class="demo">Delete Photo</a>
+	      <a href="photoBook.do?command=modifyView&&bookNo=${pbvo.bookNo }" class="article">Modify Photo</a>
+	      <a onclick="delete_photoBook(${pbvo.bookNo})" style="cursor: pointer" class="demo">Delete Photo</a>
 	    </div>
 	  </c:forEach>
 	  <a href="index.jsp">
