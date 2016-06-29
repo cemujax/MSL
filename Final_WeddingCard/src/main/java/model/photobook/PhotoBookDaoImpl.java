@@ -15,8 +15,8 @@ public class PhotoBookDaoImpl implements PhotoBookDao{
 		return sqlSession.selectList("photoBookSql.getPhotoBookList", memberId);
 	}
 
-	public PhotoBookVO getPhotoBookByNo(PhotoBookVO pbvo) {
-		return sqlSession.selectOne("photoBookSql.getPhotoBookByNo", pbvo);
+	public PhotoBookVO getPhotoBookByNo(String bookNo) {
+		return sqlSession.selectOne("photoBookSql.getPhotoBookByNo", bookNo);
 	}
 
 	public int createPhotoBook(PhotoBookVO pbvo) {
@@ -27,8 +27,9 @@ public class PhotoBookDaoImpl implements PhotoBookDao{
 		return sqlSession.update("photoBookSql.modifyPhotoBook", pbvo);
 	}
 
-	public int deletePhotoBook(int bookNo) {
+	public int deletePhotoBook(String bookNo) {
 		return sqlSession.delete("photoBookSql.deletePhotoBook", bookNo);
 	}
+
 
 }

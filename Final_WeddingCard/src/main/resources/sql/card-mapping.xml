@@ -117,6 +117,7 @@
       SELECT guest, password, content, write_date, card_no
       FROM cardcomment
       where card_no = #{value}
+      ORDER BY write_date DESC
    </select>
 
    <select id="passwordCheck" parameterType="string" resultMap="cardCommentRM">

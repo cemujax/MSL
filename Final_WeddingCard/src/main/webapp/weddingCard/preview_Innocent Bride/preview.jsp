@@ -94,7 +94,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			<div class="couple"><!-- style="width:25%;" -->
 				 <div class="bride">
-				   <img src="images/bride.jpg" class="img-responsive" alt="">
+				   
+				   <c:choose>
+				 		<c:when test="${param.imgBride == ''}">
+				 			<img src="images/bride.jpg" class="img-responsive" alt="">
+				 		</c:when>
+				 		<c:otherwise>
+				 			<img src="${param.url}/${param.imgBride}" class="img-responsive" alt="">
+				 		</c:otherwise>
+				 	</c:choose>
+				   
+				   
 				   <h5>${param.brideName}</h5>
 				   <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">&nbsp;
 				   <%-- ${fn:substring(param.brideTel, 0,3) }<br>

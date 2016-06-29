@@ -23,6 +23,10 @@ public class PostCommentDaoImpl implements PostCommentDao{
 		return sqlSession.delete("postCommentSql.deleteComment", commentNo);
 	}
 
+	public int deleteCommentListByPostNo(String postNo) {
+		return sqlSession.delete("postCommentSql.deleteCommentListByPostNo", postNo);
+	}
+
 	public PostCommentVO getCommentByNo(String commentNo) {
 		return sqlSession.selectOne("postCommentSql.getCommentByNo", commentNo);
 	}

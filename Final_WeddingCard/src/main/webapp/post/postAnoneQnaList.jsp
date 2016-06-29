@@ -153,7 +153,7 @@ class="btn btn-warning" value="글쓰기" id="writeCard" style="margin-right:15%
       
       
        <c:if test="${sessionScope.mvo!=null}">
-		<a href="postAnoneQnaWrite.jsp"> <input type="button"
+		<a href="post/postAnoneQnaWrite.jsp"> <input type="button"
 class="btn btn-warning" value="글쓰기" id="writeCard" style="margin-left: 85%;" ></a>
 	      </c:if>
       

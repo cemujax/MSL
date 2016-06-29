@@ -1,5 +1,7 @@
 package model.card;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import model.member.MemberVO;
@@ -37,15 +39,17 @@ public class CardVO {
 	private String mainImage;
 	private String cardContext;
 	private MultipartFile imgFile;
-
-	public CardVO() {
-	}
+	private MultipartFile imgGroom;
+	private MultipartFile imgBride;
+	
+	public CardVO() {}
 
 	public CardVO(int cardNo, String template, String cardDate,
 			String hallName, String hallLocation, String hallTel,
 			String groomInfo, String brideInfo, MemberVO memberVO,
 			PhotoBookVO photobookVO, String url, String mainImage,
-			String cardContext, MultipartFile imgFile) {
+			String cardContext, MultipartFile imgFile, MultipartFile imgGroom,
+			MultipartFile imgBride) {
 		super();
 		this.cardNo = cardNo;
 		this.template = template;
@@ -61,10 +65,29 @@ public class CardVO {
 		this.mainImage = mainImage;
 		this.cardContext = cardContext;
 		this.imgFile = imgFile;
+		this.imgGroom = imgGroom;
+		this.imgBride = imgBride;
 	}
 
 	public String getMainImage() {
 		return mainImage;
+	}
+
+
+	public MultipartFile getImgGroom() {
+		return imgGroom;
+	}
+
+	public void setImgGroom(MultipartFile imgGroom) {
+		this.imgGroom = imgGroom;
+	}
+
+	public MultipartFile getImgBride() {
+		return imgBride;
+	}
+
+	public void setImgBride(MultipartFile imgBride) {
+		this.imgBride = imgBride;
 	}
 
 	public void setMainImage(String mainImage) {
