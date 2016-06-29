@@ -100,10 +100,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 			<img src="images/bride.jpg" class="img-responsive" alt="">
 				 		</c:when>
 				 		<c:otherwise>
-				 			<img src="${param.url}/${param.imgBride}" class="img-responsive" alt="">
+				 			<img src="${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgBride}" class="img-responsive" alt="">
 				 		</c:otherwise>
-				 	</c:choose>
-				   
+				 	</c:choose>	
 				   
 				   <h5>${param.brideName}</h5>
 				   <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">&nbsp;
@@ -112,8 +111,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				   ${fn:substring(param.brideTel, 0,3) }<br> --%>
 				   ${param.brideTel}</i></p>
 				 </div>
+				 
+				 
 				 <div class="groom">
-				  <img src="images/groom.jpg" class="img-responsive" alt="">
+				 <c:choose>
+				 		<c:when test="${param.imgGroom == ''}">
+				 			<img src="images/groom.jpg" class="img-responsive" alt="">
+				 		</c:when>
+				 		<c:otherwise>
+				 			<img src="${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgGroom}" class="img-responsive" alt="">
+				 		</c:otherwise>
+				 	</c:choose>	
+				  
 				 <h5>${param.groomName}</h5>
 				 <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">&nbsp;
 				<%--   ${fn:substring(param.groomTel, 0,3) }<br>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -12,18 +11,43 @@
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
+
+<link href="css/main.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/bootstrap_index.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style_index.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   -->
+  
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- //js -->
+<!-- 
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+ -->
+<!-- carousel -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+<!-- <script src="js/bootstrap.min.js"></script> -->
+<!-- carousel -->
+<script type="text/javascript" src="js/cycle2.js"></script>
+
+<!--Custom-Theme-files-->
+   <!-- <script src="js/jquery.min.js"> </script> -->
+   
 <!-- script -->
 	<script src="js/jquery.chocolat.js"></script>
 		<!--light-box-files-->
 	<script type="text/javascript" charset="utf-8">
 		$(function() {
 			$('.portfolio-grids a').Chocolat();
+			
 		});
 		
 		function logout() {
@@ -36,7 +60,7 @@
 <!-- script -->
 <!-- animation-effect -->
 <link href="css/animate.min.css" rel="stylesheet"> 
-<script src="js/wow.min.js"></script>	
+<script src="js/wow.min.js"></script>
 <script>
  new WOW().init();
 </script>
@@ -54,384 +78,311 @@
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
 	});
+/* 	$(function() {
+	setTimeout(function() {
+		  $('#font1').fadeIn('slow');
+		}, 3000);
+	}); */
 </script>
 <!-- start-smoth-scrolling -->
+
+<style type="text/css">
+	div {
+    display: block;
+}
+footer {
+    padding: 80px 0;
+    text-align: center;
+}
+footer .social a {
+    border: 2px solid #ffffff;
+}
+.fa-facebook-square:before{
+	color: #fff;
+}
+.fa-google-plus:before{
+	color: #fff;
+}
+.fa-twitter:before{
+	color: #fff;
+}
+footer .social a {
+	width: 40px;
+	height: 40px;
+    margin: 0 8px;
+    padding: 6px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    display: inline-block;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+ul{
+   list-style:none;
+   }
+.banner {
+    height:100%;
+}
+html,body{height:100%;}
+
+
+
+.imghover:hover 
+{
+	
+}
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+
+</style>
 </head>
 	
 <body>
 <!-- banner  class="banner" id="home1" -->
-	<div class="banner" id="home1">
-		<div class="container">
-			<div class="banner-phone animated wow slideInLeft" data-wow-delay=".5s">
-				<p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+0000 123 456</p>
-			</div>
-			
-			<div class="banner-phone animated wow slideInRight" data-wow-delay=".5s" style="float: right;">
-				<c:choose>
-						<c:when test="${sessionScope.mvo==null}">
-						<p><a href="login/loginregister.jsp" style="margin-right:15px;"><span class="glyphicon glyphicon-log-in" ></span><font size="2" color="#fff"> Login</font></a><!-- #F15F5F -->
-				     	<a href="login/loginregister.jsp" style="margin-left:0px; padding-left:0px;"><span class="glyphicon glyphicon-user"></span><font size="2" color="#fff"> Sign Up</font></a></p><!-- #45CBBF -->
-				      	</c:when>
-				      <c:otherwise>
-				      <p><a href="javascript:logout()"><span class="glyphicon glyphicon-log-in"></span><font size="2" color="#fff"> Logout</font></a></p>
-				      </c:otherwise>
-				      	</c:choose>
-				      	
-			</div>
-			
-			<div class="logo animated wow zoomIn" data-wow-delay=".5s">
-				<h2><a href="index.jsp"><span></span>MySweetLove</a></h2>
-			</div>
-			
-	
-			
-		<div class="clearfix"> </div>
-			<div class="banner-info animated wow zoomIn" data-wow-delay=".5s">
-				<p>Special Invitation</p>
-				
-					
-			<div class="navigation">
-				<nav class="navbar navbar-default">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					  </button>
-					</div>
+<section id="step1">
+<div class="banner" id="home1">
+      <div class="container">
+         <div class="banner-phone animated wow slideInLeft" data-wow-delay=".5s">
+            <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+0000 123 456</p>
+         </div>
+         
+         <div class="banner-phone animated wow slideInRight" data-wow-delay=".5s" style="float: right;">
+            <c:choose>
+                  <c:when test="${sessionScope.mvo==null}">
+                  <p><a href="login/loginregister.jsp" style="margin-right:15px;"><span class="glyphicon glyphicon-log-in" ></span><font size="2" color="#fff"> Login</font></a><!-- #F15F5F -->
+                    <a href="login/loginregister.jsp" style="margin-left:0px; padding-left:0px;"><span class="glyphicon glyphicon-user"></span><font size="2" color="#fff"> Sign Up</font></a></p><!-- #45CBBF -->
+                     </c:when>
+                  <c:otherwise>
+                  <p><a href="javascript:logout()"><span class="glyphicon glyphicon-log-in"></span><font size="2" color="#fff"> Logout</font></a></p>
+                  </c:otherwise>
+                     </c:choose>
+                     
+         </div>
+         
+         <div class="logo animated wow zoomIn" data-wow-delay=".5s">
+            <h2><a href="index.jsp"><span></span>MySweetLove</a></h2>
+         </div>
+   
+         
+      <div class="clearfix"> </div>
+         <div class="banner-info animated wow zoomIn" data-wow-delay=".5s">
+            <p>Special Invitation</p>
+            
+               
+         <div class="navigation">
+            <nav class="navbar navbar-default">
+               <!-- Brand and toggle get grouped for better mobile display -->
+               <div class="navbar-header">
+                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                 </button>
+               </div>
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-						<nav class="link-effect-14" id="link-effect-14">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="index.jsp"><span>Home</span></a></li>
-									<li class="active"><a href="index.jsp"><span>Home</span></a></li>
-								<!-- <li><a href="#about" class="scroll"><span>커뮤니티</span></a></li> -->
-								  <li class="dropdown">
-								  	<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
-							        <ul class="dropdown-menu">
-							          <li><a href="./post.do?command=getAllAnoneQnAs">익명게시판</a></li>
-	          							<li><a href="./post.do?command=getAllQnAs">웨딩 QnA</a></li>
-	          							<li><a href="./reviewComment.do?command=getAllReviewComments">칭찬해요</a></li>
+               <!-- Collect the nav links, forms, and other content for toggling -->
+               <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                  <nav class="link-effect-14" id="link-effect-14">
+                     <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.jsp"><span>Home</span></a></li>
+                           <li><a href="#">메뉴얼</a></li>
+                           
+                           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>
+                             <ul class="dropdown-menu">
+                               <li><a href="weddingCard/weddingCard.jsp">청첩장만들기</a></li>
+                               <li><a href="./card.do?command=getAllCards">청첩장보기</a></li>
+                             </ul>
+                           </li>
+                           
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
+                             <ul class="dropdown-menu">
+                               <li><a href="pbcreate.jsp">포토북만들기</a></li>
+                               <li><a href="photoBook.do?command=list">포토북보기</a></li>
+                             </ul>
+                           </li>
+                           
+                            <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
+                             <ul class="dropdown-menu">
+                               <li><a href="./post.do?command=getAllAnoneQnAs">익명게시판</a></li>
+                                  <li><a href="./post.do?command=getAllQnAs">웨딩 QnA</a></li>
+                                  <li><a href="./reviewComment.do?command=getAllReviewComments">칭찬해요</a></li>
 
-							        </ul>
-							      </li>
-							      
-							      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>
-							        <ul class="dropdown-menu">
-							          <li><a href="weddingCard/weddingCard.jsp">청첩장만들기</a></li>
-							          <li><a href="./card.do?command=getAllCards">청첩장보기</a></li>
-							        </ul>
-							      </li>
-							      
-							       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
-							        <ul class="dropdown-menu">
-							          <li><a href="pbcreate.jsp">포토북만들기</a></li>
-							          <li><a href="photoBook.do?command=list">포토북보기</a></li>
-							        </ul>
-							      </li>
-							    <!--   
-								<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->
-							</ul>
-							
-						</nav>
-					</div>
-				
-				</div>
-		
-			</div>
-		</div>
+                             </ul>
+                           </li>
+                     </ul>
+                     
+                  </nav>
+               </div>
+            </nav>
+         </div>
 	</div>
-<!-- //banner -->
+	</div>
+	</div>
+	
+</section>
+
+<div class="scroll_nav" >
+		<ul>
+			<li><a href="#step1" class="scroll">step1</a></li>
+			<li><a href="#step2" class="scroll">step2</a></li>
+			<li><a href="#step3" class="scroll">step3</a></li>
+			<li><a href="#step4" class="scroll">step4</a></li>
+			<li><a href="#step5" class="scroll">step5</a></li>
+			<li><a href="#step6" class="scroll">step6</a></li>
+		</ul>
+	</div>
+
 
 
 <!-- gallery -->
-	<div class="gallery" id="gallery">
-		<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Photo Gallery</span></h3>
-		<div class="gallery-grids">
-			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-				<ul id="myTab" class="nav nav-tabs" role="tablist" style="margin-left:5%;">
-					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">All</a></li>
-					<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Wedding</a></li>
-					<li role="presentation"><a href="#costumes" role="tab" id="costumes-tab" data-toggle="tab" aria-controls="costumes">Costumes</a></li>
-					<li role="presentation"><a href="#honeyMoon" role="tab" id="honeyMoon-tab" data-toggle="tab" aria-controls="honeyMoon">HoneyMoon</a></li>
-					<li role="presentation"><a href="#celebrations" role="tab" id="celebrations-tab" data-toggle="tab" aria-controls="celebrations">Celebrations</a></li>
-				</ul>
-				<div id="myTabContent" class="tab-content">
-					<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-						<div class="tab_img">
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/13.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/13.jpg" class="img-responsive" alt=""/>
-									<div class="b-wrapper">
-										<h5>France adage</h5>
-										<p>무릇 진실로 사랑함은 그 형체가 사랑함이 아니라, <br>그 형체를 주재하는 정신이라.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/15.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/15.jpg" class="img-responsive" alt=""/>
-									<div class="b-wrapper">
-										<h5>Saint-Exupéry</h5>
-										<p>사랑은 서로를 마주보는 게 아니라,<br>서로 같은 방향을 바라보는 것이다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/16.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/16.jpg" class="img-responsive" alt=""/>
-									<div class="b-wrapper">
-										<h5>F-Miller</h5>
-										<p>사랑을 가르쳐 주는 사람은 아무도 없다. <BR>사랑이란 우리의 생명과 같이,<BR> 탄생할 때부터 지니고 태어나는 것이다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/17.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/17.jpg" class="img-responsive" alt=""/>
-									<div class="b-wrapper">
-										<h5>Goethe</h5>
-										<p>20대의 사랑은 환상이다. 30대의 사랑은 외도이다.<br>사람은 40세에 와서야 처음으로 참된 사랑을 알게 된다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="tab_img">
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/18.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/18.jpg" class="img-responsive" alt=""/>
-									<div class="b-wrapper">
-										<h5>Mounier</h5>
-										<p>말로 하는 사랑은 쉽게 외면할 수 있으나,<br> 행동으로 보여주는 사랑은 저항할 수가 없다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/19.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/19.jpg" class="img-responsive" alt=""/>
-									<div class="b-wrapper">
-										<h5>Russell</h5>
-										<p>사랑이란 인생의 종은 될지언정,<br> 주인이 되어서는 안되는 법이다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/20.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/20.jpg" class="img-responsive" alt=""/>
-									<div class="b-wrapper">
-										<h5>Gandhi</h5>
-										<p>만약 한 사람의 인간이 최고의 사랑을 성취한다면, <br>그것은 수백만의 사람들의 미움을 해소시키는데 충분하다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/21.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/21.jpg" class="img-responsive" alt=""/>
-									<div class="b-wrapper">
-										<!-- <h5>Byron</h5>
-										<p>남자의 사랑은 그 일생의 일부요, 여자의 사랑은 그 일생의 전부다.</p> -->
-										<h5>Sophocles</h5>
-										<p>낱말 하나가 삶의 모든 무게와 고통에서 <br>우리를 해방시킨다. 그 말은 사랑이다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
-					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-						<div class="tab_img">
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/16.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/16.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Shakespeare</h5>
-										<p>구해서 얻은 사랑은 좋은 것이다. 그러나 구하지 않고 얻은 것은 더욱 좋다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/17.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/17.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Shakespeare</h5>
-										<p>사랑은 첫 인상과 함께 시작된다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/18.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/18.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Stendhal</h5>
-										<p>정열적으로 사랑을 해보지 못한 사람은 인생의 절반, <br>그것도 아름다운 쪽의 절반을 읽은 것과 같다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="clearfix"> </div>
-						</div>	
-					</div>
-					<div role="tabpanel" class="tab-pane fade" id="costumes" aria-labelledby="costumes-tab">
-						<div class="tab_img">
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/20.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/20.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Tennyson</h5>
-										<p>사랑하고 나서 잃는 것은 전혀 사랑하지 않았던 것보다 더 낫다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/21.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/21.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Benjamin Disraeli</h5>
-										<p>첫 사랑이 신비로운 것은 우리가 그것이 끝날 수 있다는 것을 모르기 때문이다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="clearfix"> </div>
-						</div>	
-					</div>
-					<div role="tabpanel" class="tab-pane fade" id="honeyMoon" aria-labelledby="honeyMoon-tab">
-						<div class="tab_img">
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/13.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/13.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>English Proverb</h5>
-										<p>1년 간의 행복을 위해서는 정원을 가꾸고, <br> 평생의 행복을 원한다면 나무를 심어라.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/16.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/16.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Sophocles</h5>
-										<p>낱말 하나가 삶의 모든 무게와 고통에서 <br>우리를 해방시킨다. 그 말은 사랑이다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/15.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/15.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Edith Wharton</h5>
-										<p>빛을 퍼뜨릴 수 있는 두가지 방법이 있다. <br>촛불이 되거나 또는 그것을 비추는 거울이 되는 것이다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="clearfix"> </div>
-						</div>	
-					</div>
-					<div role="tabpanel" class="tab-pane fade" id="celebrations" aria-labelledby="celebrations-tab">
-						<div class="tab_img">
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/22.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/22.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Helen Keller</h5>
-										<p>세상은 고통으로 가득하지만, <br> 한편 그것을 이겨내는 일로도 가득차있다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3 portfolio-grids">
-								<a href="img_index/23.jpg" rel="title" class="b-link-stripe b-animate-go thickbox">
-									<img src="img_index/23.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Erica Jong</h5>
-										<p>사랑은 모두가 기대하는 것이다. <br> 사랑은 진정 싸우고, 용기를 내고, 모든 것을 걸 만하다.</p>
-									</div>
-								</a>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
-				</div>
-			</div>
+<section id="step2">
+	<div class="gallery" id="gallery" style="background-color: #ffffd9;  height:100%; padding-bottom: 24px; padding-top: 24px;">
+		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>Responsible Size</span></h3>
+		<div class="gallery-grids" >
+						<font size="6" style="color: #0e6973; padding-left: 10%" >어떤 기기든 반응하는</font><br>
+				<div class="team-grid animated wow slideInDown" data-wow-delay=".5s" align="center">
+						<img src="img_service/all.png" alt=" " class="img-responsive" style="width: 800px; height: 400px; margin-top: 50px;"   />
+				</div>	
 		</div>
-		<!-- <div class="map animated wow slideInLeft" data-wow-delay=".5s">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387142.84008838347!2d-74.25818880297903!3d40.705831640339994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1459488198428" style="border:0"></iframe>
-		</div> -->
-	</div>
-<!-- //gallery -->
+</div>	
+</section>	
+		
 
-<!-- team -->
-	<div class="team" id="team">
-		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Meet Our Team</span></h3>
-			<div class="team-grids">
-				<div class="col-md-3 team-grid animated wow slideInLeft" data-wow-delay=".5s">
-					<div class="team-grid1">
-						<img src="img_index/8.jpg" alt=" " class="img-responsive" />
-					</div>
-					<h4>James Win</h4>
-					<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
-						suscipit.</p>
-					<ul class="social-icons">
-						<li><a href="#" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a></li>
-						<li><a href="#" class="icon-button instagram"><i class="icon-instagram"></i><span></span></a></li>
-						<li><a href="#" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 team-grid animated wow slideInLeft" data-wow-delay=".6s">
-					<div class="team-grid1">
-						<img src="img_index/9.jpg" alt=" " class="img-responsive" />
-					</div>
-					<h4>Sunny</h4>
-					<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
-						suscipit.</p>
-					<ul class="social-icons">
-						<li><a href="#" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a></li>
-						<li><a href="#" class="icon-button instagram"><i class="icon-instagram"></i><span></span></a></li>
-						<li><a href="#" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 team-grid animated wow slideInLeft" data-wow-delay=".7s">
-					<div class="team-grid1">
-						<img src="img_index/10.jpg" alt=" " class="img-responsive" />
-					</div>
-					<h4>Laura</h4>
-					<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
-						suscipit.</p>
-					<ul class="social-icons">
-						<li><a href="#" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a></li>
-						<li><a href="#" class="icon-button instagram"><i class="icon-instagram"></i><span></span></a></li>
-						<li><a href="#" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 team-grid animated wow slideInLeft" data-wow-delay=".8s">
-					<div class="team-grid1">
-						<img src="img_index/11.jpg" alt=" " class="img-responsive" />
-					</div>
-					<h4>Andrew Carl</h4>
-					<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
-						suscipit.</p>
-					<ul class="social-icons">
-						<li><a href="#" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a></li>
-						<li><a href="#" class="icon-button instagram"><i class="icon-instagram"></i><span></span></a></li>
-						<li><a href="#" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a></li>
-					</ul>
-				</div>
-				<div class="clearfix"> </div>
+
+<!-- 사이트 소개 -->
+
+<section id="step3">
+<div class="gallery" id="gallery" style="background-color:#f1fdd7;  width:100%; height:100%; padding-bottom: 24px;">
+	<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>mobile invitation</span></h3>
+		<div class="gallery-grids" align="left" style="margin-top: 30px;">
+			<div style="text-align: right; padding-right: 10%">
+				<font id="font1" size="6" style="color: #0e6973; " >기존 종이 청첩장과는 다른<br>모바일 청첩장의 매력을 만나보세요</font>
 			</div>
+			
+			<table style="margin: auto; padding-top: 30px; margin-top: 50px;">
+				<tr>
+					<td><img alt="" src="img_index/monitor1.png"  style="width: 600px; height: 400px;" /></td>
+					<td><img alt="" src="img_index/point2.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s"  style="padding-left: 10px;  width: 20px; height: 20px;"/></td>
+					<td><img alt="" src="img_index/sub1.png" class="team-grid animated wow slideInRight " data-wow-delay=".5s"  style="padding-left: 10px; " ></td>
+					<td><img alt="" src="img_index/point2.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; width: 20px; height: 20px;"/></td>
+					<td><img alt="" src="img_index/sub2.png"class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; " ></td>
+					<td><img alt="" src="img_index/point2.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; width: 20px; height: 20px;"/></td>
+					<td><img alt="" src="img_index/sub3.png" class="team-grid animated wow slideInRight" data-wow-delay=".5s" style="padding-left: 10px; " ></td>
+				</tr>
+			</table>
+
 		</div>
-		
-		<div class="footer-pos" style="margin-top:2%;">
-				<a href="#home1" class="scroll"><img src="img_index/7.png" alt=" " class="img-responsive" /></a>
-			</div>
-		
-	</div>
-<!-- //team -->
+</div>
+</section>
+
+<section id="step4">
+<div class="gallery" id="gallery" style="background-color: #fff1d4;  height:100%;">
+		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 24px; padding-bottom: 30px;"><span>Photo Book</span></h3>
+			<div class="gallery-grids">
+			<!-- <div class="gallery-grids" style="background-color: #fff; width: 100%; height: 90%;"> -->
+				<div class="cycle-slideshow" >
+					<img alt="" src="img_service/pic1.jpg" style="width: 100%;height: 500px; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
+					<img alt="" src="img_service/wedding5.jpg" style="width: 100%;height: 500px; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
+					<img alt="" src="img_service/wedding2.jpg" style="width: 100%;height: 500px; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
+					<img alt="" src="img_service/11.jpg" style="width: 100%;height: 500px; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
+				</div>
+			<!-- </div> -->
+		</div>
+</div>
+</section>		
+
+
+<section id="step5">
+<div class="gallery" id="gallery" style="background-color:#fed8ab;   height:100%;">
+		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>communication</span></h3>
+			<div class="gallery-grids">
+				<div style="text-align: right; padding-right: 10%">
+					<font id="font1" size="6" style="color: #8c6751; " >웨딩 Tip, QnA는 물론<br>익명게시판으로 고민까지 나눠보세요</font>
+				</div>
+				<img alt="" src="img_service/comunication.jpg" style="height: 450px; width: 100%">
+		</div>
+</div>	
+</section>	
+
+
+<!-- footer begin -->
+<section id="step6">
+        <footer style="background-color: #142740; height: 100%; padding-bottom: 60px; padding-top: 12px;">
+            <div class="container" style="height: 160px;">
+				<!-- style="padding-top: 6%" -->
+                
+                <a href="#" class="scrollpoint sp-effect3">
+                    <img src="img_index/logo.png" alt=""  style="text-align: center; width: 350px;"><!-- width: 100% -->
+                </a>
+                
+                <a href="#home1" class="scroll">
+                <img src="img_index/7.png" alt=" " style="float: right;margin-top: 50px;" >
+				</a>
+                <div class=" social">
+                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-twitter fa-lg"></i></a>
+                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-google-plus fa-lg"></i></a>
+                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-facebook-square fa-lg"></i></a>
+                </div>
+                    	<ul class="" style="text-align: right; font-size:14px;color: #fff;">
+							<li><span>(주)MSL</span><span>대표이사 : 홍길동</span>
+							<li><span>대표전화 : 031-111-1004 </span><span>팩스 : 02-559-1001~3</span><span>고객센터 : abc@naver.com</span></li>
+							<li><span>경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 8층</span></li>
+							<li class="copy"><span>Copyright ©MSL  Co.,Ltd. All rights reserved.</span></li>
+						</ul>
+            </div>
+        </footer>
+     </section>
+<!-- footer end -->
 
 
 <!-- for bootstrap working -->
-	<script src="js/bootstrap_index.js"></script>
+	<!-- <script src="js/bootstrap_index.js"></script> -->
 <!-- //for bootstrap working -->
 </body>
 </html>

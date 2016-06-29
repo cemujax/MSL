@@ -194,7 +194,7 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
 }
 .navbar {
     margin-bottom: 0;
-    margin-top: 120px;
+   /*  margin-top: 120px; */
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border: none;
@@ -308,6 +308,7 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
 /*-- w3layouts --*/
   left: 5px;
   bottom: 5px;
+  
 }
 .link-effect-14 a:hover span::before,.link-effect-14 li.active a span::before {
   opacity: 1;
@@ -657,7 +658,7 @@ ul.wmuSliderPagination {
 /*-- //testimonials --*/
 /*-- team --*/
 .team{
-	background:url(../img_index/7.jpg) no-repeat 0px 0px;
+	background:url(../img_index/bouquet02.png) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -1234,7 +1235,7 @@ h2.resp-accordion {
 .footer-logo a{
 	font-size: 3em;
     color: #fff;
-    background: url(../img_index/img-sp.png) no-repeat -6px -198px;
+    /* background: url(../img_index/img-sp.png) no-repeat -6px -198px; */
     text-decoration: none;
     padding-left: 1.5em;
 }
@@ -1593,7 +1594,7 @@ h2.resp-accordion {
 	}
 	.navbar-nav {
 		margin: 1em 0 0;
-		/* background: #525252; */
+	/* 	background: #525252; */
 		text-align: center;
 		padding:1em 0;
 	}
@@ -1700,7 +1701,7 @@ h2.resp-accordion {
 		background-position: -120px 0px;
 	}
 	.link-effect-14 a {
-		margin: 0 200px;
+		margin: 0 170px;
 	}
 }
 @media (max-width: 568px){
@@ -2082,8 +2083,7 @@ h2.resp-accordion {
 		font-size: 1.7em;
 	}
 	.link-effect-14 a {
-		/* margin: 0 65px; */
-		margin: 0 10px;
+		margin: 0 65px;
 	}
 	.navbar-toggle {
 		margin: 0 0 0 9.3em;

@@ -16,14 +16,21 @@
 	
 	/* 업로드한 이미지 */
 	.header_select {
-    min-height: 400px;
+    min-height: 600px;
 	}
 	.header_select-top {
     padding: 0.5em 0;
 	}
 	.header_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat -170px 0px; 
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px; 
+	 background-size:cover;
+	}
+	
+	@media ( max-width : 320px ){
+	.header_select {
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat -170px 0px; 
 	background-size:cover;
+		}
 	}
 	
 .button4 {
@@ -59,8 +66,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- 방명록 -->
 <script type="text/javascript">
-
-
 	function writeComment() {
 		location.href = "${initParam.root}card.do?command=linkGuestBook&&url=${param.url}";
 	}
@@ -99,21 +104,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 
-<!--header-->
-
 	<c:choose >
-		<c:when test="${param.imgSrc != null && param.imgSrc != ''}">
+		<c:when test="${param.imgSrc == ''}">
 	   		<div class="header">
 	     		 <div class="container">
-	                    <script defer src="js/jquery.flexslider.js"></script>
+	                  <script defer src="js/jquery.flexslider.js"></script>
 	      		</div>
 	   		</div>
 		</c:when>
 		<c:otherwise>
-			
 	   		<div class="header_select">
 	     		 <div class="container">
-	                    <script defer src="js/jquery.flexslider.js"></script>
+	                  <script defer src="js/jquery.flexslider.js"></script>
 	      		</div>
    			</div>
 		</c:otherwise>

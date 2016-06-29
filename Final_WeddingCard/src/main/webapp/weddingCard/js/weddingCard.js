@@ -119,7 +119,7 @@ $(document).ready(function(){
 	   $("#tabs").tabs();
 	   
 	   
-	   ///=========== 템플릿 추가 여기다===================================
+	   ///=========== 템플릿쪽===================================
 	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
 	   $('#template').attr("checked", true);
 	   $('#GroomDiv').hide();  $('#BrideDiv').hide();
@@ -131,15 +131,19 @@ $(document).ready(function(){
 		   $('#GroomDiv').hide();  $('#BrideDiv').hide();
 	  		set_preview();
 	  	});
+	   
 	   $('#template2').click(function(){
 		   sel_template = ($('input[name=template]:checked').val());
 		   $('#GroomDiv').show();  $('#BrideDiv').show();
 	  		set_preview();
 	  	});
+	   
 	   $('#template3').click(function(){
 			   sel_template = ($('input[name=template]:checked').val());
+			   $('#GroomDiv').show();  $('#BrideDiv').show();
 		  		set_preview();
-		 });
+		  	});
+	   
 	 ///=========== 템플릿쪽 End===================================
 	   
 	   $( "#datepicker" ).datepicker({showButtonPanel: true,minDate: '0'});
@@ -197,13 +201,17 @@ $(document).ready(function(){
   
 	
 					
-  $('#map').hide();				
+					
   $('#hallLocation').change(function(){
-	  
-	  $('#map').html("");
 	  
 	  if($(this).val() != ""){
 		  alert("mapmap");
+		  
+		  var mapScript = 
+				"<script src='./js/map.js'></script>";
+			  $('#map').html("<script src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>");
+			  $('#map').html(mapScript);
+		  
 		  
 		  var mapContainer = document.getElementById('map'), // 지도를
 			// 표시할
@@ -215,14 +223,13 @@ $(document).ready(function(){
 					  // 지도의 확대 레벨
 		  };
 
-		// 지도를 생성합니다
-			var map = new daum.maps.Map(mapContainer, mapOption);
+							// 지도를 생성합니다
+							var map = new daum.maps.Map(mapContainer, mapOption);
 
-			// 주소-좌표 변환 객체를 생성합니다
-			var geocoder = new daum.maps.services.Geocoder();				
+							// 주소-좌표 변환 객체를 생성합니다
+							var geocoder = new daum.maps.services.Geocoder();
 		 
-			$('#map').show();
-			
+		  
 		  var loc = $(this).val();
 			// 주소로 좌표를 검색합니다
 			geocoder.addr2coord(loc, function(status, result) {
@@ -250,7 +257,7 @@ $(document).ready(function(){
 			});
 		  
 	  }else{
-		  $('#map').hide();
+		  alert("gg");
 	  }
 	  
    	set_preview();
@@ -326,7 +333,7 @@ $(document).ready(function(){
 	     		 		setTimeout(function(){
 	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
 	     		 			set_preview();
-	     		 		}, 1000);
+	     		 		}, 2000);
 	 	             
 	     		 		
 	     		 		
@@ -366,7 +373,7 @@ $(document).ready(function(){
 	            	  setTimeout(function(){
 	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
 	     		 			set_preview();
-	     		 		}, 1000);
+	     		 		}, 2000);
 	              },
 	              error: function (jqXHR) {
 	                console.log('error');
@@ -402,7 +409,7 @@ $(document).ready(function(){
 	            	  setTimeout(function(){
 	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
 	     		 			set_preview();
-	     		 		}, 1000);
+	     		 		}, 2000);
 	              },
 	              error: function (jqXHR) {
 	                console.log('error');
@@ -459,6 +466,23 @@ $(document).ready(function(){
     	  
     	  return false;
       }
+      
+      // 신랑신부 업로드 가능 템플릿 선택한경우
+      if($('input[name=template]:checked').val()== "Garden Wedding"
+    	  || $('input[name=template]:checked').val()== "Innocent Bride"){
+    	  if($('#imgBride').val() == ""){
+        	  $( '#tabs' ).tabs( { active: 1,} );
+        	  alert("신부 이미지 업로드 해주세요!");
+        	  return false;
+          }
+          if($('#imgGroom').val() == ""){
+        	  $( '#tabs' ).tabs( { active: 1,} );
+        	  alert("신랑 이미지 업로드 해주세요!");
+        	  return false;
+          }
+      }
+      
+      
       if($('#url').val() == ""){
     	  $( '#tabs' ).tabs( { active: 1,} );
     	  $('#url').focus();
