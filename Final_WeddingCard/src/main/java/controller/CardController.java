@@ -47,7 +47,7 @@ public class CardController extends MultiActionController {
 	}
 
 	public ModelAndView createCard(HttpServletRequest request,
-			HttpServletResponse response, HttpSession session, CardVO cvo)
+			HttpServletResponse response, CardVO cvo)
 			throws Exception {
 		System.out.println("createCard 컨트롤러");
 		System.out.println("cvo::"+cvo);
@@ -64,7 +64,7 @@ public class CardController extends MultiActionController {
 		String cardContext = request.getParameter("cardContext");
 		
 		// member 정보 set
-		MemberVO rvo = (MemberVO) session.getAttribute("mvo");
+		MemberVO rvo = (MemberVO) request.getSession().getAttribute("mvo");
 		cvo.setMemberVO(rvo);
 
 		// 예식날짜
@@ -198,12 +198,12 @@ public class CardController extends MultiActionController {
 	}
 	
 	public ModelAndView uploadImage(HttpServletRequest request,
-			HttpServletResponse response,HttpSession session, CardVO cvo) throws Exception {
+			HttpServletResponse response, CardVO cvo) throws Exception {
 
 		System.out.println("uploadImage controll");
 		String flag = request.getParameter("flag");
 		System.out.println(cvo);
-		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+		MemberVO mvo = (MemberVO) request.getSession().getAttribute("mvo");
 		
 		if("mainImage".equals(flag)){
 			MultipartFile imgFile = cvo.getImgFile();  
@@ -361,7 +361,7 @@ public class CardController extends MultiActionController {
 	}
 	
 	public ModelAndView writeCardComment(HttpServletRequest request, HttpServletResponse response,
-			HttpSession session, CardcommentVO comvo) throws Exception {
+							CardcommentVO comvo) throws Exception {
 		System.out.println("writeCardComment 컨트롤러");
 		String url = request.getParameter("url");
 		
