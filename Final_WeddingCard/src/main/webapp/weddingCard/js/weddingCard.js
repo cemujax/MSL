@@ -122,14 +122,18 @@ $(document).ready(function(){
 	   ///=========== 템플릿 추가 여기다===================================
 	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
 	   $('#template').attr("checked", true);
-	   
+	   $('#GroomDiv').hide();  $('#BrideDiv').hide();
 	   var sel_template = $('#template').val();
+	   
+	   
 	   $('#template').click(function(){
 		   sel_template = ($('input[name=template]:checked').val());
+		   $('#GroomDiv').hide();  $('#BrideDiv').hide();
 	  		set_preview();
 	  	});
 	   $('#template2').click(function(){
 		   sel_template = ($('input[name=template]:checked').val());
+		   $('#GroomDiv').show();  $('#BrideDiv').show();
 	  		set_preview();
 	  	});
 	   $('#template3').click(function(){
@@ -275,19 +279,77 @@ $(document).ready(function(){
    $('#photoBookComment').change(function(){
    		set_preview();
     });
-
+  
+   /*
+   $('#imgFile').change(function(){
+	   $('#imgFile').MultiFile({
+			max : 1, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
+			accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
+			maxfile : 10240, //각 파일 최대 업로드 크기
+			STRING : { //Multi-lingual support : 메시지 수정 가능
+				remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
+				duplicate : "$file 은 이미 선택된 파일입니다.",
+				denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
+				selected : '$file 을 선택했습니다.',
+				toomuch : "업로드할 수 있는 최대크기를 초과하였습니다.($size)",
+				toomany : "업로드할 수 있는 최대 갯수는 $max개 입니다.",
+				toobig : "$file 은 크기가 매우 큽니다. (max $size)"
+			},
+			//list:"#afile3-list" //파일목록을 출력할 요소 지정가능
+		});
+   });*/
    
-   //////////////// 상단 이미지 처리 ////////////////////////
-   
+   var form = document.frmWeddingCard;
+   // ================== 메인이미지==========================
    $("#sendImage").bind("click", function() {
-   		var form = document.frmWeddingCard;
+   		
    		var formData = new FormData(form);
    		
    		if($('#imgFile').val() != null && $('#imgFile').val() != ''){
    			form.encoding="multipart/form-data"; //파일전송위해 변경
-   		 		
-	          $.ajax({
-	              url: "../card.do?command=uploadImage",
+   			alert($('input[name=imgSrc]').val());
+   			$.ajax({
+	              url: "../card.do?command=uploadImage&&flag=mainImage",
+	              data: formData,
+	              dataType: 'text',
+	              processData: false,
+	              contentType: false,
+	              type: 'POST',
+	              
+	              success: function (response) {
+	            	  // refresh 때문에 다시잡아줘야된다.
+	            	  document.frmWeddingCard.encoding="application/x-www-form-urlencoded";
+	            	  
+	            	  var src =  $('#imgFile').val().split('\\')[2];
+	     		 		$('input[name=imgSrc]').val(src);
+	     		 		alert($('input[name=imgSrc]').val());
+	     		 		setTimeout(function(){
+	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
+	     		 			set_preview();
+	     		 		}, 1000);
+	 	             
+	     		 		
+	     		 		
+	              },//success
+	              error: function (jqXHR) {
+	                console.log('error');
+	              }
+	            });
+   		}else{
+	        alert("이미지를 선택해주세요!");
+   			return false;
+   		}	
+   	});
+ 
+// ================== 신랑이미지==========================
+   $("#sendGroom").bind("click", function() {
+  		var formData = new FormData(form);
+  		
+  		if($('#imgGroom').val() != null && $('#imgGroom').val() != ''){
+  			form.encoding="multipart/form-data"; //파일전송위해 변경
+  			
+  			$.ajax({
+	              url: "../card.do?command=uploadImage&&flag=imgGroom",
 	              data: formData,
 	              dataType: 'text',
 	              processData: false,
@@ -299,43 +361,58 @@ $(document).ready(function(){
 	            	  document.frmWeddingCard.encoding="application/x-www-form-urlencoded";
 	            	 
 	            	  
-	            	  var src =  $('#imgFile').val().split('\\')[2];
-	            	  alert("imgFile::"+src);
-	     		 		$('input[name=imgSrc]').val(src);
-	     		 		
-	 	             alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
-	 	            set_preview();
+	            	  //var src =  $('#imgGroom').val().split('\\')[2];
+	     		 		//$('input[name=imgSrc]').val(src);
+	            	  setTimeout(function(){
+	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
+	     		 			set_preview();
+	     		 		}, 1000);
 	              },
 	              error: function (jqXHR) {
 	                console.log('error');
 	              }
 	            });
-   			
-   			
-   		}else{
-	             alert("이미지를 선택해주세요!");
-   			return false;
-   			
-   		}
-   		
-   	});
- 
-   function readURL1(input) {
-       //alert(input.files[0].name);
-       if (input.files && input.files[0]) {
-          var reader = new FileReader(); 
-          reader.onload = function(e) {
-         	 alert(e.target.result);
-         	 
-         	 $('#frmWeddingCard').attr('target','left_skin_preview').attr('src', e.target.result); 
-          }
-          reader.readAsDataURL(input.files[0]);
-       }
-
-   };
+  		}else{
+	        alert("이미지를 선택해주세요!");
+  			return false;
+  		}	
+  	});
    
-   
-   
+// ================== 신부이미지==========================
+   $("#sendBride").bind("click", function() {
+  		var formData = new FormData(form);
+  		
+  		if($('#imgBride').val() != null && $('#imgBride').val() != ''){
+  			form.encoding="multipart/form-data"; //파일전송위해 변경
+  			
+  			$.ajax({
+	              url: "../card.do?command=uploadImage&&flag=imgBride",
+	              data: formData,
+	              dataType: 'text',
+	              processData: false,
+	              contentType: false,
+	              type: 'POST',
+	              
+	              success: function (response) {
+	            	  // refresh 때문에 다시잡아줘야된다.
+	            	  document.frmWeddingCard.encoding="application/x-www-form-urlencoded";
+	            	 
+	            	  //var src =  $('#imgGroom').val().split('\\')[2];
+	     		 		//$('input[name=imgSrc]').val(src);
+	            	  setTimeout(function(){
+	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
+	     		 			set_preview();
+	     		 		}, 1000);
+	              },
+	              error: function (jqXHR) {
+	                console.log('error');
+	              }
+	            });
+  		}else{
+	        alert("이미지를 선택해주세요!");
+  			return false;
+  		}	
+  	});
   ///==================== =========================   
     function set_preview(md){
 		

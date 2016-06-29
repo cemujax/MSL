@@ -86,6 +86,7 @@
 <!-- <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>  -->
 <script src="./js/jquery.form.js"></script>
 
+<!-- <script src="./js/jquery.MultiFile.js"></script> -->
 <!-- 우리꺼 -->
 <script type="text/javascript">
 function pbCallback() {
@@ -144,7 +145,7 @@ function pbCallback() {
 
 	<!-- //메뉴바 -->
 
-	<form name="frmWeddingCard" id="frmWeddingCard" method="post" >
+	<form name="frmWeddingCard" id="frmWeddingCard" method="post">
 		
 		<div class="ui-grid-a contents" >
 			<div class="ui-block-a">
@@ -316,43 +317,41 @@ function pbCallback() {
 							required="required"></td>
 					</tr>
 					<!--  -->
-				<tr>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre" > <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							required="required"></td>
-					</tr>
 				</table>
 			</div><!-- tabs-1 -->
 
+
+		<input type="hidden" name="imgSrc" value="">
 		<div id="tabs-2" style="font-size:13px; text-align:left;">
-			<table style="width:330px;">
-				<tr>
-					<td colspan="3"><input type="hidden" name="imgSrc" value="">
+			<table style="width:400px;">
+				<!-- <tr>
+					<td colspan="3">
 						<img alt ="" src="images/111.png" style="margin-top:10%; margin-bottom:5%;margin-left: 30px;">
 					</td>
-				</tr>
+				</tr> -->
 				
 			<tr>
 				<td>
 					메인사진:
 				</td>
 				<td>
-					<input type="file" name="imgFile"id="imgFile" style="font-size:10px; width:150px;padding-left: 5px;"><!-- style="font-size:10px; width:150px;padding-left: 5px;" -->
+					<input type="file" name="imgFile" id="imgFile" style="font-size:10px; width:150px;padding-left: 5px;"><!-- style="font-size:10px; width:150px;padding-left: 5px;" -->
 				</td>
 				<td>
 					<input type="submit" value="업로드 " id="sendImage">
 				</td>
 			</tr>
-				
+			<tr id="GroomDiv">
+				<td>
+					신랑사진:
+				</td>
+				<td>
+					<input type="file" name="imgGroom" id="imgGroom" style="font-size:10px; width:150px;padding-left: 5px;"><!-- style="font-size:10px; width:150px;padding-left: 5px;" -->
+				</td>
+				<td>
+					<input type="submit" value="업로드 " id="sendGroom">
+				</td>
+			</tr>
 			<tr>
 				<td>
 					신랑이름:
@@ -372,8 +371,20 @@ function pbCallback() {
 					onkeyup='removeChar(event)' style='ime-mode:disabled;'>
 				</td>
 			</tr>
+			
+			<tr id="BrideDiv">
+				<td>
+					신부사진:
+				</td>
+				<td>
+					<input type="file" name="imgBride" id="imgBride" style="font-size:10px; width:150px;padding-left: 5px;"><!-- style="font-size:10px; width:150px;padding-left: 5px;" -->
+				</td>
+				<td>
+					<input type="submit" value="업로드 " id="sendBride">
+				</td>
+			</tr>
 					
-			<tr>
+			<tr >
 				<td>
 					신부이름:
 				</td>

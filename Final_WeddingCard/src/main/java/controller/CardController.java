@@ -91,6 +91,10 @@ public class CardController extends MultiActionController {
 		
 		// 상단 이미지
 		MultipartFile imgFile = cvo.getImgFile();
+		MultipartFile imgGroom = cvo.getImgBride();
+		MultipartFile imgBride = cvo.getImgBride();
+		
+		String imgPath = "";
 		File file = new File(path + cvo.getUrl() + ".jsp");
 		File file_guestBook = new File(path +"/"+ cvo.getUrl()+"/guestBook.jsp");
 		
@@ -104,8 +108,16 @@ public class CardController extends MultiActionController {
 			if (tempFile.getParentFile().isDirectory()){
 				tempFile.getParentFile().renameTo(urlFile.getParentFile());
 			}
-			cvo.setMainImage(imgFile.getOriginalFilename());	
+			imgPath += imgFile.getOriginalFilename() +"`";	
 		}
+		if(imgGroom.getOriginalFilename() != null && imgGroom.getOriginalFilename() !="")
+			imgPath += imgGroom.getOriginalFilename() +"`";
+		
+		if(imgBride.getOriginalFilename() != null && imgBride.getOriginalFilename() !="")
+			imgPath += imgBride.getOriginalFilename() +"`";
+		
+		cvo.setMainImage(imgPath);
+		
 		
 		cardService.createCard(cvo);
 		cvo = cardService.getCard(url); // cardNo 알기 위해
@@ -151,10 +163,17 @@ public class CardController extends MultiActionController {
 					+ "<jsp:param value='"+request.getParameter("photoBookComment")+"' name='photoBookComment'/>\n"
 					+ "<jsp:param value='"+rvo.getMemberId()+"' name='memberId'/>\n"
 					+ "<jsp:param value='"+cvo.getUrl()+"' name='url'/>\n"
-					+ "<jsp:param value='"+cvo.getMainImage()+"' name='imgSrc'/>\n"
 					+"<jsp:param value='"+cvo.getCardNo()+"' name='cardNo'/>\n"
 					);
 			//상단 이미지 있는 
+			if(!imgFile.isEmpty())
+				bw.write("<jsp:param value='"+imgFile.getOriginalFilename()+"' name='imgSrc'/>\n");
+			if(!imgGroom.isEmpty())
+				bw.write("<jsp:param value='"+imgGroom.getOriginalFilename()+"' name='imgGroom'/>\n");
+			if(!imgBride.isEmpty())
+				bw.write("<jsp:param value='"+imgBride.getOriginalFilename()+"' name='imgBride'/>\n");
+			
+			
 			
 			// jsp 닫음
 			bw.write("</jsp:include>\n</body>\n</html>\n");
@@ -174,9 +193,6 @@ public class CardController extends MultiActionController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-
 
 		return new ModelAndView("redirect:/card.do?command=getAllCards");
 	}
@@ -185,24 +201,38 @@ public class CardController extends MultiActionController {
 			HttpServletResponse response,HttpSession session, CardVO cvo) throws Exception {
 
 		System.out.println("uploadImage controll");
-		
+		String flag = request.getParameter("flag");
 		System.out.println(cvo);
-		MultipartFile imgFile = cvo.getImgFile();  
-		
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		
-		//  ::: url/temp_회원ID/이미지.jpg  형식
-		File file = new File(path + "temp_"+mvo.getMemberId()+"//"+imgFile.getOriginalFilename());
+		if("mainImage".equals(flag)){
+			MultipartFile imgFile = cvo.getImgFile();  
+			File file = new File(path + "temp_"+mvo.getMemberId()+"//"+imgFile.getOriginalFilename());
+			if (!file.getParentFile().exists())// 이미지 저장할 temp 디렉토리 만듬
+				file.getParentFile().mkdirs();
+			File destFile = new File(file.getPath());
+			imgFile.transferTo(destFile);
+		}else if("imgGroom".equals(flag)){
+			MultipartFile imgGroom = cvo.getImgGroom();
+			File file = new File(path + "temp_"+mvo.getMemberId()+"//"+imgGroom.getOriginalFilename());
+			if (!file.getParentFile().exists())// 이미지 저장할 temp 디렉토리 만듬
+				file.getParentFile().mkdirs();
+			File destFile = new File(file.getPath());
+			imgGroom.transferTo(destFile);
+		}else if("imgBride".equals(flag)){
+			MultipartFile imgBride = cvo.getImgBride();
+			File file = new File(path + "temp_"+mvo.getMemberId()+"//"+imgBride.getOriginalFilename());
+			if (!file.getParentFile().exists())// 이미지 저장할 temp 디렉토리 만듬
+				file.getParentFile().mkdirs();
+			File destFile = new File(file.getPath());
+			imgBride.transferTo(destFile);
+		}
 		
-		if (!file.getParentFile().exists())// 이미지 저장할 temp 디렉토리 만듬
-			file.getParentFile().mkdirs();
-		
-		// destFile Path에다가 파일 업로드 시킴
-		File destFile = new File(file.getPath());
-		imgFile.transferTo(destFile);
-		
-		return new ModelAndView("JsonView","result",imgFile.getOriginalFilename());
+		return new ModelAndView("JsonView");
 	}
+	
+	
+	
 	/////////////////////////////////////////////////////////////////
 	public ModelAndView getAllCards(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {

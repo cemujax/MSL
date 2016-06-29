@@ -50,15 +50,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--header-->
 
 	<c:choose >
-		<c:when test="${param.imgSrc != null && param.imgSrc != ''}">
-		<div class="header_select">
+		<c:when test="${param.imgSrc == ''}">
+			<div class="header">
      		 <div class="container">
                     <script defer src="js/jquery.flexslider.js"></script>
       		</div>
    			</div>
 		</c:when>
 		<c:otherwise>
-			<div class="header">
+			<div class="header_select">
      		 <div class="container">
                     <script defer src="js/jquery.flexslider.js"></script>
       		</div>

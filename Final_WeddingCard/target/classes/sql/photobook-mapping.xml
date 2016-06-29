@@ -51,7 +51,7 @@
 			#{bookNo}, #{bookName}, #{fileName}, sysdate, #{bookComment}, #{memberVO.memberId}
 		) 
 	</insert>
-	
+		
 	<update id="modifyPhotoBook" parameterType="photoBook">
 		UPDATE photobook 
 		SET book_name=#{bookName}, file_name=#{fileName}, create_date= sysdate, book_comment = #{bookComment} 
