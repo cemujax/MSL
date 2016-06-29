@@ -341,12 +341,12 @@ $(document).ready(function(){
 
 
 <div class="form test">
-     <!--  <ul class="tab-group">
+      <ul class="tab-group">
         <li class="tab active"><a href="#login">Log In</a></li>
         <li class="tab"><a href="#signup">Sign Up</a></li>
-      </ul> -->
+      </ul>
       
-      <!-- <div class="tab-content"> -->
+      <div class="tab-content">
       
       
         <div id="login">   
@@ -377,7 +377,60 @@ $(document).ready(function(){
           <button class="button button-block" type="submit">Log In</button>
           
           </form>
-
+		</div>
+		 <div id="signup">   		
+          <h1 style="color: black;">Sign Up for Free</h1>		
+          		
+          <form action="${initParam.root }member.do" method="post">		
+          <input type="hidden" name="command" value="register">		
+          		
+          <!-- <div class="top-row"> -->		
+            <!-- <div class="field-wrap">		
+              <label>		
+                First Name<span class="req">*</span>		
+              </label>		
+              <input type="text" required autocomplete="off" />		
+            </div> -->		
+        		
+            <!-- <div class="field-wrap">		
+              <label>		
+                Name<span class="req">*</span>		
+              </label>		
+              <input type="text" name="name" required autocomplete="off"/>		
+            </div> -->		
+         <!--  </div> -->		
+         <!-- <br> -->		
+          <div class="field-wrap">		
+            <label>		
+              Email Address<span class="req">*</span>		
+            </label>		
+            <input type="email" name="memberId" required autocomplete="off"/>		
+          </div>		
+          		
+          <div class="field-wrap">		
+            <label>		
+              Set A Password<span class="req">*</span>		
+            </label>		
+            <input type="password" name="password" autocomplete="off"/>		
+          </div>		
+          		
+          <div class="field-wrap">		
+              <label>		
+                Name<span class="req">*</span>		
+              </label>		
+              <input type="text" name="name" required autocomplete="off"/>		
+           </div>		
+           		
+           <div class="field-wrap">		
+              <label>		
+                Phone Number<span class="req">*</span>		
+              </label>		
+              <input type="text" name="phoneNumber" required autocomplete="off"/>		
+            </div>		
+          <button type="submit" class="button button-block">Get Started</button>		
+          		
+          </form>		
+        </div>
         
         
       </div><!-- tab-content -->
