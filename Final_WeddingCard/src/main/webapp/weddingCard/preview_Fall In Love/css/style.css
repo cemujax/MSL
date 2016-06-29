@@ -1626,7 +1626,8 @@ a.button2 {
     font-size: 0.9em;
 }
 .about-head h2, .OurLove-section h2, .services h2, .wedding-section h2, .wedding-section h2, h2.tittle, .contact h2 {
-    font-size: 2.3em;
+    /* font-size: 2.3em; */
+    font-size: 1.5em;
 }
 .about-grid {
     width: 100%;

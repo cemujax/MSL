@@ -10,7 +10,7 @@
     padding: 0.5em 0;
 	}
 	.header {
-     background: url(${initParam.root}img/banner2.jpg)no-repeat 0px 0px; 
+     background: url(img/banner2.jpg)no-repeat 0px 0px; 
 	background-size:cover;
 	}
 	
@@ -28,7 +28,7 @@
 	
 	@media ( max-width : 320px ){
 		.header_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat -100px 0px; 
+     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
 	background-size:cover;
 	min-height: 250px;
 		}

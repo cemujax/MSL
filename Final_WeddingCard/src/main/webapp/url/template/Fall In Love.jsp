@@ -22,13 +22,13 @@
     padding: 0.5em 0;
 	}
 	.header_select {
-     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px; 
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px;
 	 background-size:cover;
 	}
 	
 	@media ( max-width : 320px ){
 	.header_select {
-     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat -170px 0px; 
+     background: url(${initParam.root}url/temp_${param.url}/${param.imgSrc})no-repeat 0px 0px; 
 	background-size:cover;
 		}
 	}
@@ -64,6 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <!-- 방명록 -->
 <script type="text/javascript">
 	function writeComment() {
