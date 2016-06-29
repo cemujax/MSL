@@ -205,8 +205,8 @@
             <div class="tx-menu-inner">
             </div>
             <div class="tx-menu-footer">
-                <img class="tx-menu-confirm" src="post/img/icon/editor/btn_confirm.gif?rv=1.0.1" alt=""/>
-                <img class="tx-menu-cancel" hspace="3" src="post/img/icon/editor/btn_cancel.gif?rv=1.0.1" alt=""/>
+                <img class="tx-menu-confirm" src="post/images/icon/editor/btn_confirm.gif?rv=1.0.1" alt=""/>
+                <img class="tx-menu-cancel" hspace="3" src="post/images/icon/editor/btn_cancel.gif?rv=1.0.1" alt=""/>
             </div>
         </div>
     </li>
@@ -339,7 +339,7 @@
 </div>
 <div id="tx_canvas" class="tx-canvas">
     <div id="tx_loading" class="tx-loading">
-        <div><img src="post/img/icon/editor/loading2.png" width="113" height="21" align="absmiddle"/></div>
+        <div><img src="post/images/icon/editor/loading2.png" width="113" height="21" align="absmiddle"/></div>
     </div>
     <div id="tx_canvas_wysiwyg_holder" class="tx-holder" style="display:block;">
         <iframe id="tx_canvas_wysiwyg" name="tx_canvas_wysiwyg" allowtransparency="true" frameborder="0"></iframe>
@@ -355,12 +355,12 @@
 </div>
 <div id="tx_resizer" class="tx-resize-bar">
     <div class="tx-resize-bar-bg"></div>
-    <img id="tx_resize_holder" src="post/img/icon/editor/skin/01/btn_drag01.gif" width="58" height="12" unselectable="on"
+    <img id="tx_resize_holder" src="post/images/icon/editor/skin/01/btn_drag01.gif" width="58" height="12" unselectable="on"
          alt=""/>
 </div>
 <div class="tx-side-bi" id="tx_side_bi">
     <div style="text-align: right;">
-        <img hspace="4" height="14" width="78" align="absmiddle" src="post/img/icon/editor/editor_bi.png"/>
+        <img hspace="4" height="14" width="78" align="absmiddle" src="post/images/icon/editor/editor_bi.png"/>
     </div>
 </div>
 <div id="tx_attach_div" class="tx-attach-div">
@@ -369,7 +369,7 @@
         <div class="tx-attach-box-inner">
             <div id="tx_attach_preview" class="tx-attach-preview">
                 <p></p>
-                <img src="post/img/icon/editor/pn_preview.gif" width="147" height="108" unselectable="on"/>
+                <img src="post/images/icon/editor/pn_preview.gif" width="147" height="108" unselectable="on"/>
             </div>
             <div class="tx-attach-main">
                 <div id="tx_upload_progress" class="tx-upload-progress">
