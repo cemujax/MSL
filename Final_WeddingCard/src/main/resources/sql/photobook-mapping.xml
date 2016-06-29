@@ -10,7 +10,6 @@
 		<result property="createDate" column="create_date"/>
 		
 		<result property="memberVO.memberId" column="member_id"/>
-		<result property="memberVO.name" column="name"/>
 	</resultMap>
 	
 	<resultMap type="photoBook" id="photoBookByNoRM" extends="photoBookRM">
@@ -18,27 +17,24 @@
 	</resultMap>
 	
 	<sql id="photoBook-select">
-		SELECT book_no, book_name, file_name, create_date, m.member_id, m.name
-		FROM photobook p, member m 
+		SELECT book_no, book_name, file_name, create_date, member_id
+		FROM photobook
 	</sql>
 	
 	<sql id="photoBookByNo-select">
-		SELECT book_no, book_name, file_name, create_date, book_comment, m.member_id, m.name 
-		FROM photobook p, member m 
+		SELECT book_no, book_name, file_name, create_date, book_comment, member_id
+		FROM photobook
 	</sql>
 	
 	<select id="getPhotoBookList" parameterType="string" resultMap="photoBookRM">
 		<include refid="photoBook-select"/>
-		WHERE p.member_id=m.member_id
-		AND m.member_id = #{value}
+		WHERE member_id = #{value}
 		ORDER BY book_no DESC
 	</select>
 	
-	<select id="getPhotoBookByNo" parameterType="photoBook" resultMap="photoBookByNoRM">
+	<select id="getPhotoBookByNo" resultMap="photoBookByNoRM">
 		<include refid="photoBookByNo-select"/>
-		WHERE p.member_id=m.member_id
-			AND m.member_id = #{memberVO.memberId}
-			AND book_no = #{bookNo}
+		WHERE book_no = #{value}
 	</select>
 	
 	<insert id="createPhotoBook" parameterType="photoBook">
@@ -54,18 +50,13 @@
 		
 	<update id="modifyPhotoBook" parameterType="photoBook">
 		UPDATE photobook 
-		SET book_name=#{bookName}, file_name=#{fileName}, create_date= sysdate, book_comment = #{bookComment} 
-		WHERE member_id = #{memberVO.memberId}
-			AND book_no = #{bookNo}	
+		SET book_name=#{bookName}, file_name=#{fileName}, book_comment = #{bookComment} 
+		WHERE book_no = #{bookNo}	
 	</update>
 	
-	<delete id="deletePhotoBook" parameterType="int">
+	<delete id="deletePhotoBook">
 		DELETE FROM photobook WHERE book_no= #{value}
 	</delete>
 	
-	<delete id="delete_photo" parameterType="int">
-		DELETE FROM photobook WHERE book_no= #{value}
-	</delete>
-
 </mapper>	
 

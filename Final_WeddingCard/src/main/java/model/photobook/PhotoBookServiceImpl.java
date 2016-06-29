@@ -16,8 +16,8 @@ public class PhotoBookServiceImpl implements PhotoBookService{
 		return photoBookDao.getPhotoBookList(memberId);
 	}
 
-	public PhotoBookVO getPhotoBookByNo(PhotoBookVO pbvo) {
-		return photoBookDao.getPhotoBookByNo(pbvo);
+	public PhotoBookVO getPhotoBookByNo(String bookNo) {
+		return photoBookDao.getPhotoBookByNo(bookNo);
 	}
 
 	public void createPhotoBook(PhotoBookVO pbvo) {
@@ -28,7 +28,7 @@ public class PhotoBookServiceImpl implements PhotoBookService{
 		photoBookDao.modifyPhotoBook(pbvo);
 	}
 
-	public void deletePhotoBook(int bookNo) {
+	public void deletePhotoBook(String bookNo) {
 		photoBookDao.deletePhotoBook(bookNo);
 	}
 
@@ -48,11 +48,8 @@ public class PhotoBookServiceImpl implements PhotoBookService{
 			list.add(str);
 	
 		}
+		
 		return list;
 	}
 
-	public void delete_photo(int bookNo) {
-		photoBookDao.delete_photo(bookNo);
-		
-	}
 }

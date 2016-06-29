@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,8 @@ public class PhotoBookController extends MultiActionController {
 
 	public ModelAndView create(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			PhotoBookVO pbvo) throws Exception {
+		System.out.print("PhotoBook Controller :: create");
+		
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 
 		pbvo.setMemberVO(mvo);
@@ -57,7 +60,7 @@ public class PhotoBookController extends MultiActionController {
 		}
 
 		photoBookService.createPhotoBook(pbvo);
-
+		System.out.println(path);
 		File filePath = new File(path + mvo.getMemberId() + "/" + pbvo.getBookNo());
 
 		if (!filePath.getAbsoluteFile().getParentFile().exists())
@@ -69,86 +72,172 @@ public class PhotoBookController extends MultiActionController {
 		for (MultipartFile f : files)
 			if(!f.isEmpty())
 				f.transferTo(new File(filePath + "/" + f.getOriginalFilename()));
-
+		
+		System.out.println(" :: "+ pbvo.getBookNo());
+		
 		// TODO 수정
 		return new ModelAndView("redirect:/photoBook.do?command=list");
 	} // create
 
-	/*
-	 * modifyPhotoBook deletePhotoBook
-	 */
-
-/*	public ModelAndView modify_photo(HttpServletRequest request, HttpServletResponse response, HttpSession session,
-			PhotoBookVO pbvo) throws Exception {*/
+	public ModelAndView modifyView(HttpServletRequest request, HttpServletResponse response)throws Exception {
+		System.out.println("PhotoBook Controller :: modifyView");
 		
-/*
-	} // modify
-*/	
-	
-	
-	
-	
-	
-	
-	///////////DELETE////////////
-	
-	
-	public ModelAndView delete_photo(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		System.out.println("DELETE PHOTO");
-		HttpSession session = request.getSession();
+		PhotoBookVO pbvo = photoBookService.getPhotoBookByNo(request.getParameter("bookNo"));
+		request.setAttribute("pbImgList", photoBookService.imgList(pbvo.getFileName(), pbvo.getBookComment()));
 		
-		String bookNo = (String)request.getParameter("bookNo");
-
-		System.out.println("bookNo:" + bookNo);
+		// TODO 수정
+		return new ModelAndView("pbModify", "pbvo", pbvo);
+	}
+	
+	public ModelAndView modify(HttpServletRequest request, HttpServletResponse response,
+							HttpSession session, PhotoBookVO pbvo) throws Exception {
+		System.out.println("PhotoBook Controller :: modify :: "+ pbvo.getBookNo());
 		
+		String oldFile = request.getParameter("oldFile");
+		String[] oldList = oldFile.split("`");
+		List<String> oldPath = new ArrayList<String>();
 		
-		photoBookService.delete_photo(Integer.parseInt(bookNo));
+		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 
+		pbvo.setMemberVO(mvo);
+
+		List<String> cmt = pbvo.getComment();
+		List<MultipartFile> files = pbvo.getFile();
+		
+		for(int i =0; i< oldList.length; i++) {
+			String fileName;
+			
+			if(files.get(i).isEmpty()) {
+				fileName = oldList[i];
+				oldPath.add(fileName);
+			}
+				
+			else 
+				fileName = files.get(i).getOriginalFilename();
+			
+			String msg = ""+ cmt.get(i);
+			
+			if (pbvo.getFileName() == null) {
+				pbvo.setFileName(fileName);
+				
+				pbvo.setBookComment(msg);
+			}
+			
+			else {
+				pbvo.setFileName(pbvo.getFileName() + "`" + fileName);
+				pbvo.setBookComment(pbvo.getBookComment()+ "`END`"+ msg);
+			}
+		}
+
+		for (int i=oldList.length; i< files.size(); i++) {
+			if(!files.get(i).isEmpty()) {
+				String fileName = files.get(i).getOriginalFilename();
+				String msg = ""+ cmt.get(i);
+
+				if (pbvo.getFileName() == null) {
+					pbvo.setFileName(fileName);
+					
+					pbvo.setBookComment(msg);
+				}
+				
+				else {
+					pbvo.setFileName(pbvo.getFileName() + "`" + fileName);
+					pbvo.setBookComment(pbvo.getBookComment()+ "`END`"+ msg);
+				}
+					
+			}
+			
+		}
+		
+		photoBookService.modifyPhotoBook(pbvo);
+		
+		File tmpPath = new File(path + mvo.getMemberId() + "/" + pbvo.getBookNo());
+
+		File filePath = new File(path+ mvo.getMemberId()+ "/modify");
+		
+		filePath.mkdir();
+		
+		for(String s : oldPath) {
+			File mvFile = new File(tmpPath+ "/"+ s);
+			mvFile.renameTo(new File(filePath+ "/"+ s));
+		}
+
+		for (MultipartFile f : files)
+			if(!f.isEmpty())
+				f.transferTo(new File(filePath + "/" + f.getOriginalFilename()));
+		
+		File[] delFiles = tmpPath.listFiles();
+			
+		for(File f : delFiles) {
+			f.delete();
+		}
+		
+		tmpPath.delete();
+		
+		filePath.renameTo(tmpPath);
+		
+		return new ModelAndView("redirect:/photoBook.do?command=detail&&no="+ pbvo.getBookNo());
+	}
+
+	
+	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response,
+							HttpSession session) throws Exception {
+		System.out.print("photoBook Controlelr :: delete");
+		
+		String bno = request.getParameter("bookNo");
+		System.out.println(" :: bookNo "+ bno);
+		
+		photoBookService.deletePhotoBook(bno);
+		
+		File delPath = new File(path+ ((MemberVO) session.getAttribute("mvo")).getMemberId()+ "/"+ bno);
+
+		if(delPath.exists()) {
+			File[] files = delPath.listFiles();
+			
+			for(File f : files) {
+				f.delete();
+			}
+		}
+		
+		delPath.delete();
+		
+		delPath.getParentFile().delete();
 
 		// TODO 수정
 		return new ModelAndView("redirect:/photoBook.do?command=list");
 	} // delete
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public ModelAndView list(HttpServletRequest request, HttpServletResponse response, HttpSession session)
 			throws Exception {
+		System.out.print("PhotoBook Controller :: list");
+		
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+		System.out.println(" :: "+ mvo.getMemberId());
+		
 		List<PhotoBookVO> pbList = photoBookService.getPhotoBookList(mvo.getMemberId());
 
 		// TODO 수정
 		return new ModelAndView("pbresult", "pbList", pbList);
 	} // list
 
-	public ModelAndView detail(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+	public ModelAndView detail(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
-
-		PhotoBookVO pbvo = new PhotoBookVO();
-		pbvo.setBookNo(Integer.parseInt(request.getParameter("no")));
-		pbvo.setMemberVO(mvo);
-
-		// TODO FIX THIS
-		pbvo = photoBookService.getPhotoBookByNo(pbvo);
+		System.out.println("PhotoBook Contrller :: detail :: "+ request.getParameter("no"));
+		
+		PhotoBookVO pbvo = photoBookService.getPhotoBookByNo(request.getParameter("no"));
 		request.setAttribute("pbImgList", photoBookService.imgList(pbvo.getFileName(), pbvo.getBookComment()));
+		
 		// TODO 수정
 		return new ModelAndView("pbcontent", "pbvo", pbvo);
 	} // detail
 
-	// ///////////////////////////// ajax
+
+	// ============================== ajax =============================
 	public ModelAndView ajaxList(HttpServletRequest request, HttpServletResponse response, HttpSession session)
 			throws Exception {
+		System.out.println("PhotoBook Controller :: ajaxList :: IN WeddingCard");
+		
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		List<PhotoBookVO> pbList = photoBookService.getPhotoBookList(mvo.getMemberId());
 
@@ -156,16 +245,11 @@ public class PhotoBookController extends MultiActionController {
 		return new ModelAndView("JsonView", "pbList", pbList);
 	} // ajaxList
 
-	public ModelAndView ajaxDetail(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+	public ModelAndView ajaxDetail(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
-
-		PhotoBookVO pbvo = new PhotoBookVO();
-
-		pbvo.setBookNo(Integer.parseInt(request.getParameter("no")));
-		pbvo.setMemberVO(mvo);
-
-		pbvo = photoBookService.getPhotoBookByNo(pbvo);
+		System.out.println("PhotoBook Controller :: ajaxDetail :: IN WeddingCard");
+		
+		PhotoBookVO pbvo = photoBookService.getPhotoBookByNo(request.getParameter("no"));
 
 		// TODO 수정
 		return new ModelAndView("JsonView", "pbvo", pbvo);
