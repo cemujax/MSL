@@ -1705,7 +1705,32 @@ code {
 		margin-left: 91.66666666666666%
 	}
 }
+@media ( max-width : 100% ){
+	.backstretch img{
+			position: absolute; margin: 0px; padding: 0px; 
+			border: none; width: 1349px; height: 898.386px; 
+			max-height: none; max-width: none; z-index: -999999; 
+			left: 0px; top: -206.193px;
+		}
+	
+}
 
+@media ( min-width : 1170px) {
+		.backstretch{
+			left: 0px; top: 0px; 
+			overflow: hidden; 
+			margin: 0px; padding: 0px; height: 486px; 
+			width: 1349px; z-index: -999998; 
+			 max-width: 100%;
+			position: absolute;
+		}
+		.backstretch img{
+			position: absolute; margin: 0px; padding: 0px; 
+			border: none; width: 1349px; height: 898.386px; 
+			max-height: none; max-width: none; z-index: -999999; 
+			left: 0px; top: -206.193px;
+		}
+	}
 @media ( min-width : 1200px) {
 	.container {
 		max-width: 1170px
@@ -7813,6 +7838,20 @@ div#map{
     background: url(&quot;http://i1.daumcdn.net/dmaps/apis/loading_n.png&quot;);
 	}
 /* //맵 */
+.backstretch{
+	left: 0px; top: 0px; 
+	overflow: hidden; 
+	margin: 0px; padding: 0px; height: 486px; 
+	width: 1349px; z-index: -999998; 
+	position: absolute;
+}
+.backstretch img{
+	position: absolute; margin: 0px; padding: 0px; 
+						border: none; width: 1349px; height: 898.386px; 
+						max-height: none; max-width: none; z-index: -999999; 
+						left: 0px; top: -206.193px;
+}
+
 img.subheadbg {
 	display: block;
 	margin: 0px auto
@@ -8492,8 +8531,21 @@ li.recentcomments {
 /* 수정 */
 @media ( max-width : 992px) {
 	/* 수정 및 추가 */
+	.backstretch{
+	left: 0px; top: 0px; 
+	overflow: hidden; 
+	margin: 0px; padding: 0px; height: 486px; 
+	width: 205px; z-index: -999998; 
+	position: absolute;
+}
+.backstretch img{
+	position: absolute; margin: 0px; padding: 0px; 
+						border: none; width: 205px; height: 600px; 
+						max-height: none; max-width: none; z-index: -999999; 
+						left: 0px; top: -206.193px;
+}
 	.wednames{
-		font-size: 40px;
+		font-size: 30px;
 	    text-align: center;
 	    color: #fff;
 	    font-family: Cherry swash;

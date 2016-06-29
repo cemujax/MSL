@@ -3,6 +3,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Cherry+Swash);
 
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
 	em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt,
@@ -800,6 +801,7 @@ table {
 }
 
 @media print {
+
 	* {
 		color: #000 !important;
 		text-shadow: none !important;
@@ -1132,7 +1134,6 @@ dd {
 @media ( min-width : 768px) {
 	.backstretch{
 		width:600px;
-		
 	}	
 	.backstretch img {
 		width: 600px;
@@ -1551,7 +1552,7 @@ code {
 	#ctimer{
 		width: 100px;
 		margin: 0px auto;
-    margin-bottom: 20px;
+    	margin-bottom: 20px;
 	}
 	.container {
 		max-width: 970px
@@ -1594,7 +1595,11 @@ code {
 		width: 91.66666666666666%
 	}
 	.col-md-12 {
-		width: 100%
+		width: 100%;
+	}
+	h2.timehead{
+		padding-top: 80px;
+		padding-bottom: 30px;
 	}
 	.col-md-push-0 {
 		left: auto
@@ -1704,12 +1709,52 @@ code {
 	.col-md-offset-11 {
 		margin-left: 91.66666666666666%
 	}
+	/* 	.backstretch{
+	left: 0px; top: 0px; 
+	overflow: hidden; 
+	margin: 0px; padding: 0px; height: 486px; 
+	width: 1349px; z-index: -999998; 
+	position: absolute;
+}
+.backstretch img{
+	position: absolute; margin: 0px; padding: 0px; 
+	border: none; width: 1349px; height: 898.386px; 
+	max-height: none; max-width: none; z-index: -999999; 
+	left: 0px; top: -206.193px;
+} */
 }
 
+@media ( max-width : 100% ){
+	.backstretch img{
+			position: absolute; margin: 0px; padding: 0px; 
+			border: none; width: 1349px; height: 898.386px; 
+			max-height: none; max-width: none; z-index: -999999; 
+			left: 0px; top: -206.193px;
+		}
+	
+}
+
+@media ( min-width : 1170px) {
+		.backstretch{
+			left: 0px; top: 0px; 
+			overflow: hidden; 
+			margin: 0px; padding: 0px; height: 486px; 
+			width: 1349px; z-index: -999998; 
+			 max-width: 100%;
+			position: absolute;
+		}
+		.backstretch img{
+			position: absolute; margin: 0px; padding: 0px; 
+			border: none; width: 1349px; height: 898.386px; 
+			max-height: none; max-width: none; z-index: -999999; 
+			left: 0px; top: -206.193px;
+		}
+	}
 @media ( min-width : 1200px) {
 	.container {
 		max-width: 1170px
 	}
+	
 	.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6,
 		.col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11 {
 		float: left
@@ -6817,6 +6862,7 @@ th.hidden-xs, td.hidden-xs {
 }
 
 @media ( min-width : 768px) and (max-width: 991px) {
+	
 	.hidden-xs.hidden-sm {
 		display: none !important
 	}
@@ -7812,6 +7858,8 @@ div#map{
     background: url(&quot;http://i1.daumcdn.net/dmaps/apis/loading_n.png&quot;);
 	}
 /* //맵 */
+
+
 img.subheadbg {
 	display: block;
 	margin: 0px auto
@@ -7964,7 +8012,7 @@ h2.timehead {
 	color: #555;
 	text-align: center;
 	font-family: Cherry swash;
-	margin-top: 40px
+	margin-top: 60px;
 }
 
 #ctimer {
@@ -7980,7 +8028,7 @@ span {
 	color: #fff;
 	text-align: center;
 	margin: 20px 10px;
-	width: 80px;
+	width: 300px;
 	height: 80px;
 	border-radius: 3px
 }
@@ -8491,8 +8539,26 @@ li.recentcomments {
 /* 수정 */
 @media ( max-width : 992px) {
 	/* 수정 및 추가 */
+	.brideinfo h3, .groominfo
+	h3 {
+		font-family: Cherry swash;
+		font-size: 20px
+	}
+	.backstretch{
+	left: 0px; top: 0px; 
+	overflow: hidden; 
+	margin: 0px; padding: 0px; height: 486px; 
+	width: 205px; z-index: -999998; 
+	position: absolute;
+}
+.backstretch img{
+	position: absolute; margin: 0px; padding: 0px; 
+	border: none; width: 205px; height: 600px; 
+	max-height: none; max-width: none; z-index: -999999; 
+	left: 0px; top: -206.193px;
+}
 	.wednames{
-		font-size: 40px;
+		font-size: 30px;
 	    text-align: center;
 	    color: #fff;
 	    font-family: Cherry swash;
@@ -8526,7 +8592,7 @@ li.recentcomments {
 	    color: #fff;
 	    text-align: center;
 	    margin: 5px 5px;
-	    width: 60px;
+	    width: 180px;
 	    height: 80px;
 	    border-radius: 3px;
 	    padding-right: 0px;
@@ -8545,9 +8611,9 @@ li.recentcomments {
 	}
 	.bridecol, .groomcol {
 		height: 100px;
-		border-radius: 80px;
+		border-radius: 40px;
 		background: rgba(255, 255, 255, .8);
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 		position: relative;
 		/* min-width: 300px */
 		/* min-width: 280px */

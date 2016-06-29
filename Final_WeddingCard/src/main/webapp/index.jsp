@@ -78,27 +78,6 @@
 				      	</c:choose>
 				      	
 			</div>
-			<%-- 	<nav class="navbar navbar-default" >
-				  <ul class="nav navbar-nav navbar-right">
-				     <c:choose>
-						<c:when test="${sessionScope.mvo==null}">
-						<li><a href="login/loginregister.jsp" style="margin-right:0px;"><span class="glyphicon glyphicon-log-in" ></span><font size="3" color="#45CBBF"> Login</font></a></li><!-- #F15F5F -->
-				     	<li><a href="login/loginregister.jsp" style="margin-left:0px; padding-left:0px;"><span class="glyphicon glyphicon-user"></span><font size="3" color="#45CBBF"> Sign Up</font></a></li>
-				      	</c:when>
-				      <c:otherwise>
-				      <li><a href="javascript:logout()"><span class="glyphicon glyphicon-log-in"></span><font size="3" color="#45CBBF"> Logout</font></a></li>
-				      </c:otherwise>
-				      	</c:choose>
-				   </ul>
-		    </nav> --%>
-			
-			
-		<!-- <div class="banner-social animated wow slideInRight" data-wow-delay=".5s">
-			<div class="navigation" >
-				
-   		</div>
-    </div> -->
-			
 			
 			<div class="logo animated wow zoomIn" data-wow-delay=".5s">
 				<h2><a href="index.jsp"><span></span>MySweetLove</a></h2>
@@ -128,6 +107,7 @@
 						<nav class="link-effect-14" id="link-effect-14">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="index.jsp"><span>Home</span></a></li>
+									<li class="active"><a href="index.jsp"><span>Home</span></a></li>
 								<!-- <li><a href="#about" class="scroll"><span>커뮤니티</span></a></li> -->
 								  <li class="dropdown">
 								  	<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
@@ -159,141 +139,14 @@
 						</nav>
 					</div>
 				
-			</div>
-		<!-- 	
-			<div class="navigation">
-				<nav class="navbar navbar-default">
-					Brand and toggle get grouped for better mobile display
-					<div class="navbar-header">
-					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					  </button>
-					</div>
-
-					Collect the nav links, forms, and other content for toggling
-					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-						<nav class="link-effect-14" id="link-effect-14">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="index.jsp"><span>Home</span></a></li>
-								<li><a href="#about" class="scroll"><span>커뮤니티</span></a></li>
-								  <li class="dropdown">
-								  	<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
-							        <ul class="dropdown-menu">
-							          <li><a href="./post.do?command=getAllAnoneQnAs">익명게시판</a></li>
-	          							<li><a href="./post.do?command=getAllQnAs">웨딩 QnA</a></li>
-	          							<li><a href="./reviewComment.do?command=getAllReviewComments">칭찬해요</a></li>
-
-							        </ul>
-							      </li>
-							      
-							      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>
-							        <ul class="dropdown-menu">
-							          <li><a href="weddingCard/weddingCard.jsp">청첩장만들기</a></li>
-							          <li><a href="./card.do?command=getAllCards">청첩장보기</a></li>
-							        </ul>
-							      </li>
-							      
-							       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
-							        <ul class="dropdown-menu">
-							          <li><a href="pbcreate.jsp">포토북만들기</a></li>
-							          <li><a href="photoBook.do?command=list">포토북보기</a></li>
-							        </ul>
-							      </li>
-							      
-								<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li>
-							</ul>
-							
-						</nav>
-					</div> -->
-					<!-- /.navbar-collapse -->
-				</nav>
+				</div>
+		
 			</div>
 		</div>
 	</div>
 <!-- //banner -->
 
-<%-- <section id="login">
-<c:import url="loginregister.jsp"></c:import>
-</section> --%>
 
-
-<!-- banner-bottom -->
-	<!-- <div class="banner-bottom" id="about">	
-		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Special Invitation</span></h3>
-			<p class="about-dummy animated wow slideInUp" data-wow-delay=".5s">
-				직접 디자인해서 더 특별한 셀프 청첩장,<br>
-				당신의 아름다운 날을 더욱더 빛나게 만드는<br>
-				세상에서 하나뿐인 당신만의 초대장을 함께 준비해보세요<br>
-			</p>
-		</div>
-		<div class="banner-bottom-grids animated wow slideInLeft" data-wow-delay=".5s">
-			<ul id="flexiselDemo1">			
-				<li>
-					<div class="banner-bottom-grid">
-						<img src="img_index/1.jpg" alt=" " class="img-responsive" />
-					</div>
-				</li>
-				<li>
-					<div class="banner-bottom-grid">
-						<img src="img_index/2.jpg" alt=" " class="img-responsive" />
-					</div>
-				</li>
-				<li>
-					<div class="banner-bottom-grid">
-						<img src="img_index/3.jpg" alt=" " class="img-responsive" />
-					</div>
-				</li>
-				<li>
-					<div class="banner-bottom-grid">
-						<img src="img_index/4.jpg" alt=" " class="img-responsive" />
-					</div>
-				</li>
-				<li>
-					<div class="banner-bottom-grid">
-						<img src="img_index/5.jpg" alt=" " class="img-responsive" />
-					</div>
-				</li>
-				<li>
-					<div class="banner-bottom-grid">
-						<img src="img_index/6.jpg" alt=" " class="img-responsive" />
-					</div>
-				</li>
-			</ul>
-						<script type="text/javascript">
-							$(window).load(function() {
-								$("#flexiselDemo1").flexisel({
-									visibleItems: 6,
-									animationSpeed: 1000,
-									autoPlay: true,
-									autoPlaySpeed: 3000,    		
-									pauseOnHover: true,
-									enableResponsiveBreakpoints: true,
-									responsiveBreakpoints: { 
-										portrait: { 
-											changePoint:480,
-											visibleItems: 2
-										}, 
-										landscape: { 
-											changePoint:640,
-											visibleItems:3
-										},
-										tablet: { 
-											changePoint:768,
-											visibleItems: 4
-										}
-									}
-								});
-								
-							});
-					</script>
-					<script type="text/javascript" src="js/jquery.flexisel.js"></script>
-		</div>
-	</div> -->
-<!-- //banner-bottom -->
 <!-- gallery -->
 	<div class="gallery" id="gallery">
 		<h3 class="animated wow zoomIn" data-wow-delay=".5s"><span>Photo Gallery</span></h3>

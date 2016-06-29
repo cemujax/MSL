@@ -17,6 +17,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- <script src="js/jquery-ddorai.js"></script> -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap_index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -240,6 +241,9 @@ textarea {
 	background-color: white	;
 }
 
+.navbar-inverse .navbar-nav > li:hover{
+	background-color: #000;
+}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -292,7 +296,6 @@ $(document).ready(function(){
 });
 </script>
 
-
 </head>
 
 <body>
@@ -301,12 +304,12 @@ $(document).ready(function(){
 <!-- 메뉴바 -->
 <nav class="navbar navbar-inverse" style="background-color: #f8f8f8; border-color: #e7e7e7;">
   <div class="container-fluid">
-    <div class="navbar-header" style="margin-top: 10px;font-size: 20px;">
+    <div class="navbar-header" >
      <!--  <a class="navbar-brand" href="#">Home</a> -->
-     <a href="${initParam.root }index.jsp" ><span style="color:#777;">Home</span></a>
+     <a href="${initParam.root }index.jsp" class="navbar-brand" style="color: #777;" >Home</a>
     </div>
     
-    	<ul class="nav navbar-nav" style=" margin-left:70%;">
+    	<ul class="nav navbar-nav" >
 				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>
 					 <li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>

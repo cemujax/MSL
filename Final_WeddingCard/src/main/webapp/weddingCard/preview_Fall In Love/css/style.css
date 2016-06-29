@@ -226,7 +226,7 @@ a.button2 {
 
 .about {
     padding: 4em 0;
-	text-align: center;
+	/* text-align: center; */
 }
 .test1 {
 position:relative;
@@ -506,6 +506,12 @@ span.glyphicon.glyphicon-send {
 	font-size: 0.9em;
 	color: #000;
 	font-weight: 400;
+	margin-bottom: 10px;
+}
+/* 카톡 버튼 */
+#kakao-link-btn img{
+	width: 40px;
+	height: 40px;
 }
 .footer-top  a {
 	font-size: 1em;

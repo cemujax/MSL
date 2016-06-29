@@ -13,7 +13,7 @@ html, body{
 	 *//* background-repeat : no-repeat; */
 	/* background-position: right bottom; */
 	/* background: url("img/flower.jpg");  */
-	
+	height: 800px;
 	font-family: 'Open Sans', sans-serif;
 }
 p{

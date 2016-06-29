@@ -12,16 +12,16 @@ import model.member.MemberVO;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
-public class MemberController extends MultiActionController{
+public class MemberController extends MultiActionController {
 
    private MemberService memberService;
 
    public void setMemberService(MemberService memberService) {
       this.memberService = memberService;
    }
-   
+
    public ModelAndView login(HttpServletRequest request,
-         HttpServletResponse response, MemberVO pvo) throws Exception{
+         HttpServletResponse response, MemberVO pvo) throws Exception {
       System.out.println("login call..");
       System.out.println(pvo);
       MemberVO rvo = memberService.login(pvo);
@@ -29,47 +29,68 @@ public class MemberController extends MultiActionController{
 
       HttpSession session = request.getSession();
       
-      if(session!=null && rvo != null){//로그인 성공
+      boolean result = false;
+      
+      if (session != null && rvo != null) {// 로그인 성공
          session.setAttribute("mvo", rvo);
+         result = true;
       }
-      //이미 바인딩 됐다...
-      return new ModelAndView("member/login_result");
+      // 이미 바인딩 됐다...
+
+      String url = request.getParameter("url");
+      if (url == null)
+         return new ModelAndView("member/login_result");
+      else {
+         return new ModelAndView("JsonView", "result",result);
+      }
+
    }
-   
+
    public ModelAndView logout(HttpServletRequest request,
-         HttpServletResponse response) throws Exception{
-	   
-	   HttpSession session = request.getSession();
-	   
-       MemberVO mvo = null;
-       if(session != null){
-	   mvo =(MemberVO)session.getAttribute("mvo");
-       }
-       if(mvo != null)
+         HttpServletResponse response) throws Exception {
+
+      HttpSession session = request.getSession();
+
+      MemberVO mvo = null;
+      if (session != null) {
+         mvo = (MemberVO) session.getAttribute("mvo");
+      }
+      if (mvo != null)
          session.invalidate();
-      
-      return new ModelAndView("redirect:/index.jsp");
+
+      String url = request.getParameter("url");
+      if (url == null)
+         return new ModelAndView("redirect:/index.jsp");
+      else {
+         System.out.println("guest");
+         return new ModelAndView(
+               "redirect:/card.do?command=linkGuestBook&&url=" + url);
+      }
+
    }
-   public ModelAndView register(HttpServletRequest request, HttpServletResponse response, MemberVO mvo) throws SQLException{
-      
+
+   public ModelAndView register(HttpServletRequest request,
+         HttpServletResponse response, MemberVO mvo) throws SQLException {
 
       memberService.registerMember(mvo);
       System.out.println("register success...");
       return new ModelAndView("redirect:/index.jsp");
    }
-   
-   public ModelAndView findId(HttpServletRequest request, HttpServletResponse response,MemberVO mvo) throws SQLException{
-      
-      String memberId =memberService.findId(mvo);
-      return new ModelAndView("findIdResult","memberId",memberId);
 
-      
+   public ModelAndView findId(HttpServletRequest request,
+         HttpServletResponse response, MemberVO mvo) throws SQLException {
+
+      String memberId = memberService.findId(mvo);
+      return new ModelAndView("findIdResult", "memberId", memberId);
+
    }
-   public ModelAndView findPassword(HttpServletRequest request, HttpServletResponse response, MemberVO mvo) throws SQLException{
-      
-      String password=memberService.findPassword(mvo);
-      return new ModelAndView("findPasswordResult","password",password);
-      
+
+   public ModelAndView findPassword(HttpServletRequest request,
+         HttpServletResponse response, MemberVO mvo) throws SQLException {
+
+      String password = memberService.findPassword(mvo);
+      return new ModelAndView("findPasswordResult", "password", password);
+
    }
-   
+
 }

@@ -4420,6 +4420,12 @@ a.thumbnail:focus,
 a.thumbnail.active {
   border-color: #1B242F;
 }
+/* 방명록 */
+table.thumbnail{
+	width: 250px;
+    height: 250px;
+}
+/* //방명록 */
 .thumbnail .caption {
   padding: 9px;
   color: #333;

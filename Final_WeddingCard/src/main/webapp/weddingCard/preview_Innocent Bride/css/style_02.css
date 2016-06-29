@@ -3290,10 +3290,16 @@ ul.bottom i {
 	.welcome-top h2 {
 		margin-top: 20px;
 		/* font-size: 1.8em; */
-		font-size: 1.5em;
+		font-size: 15px;
 	}
 	.welcome-top {
 		padding: 2em 0 2em 6em;
+	}
+	.welcome-top img{
+		display: block;
+	    max-width: 120px;
+	    height: auto;
+	    margin-left: -50px;
 	}
 	.welcome-top a {
 		padding: 13px 13px;

@@ -183,10 +183,8 @@ img.wp-smiley, img.emoji {
 			</div>
 
 			<div class="album-box">
-
 				<div class="container">
 					<div class="row">
-
 						<div class="col-xs-12">
 							<h2 class="section-title" id="section-title2">
 								Photo Album <span> <!-- <a
@@ -196,8 +194,6 @@ img.wp-smiley, img.emoji {
 						</div>
 
 						<div class="albumcover">
-
-
 							<div class="col-md-4 album-post">
 
 								<a href="http://demo.fabthemes.com/zenith/photo/album3/"><img
@@ -226,10 +222,10 @@ img.wp-smiley, img.emoji {
 					</div>
 				</div>
 			</div>
-
 		</div>
+		
 		<!-- #content -->
-		<h2 class="section-title" id="wedding">Wedding Information</h2>
+	<h2 class="section-title" id="wedding">Wedding Information</h2>
 		<div class="footer-widget-section">
               <div class="container">
 					   <div class="col-md-6 program-img">
@@ -270,7 +266,6 @@ img.wp-smiley, img.emoji {
 							// 주소로 좌표를 검색합니다
 							geocoder.addr2coord(loc, function(status, result) {
 								
-								
 							    // 정상적으로 검색이 완료됐으면 
 							     if (status === daum.maps.services.Status.OK) {
 
@@ -301,7 +296,7 @@ img.wp-smiley, img.emoji {
                
             </div>
 		 </div>
-					    <div class="col-md-6 program-text">
+					  <div class="col-md-6 program-text">
 						<div class="scrollbar" id="style-2">
 								   <div class="force-overflow">
 
@@ -335,10 +330,9 @@ img.wp-smiley, img.emoji {
 			       </div>
            
         		 </div>
-				</div>
-			</div>
-		</div>
-
+				<!-- </div> -->
+			<!-- </div>
+		</div> -->
 
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<div class="container">
@@ -355,9 +349,6 @@ img.wp-smiley, img.emoji {
 						<!-- .site-info -->
 					</div>
 
-					<!-- <div class="col-md-4">
-						<a href="#" class="go-top glyphicon glyphicon-circle-arrow-up"></a>
-					</div> -->
 				</div>
 			</div>
 		</footer>

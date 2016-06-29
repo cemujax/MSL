@@ -110,7 +110,7 @@ function pbCallback() {
 				<a class="navbar-brand" href="../index.jsp" style="color: #777;">Home</a>
 			</div>
 			<ul class="nav navbar-nav" ><!-- style="margin-left: 82%;" -->
-				<li><a href="../card.do?command=getAllCards">청첩장보기</a></li>
+				<li  ><a href="../card.do?command=getAllCards">청첩장보기</a></li>
 				<li class="lnb_icon5"><a href="javascript:logout()">
 				<span class="glyphicon glyphicon-log-in"></span> 로그아웃</a></li>
 			</ul>
@@ -133,7 +133,7 @@ function pbCallback() {
 					<!-- 왼쪽 미리보기 부분 -->
 						<%-- <iframe src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
 							name="left_skin_preview" id="left_skin_preview"  scrolling="auto"> </iframe> --%>
-							<iframe src="${initParam.root}weddingCard/preview03/index.jsp"
+							<iframe src="${initParam.root}weddingCard/preview_Garden Wedding/preview.jsp"
 							name="left_skin_preview" id="left_skin_preview"  scrolling="auto"> </iframe>
 					</div>
 					
@@ -214,7 +214,6 @@ function pbCallback() {
 
 		<!-- Tab 영역 include  -->
 
-
 		<div id="tabs" ><!-- style="width: 30%; margin-left: 70%; height: 800px;" -->
 			<ul><!-- style="width: 80%; margin-left: 10%; padding-left: 2%;" -->
 
@@ -254,7 +253,7 @@ function pbCallback() {
 							value="Innocent Bride">
 						</td>
 						
-						<td><img src="./preview_Garden Wedding/images/twitter.png" 
+						<td><img src="./preview_Garden Wedding/images/ze.PNG" 
 						class="img-rounded">
 							<input type="radio" name="template" id="template3" value="Garden Wedding">
 						</td>
@@ -266,32 +265,33 @@ function pbCallback() {
 							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
+							
+						<td><img src="images/15.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
+						<td><img src="images/17.jpg" class="img-rounded"
 							alt="Cinque Terre" > <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 					</tr>
 					<!--  -->
 					<tr>
-						<td><img src="images/222.jpg" class="img-rounded"
+						<td><img src="images/bouquet02.png" class="img-rounded"
 							alt="Cinque Terre" > <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
+						<td><img src="images/wedding00.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
-						<td><img src="images/222.jpg" class="img-rounded"
+						<td><img src="images/bbb.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
 					</tr>
 					<!--  -->
-				<tr>
+				<!-- <tr>
 						<td><img src="images/222.jpg" class="img-rounded"
 							alt="Cinque Terre" > <input
 							type="radio" name="template" id="template" value="basicSkin"
@@ -304,7 +304,7 @@ function pbCallback() {
 							alt="Cinque Terre"> <input
 							type="radio" name="template" id="template" value="basicSkin"
 							required="required"></td>
-					</tr>
+					</tr> -->
 				</table>
 			</div><!-- tabs-1 -->
 
@@ -330,7 +330,7 @@ function pbCallback() {
 				
 			<tr>
 				<td>
-					신랑이름:
+					신부이름:
 				</td>
 				<td colspan="2">
 					<input type="text" id="groomName" name="groomName" > <!-- style="margin: 2%;" -->
@@ -340,7 +340,7 @@ function pbCallback() {
 					
 			<tr>
 				<td>
-					신랑번호:
+					신부번호:
 				</td>
 				<td colspan="2">
 					<input type="text" id="groomTel" name="groomTel" onkeydown='return onlyNumber(event)'
@@ -350,7 +350,7 @@ function pbCallback() {
 					
 			<tr>
 				<td>
-					신부이름:
+					신랑이름:
 				</td>
 				<td>
 					 <input type="text" name="brideName" id="brideName">
@@ -359,7 +359,7 @@ function pbCallback() {
 			
 			<tr>
 				<td>
-					신부번호:
+					신랑번호:
 				</td>
 				<td>
 					<input type="text" name="brideTel" id="brideTel"
@@ -373,7 +373,7 @@ function pbCallback() {
 					&nbsp;&nbsp;&nbsp;url&nbsp;&nbsp;:
 				</td>
 				<td>
-					<input type="text" name="url" id="url" onkeyup="urlCheck()"> <span id="checkResult"></span>
+					<input type="text" name="url" id="url" onkeyup="urlCheck()"><br><span id="checkResult"></span>
 				</td>
 			</tr>
 					
@@ -490,8 +490,8 @@ function pbCallback() {
 						<tr>
 							<td colspan="2">	
 								<div id="map" style="width: 100%; height: 200px;">
-									<!-- <script src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
-									<script src="./js/map.js"></script> -->
+									<script src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
+									<script src="./js/map.js"></script>
 								</div>
 							</td>
 						</tr><!-- map  -->

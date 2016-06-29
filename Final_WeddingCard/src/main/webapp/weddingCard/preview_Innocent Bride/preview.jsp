@@ -42,56 +42,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--start-home-->
 	<div id="home" class="header">
-	<!-- 	<div class="header-top">
-			<div class="container">
-				<div class="logo">
-					<a href="index.html"><h1>Best<span> Day</span></h1></a>
-				</div>
-				<span class="menu"> </span>
-				    <div class="top-menu">
-						<ul class="cl-effect-7">
-								<li><a class="active" href="index.html">Home</a></li>
-								<li><a href="story.html">Our Story</a></li>
-								<li><a href="ceremony.html">Ceremony</a></li>
-								<li><a href="albums.html">Our Albums</a></li>
-								<li><a href="contact.html">contact</a></li>
-							</ul>
-				</div>
-            script-for-menu
-				<script>
-				$( "span.menu" ).click(function() {
-				  $( ".top-menu" ).slideToggle( "slow", function() {
-				    // Animation complete.
-				  });
-				});
-			</script>
-			<div class="clearfix"></div> 
-	<!--End-top-nav-script
-			</div>
-		</div>-->
        </div>
 	<div class="banner">
 	     	<div class="container">
 					<div  class="callbacks_container">
 					<ul class="rslides" id="slider4">
-					<li>
-								<div class="banner-info">
-									<h3> <span>Wedding</span></h3>
-								</div>
-							</li>
-							<!-- <li>
-								<div class="banner-info">
-								   <h3>Jack & <span> Julie</span> </h3>
-								</div>
-							</li>
-							<li>
-								<div class="banner-info">
-								    <h3>Getting <span>Married</span></h3>
-								</div>								
-							</li> -->
-						</ul>
-					</div>
-					<!--banner-->
+						<li>
+							<div class="banner-info">
+								<h3> <span>Wedding</span></h3>
+							</div>
+						</li>
+							
+					</ul>
+			</div>
+			<!--//banner-->
 	  			<script src="js/responsiveslides.min.js"></script>
 			<!--  <script>
 			    // You can also use "$(window).load(function() {"
@@ -128,16 +92,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div> -->	
 
 				</div>
-			<div class="couple"  ><!-- style="width:25%;" -->
+			<div class="couple"><!-- style="width:25%;" -->
 				 <div class="bride">
 				   <img src="images/bride.jpg" class="img-responsive" alt="">
 				   <h5>${param.brideName}</h5>
-				   <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.brideTel}</i></p>
+				   <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">&nbsp;
+				   <%-- ${fn:substring(param.brideTel, 0,3) }<br>
+				   ${fn:substring(param.brideTel, 0,3) }<br>
+				   ${fn:substring(param.brideTel, 0,3) }<br> --%>
+				   ${param.brideTel}</i></p>
 				 </div>
 				 <div class="groom">
 				  <img src="images/groom.jpg" class="img-responsive" alt="">
 				 <h5>${param.groomName}</h5>
-				 <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.groomTel}</i></p>
+				 <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">&nbsp;
+				<%--   ${fn:substring(param.groomTel, 0,3) }<br>
+				  ${fn:substring(param.groomTel, 0,3) }<br>
+				  ${fn:substring(param.groomTel, 0,3) }<br> --%>
+				  ${param.groomTel}</i></p>
 				 </div>
 			 </div>
 			 </div>
