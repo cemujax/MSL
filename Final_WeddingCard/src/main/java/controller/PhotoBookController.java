@@ -28,11 +28,11 @@ public class PhotoBookController extends MultiActionController {
 		this.path = path;
 	}
 
-	public ModelAndView create(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+	public ModelAndView create(HttpServletRequest request, HttpServletResponse response,
 			PhotoBookVO pbvo) throws Exception {
 		System.out.print("PhotoBook Controller :: create");
 		
-		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+		MemberVO mvo = (MemberVO) request.getSession().getAttribute("mvo");
 
 		pbvo.setMemberVO(mvo);
 
@@ -75,8 +75,6 @@ public class PhotoBookController extends MultiActionController {
 		
 		System.out.println(" :: "+ pbvo.getBookNo());
 		
-		// TODO 수정
-		//return new ModelAndView("redirect:/../photoBook.do?command=list");
 		return new ModelAndView("redirect:/photoBook.do?command=list");
 	} // create
 
@@ -86,19 +84,18 @@ public class PhotoBookController extends MultiActionController {
 		PhotoBookVO pbvo = photoBookService.getPhotoBookByNo(request.getParameter("bookNo"));
 		request.setAttribute("pbImgList", photoBookService.imgList(pbvo.getFileName(), pbvo.getBookComment()));
 		
-		// TODO 수정
 		return new ModelAndView("photobook/pbModify", "pbvo", pbvo);
-	}
+	} // modifyView
 	
 	public ModelAndView modify(HttpServletRequest request, HttpServletResponse response,
-							HttpSession session, PhotoBookVO pbvo) throws Exception {
+							PhotoBookVO pbvo) throws Exception {
 		System.out.println("PhotoBook Controller :: modify :: "+ pbvo.getBookNo());
 		
 		String oldFile = request.getParameter("oldFile");
 		String[] oldList = oldFile.split("`");
 		List<String> oldPath = new ArrayList<String>();
 		
-		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+		MemberVO mvo = (MemberVO) request.getSession().getAttribute("mvo");
 
 		pbvo.setMemberVO(mvo);
 
@@ -177,12 +174,11 @@ public class PhotoBookController extends MultiActionController {
 		
 		filePath.renameTo(tmpPath);
 		
-		return new ModelAndView("redirect:/../photoBook.do?command=detail&&no="+ pbvo.getBookNo());
-	}
+		return new ModelAndView("redirect:photoBook.do?command=detail&&no="+ pbvo.getBookNo());
+	} // modify
 
 	
-	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response,
-							HttpSession session) throws Exception {
+	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.print("photoBook Controlelr :: delete");
 		
 		String bno = request.getParameter("bookNo");
@@ -190,7 +186,7 @@ public class PhotoBookController extends MultiActionController {
 		
 		photoBookService.deletePhotoBook(bno);
 		
-		File delPath = new File(path+ ((MemberVO) session.getAttribute("mvo")).getMemberId()+ "/"+ bno);
+		File delPath = new File(path+ ((MemberVO) request.getSession().getAttribute("mvo")).getMemberId()+ "/"+ bno);
 
 		if(delPath.exists()) {
 			File[] files = delPath.listFiles();
@@ -204,21 +200,19 @@ public class PhotoBookController extends MultiActionController {
 		
 		delPath.getParentFile().delete();
 
-		// TODO 수정
 		return new ModelAndView("redirect:/photoBook.do?command=list");
 	} // delete
 	
 	
-	public ModelAndView list(HttpServletRequest request, HttpServletResponse response, HttpSession session)
-			throws Exception {
+	public ModelAndView list(HttpServletRequest request, HttpServletResponse response)
+							throws Exception {
 		System.out.print("PhotoBook Controller :: list");
 		
-		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+		MemberVO mvo = (MemberVO) request.getSession().getAttribute("mvo");
 		System.out.println(" :: "+ mvo.getMemberId());
 		
 		List<PhotoBookVO> pbList = photoBookService.getPhotoBookList(mvo.getMemberId());
 
-		// TODO 수정
 		return new ModelAndView("photobook/pbresult", "pbList", pbList);
 	} // list
 
@@ -229,20 +223,18 @@ public class PhotoBookController extends MultiActionController {
 		PhotoBookVO pbvo = photoBookService.getPhotoBookByNo(request.getParameter("no"));
 		request.setAttribute("pbImgList", photoBookService.imgList(pbvo.getFileName(), pbvo.getBookComment()));
 		
-		// TODO 수정
 		return new ModelAndView("photobook/pbcontent", "pbvo", pbvo);
 	} // detail
 
 
 	// ============================== ajax =============================
-	public ModelAndView ajaxList(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+	public ModelAndView ajaxList(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		System.out.println("PhotoBook Controller :: ajaxList :: IN WeddingCard");
 		
-		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+		MemberVO mvo = (MemberVO) request.getSession().getAttribute("mvo");
 		List<PhotoBookVO> pbList = photoBookService.getPhotoBookList(mvo.getMemberId());
 
-		// TODO 수정
 		return new ModelAndView("JsonView", "pbList", pbList);
 	} // ajaxList
 
@@ -252,7 +244,6 @@ public class PhotoBookController extends MultiActionController {
 		
 		PhotoBookVO pbvo = photoBookService.getPhotoBookByNo(request.getParameter("no"));
 
-		// TODO 수정
 		return new ModelAndView("JsonView", "pbvo", pbvo);
 	} // ajaxDetail
 }
