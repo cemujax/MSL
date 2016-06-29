@@ -18,14 +18,13 @@
     <link rel="stylesheet" href="css/photobookstyle.css" type="text/css" media="screen"/>
 
     <script src="photobook/cufon/cufon-yui.js" type="text/javascript"></script>
-    <script src="photobook/cufon/ChunkFive_400.font.js" type="text/javascript"></script>
-    <script src="photobook/cufon/Note_this_400.font.js" type="text/javascript"></script>
+    
     <script type="text/javascript">
      Cufon.replace('h1,p,.b-counter');
      Cufon.replace('.book_wrapper a', {hover:true});
-     Cufon.replace('.title', {textShadow: '1px 1px #C59471', fontFamily:'ChunkFive'});
-     Cufon.replace('.reference a', {textShadow: '1px 1px #C59471', fontFamily:'ChunkFive'});
-     Cufon.replace('.loading', {textShadow: '1px 1px #000', fontFamily:'ChunkFive'});
+     Cufon.replace('.title', {textShadow: '1px 1px #C59471'});
+     Cufon.replace('.reference a', {textShadow: '1px 1px #C59471'});
+     Cufon.replace('.loading', {textShadow: '1px 1px #000'});
     </script>
 
 <script type="text/javascript">
@@ -57,14 +56,8 @@ function delete_photoBook(index) {
 	    <div>
 	      <img alt="" src="img/photobook/${pbvo.memberVO.memberId}/${pbvo.bookNo}/${i[0]}">
 	      <h1>Slider Gallery</h1>
-	      <p style="font-family: serif;"><!-- This tutorial is about creating a creative gallery with a
-		      slider for the thumbnails. The idea is to have an expanding
-		      thumbnails area which opens once an album is chosen.
-		      The thumbnails will scroll to the end and move back to
-		      the first image. The user can scroll through the thumbnails
-		      by using the slider controls. When a thumbnail is clicked,
-		      it moves to the center and the full image preview opens. -->
-		${i[1] }</p>
+	      <!-- <p style="font-family: serif;"> -->
+	      <p>${i[1] }</p>
 	      <a href="photoBook.do?command=modifyView&&bookNo=${pbvo.bookNo }" class="article">Modify Photo</a>
 	      <a onclick="delete_photoBook(${pbvo.bookNo})" style="cursor: pointer" class="demo">Delete Photo</a>
 	    </div>
