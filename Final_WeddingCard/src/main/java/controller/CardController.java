@@ -130,9 +130,10 @@ public class CardController extends MultiActionController {
 		}
 		
 		// =============================== QR Code
-		String file_path = path +"/"+ cvo.getUrl()+ "/";
-		String file_name = "qrCode.png";
-		QRUtil.makeQR(file_url.toString(), 50, 50, file_path, file_name);
+		String qr_url = "http://localhost:8888/Final_WeddingCard/url/"+ cvo.getUrl()+ ".jsp";
+		String qr_path = path +"/"+ cvo.getUrl()+ "/";
+		String qr_name = "qrCode.png";
+		QRUtil.makeQR(qr_url , 50, 50, qr_path, qr_name);
 		
 		
 		
