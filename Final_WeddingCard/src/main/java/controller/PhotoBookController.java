@@ -84,7 +84,7 @@ public class PhotoBookController extends MultiActionController {
 		PhotoBookVO pbvo = photoBookService.getPhotoBookByNo(request.getParameter("bookNo"));
 		request.setAttribute("pbImgList", photoBookService.imgList(pbvo.getFileName(), pbvo.getBookComment()));
 		
-		return new ModelAndView("photobook/pbModify", "pbvo", pbvo);
+		return new ModelAndView("photobook/photoBookModify", "pbvo", pbvo);
 	} // modifyView
 	
 	public ModelAndView modify(HttpServletRequest request, HttpServletResponse response,
@@ -213,7 +213,7 @@ public class PhotoBookController extends MultiActionController {
 		
 		List<PhotoBookVO> pbList = photoBookService.getPhotoBookList(mvo.getMemberId());
 
-		return new ModelAndView("photobook/pbresult", "pbList", pbList);
+		return new ModelAndView("photobook/photoBookList", "pbList", pbList);
 	} // list
 
 	public ModelAndView detail(HttpServletRequest request, HttpServletResponse response)
@@ -223,7 +223,7 @@ public class PhotoBookController extends MultiActionController {
 		PhotoBookVO pbvo = photoBookService.getPhotoBookByNo(request.getParameter("no"));
 		request.setAttribute("pbImgList", photoBookService.imgList(pbvo.getFileName(), pbvo.getBookComment()));
 		
-		return new ModelAndView("photobook/pbcontent", "pbvo", pbvo);
+		return new ModelAndView("photobook/photoBookContent", "pbvo", pbvo);
 	} // detail
 
 

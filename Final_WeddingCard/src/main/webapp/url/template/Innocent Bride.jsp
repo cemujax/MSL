@@ -73,7 +73,7 @@ function writeComment() {
     padding: 0.5em 0;
 	}
 	.banner {
-     background: url(../img/banner.jpg)no-repeat 0px 0px; 
+     background: url(img/banner.jpg)no-repeat 0px 0px; 
 	 background-size:cover;
 	}
 	
