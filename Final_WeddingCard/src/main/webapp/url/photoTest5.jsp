@@ -8,24 +8,24 @@ pageEncoding='UTF-8' isELIgnored='false'%><%@ taglib prefix='c'
 <title>Insert title here</title></head>
 <body>
 <jsp:include page='template/Fall In Love.jsp' flush='true'>
-<jsp:param value='fdsf' name='groomName'/>
-<jsp:param value='33' name='groomTel'/>
-<jsp:param value='fsdf' name='brideName'/>
-<jsp:param value='34' name='brideTel'/>
-<jsp:param value='fsdfsd' name='cardContext'/>
+<jsp:param value='asdfadsf' name='groomName'/>
+<jsp:param value='123123' name='groomTel'/>
+<jsp:param value='sdfsdf' name='brideName'/>
+<jsp:param value='2222' name='brideTel'/>
+<jsp:param value='sdfsdf' name='cardContext'/>
 <jsp:param value='2016-06-30' name='cardDate'/>
 <jsp:param value='10' name='hour'/>
 <jsp:param value='00' name='min'/>
 <jsp:param value='AM' name='ampm'/>
 <jsp:param value='0' name='dDay'/>
-<jsp:param value='fsdf' name='hallName'/>
-<jsp:param value='dfsd' name='hallLocation'/>
+<jsp:param value='sdfsdf' name='hallName'/>
+<jsp:param value='강남' name='hallLocation'/>
 <jsp:param value='' name='photoBookNo'/>
 <jsp:param value='' name='photoBookImg'/>
 <jsp:param value='' name='photoBookComment'/>
-<jsp:param value='a' name='memberId'/>
-<jsp:param value='qq' name='url'/>
-<jsp:param value='1251' name='cardNo'/>
+<jsp:param value='1@1' name='memberId'/>
+<jsp:param value='photoTest5' name='url'/>
+<jsp:param value='1253' name='cardNo'/>
 </jsp:include>
 </body>
 </html>

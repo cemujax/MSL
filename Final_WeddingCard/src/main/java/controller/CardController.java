@@ -337,6 +337,16 @@ public class CardController extends MultiActionController {
 		return new ModelAndView("JsonView");
 	}
 	
+	public ModelAndView linkModifyCard(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		System.out.println("linkModifyCard controll");
+		String url = request.getParameter("url");
+		CardVO cardVO = cardService.getCard(url);
+		request.setAttribute("cardVO", cardVO);
+		return new ModelAndView("weddingCard/weddingCard");
+	}
+	
 	
 	public ModelAndView deleteCard(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {

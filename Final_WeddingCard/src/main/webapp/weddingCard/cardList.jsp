@@ -327,10 +327,11 @@ th{
 				
 				no.each(function(index){
 					var datas = $(this).val().split("`");
-					cardNo += datas[0]+ " ";
-					url += datas[1]+ " ";
+					cardNo += datas[0];
+					url += datas[1];
+					
 				});
-				 if(confirm("정말 수정 하시겠습니까?")){
+				if(confirm("정말 수정 하시겠습니까?")){
 					location.href = "${initParam.root}card.do?command=linkModifyCard&&cardNo="+cardNo+"&&url="+url;
 					 //location.href = "${initParam.root}weddingCard/weddingCard.jsp";
 				} 
