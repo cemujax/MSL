@@ -5,33 +5,28 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.card.CardService;
 import model.card.CardVO;
 import model.card.CardcommentVO;
+import model.card.QRUtil;
 import model.member.MemberVO;
 import model.photobook.PhotoBookVO;
-import model.post.ReviewCommentVO;
 
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import util.AccessId;
 
 import com.twilio.sdk.Twilio;
-import com.twilio.sdk.type.PhoneNumber;
-import com.twilio.sdk.resource.api.v2010.account.Message;
 import com.twilio.sdk.creator.api.v2010.account.MessageCreator;
+import com.twilio.sdk.resource.api.v2010.account.Message;
+import com.twilio.sdk.type.PhoneNumber;
 
 public class CardController extends MultiActionController {
 
@@ -81,12 +76,11 @@ public class CardController extends MultiActionController {
 				+groomTel );
 		cvo.setBrideInfo(brideName + "`"
 				+ brideTel);
-		
+		System.out.println("photoNo:::"+request.getParameter("photoBookNo"));
 		// photobook도 setter로 넣읍시다
-		if(request.getParameter("photoBookNo") != null && request.getParameter("photoBookNo") != ""){
+		String pbNo = request.getParameter("photoBookNo");
+		if(pbNo.length() != 0){
 			PhotoBookVO pvo = new PhotoBookVO();
-			
-			System.out.println("photoNo:::"+request.getParameter("photoBookNo"));
 			pvo.setBookNo(Integer.parseInt(request.getParameter("photoBookNo")));
 			cvo.setPhotobookVO(pvo);
 		}
@@ -94,8 +88,10 @@ public class CardController extends MultiActionController {
 		File file_url = new File(path + cvo.getUrl() + ".jsp");
 		File file_guestBook = new File(path +"/"+ cvo.getUrl()+"/guestBook.jsp");
 		
-		if (!file_guestBook.getParentFile().exists())
-			file_guestBook.getParentFile().mkdirs();
+		if (!file_guestBook.getParentFile().exists()){
+			System.out.println("url 폴더 만듬::"+file_guestBook.getParentFile().mkdir());
+		}
+			
 		
 		// 상단 이미지
 		MultipartFile imgFile = cvo.getImgFile();
@@ -134,6 +130,12 @@ public class CardController extends MultiActionController {
 			 }
 			 tempMainImage.getParentFile().delete();
 		}
+		
+		// =============================== QR Code
+		/*String file_path = "D:"+File.separator+"qr"+File.separator;
+		String file_name = "qrCode.png";
+		QRUtil.makeQR(file_url.toString(), 50, 50, file_path, file_name);*/
+		
 		
 		
 		cvo.setMainImage(imgPath);
@@ -333,17 +335,6 @@ public class CardController extends MultiActionController {
 				msg).execute();
 		
 		return new ModelAndView("JsonView");
-	}
-	
-	public ModelAndView linkModifyCard(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-
-		System.out.println("linkModifyCard controll");
-		String url = request.getParameter("url");
-		CardVO cardVO = cardService.getCard(url);
-		System.out.println("cardvo::"+cardVO);
-		request.setAttribute("cardVO", cardVO);
-		return new ModelAndView("weddingCard/weddingCard");
 	}
 	
 	

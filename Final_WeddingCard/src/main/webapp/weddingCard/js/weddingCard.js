@@ -509,7 +509,6 @@ $(document).ready(function(){
       }
       
       document.frmWeddingCard.encoding = "multipart/form-data";
-      
       //창 안바뀌게 target _self로 설정
 	  $('#frmWeddingCard').attr('target','_self').attr('action','../card.do?command=createCard').submit();
       		
