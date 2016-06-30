@@ -209,11 +209,17 @@ public class PhotoBookController extends MultiActionController {
 		System.out.print("PhotoBook Controller :: list");
 		
 		MemberVO mvo = (MemberVO) request.getSession().getAttribute("mvo");
-		System.out.println(" :: "+ mvo.getMemberId());
 		
-		List<PhotoBookVO> pbList = photoBookService.getPhotoBookList(mvo.getMemberId());
+		if(mvo != null) {
+			System.out.println(" :: "+ mvo.getMemberId());
+			
+			List<PhotoBookVO> pbList = photoBookService.getPhotoBookList(mvo.getMemberId());
 
-		return new ModelAndView("photobook/photoBookList", "pbList", pbList);
+			return new ModelAndView("photobook/photoBookList", "pbList", pbList);
+		}
+		
+		else
+			return new ModelAndView("redirect:/authentication/login.jsp");
 	} // list
 
 	public ModelAndView detail(HttpServletRequest request, HttpServletResponse response)

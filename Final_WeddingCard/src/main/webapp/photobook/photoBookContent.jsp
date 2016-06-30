@@ -39,7 +39,7 @@ function delete_photoBook(index) {
   <body>
   <c:if test="${sessionScope.mvo.memberId == null }">
   	<script>
-  		location.href ="authentication/login.jsp";
+  		location.href ="${initParam.root}authentication/login.jsp";
   	</script>
   </c:if>
   
