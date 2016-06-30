@@ -3,7 +3,8 @@
 	padding:0;
 }
 body{
-	background:#ccc url(../img/wood.jpg) repeat top left;
+	/* background:url(../photobook/booklet/img/flower.jpg) no-repeat bottom right;  */
+	background-color: #ffffd9;
 	font-family: Arial, Helvetica, sans-serif;
 	color:#444;
 	font-size:12px;
@@ -78,7 +79,7 @@ span.reference a:hover{
 	margin:0 auto;
 	padding-top:50px;
 	width:905px;
-	height:540px;
+	height:600px;
 	position:relative;
 	background:transparent url(../img/bg.png) no-repeat 9px 27px;
 }
