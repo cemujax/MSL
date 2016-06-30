@@ -81,10 +81,12 @@ public class CardController extends MultiActionController {
 				+groomTel );
 		cvo.setBrideInfo(brideName + "`"
 				+ brideTel);
-		System.out.println("photoNo:::"+request.getParameter("photoBookImg"));
+		
 		// photobook도 setter로 넣읍시다
-		if(request.getParameter("photoBookImg") != null && request.getParameter("photoBookImg") != ""){
+		if(request.getParameter("photoBookNo") != null && request.getParameter("photoBookNo") != ""){
 			PhotoBookVO pvo = new PhotoBookVO();
+			
+			System.out.println("photoNo:::"+request.getParameter("photoBookNo"));
 			pvo.setBookNo(Integer.parseInt(request.getParameter("photoBookNo")));
 			cvo.setPhotobookVO(pvo);
 		}

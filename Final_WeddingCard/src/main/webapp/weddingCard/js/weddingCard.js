@@ -122,7 +122,7 @@ $(document).ready(function(){
 	   ///=========== 템플릿쪽===================================
 	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
 	   $('#template').attr("checked", true);
-	   $('#GroomDiv').hide();  $('#BrideDiv').hide();
+	   $('#GroomDiv').hide();  $('#BrideDiv').hide(); //신랑신부이미지 업로드 영역 숨김
 	   var sel_template = $('#template').val();
 	   
 	   
