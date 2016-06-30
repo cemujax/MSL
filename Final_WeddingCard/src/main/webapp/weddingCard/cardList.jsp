@@ -323,9 +323,19 @@ th{
 			var no = $('input[name=cardNo]:checked');
 			
 			if(no.length == 1){
-				alert("수정수정");
+				var cardNo = ""; var url = "";
+				
+				no.each(function(index){
+					var datas = $(this).val().split("`");
+					cardNo += datas[0]+ " ";
+					url += datas[1]+ " ";
+				});
+				 if(confirm("정말 수정 하시겠습니까?")){
+					location.href = "${initParam.root}card.do?command=linkModifyCard&&cardNo="+cardNo+"&&url="+url;
+					 //location.href = "${initParam.root}weddingCard/weddingCard.jsp";
+				} 
 			}else{
-				alert("하나 선택해주세요!	");
+				alert("수정할 하나 선택해주세요!	");
 			}
 		
 			

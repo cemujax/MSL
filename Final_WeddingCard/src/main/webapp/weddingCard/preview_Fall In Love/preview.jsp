@@ -61,7 +61,7 @@
 
 	$(document).ready(function() {
 
-		$.ajax({
+		/* $.ajax({
 			type : "get",
 			url : "../card.do",
 			data : "command=getAllCardComments&&cardNo=" + '${param.cardNo}',
@@ -90,7 +90,7 @@
 			}//success
 			
 		});
-
+ */
 	});//ready
 </script>
 <!-- //방명록 -->
@@ -101,21 +101,21 @@
 <!--header-->
 
 	<c:choose >
-		<c:when test="${ param.imgSrc != ''}">
-	   		<div class="header_select">
-	     		 <div class="container">
-	                    <script defer src="js/jquery.flexslider.js"></script>
-	      		</div>
-   			</div>
-	   		
-		</c:when>
-		<c:otherwise>
-			
-   			<div class="header">
+		<c:when test="${ param.imgSrc == ''}">
+	   		<div class="header">
 	     		 <div class="container">
 	                 <script defer src="js/jquery.flexslider.js"></script>
 	      		</div>
 	   		</div>
+	   		
+		</c:when>
+		<c:otherwise>
+			<div class="header_select">
+	     		 <div class="container">
+	                    <script defer src="js/jquery.flexslider.js"></script>
+	      		</div>
+   			</div>
+   			
 		</c:otherwise>
 	</c:choose>
 	
