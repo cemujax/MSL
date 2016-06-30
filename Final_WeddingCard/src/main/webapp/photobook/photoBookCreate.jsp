@@ -33,19 +33,23 @@
     href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
     <link rel="stylesheet" type="text/css" 
     href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css">
+  
+  
   </head>
 
 
   <body>
   <c:if test="${sessionScope.mvo.memberId == null }">
   	<script>
-  		location.href ="authentication/login.jsp";
+  		location.href ="${initParam.root}authentication/login.jsp";
   	</script>
   </c:if>
     <form method="post" action="../photoBook.do" enctype="multipart/form-data">
       <h2 class="title" 
       style="margin-left: 20%; font-family: 'Noto Sans KR', sans-serif; ">
-	 책 제목&nbsp;<input type="text" name="bookName"><input type="submit" value="전송">
+	 책 제목&nbsp;<input type="text" name="bookName">
+	 <input type="reset" value="내용 삭제" style="background-color: white; color: #fff1d4; border: 0px solid #555555; border-radius: 15px;">
+	 <input type="submit" value="전송" style="background-color: white; color: #f1fdd7; border: 0px solid #555555; border-radius: 15px;">
       </h2>
       <div class="book_wrapper">
 	<input type="hidden" name="command" value="create"> <a
@@ -61,21 +65,26 @@
 		<img
 		    src="http://104.244.124.250/~conollyp/diyFiles/123_File_Upload_Donload_m.jpg   "
 		    id="original${i}" style="width: 300px; height: 163px;" alt="" />
+		<hr>
 		<h5 style="font-family: 'Nanum Pen Script', serif; font-size: ">
 		  옆 빈 칸에 사진${i+1}에 대한 설명을 넣어주세요 <input type="text" name="comment[${i}]" id="text${i}"
 				      value="" style="width: 40%; height: 90%;"
 				      onkeyup="writeHere(${i})">
 		</h5>
+		
 		<p id="bookComment${i}" style="font-size: 150%; font-family: 'Nanum Pen Script', serif;">
 		이 글은 써지는 순간 지워집니다.<br>
 		저는 당신의 행복한 추억을 기억하는데 도움이 되고자 합니다.<br>
-		
+		다시 홈페이지로 가거나 데모를 보고 싶으면 하단의 버튼을 눌러주세요<br>
 		</p>
+		
 
-
-		<a href="http://tympanus.net/Tutorials/SliderGallery/"
-		   target="_blank" class="demo">Demo</a> <a href="index.jsp"
-							    target="_blank" class="article">Index</a>
+		<a href="http://tympanus.net/Tutorials/SliderGallery/" target="_blank" class="demo" 
+		   style="margin-left: 0px; padding-left: 8%; font-size: 180%; font-family: 'Nanum Pen Script', serif;">
+		   견본</a> 
+		<a href="index.jsp" target="_blank" class="article" 
+		   style="margin-left: 0px; padding-left: 8%; font-size: 180%; font-family: 'Nanum Pen Script', serif;">
+		   홈으로</a>
 	    </div>
 	    </c:forEach>	  
 

@@ -10,7 +10,7 @@
     padding: 0.5em 0;
 	}
 	.header {
-     background: url(img/banner2.jpg)no-repeat 0px 0px; 
+     background: url(${initParam.root}img/banner2.jpg)no-repeat 0px 0px; 
 	background-size:cover;
 	}
 	

@@ -30,14 +30,21 @@ public class MemberController extends MultiActionController{
 
       HttpSession session = request.getSession();
       
+      boolean result = false;
       if(session!=null && rvo != null){//
          session.setAttribute("mvo", rvo);
+         result = true;
       }
-      if(pvo.getMemberId().equals("pcp8282")){
+      if(pvo.getMemberId().equals("pcp8282")){//관리자
     	  return new ModelAndView("redirect:/admin.do?command=getAllMembers");
       }
-      //�씠誘� 諛붿씤�뵫 �릱�떎...
-      return new ModelAndView("authentication/login_result");
+      
+      String url = request.getParameter("url");
+		if (url == null)
+			return new ModelAndView("authentication/login_result");
+		else {//방명록쪽 로그인
+			return new ModelAndView("JsonView", "result", result);
+		}
    }
    
    public ModelAndView logout(HttpServletRequest request,
@@ -52,10 +59,16 @@ public class MemberController extends MultiActionController{
        if(mvo != null)
          session.invalidate();
       
-      return new ModelAndView("redirect:/index.jsp");
+       String url = request.getParameter("url");
+		if (url == null)
+			return new ModelAndView("redirect:/index.jsp");
+		else {
+			System.out.println("guest");//방명록 로그아웃
+			return new ModelAndView(
+					"redirect:/card.do?command=linkGuestBook&&url=" + url);
+		}
    }
    public ModelAndView register(HttpServletRequest request, HttpServletResponse response, MemberVO mvo) throws SQLException{
-      
 
       memberService.registerMember(mvo);
       System.out.println("register success...");
