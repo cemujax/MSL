@@ -5,33 +5,28 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.card.CardService;
 import model.card.CardVO;
 import model.card.CardcommentVO;
+import model.card.QRUtil;
 import model.member.MemberVO;
 import model.photobook.PhotoBookVO;
-import model.post.ReviewCommentVO;
 
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import util.AccessId;
 
 import com.twilio.sdk.Twilio;
-import com.twilio.sdk.type.PhoneNumber;
-import com.twilio.sdk.resource.api.v2010.account.Message;
 import com.twilio.sdk.creator.api.v2010.account.MessageCreator;
+import com.twilio.sdk.resource.api.v2010.account.Message;
+import com.twilio.sdk.type.PhoneNumber;
 
 public class CardController extends MultiActionController {
 
@@ -81,9 +76,10 @@ public class CardController extends MultiActionController {
 				+groomTel );
 		cvo.setBrideInfo(brideName + "`"
 				+ brideTel);
-		System.out.println("photoNo:::"+request.getParameter("photoBookImg"));
+		System.out.println("photoNo:::"+request.getParameter("photoBookNo"));
 		// photobook도 setter로 넣읍시다
-		if(request.getParameter("photoBookImg") != null && request.getParameter("photoBookImg") != ""){
+		String pbNo = request.getParameter("photoBookNo");
+		if(pbNo.length() != 0){
 			PhotoBookVO pvo = new PhotoBookVO();
 			pvo.setBookNo(Integer.parseInt(request.getParameter("photoBookNo")));
 			cvo.setPhotobookVO(pvo);
@@ -132,6 +128,12 @@ public class CardController extends MultiActionController {
 			 }
 			 tempMainImage.getParentFile().delete();
 		}
+		
+		// =============================== QR Code
+		/*String file_path = "D:"+File.separator+"qr"+File.separator;
+		String file_name = "qrCode.png";
+		QRUtil.makeQR(file_url.toString(), 50, 50, file_path, file_name);*/
+		
 		
 		
 		cvo.setMainImage(imgPath);
