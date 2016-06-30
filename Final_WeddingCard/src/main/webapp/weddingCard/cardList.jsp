@@ -347,7 +347,6 @@ th{
 					url += datas[1]+ " ";
 				});
 				
-		 		
 				if(confirm("정말 삭제하시겠습니까?")){
 					location.href = "${initParam.root}card.do?command=deleteCard&&cardNo="+cardNo+"&&url="+url;
 				}
@@ -406,7 +405,7 @@ th{
 	
 
    <div class="cardManage" >
-      	<img alt="" src="weddingCard/img/cardManage.jpg">
+      	<img alt="" src="${initParam.root }img/cardManage.jpg">
    </div>
 
   <!--================= table=============== -->
@@ -424,7 +423,9 @@ th{
       <c:forEach items="${cardList}" var="card" varStatus="i">
                <tr align="center" style="font-size: 20px;" >
                   <td><input type="checkbox" id="cardNo" name="cardNo" value="${card.cardNo}`${card.url}"></td>
-                  <td><a href="./card.do?command=getCard&&url=${card.url }">${card.url}</a></td>
+                  <td><%-- <a href="./card.do?command=getCard&&url=${card.url }">${card.url}</a> --%>
+                  	<a href="${initParam.root }url/${card.url}.jsp">${card.url}</a>
+                  </td>
                   <td>${card.template}</td>
                    <c:set var="cDate" value="${fn:split(card.cardDate, ':') }"/>
                   <td>${card.hallName} </td>

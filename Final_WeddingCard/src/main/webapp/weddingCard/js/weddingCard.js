@@ -314,7 +314,6 @@ $(document).ready(function(){
    		
    		if($('#imgFile').val() != null && $('#imgFile').val() != ''){
    			form.encoding="multipart/form-data"; //파일전송위해 변경
-   			alert($('input[name=imgSrc]').val());
    			$.ajax({
 	              url: "../card.do?command=uploadImage&&flag=mainImage",
 	              data: formData,
@@ -329,13 +328,10 @@ $(document).ready(function(){
 	            	  
 	            	  var src =  $('#imgFile').val().split('\\')[2];
 	     		 		$('input[name=imgSrc]').val(src);
-	     		 		alert($('input[name=imgSrc]').val());
 	     		 		setTimeout(function(){
 	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
 	     		 			set_preview();
-	     		 		}, 2000);
-	 	             
-	     		 		
+	     		 		}, 3000);
 	     		 		
 	              },//success
 	              error: function (jqXHR) {
@@ -373,7 +369,7 @@ $(document).ready(function(){
 	            	  setTimeout(function(){
 	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
 	     		 			set_preview();
-	     		 		}, 2000);
+	     		 		}, 3000);
 	              },
 	              error: function (jqXHR) {
 	                console.log('error');
@@ -409,7 +405,7 @@ $(document).ready(function(){
 	            	  setTimeout(function(){
 	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
 	     		 			set_preview();
-	     		 		}, 2000);
+	     		 		}, 3000);
 	              },
 	              error: function (jqXHR) {
 	                console.log('error');
@@ -463,7 +459,6 @@ $(document).ready(function(){
       if($('#brideTel').val() == ""){
     	  $( '#tabs' ).tabs( { active: 1,} );
     	  $('#brideTel').focus();
-    	  
     	  return false;
       }
       
@@ -514,14 +509,11 @@ $(document).ready(function(){
       }
       
       document.frmWeddingCard.encoding = "multipart/form-data";
-	  $('#frmWeddingCard').attr('target','frmWeddingCard').attr('action','../card.do?command=createCard').submit();
-  
       
-      
+      //창 안바뀌게 target _self로 설정
+	  $('#frmWeddingCard').attr('target','_self').attr('action','../card.do?command=createCard').submit();
       		
      });// 초대장 생성 click   
-     
-  
   
     function move_pop_preview(id){
 		try{
@@ -538,8 +530,6 @@ $(document).ready(function(){
 			}
 		}catch(e){}
 	}  
-
-    
 });//ready
 
 

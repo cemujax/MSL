@@ -89,36 +89,52 @@ public class CardController extends MultiActionController {
 			cvo.setPhotobookVO(pvo);
 		}
 		
-		// 상단 이미지
-		MultipartFile imgFile = cvo.getImgFile();
-		MultipartFile imgGroom = cvo.getImgBride();
-		MultipartFile imgBride = cvo.getImgBride();
-		
-		String imgPath = "";
-		File file = new File(path + cvo.getUrl() + ".jsp");
+		File file_url = new File(path + cvo.getUrl() + ".jsp");
 		File file_guestBook = new File(path +"/"+ cvo.getUrl()+"/guestBook.jsp");
 		
-		if(imgFile.getOriginalFilename() != null && imgFile.getOriginalFilename() !=""){//상단이미지 업로드 한경우
-			System.out.println("mainImage Src::"+ imgFile.getOriginalFilename());
-			
-			File tempFile = new File(path + "temp_"+rvo.getMemberId()+"//"+imgFile.getOriginalFilename());
-			File urlFile = new File(path + cvo.getUrl()+"//"+imgFile.getOriginalFilename());
-			
-			// 상단 이미지 업로드시 만들었던 temp 폴더의 이름을 url로 변경
-			if (tempFile.getParentFile().isDirectory()){
-				tempFile.getParentFile().renameTo(urlFile.getParentFile());
-			}
-			imgPath += imgFile.getOriginalFilename() +"`";	
-		}
-		if(imgGroom.getOriginalFilename() != null && imgGroom.getOriginalFilename() !="")
-			imgPath += imgGroom.getOriginalFilename() +"`";
+		if (!file_guestBook.getParentFile().exists())
+			file_guestBook.getParentFile().mkdirs();
 		
-		if(imgBride.getOriginalFilename() != null && imgBride.getOriginalFilename() !="")
-			imgPath += imgBride.getOriginalFilename() +"`";
+		// 상단 이미지
+		MultipartFile imgFile = cvo.getImgFile();
+		MultipartFile imgGroom = cvo.getImgGroom();
+		MultipartFile imgBride = cvo.getImgBride();
+		
+		File tempMainImage = new File(path + "temp_"+rvo.getMemberId()+"//"+imgFile.getOriginalFilename());
+		File tempGroomImage = new File(path + "temp_"+rvo.getMemberId()+"//"+imgGroom.getOriginalFilename());
+		File tempBrideImage = new File(path + "temp_"+rvo.getMemberId()+"//"+imgBride.getOriginalFilename());
+		String imgPath = "";
+		File urlMainImage = new File(path + cvo.getUrl()+"//"+imgFile.getOriginalFilename());
+		
+		if(!imgFile.isEmpty()){
+			tempMainImage.renameTo(urlMainImage);
+			imgPath += "main`"+imgFile.getOriginalFilename()+"`";	
+		}
+		
+		// 신랑 신부 이미지 업로드
+		if(!imgGroom.isEmpty()){
+			imgPath += "groom`"+imgGroom.getOriginalFilename()+"`";
+			tempGroomImage.renameTo(new File(path+cvo.getUrl()+"//"+imgGroom.getOriginalFilename()));
+		}
+		if(!imgBride.isEmpty()){
+			imgPath += "bride`"+imgBride.getOriginalFilename()+"`";
+			tempBrideImage.renameTo(new File(path+cvo.getUrl()+"//"+imgBride.getOriginalFilename()));
+		}
+		
+		//업로드 한번이라도 한경우 temp 경로 삭제
+		if(tempMainImage.getParentFile().isDirectory()){
+			 File[] tempFiles = tempMainImage.getParentFile().listFiles();
+			  
+			 if(tempFiles.length > 0){
+				 System.out.println(tempFiles.length);
+				 for(File delFile : tempFiles) 
+					 delFile.delete();
+			 }
+			 tempMainImage.getParentFile().delete();
+		}
+		
 		
 		cvo.setMainImage(imgPath);
-		
-		
 		cardService.createCard(cvo);
 		cvo = cardService.getCard(url); // cardNo 알기 위해
 		
@@ -127,14 +143,8 @@ public class CardController extends MultiActionController {
 			    +"<%@ taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions' %>"
 			    +"<!DOCTYPE html>\n<html>\n<head>\n<meta charset='UTF-8'>\n<title>Insert title here</title></head>\n<body>\n";
 		
-		if (!file.getParentFile().exists())
-			file.getParentFile().mkdirs();
-		
-		if (!file_guestBook.getParentFile().exists())
-			file_guestBook.getParentFile().mkdirs();
-		
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter( 
-				new FileOutputStream(file),"UTF-8")); 
+				new FileOutputStream(file_url),"UTF-8")); 
 		BufferedWriter bw_guestBook = new BufferedWriter(new OutputStreamWriter( 
 				new FileOutputStream(file_guestBook),"UTF-8"));
 		
@@ -173,8 +183,6 @@ public class CardController extends MultiActionController {
 			if(!imgBride.isEmpty())
 				bw.write("<jsp:param value='"+imgBride.getOriginalFilename()+"' name='imgBride'/>\n");
 			
-			
-			
 			// jsp 닫음
 			bw.write("</jsp:include>\n</body>\n</html>\n");
 			
@@ -184,8 +192,8 @@ public class CardController extends MultiActionController {
 			bw_guestBook.write(format);
 			bw_guestBook.write("<jsp:include page='../template/guestBookSample.jsp' flush='true'>\n");
 			bw_guestBook.write("<jsp:param value='"+cvo.getCardNo()+"' name='cardNo'/>\n"
-					+"</jsp:include>\n");
-			bw_guestBook.write("</body>\n</html>\n");//닫는 태그
+								+"<jsp:param value='"+rvo.getMemberId()+"' name='memberId'/>\n");
+			bw_guestBook.write("</jsp:include>\n</body>\n</html>\n");//닫는 태그
 			
 			bw_guestBook.close();
 			bw.close();
@@ -208,15 +216,20 @@ public class CardController extends MultiActionController {
 		if("mainImage".equals(flag)){
 			MultipartFile imgFile = cvo.getImgFile();  
 			File file = new File(path + "temp_"+mvo.getMemberId()+"//"+imgFile.getOriginalFilename());
-			if (!file.getParentFile().exists())// 이미지 저장할 temp 디렉토리 만듬
+			if (!file.getParentFile().exists()){
+				// 이미지 저장할 temp 디렉토리 만듬
 				file.getParentFile().mkdirs();
+			}
+				
 			File destFile = new File(file.getPath());
 			imgFile.transferTo(destFile);
 		}else if("imgGroom".equals(flag)){
 			MultipartFile imgGroom = cvo.getImgGroom();
 			File file = new File(path + "temp_"+mvo.getMemberId()+"//"+imgGroom.getOriginalFilename());
-			if (!file.getParentFile().exists())// 이미지 저장할 temp 디렉토리 만듬
+			if (!file.getParentFile().exists()){
+				// 이미지 저장할 temp 디렉토리 만듬
 				file.getParentFile().mkdirs();
+			}
 			File destFile = new File(file.getPath());
 			imgGroom.transferTo(destFile);
 		}else if("imgBride".equals(flag)){
@@ -332,9 +345,15 @@ public class CardController extends MultiActionController {
 		String[] urls = url.split(" ");
 		
 		for(int i=0; i< urls.length; i++){
-			//guestBook 삭제
+			// url 하위 이미지 게스트 북들 삭제
 			File file_guestBook = new File(path +urls[i]+"/guestBook.jsp");
-			System.out.println("파일삭제:"+file_guestBook.delete());
+			File[] tempFiles = file_guestBook.getParentFile().listFiles();
+			if(tempFiles.length > 0){
+				 System.out.println(tempFiles.length);
+				 for(File delFile : tempFiles) {
+					 delFile.delete();
+				   }
+			 }//if
 			if(file_guestBook.getParentFile().isDirectory())
 				System.out.println("dir삭제:"+file_guestBook.getParentFile().delete());
 			
