@@ -16,7 +16,7 @@
 <title>Zenith | Just another demo Sites site</title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="http://demo.fabthemes.com/zenith/xmlrpc.php">
-
+<link href="css/application.css" rel="stylesheet" type="text/css" media="all" /><!-- 방명록 -->
 <link rel="alternate" type="application/rss+xml" title="Zenith » Feed"
 	href="http://demo.fabthemes.com/zenith/feed/">
 <link rel="alternate" type="application/rss+xml"

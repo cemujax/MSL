@@ -130,9 +130,9 @@ public class CardController extends MultiActionController {
 		}
 		
 		// =============================== QR Code
-		/*String file_path = "D:"+File.separator+"qr"+File.separator;
+		String file_path = path +"/"+ cvo.getUrl()+ "/";
 		String file_name = "qrCode.png";
-		QRUtil.makeQR(file_url.toString(), 50, 50, file_path, file_name);*/
+		QRUtil.makeQR(file_url.toString(), 50, 50, file_path, file_name);
 		
 		
 		
