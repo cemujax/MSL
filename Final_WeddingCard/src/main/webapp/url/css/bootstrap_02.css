@@ -753,6 +753,11 @@ pre code {
   .container {
     width: 1170px;
   }
+  #map {
+        width: 50%;
+    height: 350px;
+    float: left;
+	}
 }
 .container-fluid {
   padding-right: 15px;
