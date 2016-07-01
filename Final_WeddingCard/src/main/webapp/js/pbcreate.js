@@ -1,5 +1,7 @@
 var count = 0;
 
+
+
 function writeHere(index) {
     var doc = document.getElementById("bookComment"+index);
     doc.innerHTML= 
@@ -10,6 +12,8 @@ function writeHere(index) {
 
 
 $(function() {
+	
+	
     var $mybook       = $('#mybook');
     var $bttn_next      = $('#next_page_button');
     var $bttn_prev      = $('#prev_page_button');
@@ -101,5 +105,5 @@ $(function() {
             }
         }).attr('src', source);
     });
-
+    window.scrollTo(0, 500);
 });

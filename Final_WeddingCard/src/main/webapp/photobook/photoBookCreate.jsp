@@ -40,7 +40,8 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #333; 
+    /* background-color: #f8f8f8; */
 }
 
 li {
@@ -63,11 +64,12 @@ li a:hover {
 
 
   <body>
-  <ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
+  <ul style="font-size: 120%; height: 40px;">
+  <li><a class="active" href="../index.jsp">Home</a></li>
+  <li><a href="#news">메뉴얼</a></li>
+  <li><a href="#contact">청첩장</a></li>
+  <li><a href="#about">포토북</a></li>
+  <li><a href="#about">커뮤니티</a></li>
 </ul>
   <c:if test="${sessionScope.mvo.memberId == null }">
   	<script>
@@ -78,8 +80,8 @@ li a:hover {
       <h2 class="title" 
       style="margin-left: 20%; font-family: 'Noto Sans KR', sans-serif; ">
 	 책 제목&nbsp;<input type="text" name="bookName">
-	 <input type="reset" value="내용 삭제" style="background-color: white; color: #fff1d4; border: 0px solid #555555; border-radius: 15px;">
-	 <input type="submit" value="전송" style="background-color: white; color: #f1fdd7; border: 0px solid #555555; border-radius: 15px;">
+	 <input type="reset" value="내용 삭제" style="background-color: white; color: #fed8ab; border: 0px solid #555555; border-radius: 15px;">
+	 <input type="submit" value="전송" style="background-color: white; color: #89D06A; border: 0px solid #555555; border-radius: 15px;">
       </h2>
       <div class="book_wrapper">
 	<input type="hidden" name="command" value="create"> <a
