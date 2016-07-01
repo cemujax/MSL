@@ -16,53 +16,70 @@
 
 <title>Wedding Card</title>
 
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/bootstrap.min.css">
 
-<!-- <link href="css/bootstrap-responsive.css" rel="stylesheet"> -->
+<!-- <link href="${initParam.root}weddingCard/css/bootstrap-responsive.css" rel="stylesheet"> -->
 
 <link rel="stylesheet"
 	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/ -->
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/jquery-ui.css" />
-<link rel="stylesheet" href="css/uploadifive.css" />
-<link rel="stylesheet" href="css/jquery.cropbox.custom.css" />
-<link rel="stylesheet" href="css/builder.css" />
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" type="text/css" href="css/default.css" />
-<link rel="stylesheet" type="text/css" href="css/component.css" />
-<link href="css/bootstrap_index.css" rel="stylesheet" type="text/css"
-	media="all" />
-<link href="css/style_index.css" rel="stylesheet" type="text/css"
-	media="all" />
-<link rel="stylesheet" href="css/chocolat.css" type="text/css"
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/jquery-ui.css" />
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/uploadifive.css" />
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/jquery.cropbox.custom.css" />
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/builder.css" />
+<link rel="stylesheet" href="${initParam.root}weddingCard/css/style.css">
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/common.css">
+<link rel="stylesheet" type="text/css"
+	href="${initParam.root}weddingCard/css/default.css" />
+<link rel="stylesheet" type="text/css"
+	href="${initParam.root}weddingCard/css/component.css" />
+<link href="${initParam.root}weddingCard/css/bootstrap_index.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link href="${initParam.root}weddingCard/css/style_index.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/chocolat.css" type="text/css"
 	media="screen" charset="utf-8">
 
 <!-- 우리꺼 -->
-<link rel="stylesheet" type="text/css" href="./css/weddingCard.css">
+<link rel="stylesheet" type="text/css"
+	href="${initParam.root}weddingCard/css/weddingCard.css">
 
 
 <!-- ================================== -->
-<script type="text/javascript" src="./js/jquery-1.12.3.js"></script>
+<script type="text/javascript"
+	src="${initParam.root}weddingCard/js/jquery-1.12.3.js"></script>
 <!-- <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<script src="js/modernizr.custom.js"></script>
+<script src="${initParam.root}weddingCard/js/modernizr.custom.js"></script>
 <!-- <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
  -->
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/hammer.js"></script>
-<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-<script src="js/jquery.datepicker.regional.kr.js"></script>
-<script src="js/jquery.scrollTo.min.js"></script>
+<script src="${initParam.root}weddingCard/js/jquery-ui.min.js"></script>
+<script type="text/javascript"
+	src="${initParam.root}weddingCard/js/hammer.js"></script>
+<script type="text/javascript"
+	src="${initParam.root}weddingCard/js/jquery.mousewheel.js"></script>
+<script
+	src="${initParam.root}weddingCard/js/jquery.datepicker.regional.kr.js"></script>
+<script src="${initParam.root}weddingCard/js/jquery.scrollTo.min.js"></script>
 
 <!-- 이미지 업로드 -->
 <!-- <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>  -->
-<script src="./js/jquery.form.js"></script>
+<script src="${initParam.root}weddingCard/js/jquery.form.js"></script>
+
+<script src="${initParam.root}weddingCard/js/weddingCardModify.js"></script>
 
 <!-- 우리꺼 -->
 <script type="text/javascript">
@@ -79,7 +96,7 @@
 							+ ")'>"
 							/* + "<img src='http://www.freeiconspng.com/uploads/vector-book-icon-vector-graphic--creattor-7.jpg' alt='Barca' class='img-responsive' height='130px' />" */
 							+ "<img src='"
-							+ '../'
+							+ '${initParam.root}'
 							+ "img\\photobook\\"
 							+ '${mvo.memberId}'
 							+ "\\"
@@ -97,8 +114,22 @@
 			}
 		}
 	} // pbCallback
+	
+	$(document).ready(function() {
+		
+		alert($('input[type=radio]').val()+"\n"+'${cardVO.template}');
+		
+		if($('input[type=radio]').val() == '${cardVO.template}' ){
+			$(this).attr("checked", true);
+		}
+		
+		$('#frmWeddingCard').attr('target', 'left_skin_preview').attr(
+				'action',
+				"weddingCard/preview_" + '${cardVO.template}'
+						+ "/preview.jsp").submit();
+		
+	});
 </script>
-<script src="./js/weddingCard.js"></script>
 
 <script
 	src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
@@ -134,14 +165,14 @@
 			<div class="ui-block-a">
 				<div class="cont_look">
 					<div class="look_bg">
-						<img src="../img/preview_mobile2.png" alt="미리보기화면"><span
+						<img src="${initParam.root}img/preview_mobile2.png" alt="미리보기화면"><span
 							class="blind">미리보기영역</span>
 					</div>
 					<div class="look_input">
 
 						<!-- 왼쪽 미리보기 부분 -->
 						<iframe
-							src="${initParam.root}/weddingCard/preview_Fall In Love/preview.jsp"
+							src="${initParam.root}/weddingCard/preview_${cardVO.template}/preview.jsp"
 							name="left_skin_preview" id="left_skin_preview" scrolling="auto">
 						</iframe>
 					</div>
@@ -152,14 +183,15 @@
 							<div class="cont_preview mobile" id="cont_preview">
 
 								<div class="look_bg">
-									<img src="../img/preview_mobile2.png" alt="미리보기화면"
+									<img src="${initParam.root}img/preview_mobile2.png"
+										alt="미리보기화면"
 										style="width: 250px; height: 500px; margin-left: 40%; margin-top: 15%;">
 
 
 								</div>
 								<div class="look_input"
 									style="margin-left: 40.5%; margin-top: 9%;">
-									<iframe src="preview_Fall In Love/preview.jsp"
+									<iframe src="preview_${cardVO.template}/preview.jsp"
 										name="left_skin_preview_mobile" id="left_skin_preview_mobile"
 										scrolling="auto"> </iframe>
 								</div>
@@ -183,7 +215,7 @@
 								tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
 								<div class="look_input"
 									style="width: 90%; height: 60%; margin-left: 4%; margin-top: 3%;">
-									<iframe src="preview_Fall In Love/preview.jsp"
+									<iframe src="preview_${cardVO.template}/preview.jsp"
 										name="left_skin_preview_pc" id="left_skin_preview_pc"
 										scrolling="auto"> </iframe>
 								</div>
@@ -228,10 +260,8 @@
 				<!-- style="width: 80%; margin-left: 10%; padding-left: 2%;" -->
 
 				<li><a href="#tabs-1"> <span> <i
-							class="fa fa-calendar-check-o"></i>
-						<!-- style="font-size: 36px; margin-left: 20%;" -->
-					</span><br>
-					<font size="1">스킨선택</font>
+							class="fa fa-calendar-check-o"></i> <!-- style="font-size: 36px; margin-left: 20%;" -->
+					</span><br> <font size="1">스킨선택</font>
 				</a></li>
 
 				<li><a href="#tabs-2"> <span> <i class="fa fa-list"></i>
@@ -253,16 +283,18 @@
 				<input type="hidden" name="templateType" value="" id="templateType">
 				<table>
 					<tr align="center">
-						<td><img src="./preview_Fall In Love/img/Fall In Love.jpg"
+						<td><img
+							src="${initParam.root}weddingCard/preview_Fall In Love/img/Fall In Love.jpg"
 							class="img-rounded" style="height: 70px;"> <input
 							type="radio" name="template" id="template" value="Fall In Love">
 						</td>
 						<td><img
-							src="./preview_Innocent Bride/img/Innocent Bride.jpg"
+							src="${initParam.root}weddingCard/preview_Innocent Bride/img/Innocent Bride.jpg"
 							class="img-rounded"> <input type="radio" name="template"
 							id="template2" value="Innocent Bride"></td>
 
-						<td><img src="./preview_Garden Wedding/img/ze.PNG"
+						<td><img
+							src="${initParam.root}weddingCard/preview_Garden Wedding/img/ze.PNG"
 							class="img-rounded"> <input type="radio" name="template"
 							id="template3" value="Garden Wedding"></td>
 
@@ -324,7 +356,7 @@
 						<td>메인사진:</td>
 						<td><input type="file" name="imgFile" id="imgFile"
 							style="font-size: 10px; width: 150px; padding-left: 5px;">
-						<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
+							<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
 						<td><input type="submit" value="업로드 " id="sendImage">
 						</td>
 					</tr>
@@ -333,7 +365,7 @@
 						<td>신부사진:</td>
 						<td><input type="file" name="imgBride" id="imgBride"
 							style="font-size: 10px; width: 150px; padding-left: 5px;">
-						<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
+							<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
 						<td><input type="submit" value="업로드 " id="sendBride">
 						</td>
 					</tr>
@@ -341,16 +373,16 @@
 					<tr>
 						<td>신부이름:</td>
 						<td colspan="2"><input type="text" id="groomName"
-							name="groomName"> <!-- style="margin: 2%;" --></td>
+							name="groomName" value="${groomName}"> <!-- style="margin: 2%;" --></td>
 					</tr>
 
 
 					<tr>
 						<td>신부번호:</td>
 						<td colspan="2"><input type="text" id="groomTel"
-							name="groomTel" onkeydown='return onlyNumber(event)'
-							onkeyup='removeChar(event)' style='ime-mode: disabled;'>
-						</td>
+							name="groomTel" value="${groomTel}"
+							onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'
+							style='ime-mode: disabled;'></td>
 					</tr>
 
 					<!--  신랑 영역 -->
@@ -358,29 +390,29 @@
 						<td>신랑사진:</td>
 						<td><input type="file" name="imgGroom" id="imgGroom"
 							style="font-size: 10px; width: 150px; padding-left: 5px;">
-						<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
+							<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
 						<td><input type="submit" value="업로드 " id="sendGroom">
 						</td>
 					</tr>
 
 					<tr>
 						<td>신랑이름:</td>
-						<td><input type="text" name="brideName" id="brideName">
-						</td>
+						<td><input type="text" name="brideName" id="brideName"
+							value="${brideName}"></td>
 					</tr>
 
 					<tr>
 						<td>신랑번호:</td>
 						<td><input type="text" name="brideTel" id="brideTel"
-							onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'
-							style='ime-mode: disabled;'></td>
+							value="${brideTel}" onkeydown='return onlyNumber(event)'
+							onkeyup='removeChar(event)' style='ime-mode: disabled;'></td>
 					</tr>
 
 					<tr>
 						<td>&nbsp;&nbsp;&nbsp;url&nbsp;&nbsp;:</td>
 						<td><input type="text" name="url" id="url"
-							onkeyup="urlCheck()"><br>
-						<span id="checkResult"></span></td>
+							value="${cardVO.url}" ><br> <!-- <span id="checkResult"></span> --></td>
+
 					</tr>
 
 				</table>
@@ -461,7 +493,8 @@
 							<td colspan="2">
 								<div class="section">
 									<textarea name="cardContext" id="cardContext"
-										class="input_box_type2" rel="tooltip"
+										class="input_box_type2" value="${cardVO.cardContext}"
+										rel="tooltip"
 										title="<span class='tooltip_title'>초대글</span>
 									<br>- 초대(모시는)글을 입력 해주십시요"
 										placeholder="초대글"></textarea>
@@ -471,13 +504,14 @@
 
 						<tr>
 							<td colspan="2">예식장 : &nbsp;&nbsp; <input type="text"
-								id="hallName" name="hallName">
+								id="hallName" name="hallName" value="${cardVO.hallName}">
 							</td>
 						</tr>
 
 						<tr>
 							<td colspan="2">예식장소 : &nbsp; <input type="text"
-								id="hallLocation" name="hallLocation">
+								id="hallLocation" name="hallLocation"
+								value="${cardVO.hallLocation}">
 							</td>
 						</tr>
 
@@ -490,7 +524,7 @@
 								<div id="map" style="width: 100%; height: 200px;">
 									<script
 										src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
-									<script src="./js/map.js"></script>
+									<script src="${initParam.root}weddingCard/js/map.js"></script>
 								</div>
 							</td>
 						</tr>

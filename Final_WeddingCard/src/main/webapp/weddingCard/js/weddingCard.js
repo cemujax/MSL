@@ -11,7 +11,7 @@ function urlCheck() { //Ajax 기술이 사용됨
 	var url = document.getElementById("url").value;
 	xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = callback;
-	xhr.open("post", "${initParam.root}card.do");
+	xhr.open("post", "../card.do");
 	xhr.setRequestHeader("Content-Type",
 			"application/x-www-form-urlencoded;charset=utf-8");
 	xhr.send("command=urlCheck&&url=" + url);
@@ -108,7 +108,7 @@ function removeChar(event) {
 function logout() {
 	var f = confirm("로그아웃 하시겠습니까?");
 	if (f)
-		location.href = "${initParam.root}member.do?command=logout"; //Controller에서 기능으로 연결..
+		location.href = "../member.do?command=logout"; //Controller에서 기능으로 연결..
 }
 
 
@@ -122,7 +122,7 @@ $(document).ready(function(){
 	   ///=========== 템플릿쪽===================================
 	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
 	   $('#template').attr("checked", true);
-	   $('#GroomDiv').hide();  $('#BrideDiv').hide(); //신랑신부이미지 업로드 영역 숨김
+	   $('#GroomDiv').hide();  $('#BrideDiv').hide();
 	   var sel_template = $('#template').val();
 	   
 	   
@@ -315,7 +315,7 @@ $(document).ready(function(){
    		if($('#imgFile').val() != null && $('#imgFile').val() != ''){
    			form.encoding="multipart/form-data"; //파일전송위해 변경
    			$.ajax({
-	              url: "${initParam.root}card.do?command=uploadImage&&flag=mainImage",
+	              url: "../card.do?command=uploadImage&&flag=mainImage",
 	              data: formData,
 	              dataType: 'text',
 	              processData: false,
@@ -352,7 +352,7 @@ $(document).ready(function(){
   			form.encoding="multipart/form-data"; //파일전송위해 변경
   			
   			$.ajax({
-	              url: "${initParam.root}card.do?command=uploadImage&&flag=imgGroom",
+	              url: "../card.do?command=uploadImage&&flag=imgGroom",
 	              data: formData,
 	              dataType: 'text',
 	              processData: false,
@@ -389,7 +389,7 @@ $(document).ready(function(){
   			form.encoding="multipart/form-data"; //파일전송위해 변경
   			
   			$.ajax({
-	              url: "${initParam.root}card.do?command=uploadImage&&flag=imgBride",
+	              url: "../card.do?command=uploadImage&&flag=imgBride",
 	              data: formData,
 	              dataType: 'text',
 	              processData: false,
@@ -420,18 +420,18 @@ $(document).ready(function(){
     function set_preview(md){
 		
 		/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
-		$('#frmWeddingCard').attr('target','left_skin_preview').attr('action',"${initParam.root}weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+		$('#frmWeddingCard').attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
 	}	
   
   
   
   //모바일,PC 확대버튼 클릭
   $('#md-mobile').click(function(){
- 	 $('#frmWeddingCard').attr('target','left_skin_preview_mobile').attr('action',"${initParam.root}weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+ 	 $('#frmWeddingCard').attr('target','left_skin_preview_mobile').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
   });
   
   $('#md-pc').click(function(){
- 	 $('#frmWeddingCard').attr('target','left_skin_preview_pc').attr('action',"${initParam.root}weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+ 	 $('#frmWeddingCard').attr('target','left_skin_preview_pc').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
   });
 
   $('#createCardBtn').click(function(){
@@ -509,8 +509,9 @@ $(document).ready(function(){
       }
       
       document.frmWeddingCard.encoding = "multipart/form-data";
+      
       //창 안바뀌게 target _self로 설정
-	  $('#frmWeddingCard').attr('target','_self').attr('action','${initParam.root}card.do?command=createCard').submit();
+	  $('#frmWeddingCard').attr('target','_self').attr('action','../card.do?command=createCard').submit();
       		
      });// 초대장 생성 click   
   

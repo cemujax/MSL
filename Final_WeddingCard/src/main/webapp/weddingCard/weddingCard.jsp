@@ -98,7 +98,15 @@
 		}
 	} // pbCallback
 </script>
-<script src="${initParam.root}weddingCard/js/weddingCard.js"></script>
+<c:choose>
+	<c:when test="${cardVO == null }">
+		<script src="${initParam.root}weddingCard/js/weddingCard.js"></script>
+	</c:when>
+	<c:otherwise>
+		<script src="${initParam.root}weddingCard/js/weddingCardModify.js"></script>
+	</c:otherwise>
+</c:choose>
+
 
 <script
 	src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
@@ -341,14 +349,14 @@
 					<tr>
 						<td>신부이름:</td>
 						<td colspan="2"><input type="text" id="groomName" name="groomName"
-						 value="${cardVO.groomName}"> <!-- style="margin: 2%;" --></td>
+						 value="${groomName}"> <!-- style="margin: 2%;" --></td>
 					</tr>
 
 
 					<tr>
 						<td>신부번호:</td>
 						<td colspan="2"><input type="text" id="groomTel"
-							name="groomTel" value="${cardVO.groomTel}" onkeydown='return onlyNumber(event)'
+							name="groomTel" value="${groomTel}" onkeydown='return onlyNumber(event)'
 							onkeyup='removeChar(event)' style='ime-mode: disabled;'>
 						</td>
 					</tr>
@@ -365,22 +373,31 @@
 
 					<tr>
 						<td>신랑이름:</td>
-						<td><input type="text" name="brideName" id="brideName" value="${cardVO.brideName}">
+						<td><input type="text" name="brideName" id="brideName" value="${brideName}">
 						</td>
 					</tr>
 
 					<tr>
 						<td>신랑번호:</td>
-						<td><input type="text" name="brideTel" id="brideTel" value="${cardVO.brideTel}"
+						<td><input type="text" name="brideTel" id="brideTel" value="${brideTel}"
 							onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'
 							style='ime-mode: disabled;'></td>
 					</tr>
 
 					<tr>
 						<td>&nbsp;&nbsp;&nbsp;url&nbsp;&nbsp;:</td>
-						<td><input type="text" name="url" id="url"
+						<c:choose>
+							<c:when test="${cardVo.url == null }">
+								<td><input type="text" name="url" id="url"
 							onkeyup="urlCheck()"><br>
-						<span id="checkResult"></span></td>
+						<span id="checkResult"></span></td></c:when>
+							<c:otherwise>
+								<td><input type="text" name="url" id="url"
+								value="${cardVo.url}" readonly="readonly"><br>
+								<!-- <span id="checkResult"></span> --></td>
+							</c:otherwise>
+						</c:choose>
+						
 					</tr>
 
 				</table>
@@ -461,10 +478,10 @@
 							<td colspan="2">
 								<div class="section">
 									<textarea name="cardContext" id="cardContext"
-										class="input_box_type2" rel="tooltip"
+										class="input_box_type2" value="${cardVO.cardContext}" rel="tooltip"
 										title="<span class='tooltip_title'>초대글</span>
 									<br>- 초대(모시는)글을 입력 해주십시요"
-										placeholder="초대글" value="${cardVO.cardContext}"></textarea>
+										placeholder="초대글" ></textarea>
 								</div>
 							</td>
 						</tr>
