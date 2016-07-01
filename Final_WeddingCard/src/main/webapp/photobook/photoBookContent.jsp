@@ -19,6 +19,7 @@
 
     <script src="photobook/cufon/cufon-yui.js" type="text/javascript"></script>
     
+   <!--  <script src="../js/pbcontent.js" type="text/javascript"></script> -->
     <script type="text/javascript">
      Cufon.replace('h1,p,.b-counter');
      Cufon.replace('.book_wrapper a', {hover:true});
@@ -35,18 +36,57 @@ function delete_photoBook(index) {
 }
 </script>
 
+<!-- font style -->
+    <link rel="stylesheet" type="text/css" 
+    href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
+    <link rel="stylesheet" type="text/css" 
+    href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css">
+    
+    <style type="text/css">
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+  </style>
   </head>
-  <body>
+  <body style="margin-bottom: 3%;">
+  <ul style="font-size: 120%; height: 40px;">
+  <li><a class="active" href="${initParam.root}index.jsp">Home</a></li>
+  <li><a href="#news">메뉴얼</a></li>
+  <li><a href="#contact">청첩장</a></li>
+  <li><a href="#about">포토북</a></li>
+  <li><a href="#about">커뮤니티</a></li>
+</ul>
   <c:if test="${sessionScope.mvo.memberId == null }">
   	<script>
   		location.href ="${initParam.root}authentication/login.jsp";
   	</script>
   </c:if>
   
-    <h1 class="title">${pbvo.bookName}</h1>
+    <h1 class="title" style="margin-left: 20%;font-family: 'Nanum Pen Script', serif;font-size: 400%;height: 45px;">
+    ${pbvo.bookName}</h1>
     <%-- 	<h2>${vs} </h2>
     </h2>${i}</h2> --%>
-    <div class="book_wrapper">
+    <div class="book_wrapper" style="height: 90%;">
       <a id="next_page_button"></a>
       <a id="prev_page_button"></a>
       <div id="loading" class="loading">Loading pages...</div>
@@ -54,28 +94,32 @@ function delete_photoBook(index) {
 	<div class="b-load">
 	  <c:forEach items="${pbImgList}" var="i">
 	    <div>
-	      <img alt="" src="img/photobook/${pbvo.memberVO.memberId}/${pbvo.bookNo}/${i[0]}">
-	      <h1>Slider Gallery</h1>
+	      <img alt="" src="${initParam.root}img/photobook/${pbvo.memberVO.memberId}/${pbvo.bookNo}/${i[0]}">
+	      <h1 style="font-family: 'Nanum Pen Script', serif; font-size: ">추억을 되살리는 멘트</h1>
 	      <!-- <p style="font-family: serif;"> -->
-	      <p>${i[1] }</p>
-	      <a href="photoBook.do?command=modifyView&&bookNo=${pbvo.bookNo }" class="article">Modify Photo</a>
-	      <a onclick="delete_photoBook(${pbvo.bookNo})" style="cursor: pointer" class="demo">Delete Photo</a>
+	      <p style="font-size: 180%; font-family: 'Nanum Pen Script', serif;">${i[1]}</p>
+	      <a href="photoBook.do?command=modifyView&&bookNo=${pbvo.bookNo }" class="article"
+	      style="margin-left: 0px; padding-left: 8%; font-size: 180%; font-family: 'Nanum Pen Script', serif;">
+	      포토북 수정</a>
+	      <a onclick="delete_photoBook(${pbvo.bookNo})" 
+	      style="margin-left: 0px; padding-left: 8%; font-size: 180%; font-family: 'Nanum Pen Script', serif;" class="demo">
+	      포토북 삭제</a>
 	    </div>
 	  </c:forEach>
 	  <a href="index.jsp">
 	</div>
       </div>
     </div>
-    <div>
+    <!-- <div>
       <span class="reference">
 	<a href=" http://tympanus.net/codrops/2010/12/14/moleskine-notebook/">back to the Codrops tutorial</a>
 	<a href="http://builtbywill.com/code/booklet/" target="_blank">booklet jQuery Plugin</a>
       </span>
-    </div>
+    </div> -->
 
     <!-- The JavaScript -->
 
-    <script src="./js/pbcontent.js"></script>
+    <script src="${initParam.root}js/pbcontent.js"></script>
 
 
 

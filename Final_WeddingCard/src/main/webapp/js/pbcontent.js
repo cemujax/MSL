@@ -109,5 +109,5 @@ $(function() {
 			}
 		}).attr('src', source);
 	});
-
+	window.scrollTo(0, 500);
 });
