@@ -117,16 +117,31 @@
 	
 	$(document).ready(function() {
 		
-		alert($('input[type=radio]').val()+"\n"+'${cardVO.template}');
-		
-		if($('input[type=radio]').val() == '${cardVO.template}' ){
-			$(this).attr("checked", true);
+		init_tempate = "";
+		function init_preview() {
+			/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
+			$('#frmWeddingCard').attr('target', 'left_skin_preview')
+			.attr('action',"weddingCard/preview_" + init_tempate
+									+ "/preview.jsp").submit();
 		}
 		
-		$('#frmWeddingCard').attr('target', 'left_skin_preview').attr(
-				'action',
-				"weddingCard/preview_" + '${cardVO.template}'
-						+ "/preview.jsp").submit();
+		// 생성시 선택한 스킨으로 체크되고 preview에 뜨게
+		if('${cardVO.template}' == $('#template').val()){
+			$('#template').attr("checked", true);
+			init_tempate = $('#template').val();
+			init_preview();
+			
+		}else if('${cardVO.template}' == $('#template2').val()){
+			$('#template2').attr("checked", true);
+			init_tempate = $('#template2').val();
+			$('#GroomDiv').show(); $('#BrideDiv').show();
+			init_preview();
+		}else if('${cardVO.template}' == $('#template3').val()){
+			$('#template3').attr("checked", true);
+			init_tempate = $('#template3').val();
+			$('#GroomDiv').show(); $('#BrideDiv').show();
+			init_preview();
+		}
 		
 	});
 </script>
@@ -411,7 +426,7 @@
 					<tr>
 						<td>&nbsp;&nbsp;&nbsp;url&nbsp;&nbsp;:</td>
 						<td><input type="text" name="url" id="url"
-							value="${cardVO.url}" ><br> <!-- <span id="checkResult"></span> --></td>
+							value="${cardVO.url}" readonly="readonly"><br> <!-- <span id="checkResult"></span> --></td>
 
 					</tr>
 
@@ -536,7 +551,7 @@
 
 			<div>
 				<input style="background: #f96; width: 100%; height: 50px;"
-					type="button" value="초대장 생성" id="createCardBtn">
+					type="button" value="초대장 수정" id="createCardBtn">
 			</div>
 
 		</div>

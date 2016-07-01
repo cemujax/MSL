@@ -114,8 +114,8 @@ function logout() {
 
 // ////////////////////////////////JQuery ///////////////////////////////
 
-$(document).ready(
-				function() {
+$(document).ready(function() {
+				
 
 					$("#tabs").tabs();
 
@@ -617,7 +617,7 @@ $(document).ready(
 										// 창 안바뀌게 target _self로 설정
 										$('#frmWeddingCard').attr('target',
 												'_self').attr('action',
-												'card.do?command=createCard')
+												'card.do?command=createCard&&flag=modify')
 												.submit();
 
 									});// 초대장 생성 click

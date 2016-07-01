@@ -68,7 +68,7 @@
       hall_location=#{hallLocation}, hall_tel=#{hallTel},
       groom_info=#{groomInfo}, bride_info=#{brideInfo},
       book_no=#{photobookVO.bookNo},
-      url = #{url},main_image=#{mainImage}, card_context=#{cardContext}
+      main_image=#{mainImage}, card_context=#{cardContext}
       WHERE card_no = #{cardNo}
    </update>
 

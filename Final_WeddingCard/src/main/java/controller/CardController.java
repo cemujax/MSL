@@ -61,6 +61,7 @@ public class CardController extends MultiActionController {
 		MemberVO rvo = (MemberVO) request.getSession().getAttribute("mvo");
 		cvo.setMemberVO(rvo);
 
+		
 		// 예식날짜
 		if (ampm.equals("PM")) {// 오후 시 처리
 			int hour_int = Integer.parseInt(hour);
@@ -96,54 +97,63 @@ public class CardController extends MultiActionController {
 		MultipartFile imgFile = cvo.getImgFile();
 		MultipartFile imgGroom = cvo.getImgGroom();
 		MultipartFile imgBride = cvo.getImgBride();
-
-		File tempMainImage = new File(path + "temp_" + rvo.getMemberId() + "//"
-				+ imgFile.getOriginalFilename());
-		File tempGroomImage = new File(path + "temp_" + rvo.getMemberId()
-				+ "//" + imgGroom.getOriginalFilename());
-		File tempBrideImage = new File(path + "temp_" + rvo.getMemberId()
-				+ "//" + imgBride.getOriginalFilename());
+		
+		File tempDir = new File(path + "temp_" + rvo.getMemberId() + "//temp.txt");
+		
 		String imgPath = "";
 		File urlMainImage = new File(path + cvo.getUrl() + "//"
 				+ imgFile.getOriginalFilename());
 
 		if (!imgFile.isEmpty()) {
+			File tempMainImage = new File(path + "temp_" + rvo.getMemberId() + "//"
+					+ imgFile.getOriginalFilename());
 			tempMainImage.renameTo(urlMainImage);
 			imgPath += "main`" + imgFile.getOriginalFilename() + "`";
 		}
 
 		// 신랑 신부 이미지 업로드
 		if (!imgGroom.isEmpty()) {
+			File tempGroomImage = new File(path + "temp_" + rvo.getMemberId()
+					+ "//" + imgGroom.getOriginalFilename());
 			imgPath += "groom`" + imgGroom.getOriginalFilename() + "`";
 			tempGroomImage.renameTo(new File(path + cvo.getUrl() + "//"
 					+ imgGroom.getOriginalFilename()));
 		}
 		if (!imgBride.isEmpty()) {
+			File tempBrideImage = new File(path + "temp_" + rvo.getMemberId()
+					+ "//" + imgBride.getOriginalFilename());
 			imgPath += "bride`" + imgBride.getOriginalFilename() + "`";
 			tempBrideImage.renameTo(new File(path + cvo.getUrl() + "//"
 					+ imgBride.getOriginalFilename()));
 		}
 
 		// 업로드 한번이라도 한경우 temp 경로 삭제
-		if (tempMainImage.getParentFile().isDirectory()) {
-			File[] tempFiles = tempMainImage.getParentFile().listFiles();
+		if (tempDir.getParentFile().isDirectory()) {
+			File[] tempFiles = tempDir.getParentFile().listFiles();
 
 			if (tempFiles.length > 0) {
 				System.out.println(tempFiles.length);
 				for (File delFile : tempFiles)
 					delFile.delete();
 			}
-			tempMainImage.getParentFile().delete();
+			tempDir.getParentFile().delete();
 		}
-
-		// =============================== QR Code
+		cvo.setMainImage(imgPath);
+		
+			
 		String file_path = path + "/" + cvo.getUrl() + "/";
 		String file_name = "qrCode.png";
-		QRUtil.makeQR(file_url.toString(), 50, 50, file_path, file_name);
-
-		cvo.setMainImage(imgPath);
-		cardService.createCard(cvo);
-		cvo = cardService.getCard(url); // cardNo 알기 위해
+		if("modify".equals(request.getParameter("flag"))){//청첩장 수정
+			cardService.modifyCard(cvo);
+		}else{
+			// =============================== QR Code
+			
+			QRUtil.makeQR(file_url.toString(), 50, 50, file_path, file_name);
+			cardService.createCard(cvo);
+			cvo = cardService.getCard(url); // cardNo 알기 위해
+		}
+		System.out.println("cardVo==="+cvo);	
+		
 
 		String format = "<%@ page language='java' contentType='text/html; charset=UTF-8'\n"
 				+ "pageEncoding='UTF-8' isELIgnored='false'%><%@ taglib prefix='c'\n uri='http://java.sun.com/jsp/jstl/core'%>\n"
