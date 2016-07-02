@@ -133,7 +133,6 @@
 	<!-- //메뉴바 -->
 
 	<form name="frmWeddingCard" id="frmWeddingCard" method="post">
-
 		<div class="ui-grid-a contents">
 			<div class="ui-block-a">
 				<div class="cont_look">
@@ -207,21 +206,22 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="md-overlay"></div>
-		<!-- the overlay element -->
-		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+		
+		<div class="md-overlay">
+		</div>
+		the overlay element
+		classie.js by @desandro: https://github.com/desandro/classie
 		<script src="js/classie.js"></script>
 		<script src="js/modalEffects.js"></script>
 
-		<!-- for the blur effect -->
-		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+		for the blur effect
+		by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill
 		<script>
 			// this is important for IEs
 			var polyfilter_scriptpath = '/js/';
 		</script>
-		<script src="js/cssParser.js"></script>
-		<script src="js/css-filters-polyfill.js"></script>
+		<!-- <script src="js/cssParser.js"></script>
+		<script src="js/css-filters-polyfill.js"></script> -->
 
 
 		<!-- Tab 영역 include  -->
