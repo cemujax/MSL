@@ -116,7 +116,7 @@ function logout() {
 
 $(document).ready(function(){
     
-	   $("#tabs").tabs();
+	   
 	   ///=========== 템플릿쪽===================================
 	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
 	   $('#template').attr("checked", true);
