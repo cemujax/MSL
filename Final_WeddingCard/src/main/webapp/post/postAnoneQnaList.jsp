@@ -47,7 +47,7 @@
 <body>
 
   <c:if test="${sessionScope.mvo == NULL }">
-    <c:redirect url="${initParam.root }login/loginregister.jsp" />
+    <c:redirect url="authentication/login.jsp" />
   </c:if>
 
 
