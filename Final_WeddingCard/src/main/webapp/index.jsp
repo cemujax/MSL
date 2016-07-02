@@ -187,7 +187,7 @@ html,body{height:100%;}
 <div class="banner" id="home1">
       <div class="container">
          <div class="banner-phone animated wow slideInLeft" data-wow-delay=".5s">
-            <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+0000 123 456</p>
+            <p><a href="http://skype.daesung.com" style="color: white" ><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>010 7777 8282</a></p>
          </div>
          
          <div class="banner-phone animated wow slideInRight" data-wow-delay=".5s" style="float: right;">
