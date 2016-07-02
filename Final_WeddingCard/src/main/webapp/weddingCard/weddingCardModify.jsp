@@ -429,10 +429,10 @@
 			<!-- tab2 End  -->
 
 			<!-- ###################### photobook ####################### -->
-			<input type="hidden" id="photoBookImg" name="photoBookImg" value="">
-			<input type="hidden" id="photoBookNo" name="photoBookNo" value="">
+			<input type="hidden" id="photoBookImg" name="photoBookImg" value="${pbvo.fileName}">
+			<input type="hidden" id="photoBookNo" name="photoBookNo" value="${pbvo.bookNo}">
 			<input type="hidden" id="photoBookComment" name="photoBookComment"
-				value="">
+				value="${pbvo.bookComment}">
 
 			<div id="tabs-3">
 				<jsp:include page="weddingCard_pbList.jsp" />

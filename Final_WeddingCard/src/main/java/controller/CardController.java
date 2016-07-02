@@ -15,6 +15,7 @@ import model.card.CardVO;
 import model.card.CardcommentVO;
 import model.card.QRUtil;
 import model.member.MemberVO;
+import model.photobook.PhotoBookService;
 import model.photobook.PhotoBookVO;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -32,10 +33,20 @@ import com.twilio.sdk.type.PhoneNumber;
 public class CardController extends MultiActionController {
 
 	private CardService cardService;
+	private PhotoBookService photoBookService;
+	
 	private String path;
 
 	public void setCardService(CardService cardService) {
 		this.cardService = cardService;
+	}
+
+	public PhotoBookService getPhotoBookService() {
+		return photoBookService;
+	}
+
+	public void setPhotoBookService(PhotoBookService photoBookService) {
+		this.photoBookService = photoBookService;
 	}
 
 	public void setPath(String path) {
@@ -75,12 +86,13 @@ public class CardController extends MultiActionController {
 		// 신랑 신부 정보
 		cvo.setGroomInfo(groomName + "`" + groomTel);
 		cvo.setBrideInfo(brideName + "`" + brideTel);
-		System.out.println("photoNo:::" + request.getParameter("photoBookNo"));
 		// photobook도 setter로 넣읍시다
 		String pbNo = request.getParameter("photoBookNo");
 		if (pbNo.length() != 0) {
 			PhotoBookVO pvo = new PhotoBookVO();
 			pvo.setBookNo(Integer.parseInt(request.getParameter("photoBookNo")));
+			pvo.setFileName(request.getParameter("photoBookImg"));
+			pvo.setBookComment(request.getParameter("photoBookComment"));
 			cvo.setPhotobookVO(pvo);
 		}
 
@@ -417,22 +429,27 @@ public class CardController extends MultiActionController {
 		request.setAttribute("groomName", groomInfo[0]); request.setAttribute("groomTel", groomInfo[1]);
 		
 		//청첩장 만들때 업로드한 이미지 처리
-		String[] images = cardVO.getMainImage().split("`");
-		for(String s : images){
-			System.out.println(s);
-		}
-		if(images.length == 2){// 상단이미지만 업로드한 경우
-			request.setAttribute("imgSrc", images[1]);
-		}else if(images.length == 4){// 신랑신부만 업로드한 경우
-			request.setAttribute("imgGroomSrc", images[3]);
-			request.setAttribute("imgBrideSrc", images[5]);
-		}if(images.length == 6){// 상단이미지, 신랑신부 다 업로드한 경우
-			request.setAttribute("imgSrc", images[1]);
-			request.setAttribute("imgGroomSrc", images[3]);
-			request.setAttribute("imgBrideSrc", images[5]);
+		if(cardVO.getMainImage() != null){
+			String[] images = cardVO.getMainImage().split("`");
+			for(String s : images){
+				System.out.println(s);
+			}
+			if(images.length == 2){// 상단이미지만 업로드한 경우
+				request.setAttribute("imgSrc", images[1]);
+			}else if(images.length == 4){// 신랑신부만 업로드한 경우
+				request.setAttribute("imgGroomSrc", images[3]);
+				request.setAttribute("imgBrideSrc", images[5]);
+			}if(images.length == 6){// 상단이미지, 신랑신부 다 업로드한 경우
+				request.setAttribute("imgSrc", images[1]);
+				request.setAttribute("imgGroomSrc", images[3]);
+				request.setAttribute("imgBrideSrc", images[5]);
+			}
 		}
 		
-		
+		// 포토북쪽 처리
+		PhotoBookVO rpbvo = cardVO.getPhotobookVO();
+		PhotoBookVO pbvo = photoBookService.getPhotoBookByNo(String.valueOf(rpbvo.getBookNo()) );
+		request.setAttribute("pbvo", pbvo);
 		return new ModelAndView("weddingCard/weddingCardModify","cardVO",cardVO);
 	}
 
