@@ -125,7 +125,7 @@ h1 {
   text-align: center;
   color: #ffffff;
   font-weight: 300;
-  margin: 0 0 40px;
+  margin: 0 0 20px;
 }
 
 label {
