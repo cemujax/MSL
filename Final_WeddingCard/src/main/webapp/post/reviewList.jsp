@@ -15,8 +15,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+<!-- 
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/less/navbar.less" rel="stylesheet" type="text/css" media="all" />
+ -->
 <link href="css/style_index.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8">
 
@@ -68,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- 	Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 						<nav class="link-effect-14" id="link-effect-14">
-							<ul class="nav navbar-nav">
+							<ul class="nav navbar-nav" style="padding-top: 10px;">
 								<li class="active"><a href="index.jsp"><span>Home</span></a></li>
 							<!-- 	<li><a href="#about" class="scroll"><span>커뮤니티</span></a></li> -->
 								  <li class="dropdown">
@@ -109,7 +110,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- <div class="applyImage"> -->
 
 <div class="container" style="background-image: url('http://www.asrgo.com/files/attach/images/8131/356/059/w-19.jpg'); width: 100%; height: 300px; ">
-<h2 class="margin-top-0 wow fadeIn" align="center" style="margin-top: 150px;">칭찬해요</h2>
+<h1 class="margin-top-0 wow fadeIn" align="center" style="margin-top: 70px; font-size: 400%">
+<b>칭찬해요</b></h1>
+<h3 align="center" style="padding-top: 50px;">저희는 당신의 칭찬을 먹고 자랍니다 많이 칭찬해주세요</h3>
 </div>
 <br><br>
  <!-- <section id="last" style="padding-left: 100px; padding-right: 100px;"> -->
@@ -120,7 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <hr class="primary">
                     <p> 사용 후기를 남겨주세요</p>
-                    <p> 등록된 내용은 수정/삭제가 불가능합니다.</p>
+                    <p style=""> 등록된 내용은 수정/삭제가 불가능합니다</p>
                 </div>
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <form class="contact-form row" action="./reviewComment.do" method="post">
