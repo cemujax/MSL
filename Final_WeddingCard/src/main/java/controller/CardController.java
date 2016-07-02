@@ -104,6 +104,8 @@ public class CardController extends MultiActionController {
 		File urlMainImage = new File(path + cvo.getUrl() + "//"
 				+ imgFile.getOriginalFilename());
 
+		
+		// temp 폴더에서 유저가 지정한 url이름으로 폴더를 만들고 이미지 이동
 		if (!imgFile.isEmpty()) {
 			File tempMainImage = new File(path + "temp_" + rvo.getMemberId() + "//"
 					+ imgFile.getOriginalFilename());
@@ -215,6 +217,13 @@ public class CardController extends MultiActionController {
 			// jsp 닫음
 			bw.write("</jsp:include>\n</body>\n</html>\n");
 
+			
+			
+			
+						
+			
+			
+			
 			// =====================방명록=======================
 
 			bw_guestBook.write(format);

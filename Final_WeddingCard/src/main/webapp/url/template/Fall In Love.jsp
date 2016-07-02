@@ -6,7 +6,7 @@
 <html>
 <head>
 <style>
-	.header-top {
+.header-top {
     padding: 0.5em 0;
 	}
 	.header {
@@ -28,7 +28,7 @@
 	
 	@media ( max-width : 320px ){
 	.header_select {
-     background: url(${initParam.root}url/temp_${param.url}/${param.imgSrc})no-repeat 0px 0px; 
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px; 
 	background-size:cover;
 		}
 	}
@@ -178,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- //방명록 -->
    
    
-   <!-- ############################ photoBook ######################## -->
+   <!-- ############################ photoBook ####################### -->
    <!--header-->
    <div class="content">
          <c:if test="${param.photoBookNo != null && param.photoBookNo != ''}">
@@ -322,19 +322,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     // // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
     Kakao.Link.createTalkLinkButton({
       container: '#kakao-link-btn',
-      label: '카카오링크 샘플에 오신 것을 환영합니다.',
+      label: '${param.groomName}♥${param.brideName}',
       image: {
-        src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
-        width: '60',
-        height: '60'
+        src: '${initParam.root}url/${param.url}/${param.imgSrc}',
+        width: '320',
+        height: '190'
       },
       webButton: {
-        text: '카카오 디벨로퍼스',
-        url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+        text: 'D-${param.dDay} ${param.cardDate} ${param.hour}:${param.min} ',
+       /*  url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다. */
+       url: 'http://mysweetlove.org/url/${param.url}.jsp'
       }
     });
   //]]>
 </script>
+
+<!-- Facebook share -->
+<a href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp"><img src=${initParam.root}img/facebook-share.png></a>
             </div>
          </div>
       </div>
