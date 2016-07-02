@@ -91,7 +91,7 @@ function writeComment() {
 	
 	@media ( max-width : 320px ){
 	.banner_select {
-     background: url(${initParam.root}url/temp_${param.url}/${param.imgSrc})no-repeat -170px 0px; 
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat -170px 0px; 
 	background-size:cover;
 		}
 	}

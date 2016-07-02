@@ -24,7 +24,6 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import util.AccessId;
 
-import com.sun.javafx.iio.ImageStorage;
 import com.twilio.sdk.Twilio;
 import com.twilio.sdk.creator.api.v2010.account.MessageCreator;
 import com.twilio.sdk.resource.api.v2010.account.Message;
@@ -116,13 +115,15 @@ public class CardController extends MultiActionController {
 		File urlMainImage = new File(path + cvo.getUrl() + "//"
 				+ imgFile.getOriginalFilename());
 
-		
+		//이미지 이름들 변수
+		String mainImgName =""; String groomImgName=""; String brideImgName="";
 		// temp 폴더에서 유저가 지정한 url이름으로 폴더를 만들고 이미지 이동
 		if (!imgFile.isEmpty()) {
 			File tempMainImage = new File(path + "temp_" + rvo.getMemberId() + "//"
 					+ imgFile.getOriginalFilename());
 			tempMainImage.renameTo(urlMainImage);
 			imgPath += "main`" + imgFile.getOriginalFilename() + "`";
+			mainImgName = imgFile.getOriginalFilename();
 		}
 
 		// 신랑 신부 이미지 업로드
@@ -132,6 +133,7 @@ public class CardController extends MultiActionController {
 			imgPath += "groom`" + imgGroom.getOriginalFilename() + "`";
 			tempGroomImage.renameTo(new File(path + cvo.getUrl() + "//"
 					+ imgGroom.getOriginalFilename()));
+			groomImgName = imgGroom.getOriginalFilename();
 		}
 		if (!imgBride.isEmpty()) {
 			File tempBrideImage = new File(path + "temp_" + rvo.getMemberId()
@@ -139,6 +141,7 @@ public class CardController extends MultiActionController {
 			imgPath += "bride`" + imgBride.getOriginalFilename() + "`";
 			tempBrideImage.renameTo(new File(path + cvo.getUrl() + "//"
 					+ imgBride.getOriginalFilename()));
+			brideImgName = imgBride.getOriginalFilename();
 		}
 
 		// 업로드 한번이라도 한경우 temp 경로 삭제
@@ -160,7 +163,6 @@ public class CardController extends MultiActionController {
 			
 		String file_path = path + "/" + cvo.getUrl() + "/";
 		String file_name = "qrCode.png";
-		
 		String flag = request.getParameter("flag");
 		
 		if(flag != null){//청첩장 수정
@@ -220,28 +222,15 @@ public class CardController extends MultiActionController {
 					+ "' name='photoBookComment'/>\n" + "<jsp:param value='"
 					+ rvo.getMemberId() + "' name='memberId'/>\n"
 					+ "<jsp:param value='" + cvo.getUrl() + "' name='url'/>\n"
-					+ "<jsp:param value='" + cvo.getCardNo()
-					+ "' name='cardNo'/>\n");
-			// 상단 이미지 있는
-			if (!imgFile.isEmpty())
-				bw.write("<jsp:param value='" + imgFile.getOriginalFilename()
-						+ "' name='imgSrc'/>\n");
-			if (!imgGroom.isEmpty())
-				bw.write("<jsp:param value='" + imgGroom.getOriginalFilename()
-						+ "' name='imgGroom'/>\n");
-			if (!imgBride.isEmpty())
-				bw.write("<jsp:param value='" + imgBride.getOriginalFilename()
-						+ "' name='imgBride'/>\n");
+					+ "<jsp:param value='" + cvo.getCardNo()+ "' name='cardNo'/>\n"
+					// 이미지 업로드 안한경우라도 "" 들어가게 지정해준다.
+					+ "<jsp:param value='" + mainImgName+ "' name='imgSrc'/>\n"
+					+ "<jsp:param value='" + groomImgName+ "' name='imgGroom'/>\n"
+					+ "<jsp:param value='" + brideImgName+ "' name='imgBride'/>\n"
+					);
 
 			// jsp 닫음
 			bw.write("</jsp:include>\n</body>\n</html>\n");
-
-			
-			
-			
-						
-			
-			
 			
 			// =====================방명록=======================
 
@@ -455,10 +444,13 @@ public class CardController extends MultiActionController {
 			}
 		}
 		
-		// 포토북쪽 처리
+		// 청첩장만들때 포토북 이미지들 미리보기화면에 띄우기 위해서 포토북VO set
 		PhotoBookVO rpbvo = cardVO.getPhotobookVO();
-		PhotoBookVO pbvo = photoBookService.getPhotoBookByNo(String.valueOf(rpbvo.getBookNo()) );
-		request.setAttribute("pbvo", pbvo);
+		if(rpbvo != null){
+			PhotoBookVO pbvo = photoBookService.getPhotoBookByNo(String.valueOf(rpbvo.getBookNo()) );
+			request.setAttribute("pbvo", pbvo);
+		}
+		
 		return new ModelAndView("weddingCard/weddingCardModify","cardVO",cardVO);
 	}
 

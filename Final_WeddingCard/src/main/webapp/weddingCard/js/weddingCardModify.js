@@ -114,19 +114,17 @@ function logout() {
 
 // ////////////////////////////////JQuery ///////////////////////////////
 
-$(document).ready(function() {
-				
+$(document)
+		.ready(
+				function() {
 
 					$("#tabs").tabs();
 
 					// /=========== 템플릿쪽===================================
-					// 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
-					//$('#template').attr("checked", true);
-					$('#GroomDiv').hide();
-					$('#BrideDiv').hide();
-					
-					var sel_template = $('input:radio[name=template]:checked').val();
-						
+
+					var sel_template = $('input:radio[name=template]:checked')
+							.val();
+
 					$('#template')
 							.click(
 									function() {
@@ -416,9 +414,8 @@ $(document).ready(function() {
 															// 다시잡아줘야된다.
 															document.frmWeddingCard.encoding = "application/x-www-form-urlencoded";
 
-															// var src =
-															// $('#imgGroom').val().split('\\')[2];
-															// $('input[name=imgSrc]').val(src);
+															 var src = $('#imgGroom').val().split('\\')[2];
+															 $('input[name=imgGroomSrc]').val(src);// 히든값에 넣음
 															setTimeout(
 																	function() {
 																		alert('업로드 성공 디폴트로 변경 enctype: '
@@ -464,9 +461,8 @@ $(document).ready(function() {
 															// 다시잡아줘야된다.
 															document.frmWeddingCard.encoding = "application/x-www-form-urlencoded";
 
-															// var src =
-															// $('#imgGroom').val().split('\\')[2];
-															// $('input[name=imgSrc]').val(src);
+															 var src =$('#imgBride').val().split('\\')[2];
+															 $('input[name=imgBrideSrc]').val(src);
 															setTimeout(
 																	function() {
 																		alert('업로드 성공 디폴트로 변경 enctype: '
@@ -492,7 +488,8 @@ $(document).ready(function() {
 								.attr('target', 'left_skin_preview').attr(
 										'action',
 										"weddingCard/preview_" + sel_template
-												+ "/preview_modify.jsp").submit();
+												+ "/preview_modify.jsp")
+								.submit();
 					}
 
 					// 모바일,PC 확대버튼 클릭
@@ -502,7 +499,8 @@ $(document).ready(function() {
 										'left_skin_preview_mobile').attr(
 										'action',
 										"weddingCard/preview_" + sel_template
-												+ "/preview_modify.jsp").submit();
+												+ "/preview_modify.jsp")
+										.submit();
 							});
 
 					$('#md-pc').click(
@@ -511,10 +509,11 @@ $(document).ready(function() {
 										'left_skin_preview_pc').attr(
 										'action',
 										"weddingCard/preview_" + sel_template
-												+ "/preview_modify.jsp").submit();
+												+ "/preview_modify.jsp")
+										.submit();
 							});
 
-					$('#createCardBtn')
+					$('#modifyCardBtn')
 							.click(
 									function() {
 
@@ -550,40 +549,22 @@ $(document).ready(function() {
 											$('#brideTel').focus();
 											return false;
 										}
-
-										// 신랑신부 업로드 가능 템플릿 선택한경우
-										if ($('input[name=template]:checked')
-												.val() == "Garden Wedding"
-												|| $(
-														'input[name=template]:checked')
-														.val() == "Innocent Bride") {
-											if ($('#imgBride').val() == "") {
-												$('#tabs').tabs({
-													active : 1,
-												});
-												alert("신부 이미지 업로드 해주세요!");
-												return false;
-											}
-											if ($('#imgGroom').val() == "") {
-												$('#tabs').tabs({
-													active : 1,
-												});
-												alert("신랑 이미지 업로드 해주세요!");
-												return false;
-											}
-										}
-
-										if ($('#url').val() == "") {
-											$('#tabs').tabs({
-												active : 1,
-											});
-											$('#url').focus();
-											alert("초대장 url 입력하세요!!!");
-											return false;
-										}
+										/*
+										 * // 신랑신부 업로드 가능 템플릿 선택한경우 if
+										 * ($('input[name=template]:checked')
+										 * .val() == "Garden Wedding" || $(
+										 * 'input[name=template]:checked')
+										 * .val() == "Innocent Bride") { if
+										 * ($('#imgBride').val() == "") {
+										 * $('#tabs').tabs({ active : 1, });
+										 * alert("신부 이미지 업로드 해주세요!"); return
+										 * false; } if ($('#imgGroom').val() ==
+										 * "") { $('#tabs').tabs({ active : 1,
+										 * }); alert("신랑 이미지 업로드 해주세요!"); return
+										 * false; } }
+										 */
 
 										// ==========4번째 탭(예식장)
-
 										if ($('#datepicker').val() == "") {
 											$('#tabs').tabs({
 												active : 3,
@@ -616,9 +597,10 @@ $(document).ready(function() {
 										document.frmWeddingCard.encoding = "multipart/form-data";
 
 										// 창 안바뀌게 target _self로 설정
-										$('#frmWeddingCard').attr('target',
-												'_self').attr('action',
-												'card.do?command=createCard&&flag=modify')
+										$('#frmWeddingCard')
+												.attr('target', '_self')
+												.attr('action',
+														'card.do?command=createCard&&flag=modify')
 												.submit();
 
 									});// 초대장 생성 click

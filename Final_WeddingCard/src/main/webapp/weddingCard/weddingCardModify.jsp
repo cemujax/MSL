@@ -131,8 +131,14 @@
 		init_tempate = $('input:radio[name=template]:checked').val();
 		
 		if(templateName == $('#template2').val() || templateName == $('#template3').val()){
-			$('#GroomDiv').show(); $('#BrideDiv').show();
+			$('#GroomDiv').show(); 
+			$('#BrideDiv').show();
+		}else{
+			$('#GroomDiv').hide();
+			$('#BrideDiv').hide();
 		}
+			
+		
 		init_preview();
 	});
 </script>
@@ -545,7 +551,7 @@
 
 			<div>
 				<input style="background: #f96; width: 100%; height: 50px;"
-					type="button" value="초대장 수정" id="createCardBtn">
+					type="button" value="초대장 수정" id="modifyCardBtn">
 			</div>
 
 		</div>

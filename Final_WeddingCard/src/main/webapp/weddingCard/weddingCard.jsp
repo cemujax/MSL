@@ -98,7 +98,7 @@
 		}
 	} // pbCallback
 	
-	/*  
+	/*   
 	$(document).ready(function() {
 		
 		function init_preview() {
@@ -107,9 +107,10 @@
 			.attr('action',"weddingCard/preview_" + $('#template').val()
 									+ "/preview.jsp").submit();
 		}
+			
 		init_preview();
-	});
-	*/ 
+	});//ready */
+	
 </script>
 <script src="${initParam.root}weddingCard/js/weddingCard.js"></script>
 

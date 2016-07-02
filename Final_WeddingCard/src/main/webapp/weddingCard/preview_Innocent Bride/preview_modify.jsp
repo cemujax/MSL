@@ -47,13 +47,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     padding: 0.5em 0;
 	}
 	.banner_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px; 
 	 background-size:cover;
 	}
 	
 	@media ( max-width : 320px ){
 		.banner_select {
-    		 background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
+    		 background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px; 
 			 background-size:cover;
 			 min-height: 170px;
 		}
@@ -124,28 +124,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="couple">
 				 <div class="bride"><!-- 신부 신랑 -->
 				 	<c:choose>
-				 		<c:when test="${param.imgBride == ''  }">
+				 		<c:when test="${param.imgBrideSrc == ''  }">
 				 			<img src="img/bride.jpg" class="img-responsive" alt="">
 				 		</c:when>
 				 		<c:otherwise>
-				 			<img src="${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgBride}" class="img-responsive" alt="">
+				 			<img src="${initParam.root}url/${param.url}/${param.imgBrideSrc}" class="img-responsive" alt="">
 				 		</c:otherwise>
 				 	</c:choose>
-				 	<h5>${param.groomName}</h5>
-				 	<p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.groomTel}</i></p>
+				 	<h5>${param.brideName}</h5>
+				 	<p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.brideTel}</i></p>
 				 </div>
 				 
 				 <div class="groom">
 				 	<c:choose>
-				 		<c:when test="${param.imgGroom == '' }">
+				 		<c:when test="${param.imgGroomSrc == '' }">
 				 			<img src="img/groom.jpg" class="img-responsive" alt="">
 				 		</c:when>
 				 		<c:otherwise>
-				 			<img src="${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgGroom}" class="img-responsive" alt="">
+				 			<img src="${initParam.root}url/${param.url}/${param.imgGroomSrc}" class="img-responsive" alt="">
 				 		</c:otherwise>
 				 	</c:choose>
-				  <h5>${param.brideName}</h5>
-				  <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.brideTel}</i></p>
+				  <h5>${param.groomName}</h5>
+				  <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.groomTel}</i></p>
 				 </div>
 				 </div>
 			 </div>

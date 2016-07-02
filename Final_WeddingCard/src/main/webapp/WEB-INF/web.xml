@@ -6,10 +6,10 @@
 	<context-param>
 		<param-name>root</param-name>
  		<!-- for windows -->
-		<!-- <param-value>/Final_WeddingCard/</param-value> --> 
+		<param-value>/Final_WeddingCard/</param-value> 
 
 		<!-- for linux -->
-		<param-value>/</param-value>
+		<!-- <param-value>/</param-value> -->
 	</context-param>
 
 	<filter>

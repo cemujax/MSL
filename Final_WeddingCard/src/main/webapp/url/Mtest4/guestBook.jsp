@@ -8,7 +8,7 @@ pageEncoding='UTF-8' isELIgnored='false'%><%@ taglib prefix='c'
 <title>Insert title here</title></head>
 <body>
 <jsp:include page='../template/guestBookSample.jsp' flush='true'>
-<jsp:param value='1257' name='cardNo'/>
+<jsp:param value='0' name='cardNo'/>
 <jsp:param value='1@1' name='memberId'/>
 </jsp:include>
 </body>

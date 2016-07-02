@@ -117,14 +117,12 @@ function logout() {
 $(document).ready(function(){
     
 	   $("#tabs").tabs();
-	   
-	   
 	   ///=========== 템플릿쪽===================================
 	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
 	   $('#template').attr("checked", true);
 	   $('#GroomDiv').hide();  $('#BrideDiv').hide();
-	   var sel_template = $('#template').val();
-	   
+	   var sel_template = $('input:radio[name=template]:checked').val();
+	   set_preview();
 	   
 	   $('#template').click(function(){
 		   sel_template = ($('input[name=template]:checked').val());
@@ -139,7 +137,7 @@ $(document).ready(function(){
 	  	});
 	   
 	   $('#template3').click(function(){
-			   sel_template = ($('input[name=template]:checked').val());
+		   sel_template = ($('input[name=template]:checked').val());
 			   $('#GroomDiv').show();  $('#BrideDiv').show();
 		  		set_preview();
 		  	});
