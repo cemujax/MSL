@@ -28,7 +28,7 @@
 	
 	@media ( max-width : 320px ){
 	.header_select {
-     background: url(${initParam.root}url/temp_${param.url}/${param.imgSrc})no-repeat 0px 0px; 
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px; 
 	background-size:cover;
 		}
 	}
@@ -325,8 +325,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       label: '카카오링크 샘플에 오신 것을 환영합니다.',
       image: {
         src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
-        width: '60',
-        height: '60'
+        width: '80',
+        height: '80'
       },
       webButton: {
         text: '카카오 디벨로퍼스',

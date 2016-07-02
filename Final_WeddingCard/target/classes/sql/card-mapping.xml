@@ -69,7 +69,7 @@
       groom_info=#{groomInfo}, bride_info=#{brideInfo},
       book_no=#{photobookVO.bookNo},
       main_image=#{mainImage}, card_context=#{cardContext}
-      WHERE card_no = #{cardNo}
+      WHERE url = #{url}
    </update>
 
    <delete id="deleteCard" parameterType="int">

@@ -124,8 +124,9 @@ $(document).ready(function() {
 					//$('#template').attr("checked", true);
 					$('#GroomDiv').hide();
 					$('#BrideDiv').hide();
-					var sel_template = "";
-
+					
+					var sel_template = $('input:radio[name=template]:checked').val();
+						
 					$('#template')
 							.click(
 									function() {
@@ -349,7 +350,7 @@ $(document).ready(function() {
 											// 변경
 											$
 													.ajax({
-														url : "card.do?command=uploadImage&&flag=mainImage",
+														url : "card.do?command=uploadImageByModifyCard&&flag=mainImage",
 														data : formData,
 														dataType : 'text',
 														processData : false,
@@ -402,7 +403,7 @@ $(document).ready(function() {
 
 											$
 													.ajax({
-														url : "card.do?command=uploadImage&&flag=imgGroom",
+														url : "card.do?command=uploadImageByModifyCard&&flag=imgGroom",
 														data : formData,
 														dataType : 'text',
 														processData : false,
@@ -450,7 +451,7 @@ $(document).ready(function() {
 
 											$
 													.ajax({
-														url : "card.do?command=uploadImage&&flag=imgBride",
+														url : "card.do?command=uploadImageByModifyCard&&flag=imgBride",
 														data : formData,
 														dataType : 'text',
 														processData : false,
@@ -491,7 +492,7 @@ $(document).ready(function() {
 								.attr('target', 'left_skin_preview').attr(
 										'action',
 										"weddingCard/preview_" + sel_template
-												+ "/preview.jsp").submit();
+												+ "/preview_modify.jsp").submit();
 					}
 
 					// 모바일,PC 확대버튼 클릭
@@ -501,7 +502,7 @@ $(document).ready(function() {
 										'left_skin_preview_mobile').attr(
 										'action',
 										"weddingCard/preview_" + sel_template
-												+ "/preview.jsp").submit();
+												+ "/preview_modify.jsp").submit();
 							});
 
 					$('#md-pc').click(
@@ -510,14 +511,14 @@ $(document).ready(function() {
 										'left_skin_preview_pc').attr(
 										'action',
 										"weddingCard/preview_" + sel_template
-												+ "/preview.jsp").submit();
+												+ "/preview_modify.jsp").submit();
 							});
 
 					$('#createCardBtn')
 							.click(
 									function() {
 
-										alert("createCard");
+										alert("ModifyCard");
 										var url = document.frmWeddingCard.url.value;
 
 										// ==========2번째 탭(신랑 신부)

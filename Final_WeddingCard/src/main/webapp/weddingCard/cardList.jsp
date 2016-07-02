@@ -371,7 +371,7 @@ th{
 </head>
 <body>
  <c:if test="${sessionScope.mvo == NULL }">
-	<c:redirect url="${initParam.root }login/loginregister.jsp"/>
+	<c:redirect url="${initParam.root }authentication/login.jsp"/>
 </c:if>
  
  
@@ -381,7 +381,7 @@ th{
   <div class="container-fluid">
     <div class="navbar-header" style="margin-top: 10px;font-size: 20px;">
      <!--  <a class="navbar-brand" href="#">Home</a> -->
-     <a href="${initParam.root }index.jsp" ><span style="color:#777;">Home</span></a>
+     <a href="../index.jsp" ><span style="color:#777;">Home</span></a>
     </div>
     
     	<ul class="nav navbar-nav" ><!-- style=" margin-left:73%;" -->

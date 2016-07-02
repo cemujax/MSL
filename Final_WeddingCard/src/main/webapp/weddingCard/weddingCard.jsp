@@ -97,15 +97,21 @@
 			}
 		}
 	} // pbCallback
+	
+	/*  
+	$(document).ready(function() {
+		
+		function init_preview() {
+			/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit 
+			$('#frmWeddingCard').attr('target', 'left_skin_preview')
+			.attr('action',"weddingCard/preview_" + $('#template').val()
+									+ "/preview.jsp").submit();
+		}
+		init_preview();
+	});
+	*/ 
 </script>
-<c:choose>
-	<c:when test="${cardVO == null }">
-		<script src="${initParam.root}weddingCard/js/weddingCard.js"></script>
-	</c:when>
-	<c:otherwise>
-		<script src="${initParam.root}weddingCard/js/weddingCardModify.js"></script>
-	</c:otherwise>
-</c:choose>
+<script src="${initParam.root}weddingCard/js/weddingCard.js"></script>
 
 
 <script
@@ -114,7 +120,7 @@
 </head>
 <body>
 	<c:if test="${sessionScope.mvo == NULL }">
-		<c:redirect url="../login/loginregister.jsp" />
+		<c:redirect url="../authentication/login.jsp" />
 	</c:if>
 
 	<!-- 메뉴바 -->

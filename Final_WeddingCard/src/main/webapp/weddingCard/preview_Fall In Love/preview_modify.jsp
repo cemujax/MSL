@@ -10,22 +10,30 @@
     padding: 0.5em 0;
 	}
 	.header {
-     background: url(../img/banner2.jpg)no-repeat -170px 0px; 
+     background: url(${initParam.root}img/banner2.jpg)no-repeat 0px 0px; 
 	background-size:cover;
 	}
 	
 	/* 업로드한 이미지 */
 	.header_select {
-    min-height: 400px;
+    min-height: 600px;
 	}
 	.header_select-top {
     padding: 0.5em 0;
 	}
 	.header_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat -170px 0px; 
-	background-size:cover;
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px; 
+	 background-size:cover;
 	}
-
+	
+	@media ( max-width : 320px ){
+		.header_select {
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px; 
+	background-size:cover;
+	min-height: 250px;
+		}
+		
+	}
 </style>
 <title>My Wedding a Wedding Category Flat Bootstrap Responsive  Website Template | Home :: w3layouts</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
@@ -36,67 +44,139 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="My Wedding Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<meta name="keywords" content="My Wedding " />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+<!-- 방명록 -->
+<script type="text/javascript">
+	function writeComment() {
+
+		location.href = "${initParam.root}card.do?command=linkGuestBook&&url=${param.url}";
+	}
+
+	$(document).ready(function() {
+
+		/* $.ajax({
+			type : "get",
+			url : "../card.do",
+			data : "command=getAllCardComments&&cardNo=" + '${param.cardNo}',
+			dataType : "json",
+
+			
+			success : function(jsonData) {
+
+				var commentList = jsonData.commentList;
+				
+				//$('.guestBook').innerHTML = "123123213";
+				
+				var table = "<table class='table'><tr>"
+					+"<th>내용</th><th>작성자</th><th>작성일</th></tr>";
+				 $('.guestBook').append(table);
+				 
+				 for (i = 0; i < commentList.length; i++) {
+					 $('.guestBook').append(
+						"<tr><td>"+commentList[i].content+"</td><td>"
+						+commentList[i].guest+"</td><td>"
+						+commentList[i].writeDate+"</td>"
+					 );
+				}//for
+				
+				 $('.guestBook').append("</tr></table>");
+			}//success
+			
+		});
+ */
+	});//ready
+</script>
+<!-- //방명록 -->
+
 </head>
 <body>
-
-
 
 <!--header-->
 
 	<c:choose >
-		<c:when test="${param.imgSrc != null && param.imgSrc != ''}">
-		<div class="header_select">
-     		 <div class="container">
-                    <script defer src="js/jquery.flexslider.js"></script>
-      		</div>
-   			</div>
+		<c:when test="${ param.imgSrc == ''}">
+	   		<div class="header">
+	     		 <div class="container">
+	                 <script defer src="js/jquery.flexslider.js"></script>
+	      		</div>
+	   		</div>
+	   		
 		</c:when>
 		<c:otherwise>
-			<div class="header">
-     		 <div class="container">
-                    <script defer src="js/jquery.flexslider.js"></script>
-      		</div>
+			<div class="header_select">
+	     		 <div class="container">
+	                    <script defer src="js/jquery.flexslider.js"></script>
+	      		</div>
    			</div>
+   			
 		</c:otherwise>
 	</c:choose>
 	
-   
-   
    <!--  신랑/ 신부 -->
       <div class="content" >
-         
-        <div class="panel panel-default">
-        <div class="panel-body">신랑 &nbsp;${param.groomName}&nbsp;
-           <i class="glyphicon glyphicon-earphone">${param.groomTel}</i></div>
-        <div class="panel-body">신부 &nbsp; ${param.brideName}&nbsp;
-        <i class="glyphicon glyphicon-earphone">${param.brideTel}</i></div>
-      </div>
-      
-         <div style=" text-align: center; margin-top: 5%; height:150px;">
-           초대글<br>
-     ${param.cardContext}      
-            
+      	<div class="container">
+	        <div class="panel panel-default">
+			        <div class="panel-body">
+			        	<table style="width: 150px;">
+			        		<tr>
+			        			<td>신부</td>
+			        			<td>&nbsp;<b>${param.groomName}</b></td>
+			        		</tr>
+			        		
+			        		<tr>
+			        			<td> <i class="glyphicon glyphicon-earphone"></i></td>
+			        			<td>&nbsp;${param.groomTel}</td>
+			        		</tr>
+			        		
+			        		<tr>
+			        			<td>신랑</td>
+			        			<td>&nbsp;<b>${param.brideName}</b></td>
+			        		</tr>
+			        		
+			        		<tr>
+			        			<td> <i class="glyphicon glyphicon-earphone"></i></td>
+			        			<td>&nbsp;${param.brideTel}</td>
+			        		</tr>
+			        		
+			        	</table>
+			        </div>
+	    	  </div>
+	    	  	
+      			<div class="about-head">
+                  <h2>Party Invitation</h2>
+                </div>
+               
+		         <div style=" text-align: center; margin-top: 5%; height:150px;">
+		     		<b>${param.cardContext}</b>   
+		         </div>
          </div>
-      
-         <!-- <div style="background-color:rgba(119, 119, 119, 0.25); width:50%; float:left; height: 70px;">
-            <font size="3" style="font-weight: bold; padding-left:5%; padding-top:10px;">신랑  </font>
-            <i class="glyphicon glyphicon-earphone" style="font-size:15px; margin-top:5%; padding-left:5%;">   000-000-0000</i>
-         </div> -->
-         
-      <!--    <div style="background-color:rgba(250, 144, 144, 0.32); width:50%; float:right; height: 70px;">
-            <font size="3" style="font-weight: bold; padding-left:5%;" >신부  </font>
-            <i class="glyphicon glyphicon-earphone" style="font-size:15px; margin-top:5%; padding-left:5%;">   000-000-0000</i>
-         </div> -->
-         
       </div>
       
-   
+	
+	<div class="content">
+	<input type="hidden" name="comments" value="">
+		<div class="guestBook">
+			<div class="container">
+                  <div class="about-head">
+                  <h2>GuestBook</h2>
+               </div>
+		<br>
+		<input type="button" name="writeComment" onclick="writeComment()"
+				value="축하글 쓰기">
+		<!-- 
+			수연아 요쪽에 방명록 잡아줭
+		
+		 -->		
+			</div>
+		</div>
+	</div>
    
     <!--  // 신랑/ 신부 -->
    
@@ -164,7 +244,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                      <dd id="widding_paddr" class="map_initialize">예식장 주소 : ${param.hallLocation}</dd> 
                   </dl>
                </div>
-               <div id="map" style="width: 100%; height: 350px;">
+               <div id="map">
 
 						<script type="text/javascript"
 							src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services">
@@ -246,12 +326,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div> -->
          <!--indicate-->
          </div>
+	<!--indicate-->
+         
          <!--footer-->
       <div class="footer-section">
          <div class="container">
             <div class="footer-top">
                <!-- <p> &copy; 2016 My Wedding . All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p> -->
             	<p>MySweetLove</p>
+    <a id="kakao-link-btn" href="javascript:;">
+<img style="width:40px; height: 40px;" src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
+</a>
+<script type='text/javascript'>
+  //<![CDATA[
+    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('150642152529d54760872b2abd33da63');
+    
+    // // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    Kakao.Link.createTalkLinkButton({
+      container: '#kakao-link-btn',
+      label: '카카오링크 샘플에 오신 것을 환영합니다.',
+      image: {
+        src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
+        width: '60',
+        height: '60'
+      },
+      webButton: {
+        text: '카카오 디벨로퍼스',
+        url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+      }
+    });
+  //]]>
+</script>
             </div>
          </div>
       </div>

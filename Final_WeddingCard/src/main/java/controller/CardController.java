@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import util.AccessId;
 
+import com.sun.javafx.iio.ImageStorage;
 import com.twilio.sdk.Twilio;
 import com.twilio.sdk.creator.api.v2010.account.MessageCreator;
 import com.twilio.sdk.resource.api.v2010.account.Message;
@@ -56,7 +57,7 @@ public class CardController extends MultiActionController {
 		String brideName = request.getParameter("brideName");
 		String brideTel = request.getParameter("brideTel");
 		String cardContext = request.getParameter("cardContext");
-
+		String template = request.getParameter("template");
 		// member 정보 set
 		MemberVO rvo = (MemberVO) request.getSession().getAttribute("mvo");
 		cvo.setMemberVO(rvo);
@@ -67,7 +68,6 @@ public class CardController extends MultiActionController {
 			int hour_int = Integer.parseInt(hour);
 			hour = String.valueOf(hour_int + 12);
 		}
-
 		cardDate += " " + hour;
 		cardDate += " " + min;
 		cvo.setCardDate(cardDate);
@@ -138,12 +138,19 @@ public class CardController extends MultiActionController {
 			}
 			tempDir.getParentFile().delete();
 		}
-		cvo.setMainImage(imgPath);
 		
+		// 이미지, 템플릿 set
+		cvo.setMainImage(imgPath);
+		System.out.println("선택 템플릿:::"+template);
+		cvo.setTemplate(template);
 			
 		String file_path = path + "/" + cvo.getUrl() + "/";
 		String file_name = "qrCode.png";
-		if("modify".equals(request.getParameter("flag"))){//청첩장 수정
+		
+		String flag = request.getParameter("flag");
+		
+		if(flag != null){//청첩장 수정
+			System.out.println("청첩장 수정 고고고");
 			cardService.modifyCard(cvo);
 		}else{
 			// =============================== QR Code
@@ -168,7 +175,7 @@ public class CardController extends MultiActionController {
 
 		try {
 
-			String template = request.getParameter("template");
+			
 			bw.write(format);
 			bw.write("<jsp:include page='template/" + template
 					+ ".jsp' flush='true'>\n");
@@ -273,10 +280,41 @@ public class CardController extends MultiActionController {
 			File destFile = new File(file.getPath());
 			imgBride.transferTo(destFile);
 		}
-
 		return new ModelAndView("JsonView");
 	}
+	
+	public ModelAndView uploadImageByModifyCard(HttpServletRequest request,
+			HttpServletResponse response, CardVO cvo) throws Exception {
 
+		System.out.println("uploadImageByModifyCard controll");
+		String flag = request.getParameter("flag");
+		System.out.println(cvo);
+		MemberVO mvo = (MemberVO) request.getSession().getAttribute("mvo");
+
+		if ("mainImage".equals(flag)) {
+			MultipartFile imgFile = cvo.getImgFile();
+			File file = new File(path + cvo.getUrl()+ "//"
+					+ imgFile.getOriginalFilename());
+			File destFile = new File(file.getPath());
+			imgFile.transferTo(destFile);
+		} else if ("imgGroom".equals(flag)) {
+			MultipartFile imgGroom = cvo.getImgGroom();
+			File file = new File(path + cvo.getUrl()+ "//"
+					+ imgGroom.getOriginalFilename());
+			File destFile = new File(file.getPath());
+			imgGroom.transferTo(destFile);
+		} else if ("imgBride".equals(flag)) {
+			MultipartFile imgBride = cvo.getImgBride();
+			File file = new File(path + cvo.getUrl() + "//"
+					+ imgBride.getOriginalFilename());
+			if (!file.getParentFile().exists())// 이미지 저장할 temp 디렉토리 만듬
+				file.getParentFile().mkdirs();
+			File destFile = new File(file.getPath());
+			imgBride.transferTo(destFile);
+		}
+		return new ModelAndView("JsonView");
+	}
+	
 	// ///////////////////////////////////////////////////////////////
 	public ModelAndView getAllCards(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -378,9 +416,24 @@ public class CardController extends MultiActionController {
 		String[] groomInfo = cardVO.getGroomInfo().split("`");
 		request.setAttribute("groomName", groomInfo[0]); request.setAttribute("groomTel", groomInfo[1]);
 		
+		//청첩장 만들때 업로드한 이미지 처리
+		String[] images = cardVO.getMainImage().split("`");
+		for(String s : images){
+			System.out.println(s);
+		}
+		if(images.length == 2){// 상단이미지만 업로드한 경우
+			request.setAttribute("imgSrc", images[1]);
+		}else if(images.length == 4){// 신랑신부만 업로드한 경우
+			request.setAttribute("imgGroomSrc", images[3]);
+			request.setAttribute("imgBrideSrc", images[5]);
+		}if(images.length == 6){// 상단이미지, 신랑신부 다 업로드한 경우
+			request.setAttribute("imgSrc", images[1]);
+			request.setAttribute("imgGroomSrc", images[3]);
+			request.setAttribute("imgBrideSrc", images[5]);
+		}
 		
-		request.setAttribute("cardVO", cardVO);
-		return new ModelAndView("weddingCard/weddingCardModify");
+		
+		return new ModelAndView("weddingCard/weddingCardModify","cardVO",cardVO);
 	}
 
 	public ModelAndView deleteCard(HttpServletRequest request,

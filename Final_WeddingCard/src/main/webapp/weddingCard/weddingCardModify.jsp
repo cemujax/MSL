@@ -79,7 +79,7 @@
 <!-- <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>  -->
 <script src="${initParam.root}weddingCard/js/jquery.form.js"></script>
 
-<script src="${initParam.root}weddingCard/js/weddingCardModify.js"></script>
+
 
 <!-- 우리꺼 -->
 <script type="text/javascript">
@@ -122,30 +122,21 @@
 			/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
 			$('#frmWeddingCard').attr('target', 'left_skin_preview')
 			.attr('action',"weddingCard/preview_" + init_tempate
-									+ "/preview.jsp").submit();
+									+ "/preview_modify.jsp").submit();
 		}
 		
+		var templateName = '${cardVO.template}';
 		// 생성시 선택한 스킨으로 체크되고 preview에 뜨게
-		if('${cardVO.template}' == $('#template').val()){
-			$('#template').attr("checked", true);
-			init_tempate = $('#template').val();
-			init_preview();
-			
-		}else if('${cardVO.template}' == $('#template2').val()){
-			$('#template2').attr("checked", true);
-			init_tempate = $('#template2').val();
-			$('#GroomDiv').show(); $('#BrideDiv').show();
-			init_preview();
-		}else if('${cardVO.template}' == $('#template3').val()){
-			$('#template3').attr("checked", true);
-			init_tempate = $('#template3').val();
-			$('#GroomDiv').show(); $('#BrideDiv').show();
-			init_preview();
-		}
+		$("input:radio[name='template']:radio[value='${cardVO.template}']").attr('checked', true);
+		init_tempate = $('input:radio[name=template]:checked').val();
 		
+		if(templateName == $('#template2').val() || templateName == $('#template3').val()){
+			$('#GroomDiv').show(); $('#BrideDiv').show();
+		}
+		init_preview();
 	});
 </script>
-
+<script src="${initParam.root}weddingCard/js/weddingCardModify.js"></script>
 <script
 	src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
 
@@ -187,7 +178,7 @@
 
 						<!-- 왼쪽 미리보기 부분 -->
 						<iframe
-							src="${initParam.root}/weddingCard/preview_${cardVO.template}/preview.jsp"
+							src="${initParam.root}/weddingCard/preview_${cardVO.template}/preview_modify.jsp"
 							name="left_skin_preview" id="left_skin_preview" scrolling="auto">
 						</iframe>
 					</div>
@@ -206,7 +197,7 @@
 								</div>
 								<div class="look_input"
 									style="margin-left: 40.5%; margin-top: 9%;">
-									<iframe src="preview_${cardVO.template}/preview.jsp"
+									<iframe src="preview_${cardVO.template}/preview_modify.jsp"
 										name="left_skin_preview_mobile" id="left_skin_preview_mobile"
 										scrolling="auto"> </iframe>
 								</div>
@@ -230,7 +221,7 @@
 								tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
 								<div class="look_input"
 									style="width: 90%; height: 60%; margin-left: 4%; margin-top: 3%;">
-									<iframe src="preview_${cardVO.template}/preview.jsp"
+									<iframe src="preview_${cardVO.template}/preview_modify.jsp"
 										name="left_skin_preview_pc" id="left_skin_preview_pc"
 										scrolling="auto"> </iframe>
 								</div>
@@ -357,11 +348,14 @@
 				</table>
 			</div>
 			<!-- tabs-1 -->
-
+			
+			<input type="hidden" name="imgSrc" value="${imgSrc}">
+			<input type="hidden" name="imgGroomSrc" value="${imgGroomSrc}">
+			<input type="hidden" name="imgBrideSrc" value="${imgBrideSrc}">
 			<div id="tabs-2" style="font-size: 13px; text-align: left;">
 				<table style="width: 330px;">
 					<tr>
-						<td colspan="3"><input type="hidden" name="imgSrc" value="">
+						<td colspan="3">
 							<img alt="" src="../img/222.jpg"
 							style="margin-top: 10%; margin-bottom: 5%; margin-left: 30px;">
 						</td>
