@@ -88,10 +88,10 @@
 	<value>../../MSL/Final_WeddingCard/src/main/webapp/url/</value>
 	
 	<!-- for linux local -->
-	<!-- <value>EFI/MSL/Final_WeddingCard/src/main/webapp/url/</value> -->
+<!-- 	<value>EFI/MSL/Final_WeddingCard/src/main/webapp/url/</value> -->
 	
 	<!-- for linux remote -->
-	<!-- <value>../webapps/Final_WeddingCard/url/</value> -->
+<!-- 	<value>../webapps/Final_WeddingCard/url/</value> -->
 
 
     </property>

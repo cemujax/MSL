@@ -271,30 +271,30 @@
 
 					</tr>
 					<!--  -->
-					<tr>
-						<td><img src="img/222.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
+					<!-- <tr>
+					     <td><img src="img/222.jpg" class="img-rounded"
+					     alt="Cinque Terre"> <input type="radio" name="template"
+					     id="template" value="basicSkin"></td>
 
-						<td><img src="img/15.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
-						<td><img src="img/17.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
-					</tr>
+					     <td><img src="img/15.jpg" class="img-rounded"
+					     alt="Cinque Terre"> <input type="radio" name="template"
+					     id="template" value="basicSkin"></td>
+					     <td><img src="img/17.jpg" class="img-rounded"
+					     alt="Cinque Terre"> <input type="radio" name="template"
+					     id="template" value="basicSkin"></td>
+					     </tr> -->
 					<!--  -->
-					<tr>
-						<td><img src="img/bouquet02.png" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
-						<td><img src="img/wedding00.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
-						<td><img src="img/bbb.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
-					</tr>
+					<!-- <tr>
+					     <td><img src="img/bouquet02.png" class="img-rounded"
+					     alt="Cinque Terre"> <input type="radio" name="template"
+					     id="template" value="basicSkin"></td>
+					     <td><img src="img/wedding00.jpg" class="img-rounded"
+					     alt="Cinque Terre"> <input type="radio" name="template"
+					     id="template" value="basicSkin"></td>
+					     <td><img src="img/bbb.jpg" class="img-rounded"
+					     alt="Cinque Terre"> <input type="radio" name="template"
+					     id="template" value="basicSkin"></td>
+					     </tr> -->
 					<!--  -->
 					<!-- <tr>
 						<td><img src="img/222.jpg" class="img-rounded"
@@ -316,12 +316,12 @@
 
 			<div id="tabs-2" style="font-size: 13px; text-align: left;">
 				<table style="width: 330px;">
-					<tr>
-						<td colspan="3"><input type="hidden" name="imgSrc" value="">
-							<img alt="" src="../img/222.jpg"
-							style="margin-top: 10%; margin-bottom: 5%; margin-left: 30px;">
-						</td>
-					</tr>
+				  <!-- <tr>
+				       <td colspan="3"><input type="hidden" name="imgSrc" value="">
+				       <img alt="" src="../img/222.jpg"
+				       style="margin-top: 10%; margin-bottom: 5%; margin-left: 30px;">
+				       </td>
+				       </tr> -->
 
 					<tr>
 						<td>메인사진:</td>
