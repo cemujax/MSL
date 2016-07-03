@@ -132,7 +132,12 @@
 						<a
 							href="http://localhost:8888/Final_WeddingCard/url/${param.url}.jsp">
 							<span class="glyphicon glyphicon-circle-arrow-left" id="back"></span>
-						</a>
+						</a><!-- 로컬용 -->
+						<%-- <a
+							href="http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp">
+							<span class="glyphicon glyphicon-circle-arrow-left" id="back"></span>
+						</a><!-- 서버용 --> --%>
+						
 					</h2>
 				</div>
 				<div class="col-sm-4">

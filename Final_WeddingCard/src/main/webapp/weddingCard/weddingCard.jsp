@@ -103,7 +103,6 @@
 </script>
 <script src="${initParam.root}weddingCard/js/weddingCard.js"></script>
 
-
 <script
 	src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
 
