@@ -61,4 +61,11 @@ public class CardDaoImpl implements CardDao {
 		
 	}
 
+	public boolean writerCheck(CardcommentVO comvo) throws SQLException {
+		boolean flag = false;
+		if(sqlSession.selectOne("cardSql.writerCheck", comvo) != null)
+			flag = true;
+		return flag;
+	}
+
 }

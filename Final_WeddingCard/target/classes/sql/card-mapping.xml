@@ -108,16 +108,17 @@
    </delete>
 
    <select id="getAllCardComments" resultMap="cardCommentRM" parameterType="int">
-      SELECT guest, password, content, write_date, card_no
+      SELECT guest, password, content, write_date, card_no, cardComment_no
       FROM cardcomment
       where card_no = #{value}
       ORDER BY write_date DESC
    </select>
 
-   <select id="passwordCheck" parameterType="string" resultMap="cardCommentRM">
-      SELECT guest, password, content, write_date, card_no
+   <select id="writerCheck" parameterType="cardComment" resultMap="cardCommentRM" >
+      SELECT guest, password, content, write_date, card_no, cardComment_no
       FROM cardcomment
-      where password = #{password}
+      where guest= #{guest} AND password = #{password}
+      		AND card_no = #{cardVO.cardNo}
    </select>
 
    

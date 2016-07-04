@@ -55,4 +55,8 @@ public class CardServiceImpl implements CardService {
 		cardDao.deleteCardCommentByOwner(comvo);
 		
 	}
+
+	public boolean writerCheck(CardcommentVO comvo) throws SQLException {
+		return cardDao.writerCheck(comvo);
+	}
 }
