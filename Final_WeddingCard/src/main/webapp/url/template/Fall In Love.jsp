@@ -75,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		$.ajax({
 			type : "get",
-			url : "../card.do",
+			url : "${initParam.root}	card.do",
 			data : "command=getAllCardComments&&cardNo=" + '${param.cardNo}',
 			dataType : "json",
 
@@ -84,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				var commentList = jsonData.commentList;
 				//$('.guestBook').innerHTML = "123123213";
 
-				for (i = 0; i < commentList.length; i++) {
+				for (i = 0; i < 6; i++) {
 					 $('.guestBook').append(
 						"<div class='pricingtable pricing_free'><ul class='pricing_iconlist iconset_free'>"
 						+"<li style='background-color:#c791a6; font-size:15px; border-radius: 10px;'><font style='color: black;'>"+"작성자"+"&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"+commentList[i].guest+"</font><br>"
@@ -171,7 +171,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	        	<div class="about-head">
 	               <h2>GuestBook</h2>
 	               <input style="float: right;margin-right: 4%;" type="button" class="button4" name="writeComment" onclick="writeComment()" value="축하글 쓰기" />
-	            </div>
+	            </div><br><br><br><br><br>
 			</div>
 		</div>
 	</div>
