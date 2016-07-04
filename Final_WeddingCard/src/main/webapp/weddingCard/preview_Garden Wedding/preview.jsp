@@ -15,8 +15,6 @@
 <meta name="viewport" content="width=device-width">
 <title>Zenith | Just another demo Sites site</title>
 
-<<<<<<< HEAD
-=======
 <style>
 .header-top {
 	padding: 0.5em 0;
@@ -101,7 +99,6 @@
 </script>
 <!-- //방명록 -->
 
->>>>>>> 18a952a83041e81f567033cbdb9e8f0a40e17591
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="http://demo.fabthemes.com/zenith/xmlrpc.php">
 
@@ -246,16 +243,11 @@ img.wp-smiley, img.emoji {
 								</c:if>
 							</div>
 
-<<<<<<< HEAD
-								<div class="col-md-6">
-=======
 							<div class="col-md-6">
->>>>>>> 18a952a83041e81f567033cbdb9e8f0a40e17591
 								<div class="bridecol">
 									<div class="bridepic">
 										<c:choose>
 											<c:when test="${param.imgBride == '' }">
-<<<<<<< HEAD
 											<img src="img/01.jpg" alt="bride" height="160px">
 											</c:when>
 											<c:otherwise>
@@ -263,17 +255,6 @@ img.wp-smiley, img.emoji {
 									 			
 									 		</c:otherwise>
 									 	</c:choose>
-=======
-												<img src="img/01.jpg" alt="bride" height="160px">
-											</c:when>
-											<c:otherwise>
-												<img
-													src="${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgBride}"
-													class="img-responsive" height="160px">
-
-											</c:otherwise>
-										</c:choose>
->>>>>>> 18a952a83041e81f567033cbdb9e8f0a40e17591
 									</div>
 									
 									<div class="brideinfo">
@@ -288,7 +269,6 @@ img.wp-smiley, img.emoji {
 								<div class="groomcol">
 									<div class="groompic">
 										<c:choose>
-<<<<<<< HEAD
 									 		<c:when test="${param.imgGroom == '' }">
 									 				<img src="img/02.jpg" alt="groom" >
 									 		</c:when>
@@ -296,17 +276,6 @@ img.wp-smiley, img.emoji {
 									 			<img height="160px" src="${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgGroom}" class="img-responsive"  height="160px">
 									 		</c:otherwise>
 									 	</c:choose>
-=======
-											<c:when test="${param.imgGroom == '' }">
-												<img src="img/02.jpg" alt="groom">
-											</c:when>
-											<c:otherwise>
-												<img height="160px"
-													src="${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgGroom}"
-													class="img-responsive" height="160px">
-											</c:otherwise>
-										</c:choose>
->>>>>>> 18a952a83041e81f567033cbdb9e8f0a40e17591
 									</div>
 
 									<div class="groominfo">
@@ -321,7 +290,6 @@ img.wp-smiley, img.emoji {
 						<!-- row -->
 					</div>
 				</div>
-<<<<<<< HEAD
 				
 				<c:choose >
 		<c:when test="${ param.imgSrc == ''}">
@@ -342,9 +310,6 @@ img.wp-smiley, img.emoji {
 		</c:otherwise>
 	</c:choose>
 				
-=======
-
->>>>>>> 18a952a83041e81f567033cbdb9e8f0a40e17591
 				<!-- <div class="backstretch">
 					<img src="img/013.jpg">
 				</div> -->
@@ -388,13 +353,9 @@ img.wp-smiley, img.emoji {
 						</div>
 						<div class="col-sm-6">
 							<div class="dstory">
-<<<<<<< HEAD
 								<p>초대글
 									${param.cardContext}
 								</p>
-=======
-								<p>초대글 ${param.cardContext}</p>
->>>>>>> 18a952a83041e81f567033cbdb9e8f0a40e17591
 							</div>
 						</div>
 					</div>
@@ -402,7 +363,6 @@ img.wp-smiley, img.emoji {
 			</div>
 
 
-<<<<<<< HEAD
 <div class="content">
 	<input type="hidden" name="comments" value="">
 		<div class="guestBook">
@@ -420,26 +380,6 @@ img.wp-smiley, img.emoji {
 			</div>
 		</div>
 	</div>
-=======
-			<div class="content">
-				<input type="hidden" name="comments" value="">
-				<div class="guestBook">
-					<div class="container">
-						<div class="about-head">
-							<h2>GuestBook</h2>
-						</div>
-						<br> <input type="button" name="writeComment"
-							onclick="writeComment()" value="축하글 쓰기">
-						<!-- 
-			수연아 요쪽에 방명록 잡아줭
-		
-		 -->
-					</div>
-				</div>
-			</div>
->>>>>>> 18a952a83041e81f567033cbdb9e8f0a40e17591
-
-
 			<div class="album-box">
 				<div class="container">
 					<div class="row">
@@ -804,7 +744,6 @@ img.wp-smiley, img.emoji {
 						</div> -->
 					<!-- .site-info -->
 					<!-- </div> -->
-<<<<<<< HEAD
 					<p id="msl">MySweetLove
 							<a href="#" class="go-top glyphicon glyphicon-circle-arrow-up"></a></p>
 					<a id="kakao-link-btn" href="javascript:;">
@@ -815,16 +754,6 @@ img.wp-smiley, img.emoji {
 href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp">
 <img style="width:40px; height: 40px;"  src=${initParam.root}img/facebook-share.png></a>
 
-=======
-					<p style="text-align: center;">
-						MySweetLove <a href="#"
-							class="go-top glyphicon glyphicon-circle-arrow-up"></a>
-					</p>
-					<a id="kakao-link-btn" href="javascript:;"> <img
-						style="width: 40px; height: 40px;"
-						src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" />
-					</a>
->>>>>>> 18a952a83041e81f567033cbdb9e8f0a40e17591
 				</div>
 			</div>
 		</footer>
@@ -832,11 +761,7 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
 	</div>
 	<!-- #page -->
 
-<<<<<<< HEAD
 <script type='text/javascript'>
-=======
-	<script type='text/javascript'>
->>>>>>> 18a952a83041e81f567033cbdb9e8f0a40e17591
   //<![CDATA[
     // // 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init('150642152529d54760872b2abd33da63');
@@ -882,15 +807,6 @@ var fab_objects = {"timer":"04\/30\/2015 18:00:00"};
 	 
 </script>
 
-<<<<<<< HEAD
-	 jQuery(".subhead").backstretch("img/13.jpg"); 
-	 
-</script>
-=======
-
->>>>>>> 18a952a83041e81f567033cbdb9e8f0a40e17591
-
-	
 
 </body>
 </html>
