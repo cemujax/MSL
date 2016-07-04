@@ -137,6 +137,17 @@ $(document).ready(function(){
 			
 		return;
 	} // deleteComment
+	
+	function checkLogin() {
+		if("${sessionScope.mvo == NULL}" == "true"){
+			alert("로그인 후 이용해주세요.");
+			
+			return false;
+		}
+		
+		else
+			return true;
+	} // checkLogin
 
 </script>
 </head>
@@ -146,12 +157,12 @@ $(document).ready(function(){
 
 <section class="commentArea" >
 
-    <form action="${initParam.root }comment.do" method="post">
-	<button class="comment-submit-btn comment-submit-btn-color" type="submit" style="margin-left: 900px; margin-bottom: 2px;"><b>✔ 댓글 남기기</b></button>
+  <form name="writeCommentFrm" action="${initParam.root }comment.do" method="post">
+	<button class="comment-submit-btn comment-submit-btn-color" type="submit" style="margin-left: 900px; margin-bottom: 2px;" onclick="return checkLogin()"><b>✔ 댓글 남기기</b></button>
 	<input type="hidden" name="command" value="write">
 	<input type="hidden" name="postNo" value="${requestScope.pvo.postNo}">
 	<input type="hidden" name="page" value="${param.page }">
-	<input type="hidden" name="return" value="getQnA">
+	<input type="hidden" name="return" value="getAnoneQnA">
 	<textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 99%; height: 132px;">${cmt.content }</textarea>       
   </form>
   

@@ -354,6 +354,8 @@ $(document).ready(function(){
           
           <form method="post" action="${initParam.root }member.do?flag=url="+${param.url }>
           <input type="hidden" name="command" value="login">
+          <input type="hidden" name="location" value="${param.location }">
+          
             <div class="field-wrap">
             <label>
               Email Address<span class="req">*</span>

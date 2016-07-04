@@ -371,7 +371,7 @@
 </head>
 <body>
   <c:if test="${sessionScope.mvo == NULL }">
-    <c:redirect url="${initParam.root }authentication/login.jsp"/>
+    <c:redirect url="../authentication/login.jsp?location=wdCardList"/>
   </c:if>
   
   

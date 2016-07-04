@@ -355,7 +355,7 @@ public class CardController extends MultiActionController {
 			return new ModelAndView("weddingCard/cardList", "cardList",
 					cardList);
 		} else {
-			return new ModelAndView("login/loginregister");
+			return new ModelAndView("redirect:/authentication/login.jsp?location=wdCardList");
 		}
 	}
 

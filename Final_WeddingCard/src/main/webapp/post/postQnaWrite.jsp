@@ -22,6 +22,10 @@
    
 </head>
 <body>
+	<c:if test="${sessionScope.mvo == NULL }">
+		<c:redirect url="../authentication/login.jsp?location=qnaWrite" />
+	</c:if>
+	
 	<div class="container"
 		style="background-image: url(${initParam.root }img/post_qna_board3.png); width: 100%; height: 250px"
 		align="center">

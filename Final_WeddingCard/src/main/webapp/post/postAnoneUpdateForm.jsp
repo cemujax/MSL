@@ -8,6 +8,10 @@
     <link rel="stylesheet" href=" http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
 </head>
 <body>
+	<c:if test="${sessionScope.mvo == NULL }">
+		<c:redirect url="../authentication/login.jsp" />
+	</c:if>
+	
 <!-- <td>제목</td> -->
 	<p style="font-family:'Nanum Gothic', serif; margin-right: 200px;">제목 : 
  <input type="text" name="title" style="width: 300px; height: 15px; padding: 0px; margin-right: 450px;"></p>

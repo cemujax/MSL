@@ -47,9 +47,12 @@
 		SELECT post_no, title, content, write_date, kind, member_id
 		FROM (
 			SELECT post_no, title, content, write_date, kind, member_id, CEIL(rownum/10) page
-			FROM post
-			WHERE kind = #{kind} 
-			ORDER BY post_no DESC
+			FROM (
+				SELECT post_no, title, content, write_date, kind, member_id
+				FROM post
+				WHERE kind = #{kind} 
+				ORDER BY post_no DESC
+			)
 		)
 		WHERE page = #{page}
 	</select>

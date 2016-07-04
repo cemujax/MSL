@@ -93,6 +93,7 @@ textarea{
 
 </head>
 <body style="margin: 0px;">
+	
 <div class="container" style="background-image: url(${initParam.root }img/post_anone_board.png); width: 100%; height: 250px" align="center">
 		<p style="font-weight: bold; font-size:25px; margin:0px; padding-top: 70px;">익명 게시판</p>
 	</div>

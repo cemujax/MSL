@@ -12,13 +12,13 @@
 <c:when test="${sessionScope.mvo==null}">
 	<script type="text/javascript">
 		alert("로그인 실패!!");
-		location.href="index.jsp"; 	
+		location.href="authentication/login.jsp"; 
 	</script>
 </c:when>
 <c:otherwise>
 	<script type="text/javascript">
 		alert('${mvo.name}'+"님, 로그인 성공"	);
-		location.href="index.jsp";
+		location.href="${location}";
 	</script>
 </c:otherwise>
 </c:choose>

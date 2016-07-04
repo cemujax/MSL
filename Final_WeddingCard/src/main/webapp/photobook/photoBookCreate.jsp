@@ -73,7 +73,7 @@ li a:hover {
 </ul>
   <c:if test="${sessionScope.mvo.memberId == null }">
   	<script>
-  		location.href ="${initParam.root}authentication/login.jsp";
+  		location.href ="../authentication/login.jsp?location=pbCreate";
   	</script>
   </c:if>
     <form method="post" action="../photoBook.do" enctype="multipart/form-data">

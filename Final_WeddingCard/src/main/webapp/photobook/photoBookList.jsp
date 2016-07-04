@@ -60,7 +60,7 @@
   
   <c:if test="${sessionScope.mvo.memberId == null }">
   	<script>
-  		location.href ="${initParam.root}authentication/login.jsp";
+  		location.href ="../authentication/login.jsp?location=pbList";
   	</script>
   </c:if>
   <div style="margin-left: 10%; margin-right: 10%;">

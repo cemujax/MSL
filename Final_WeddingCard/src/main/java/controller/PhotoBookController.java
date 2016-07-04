@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.member.MemberVO;
 import model.photobook.PhotoBookService;
@@ -219,7 +218,7 @@ public class PhotoBookController extends MultiActionController {
 		}
 		
 		else
-			return new ModelAndView("redirect:/authentication/login.jsp");
+			return new ModelAndView("redirect:authentication/login.jsp?location=pbList");
 	} // list
 
 	public ModelAndView detail(HttpServletRequest request, HttpServletResponse response)

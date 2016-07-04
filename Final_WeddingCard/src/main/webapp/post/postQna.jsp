@@ -93,15 +93,15 @@ textarea{
 
 </head>
 <body style="margin: 0px;">
-<div class="container" style="background-image: url(${initParam.root }img/post_qna_board3.png); width: 100%; height: 250px" align="center">
-		<p style="font-weight: bold; font-size:25px; margin:0px; padding-top: 70px;">웨딩 QnA</p>
+<div class="container" style="background-image: url(${initParam.root }img/post_qna_board.jpg); width: 100%; height: 250px" align="center">
+		<!-- <p style="font-weight: bold; font-size:25px; margin:0px; padding-top: 70px;">웨딩 QnA</p> -->
 	</div>
 
 
 <div class="postInfoPanel" >
 		제목 : ${requestScope.pvo.title}
 		&nbsp;
-		작성자 : 익명
+		작성자 : ${pvo.memberVO.memberId }
 		&nbsp;
 		<span style=" color: #5D5D5D;">
 			<i class="fa fa-comment"></i>

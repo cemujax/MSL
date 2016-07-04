@@ -30,13 +30,9 @@
 </script>
 </head>
 <body>
-	<c:if test="${sessionScope.mvo == NULL }">
-		<c:redirect url="${initParam.root }login/loginregister.jsp" />
-	</c:if>
-
 
 	<div class="container"
-		style="background-image: url(${initParam.root }img/post_qna_board3.png); width: 100%; height: 250px"
+		style="background-image: url(${initParam.root }img/post_qna_board.jpg); width: 100%; height: 250px"
 		align="center">
 		<p style="font-weight: bold; font-size: 25px; margin-top: 7%;">웨딩 QnA</p>
 	</div>
@@ -75,14 +71,12 @@
 				</table>
 
 
-				<c:if test="${sessionScope.mvo!=null}">
-						<div class="" style="text-align: center;">
-							<a href="post/postQnaWrite.jsp"> <input type="button"
-								class="btn btn-primary btn-lg" value="글쓰기"
-								id="writeCard"
-								style="width: 100px; font-family: 'Nanum Gothic', serif;"></a>
-						</div>
-				</c:if>
+				<div class="" style="text-align: center;">
+					<a href="post/postQnaWrite.jsp"> <input type="button"
+						class="btn btn-primary btn-lg" value="글쓰기"
+						id="writeCard"
+						style="width: 100px; font-family: 'Nanum Gothic', serif;"></a>
+				</div>
 
 			</div>
 
