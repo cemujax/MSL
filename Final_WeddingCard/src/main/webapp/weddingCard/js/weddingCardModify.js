@@ -157,11 +157,6 @@ $(document)
 
 					// /=========== 템플릿쪽 End===================================
 
-					$("#datepicker").datepicker({
-						showButtonPanel : true,
-						minDate : '0'
-					});
-
 					$("#datepicker").change(function() {
 						var sel_date = new Date($(this).val());
 						// 년 월 일 hour
@@ -170,6 +165,7 @@ $(document)
 						var date = sel_date.getDate();
 						var sel_time = new Date(year, month, date);
 
+						// dDay 구함
 						var timeLag = sel_time.getTime() - jQuery.now();
 
 						// 시간으로
@@ -184,22 +180,27 @@ $(document)
 						dDay = parseInt(dDay);
 
 						document.getElementById("dDay").value = dDay;
+						set_preview();
 
 					});
 
 					// /==================== 예식 정보 =========================
-
-					$('#datepicker').change(function() {
-						set_preview();
+					$("#datepicker").datepicker({
+						dateFormat: 'yy-mm-dd',
+						showButtonPanel : true,
+						minDate : '0',
 					});
-
+					
 					$('#ampm').change(function() {
+						//$(this).prop("selected", false);
 						set_preview();
 					});
 					$('#hour').change(function() {
+						//$(this).prop("selected", false);
 						set_preview();
 					});
 					$('#min').change(function() {
+						//$(this).prop("selected", false);
 						set_preview();
 					});
 					$('#cardContext').change(function() {
@@ -211,90 +212,38 @@ $(document)
 						set_preview();
 					});
 
-					$('#hallLocation')
-							.change(
-									function() {
+					$('#hallLocation').change(function() {
+						if ($(this).val() != "") {
+							var loc = $(this).val();
+							// 주소로 좌표를 검색합니다
+							
+							geocoder.addr2coord(loc, function(status, result) {
 
-										if ($(this).val() != "") {
-											alert("mapmap");
+							    // 정상적으로 검색이 완료됐으면
+							     if (status === daum.maps.services.Status.OK) {
 
-											var mapScript = "<script src='./js/map.js'></script>";
-											$('#map')
-													.html(
-															"<script src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>");
-											$('#map').html(mapScript);
+							        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
 
-											var mapContainer = document
-													.getElementById('map'), // 지도를
-											// 표시할
-											// div
-											mapOption = {
-												center : new daum.maps.LatLng(
-														33.450701, 126.570667), // 지도의
-												// 중심좌표
-												level : 3
-											// 지도의 확대 레벨
-											};
+							        // 결과값으로 받은 위치를 마커로 표시합니다
+							        var marker = new daum.maps.Marker({
+							            map: map,
+							            position: coords
+							        });
 
-											// 지도를 생성합니다
-											var map = new daum.maps.Map(
-													mapContainer, mapOption);
+							        // 인포윈도우로 장소에 대한 설명을 표시합니다
+							        var infowindow = new daum.maps.InfoWindow({
+							            content: '<div style="width:150px;text-align:center;padding:6px 0;">예식장</div>'
+							        });
+							        infowindow.open(map, marker);
 
-											// 주소-좌표 변환 객체를 생성합니다
-											var geocoder = new daum.maps.services.Geocoder();
+							        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+							        map.setCenter(coords);
+							    } 
+							});				
+						}
 
-											var loc = $(this).val();
-											// 주소로 좌표를 검색합니다
-											geocoder
-													.addr2coord(
-															loc,
-															function(status,
-																	result) {
-
-																// 정상적으로 검색이
-																// 완료됐으면
-																if (status === daum.maps.services.Status.OK) {
-
-																	var coords = new daum.maps.LatLng(
-																			result.addr[0].lat,
-																			result.addr[0].lng);
-
-																	// 결과값으로 받은
-																	// 위치를 마커로
-																	// 표시합니다
-																	var marker = new daum.maps.Marker(
-																			{
-																				map : map,
-																				position : coords
-																			});
-
-																	// 인포윈도우로
-																	// 장소에 대한
-																	// 설명을 표시합니다
-																	var infowindow = new daum.maps.InfoWindow(
-																			{
-																				content : '<div style="width:150px;text-align:center;padding:6px 0;">예식장</div>'
-																			});
-																	infowindow
-																			.open(
-																					map,
-																					marker);
-
-																	// 지도의 중심을
-																	// 결과값으로 받은
-																	// 위치로
-																	// 이동시킵니다
-																	map
-																			.setCenter(coords);
-																}
-															});
-
-										} else {
-											alert("gg");
-										}
-
-										set_preview();
-									});
+						set_preview();
+					});
 
 					// /==================== 신랑 신부 정보 =========================
 					$('#groomName').change(function() {

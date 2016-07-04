@@ -64,7 +64,7 @@
 
    <update id="modifyCard" parameterType="card">
       UPDATE card
-      SET template=#{template} , hall_name=#{hallName},
+      SET template=#{template} ,card_date=TO_DATE(#{cardDate},'YYYY-MM-DD HH24:MI') , hall_name=#{hallName},
       hall_location=#{hallLocation}, hall_tel=#{hallTel},
       groom_info=#{groomInfo}, bride_info=#{brideInfo},
       book_no=#{photobookVO.bookNo},
@@ -102,15 +102,9 @@
       VALUES(#{content}, #{guest}, sysdate, #{cardVO.cardNo},#{password}, #{cardCommentNo})
    </insert>
 
-   <update id="modifyCardComment" parameterType="cardComment">
-      UPDATE cardcomment
-      SET guest=#{guest},content=#{content}
-      where password = #{password}
-   </update>
-
-   <delete id="deleteCardComment" parameterType="cardComment">
+   <delete id="deleteCardCommentByOwner" parameterType="cardComment">
       DELETE FROM cardcomment
-      where password = #{password}
+      where cardComment_no = #{cardCommentNo}
    </delete>
 
    <select id="getAllCardComments" resultMap="cardCommentRM" parameterType="int">

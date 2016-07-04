@@ -314,10 +314,12 @@
 			</div>
 			<!-- tabs-1 -->
 
+			<!-- 이미지 히든값 -->
+			<input type="hidden" name="imgSrc" value="">
 			<div id="tabs-2" style="font-size: 13px; text-align: left;">
 				<table style="width: 330px;">
 				  <!-- <tr>
-				       <td colspan="3"><input type="hidden" name="imgSrc" value="">
+				       <td colspan="3">
 				       <img alt="" src="../img/222.jpg"
 				       style="margin-top: 10%; margin-bottom: 5%; margin-left: 30px;">
 				       </td>

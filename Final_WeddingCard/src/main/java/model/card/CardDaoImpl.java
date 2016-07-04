@@ -55,4 +55,10 @@ public class CardDaoImpl implements CardDao {
 		return sqlSession.selectList("cardSql.getAllCardComments", cardNo);
 	}
 
+	public void deleteCardCommentByOwner(CardcommentVO comvo)
+			throws SQLException {
+		sqlSession.delete("cardSql.deleteCardCommentByOwner", comvo);
+		
+	}
+
 }

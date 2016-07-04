@@ -195,10 +195,6 @@ $(document).ready(function(){
 	  
 	  	set_preview();
 	   });
-  
-  
-	
-					
 					
   $('#hallLocation').change(function(){
 	  
@@ -529,14 +525,4 @@ $(document).ready(function(){
 		}catch(e){}
 	}  
 });//ready
-
-
-
-
-///////////////////// Map ///////////////////
-
-
-
-
-
 

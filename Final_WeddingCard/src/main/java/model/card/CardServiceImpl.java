@@ -49,4 +49,10 @@ public class CardServiceImpl implements CardService {
 			throws SQLException {
 		return cardDao.getAllCardComments(cardNo);
 	}
+
+	public void deleteCardCommentByOwner(CardcommentVO comvo)
+			throws SQLException {
+		cardDao.deleteCardCommentByOwner(comvo);
+		
+	}
 }

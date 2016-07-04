@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,14 +53,15 @@
 			}
 
 		} else {//회원 글쓰기
-			$('input[name=guest]').val('${mvo.name}');
+			$('input[name=guest]').val('`MSL User`'+'${mvo.name}');
 			$('input[name=password]').val('${mvo.password}');
 		}
 		document.guestBookFrm.submit();
 	}//writeComment	
 
-	function deleteCommentByOwner() {
-		alert("내꺼니까 삭제할끄");
+	function deleteCommentByOwner(commentNo) {
+		alert("내꺼니까 삭제할끄"+commentNo);
+		location.href="./card.do?command=deleteCardCommentByOwner&&url=${param.url}&&commentNo="+commentNo;
 	}
 	function deleteComment() {
 		alert("지울래");
@@ -160,8 +162,7 @@
 			<div class="container-fluid text-center">
 				<div class="row content">
 					<div class="col-sm-2 sidenav">
-						<img alt="" src="url/img/user.png"
-							style="width: 40%; height: 40%;"><br>
+						
 						<c:choose>
 							<c:when test="${sessionScope.mvo == NULL }">
 								<input type="text" name="memberId" id="memberId"
@@ -174,6 +175,8 @@
 									login</button>
 							</c:when>
 							<c:otherwise>
+								<img alt="" src="${initParam.root}img/msl.png" style="width: 40%; height: 40%;"><br>
+								${mvo.name}님
 								<button type="button" class="btn btn-info" id="logout">logout</button>
 								<input type="hidden" name="guest" value="">
 								<input type="hidden" name="password" value="">
@@ -211,15 +214,26 @@
 							<table class="table">
 								<c:forEach items="${commentList}" var="comment">
 									<tr style="border: 1px solid black;">
-										<td rowspan="2" style="width: 100px;" align="center"><img
-											alt="" src="url/img/user.png"
-											style="width: 20%; height: 20%;"></td>
-										<td>${comment.guest}</td>
+										<c:set var="guest" value="${comment.guest}"/>
+										<c:choose>
+											<c:when test="${fn:contains(guest, '`MSL User`')}">
+												<td rowspan="2" style="width: 100px;" align="center">
+												<img alt="" src="${initParam.root}img/msl.png" style="width: 20%; height: 20%;"></td>
+												<td>${fn:substringAfter(guest, "`MSL User`")}</td>
+											</c:when>
+											<c:otherwise>
+												<td rowspan="2" style="width: 100px;" align="center">
+												<img alt="" src="${initParam.root}img/user.png" style="width: 20%; height: 20%;"></td>
+												<td>${comment.guest}</td>
+											</c:otherwise>
+										</c:choose>
 										<td style="padding-left: 40%">&nbsp;&nbsp;&nbsp;${comment.writeDate}
 										&nbsp;&nbsp;&nbsp; 
 										<c:choose>
 											<c:when test="${mvo.memberId == param.memberId }">
-												<a href="javascript:deleteCommentByOwner()"><span class="glyphicon glyphicon-trash"></span>	</a>
+												<a href="javascript:deleteCommentByOwner(${comment.cardCommentNo})"><span class="glyphicon glyphicon-trash"></span>	</a>
+												${comment.cardCommentNo}
+											
 											</c:when>
 											<c:otherwise>
 												<a href="javascript:deleteComment()"><span class="glyphicon glyphicon-trash"></span>	</a>

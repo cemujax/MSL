@@ -114,37 +114,49 @@
 			}
 		}
 	} // pbCallback
-	
-	$(document).ready(function() {
-		
-		init_tempate = "";
-		function init_preview() {
-			/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
-			$('#frmWeddingCard').attr('target', 'left_skin_preview')
-			.attr('action',"weddingCard/preview_" + init_tempate
-									+ "/preview_modify.jsp").submit();
-		}
-		
-		var templateName = '${cardVO.template}';
-		// 생성시 선택한 스킨으로 체크되고 preview에 뜨게
-		$("input:radio[name='template']:radio[value='${cardVO.template}']").attr('checked', true);
-		init_tempate = $('input:radio[name=template]:checked').val();
-		
-		if(templateName == $('#template2').val() || templateName == $('#template3').val()){
-			$('#GroomDiv').show(); 
-			$('#BrideDiv').show();
-		}else{
-			$('#GroomDiv').hide();
-			$('#BrideDiv').hide();
-		}
+
+	$(document).ready(	function() {
+
+						init_tempate = "";
+						function init_preview() {
+							/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
+							$('#frmWeddingCard').attr('target',
+									'left_skin_preview').attr(
+									'action',
+									"weddingCard/preview_" + init_tempate
+											+ "/preview_modify.jsp").submit();
+						}
+
+						var templateName = '${cardVO.template}';
+						// 생성시 선택한 스킨으로 체크되고 preview에 뜨게
+						$(
+								"input:radio[name='template']:radio[value='${cardVO.template}']")
+								.attr('checked', true);
+						init_tempate = $('input:radio[name=template]:checked')
+								.val();
+
+						if (templateName == $('#template2').val()
+								|| templateName == $('#template3').val()) {
+							$('#GroomDiv').show();
+							$('#BrideDiv').show();
+						} else {
+							$('#GroomDiv').hide();
+							$('#BrideDiv').hide();
+						}
+
+						
+			//예식날짜 처리
+			$("#ampm").val('${ampm}').prop("selected", true);
+			$("#hour").val('${hour}').prop("selected", true);
+			$("#min").val('${min}').prop("selected", true);
 			
-		
-		init_preview();
-	});
+			$('#cardContext').val('${cardVO.cardContext}') //초대장 내용
+			init_preview();
+			
+	});//ready
 </script>
 <script src="${initParam.root}weddingCard/js/weddingCardModify.js"></script>
-<script
-	src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
+
 
 </head>
 <body>
@@ -157,7 +169,7 @@
 		style="background-color: #f8f8f8; border-color: #e7e7e7;">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="../index.jsp" style="color: #777;">Home</a>
+				<a class="navbar-brand" href="./index.jsp" style="color: #777;">Home</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<!-- style="margin-left: 82%;" -->
@@ -260,8 +272,8 @@
 			// this is important for IEs
 			var polyfilter_scriptpath = '/js/';
 		</script>
-		<script src="js/cssParser.js"></script>
-		<script src="js/css-filters-polyfill.js"></script>
+	<!-- 	<script src="js/cssParser.js"></script> 속도느리게하는 원흉ㄴ
+		<script src="js/css-filters-polyfill.js"></script> -->
 
 
 		<!-- Tab 영역 include  -->
@@ -312,7 +324,7 @@
 
 					</tr>
 					<!--  -->
-					<tr>
+					<!-- 	<tr>
 						<td><img src="img/222.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input type="radio" name="template"
 							id="template" value="basicSkin"></td>
@@ -324,7 +336,7 @@
 							alt="Cinque Terre"> <input type="radio" name="template"
 							id="template" value="basicSkin"></td>
 					</tr>
-					<!--  -->
+					
 					<tr>
 						<td><img src="img/bouquet02.png" class="img-rounded"
 							alt="Cinque Terre"> <input type="radio" name="template"
@@ -335,7 +347,7 @@
 						<td><img src="img/bbb.jpg" class="img-rounded"
 							alt="Cinque Terre"> <input type="radio" name="template"
 							id="template" value="basicSkin"></td>
-					</tr>
+					</tr> -->
 					<!--  -->
 					<!-- <tr>
 						<td><img src="img/222.jpg" class="img-rounded"
@@ -354,18 +366,19 @@
 				</table>
 			</div>
 			<!-- tabs-1 -->
-			
-			<input type="hidden" name="imgSrc" value="${imgSrc}">
-			<input type="hidden" name="imgGroomSrc" value="${imgGroomSrc}">
-			<input type="hidden" name="imgBrideSrc" value="${imgBrideSrc}">
+
+			<input type="hidden" name="imgSrc" value="${imgSrc}"> <input
+				type="hidden" name="imgGroomSrc" value="${imgGroomSrc}"> <input
+				type="hidden" name="imgBrideSrc" value="${imgBrideSrc}">
 			<div id="tabs-2" style="font-size: 13px; text-align: left;">
+
 				<table style="width: 330px;">
-					<tr>
+					<!-- <tr>
 						<td colspan="3">
 							<img alt="" src="../img/222.jpg"
 							style="margin-top: 10%; margin-bottom: 5%; margin-left: 30px;">
 						</td>
-					</tr>
+					</tr> -->
 
 					<tr>
 						<td>메인사진:</td>
@@ -435,8 +448,9 @@
 			<!-- tab2 End  -->
 
 			<!-- ###################### photobook ####################### -->
-			<input type="hidden" id="photoBookImg" name="photoBookImg" value="${pbvo.fileName}">
-			<input type="hidden" id="photoBookNo" name="photoBookNo" value="${pbvo.bookNo}">
+			<input type="hidden" id="photoBookImg" name="photoBookImg"
+				value="${pbvo.fileName}"> <input type="hidden"
+				id="photoBookNo" name="photoBookNo" value="${pbvo.bookNo}">
 			<input type="hidden" id="photoBookComment" name="photoBookComment"
 				value="${pbvo.bookComment}">
 
@@ -455,7 +469,7 @@
 							<td colspan="2">
 								<div class="ui-block-b">
 									<input type="text" id="datepicker" class="input_box_type1"
-										name="cardDate">
+										name="cardDate" value="${cardVO.cardDate}">
 								</div>
 								<div class="ui-block-c">
 									<input type="hidden" id="dDay" name="dDay" value=""> <select
@@ -475,15 +489,15 @@
 										<option value="7">07</option>
 										<option value="8">08</option>
 										<option value="9">09</option>
-										<option value="10" selected="selected">10</option>
+										<option value="10">10</option>
 										<option value="11">11</option>
 										<option value="12">12</option>
 									</select>
 								</div>
 								<div class="ui-block-e">
 									<select name="min" id="min" class="input_box_type1">
-										<option value="" selected="selected">분</option>
-										<option value="00" selected="selected">00</option>
+										<!-- <option value="" selected="selected">분</option> -->
+										<option value="00" >00</option>
 										<option value="05">05</option>
 										<option value="10">10</option>
 										<option value="15">15</option>
@@ -508,7 +522,7 @@
 							<td colspan="2">
 								<div class="section">
 									<textarea name="cardContext" id="cardContext"
-										class="input_box_type2" value="${cardVO.cardContext}"
+										class="input_box_type2" 
 										rel="tooltip"
 										title="<span class='tooltip_title'>초대글</span>
 									<br>- 초대(모시는)글을 입력 해주십시요"
@@ -538,8 +552,51 @@
 							<td colspan="2">
 								<div id="map" style="width: 100%; height: 200px;">
 									<script
-										src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
-									<script src="${initParam.root}weddingCard/js/map.js"></script>
+										src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
+									<script type="text/javascript">
+										var mapContainer = document
+												.getElementById('map'), // 지도를 표시할div
+										mapOption = {
+											center : new daum.maps.LatLng(
+													33.450701, 126.570667), // 지도의 중심좌표
+											level : 3
+										// 지도의 확대 레벨
+										};
+
+										// 지도를 생성합니다
+										var map = new daum.maps.Map(
+												mapContainer, mapOption);
+
+										// 주소-좌표 변환 객체를 생성합니다
+										var geocoder = new daum.maps.services.Geocoder();
+										
+										var loc = '${cardVO.hallLocation}';
+										// 주소로 좌표를 검색합니다
+										geocoder.addr2coord(loc, function(status, result) {
+
+										    // 정상적으로 검색이 완료됐으면
+										     if (status === daum.maps.services.Status.OK) {
+
+										        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+
+										        // 결과값으로 받은 위치를 마커로 표시합니다
+										        var marker = new daum.maps.Marker({
+										            map: map,
+										            position: coords
+										        });
+
+										        // 인포윈도우로 장소에 대한 설명을 표시합니다
+										        var infowindow = new daum.maps.InfoWindow({
+										            content: '<div style="width:150px;text-align:center;padding:6px 0;">예식장</div>'
+										        });
+										        infowindow.open(map, marker);
+
+										        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+										        map.setCenter(coords);
+										    } 
+										});
+									</script>
+
 								</div>
 							</td>
 						</tr>
