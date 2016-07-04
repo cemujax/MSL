@@ -18,10 +18,16 @@
 	border-color: #ddd;
 	margin-bottom: 20px;
 	font-size: 12px;
+	margin-left: 13%;
+	margin-right: 13%;
+	margin-top: 3%;
 }
 
 .postContentView {
 	padding: 0px 15px 20px;
+	margin-left: 13%;
+	margin-right: 13%;
+	margin-top: 3%;
 }
 
 .postCommentView {
@@ -32,6 +38,9 @@
 .postButtonView {
 	margin: 5px 0px 30px;
 	text-align: right;
+	margin-left: 13%;
+	margin-right: 13%;
+	margin-top: 3%;
 }
 
 .list-write-btn {
@@ -67,7 +76,9 @@
 	color: rgb(255, 255, 255);
 	background-color: rgb(213, 7, 15);
 }
-
+textarea{
+	width: 99%
+}
 </style>
 
 <script type="text/javascript">
@@ -81,17 +92,22 @@
 </script>
 
 </head>
-<body style=" padding-left: 300px; padding-right: 300px;">
-익명 게시판<hr><p>
+<body style="margin: 0px;">
+<div class="container" style="background-image: url(${initParam.root }img/post_anone_board.png); width: 100%; height: 250px" align="center">
+		<p style="font-weight: bold; font-size:25px; margin:0px; padding-top: 70px;">익명 게시판</p>
+	</div>
 
-<h1>${requestScope.pvo.title}</h1>
 
 <div class="postInfoPanel" >
-		익명
-		<span style="margin-left: 10px; color: #5D5D5D;">
+		제목 : ${requestScope.pvo.title}
+		&nbsp;
+		작성자 : 익명
+		&nbsp;
+		<span style=" color: #5D5D5D;">
 			<i class="fa fa-comment"></i>
 			${fn:length(commentList) }
 		</span>
+		&nbsp;
 		<span style="float:right; color: #5D5D5D;">
 			<i class="fa fa-clock-o" aria-hidden="true"></i>
 			<c:set var="writeDate" value="${fn:split(pvo.writeDate, ' ') }"/>
@@ -105,7 +121,9 @@
 </div>
 
 <!-- ===================== Comment Start ================= -->
+<div  style="margin-left: 13%; margin-right: 13%; margin-top: 3%">
 <jsp:include page="postAnoneComment.jsp"/>
+</div>
 <!-- ===================== Comment End ================= -->
 
 <div class="postButtonView">
@@ -114,20 +132,17 @@
 			<i class="fa fa-times"></i> 
 			<b>삭제</b>
 		</button>
-		<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post.do?command=modifyViewAnoneQnA&&postNo=${pvo.postNo}&&page=${param.page}'">             
+		<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='${initParam.root }post.do?command=modifyViewAnoneQnA&&postNo=${pvo.postNo}&&page=${param.page}'">             
 			<i class="fa fa-plus"></i>
 			<b>수정</b>
 		</button>
 	</c:if>
 
-	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post.do?command=getAllAnoneQnAs&&page=${param.page }'">          
+	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='${initParam.root }post.do?command=getAllAnoneQnAs&&page=${param.page }'">          
 		<i class="fa fa-bars"></i> 
 		<b>목록</b>
 	</button>
-	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='post/postAnoneQnaWrite.jsp'">             
-		<i class="fa fa-pencil"></i> 
-		<b>글쓰기</b>
-	</button>
+
 </div>
 	
 </body>

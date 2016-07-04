@@ -8,19 +8,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>My Sweet Love . Wedding Card</title>
     <link rel="stylesheet" href="post/css/editor.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="../weddingCard/css/bootstrap.min.css">
+    <link rel="stylesheet" href=" http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
 </head>
-<body>
-<div class="body">
-    <form name="tx_editor_form" id="tx_editor_form" action="${initParam.root }post.do" method="post"
-          accept-charset="utf-8">
-          
-        <input type="hidden" name="command" value="modifyQnA">
-		<input type="hidden" name="postNo" value="${pvo.postNo }">
-        <textarea name="content" id="content" style="width: 100%; height: 490px;"></textarea>
-    </form>
+<body style="margin: 0px;">
+<div style="margin: 0px;">
+
+<div class="container"
+		style="background-image: url(${initParam.root }img/post_qna_board3.png); width: 100%; height: 250px"
+		align="center">
+		<p style="font-weight: bold; font-size: 25px; padding-top: 7%; margin-top: 0px;">웨딩 QnA</p>
+	</div>
+	
+	<div class="" style="margin-top: 3%; margin-left: 13%; margin-right: 13%;">
+   	 	<form name="tx_editor_form" id="tx_editor_form" action="${initParam.root }post.do" method="post" accept-charset="utf-8">
+        	<input type="hidden" name="command" value="modifyQnA">
+			<input type="hidden" name="postNo" value="${pvo.postNo }">
+        	<textarea name="content" id="content" style="width: 100%; height: 490px;"></textarea>
+    	</form>
+    </div>
 </div>
-<div>
-    <button onclick="saveContent()">수정</button>
+<div style="text-align: center;">
+    <!-- <button onclick="saveContent()">수정</button> -->
+    <input type="submit" onclick='saveContent()' value="글 수정" class="btn btn-primary btn-lg" 
+  		style="width: 100px; font-family: 'Nanum Gothic', serif; padding-top: 5px;" >
 </div>
 <script src="post/js/editor_loader.js" type="text/javascript" charset="utf-8"></script>
 <script src="post/js/editor_creator.js" type="text/javascript" charset="utf-8"></script>

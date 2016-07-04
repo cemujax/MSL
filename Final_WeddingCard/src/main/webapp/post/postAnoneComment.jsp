@@ -8,10 +8,11 @@
 <meta charset="UTF-8">
 
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
 
 <title>Insert title here</title>
 <style type="text/css">
-.postCommentView {
+/* .postCommentView {
 	color: rgb(51, 51, 51);
 	font-family: "Roboto", sans-serif;
 	margin: 0px 0px 10px;
@@ -23,7 +24,7 @@
 	border-bottom-style: solid;
 	display: inline-block;
 	position: relative;
-}
+} */
 
 .commentArea :first-child.area {
 	border-top: 0px;
@@ -105,9 +106,9 @@
 }
 
 .comment-submit-btn-color:hover {
-	border-color: rgb(213, 7, 15);
+	border-color: rgb(255, 255, 255);
 	color: rgb(255, 255, 255);
-	background-color: rgb(213, 7, 15);
+	/* background-color: rgb(213, 7, 15); */
 }
 
 </style>
@@ -131,7 +132,7 @@ $(document).ready(function(){
 	
 	function deleteComment(cmtNo) {
 		if(confirm("정말 삭제하시겠습니까?"))
-			location.href="comment.do?command=delete&&commentNo="+ cmtNo+ "&&postNo=${requestScope.pvo.postNo}&&page=${param.page}";            
+			location.href="${initParam.root}comment.do?command=delete&&commentNo="+ cmtNo+ "&&postNo=${requestScope.pvo.postNo}&&page=${param.page}";            
 			
 			
 		return;
@@ -140,12 +141,20 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<div class="postCommentView">
-	Comments
-</div>
 
-	
-<section class="commentArea" style="background: #fff5f5;">
+
+
+<section class="commentArea" >
+
+    <form action="${initParam.root }comment.do" method="post">
+	<button class="comment-submit-btn comment-submit-btn-color" type="submit" style="margin-left: 900px; margin-bottom: 2px;"><b>✔ 댓글 남기기</b></button>
+	<input type="hidden" name="command" value="write">
+	<input type="hidden" name="postNo" value="${requestScope.pvo.postNo}">
+	<input type="hidden" name="page" value="${param.page }">
+	<input type="hidden" name="return" value="getQnA">
+	<textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 99%; height: 132px;">${cmt.content }</textarea>       
+  </form>
+  
 <c:if test="${requestScope.commentList != null}">
   <c:forEach items="${commentList }" var="cmt">	
  	<div class="area">
@@ -173,7 +182,7 @@ $(document).ready(function(){
 			${cmt.content }
 	  	</div>
 		
-		<div class="formPanel" id="commentModifyArea${cmt.commentNo }">
+		<div class="formPanel" id="commentModifyArea${cmt.commentNo }" style="width: 100%">
 		<form action="${initParam.root }comment.do" method="post">
 		  <input type="hidden" name="command" value="update">
 		  <input type="hidden" name="commentNo" value="${cmt.commentNo }">
@@ -181,7 +190,7 @@ $(document).ready(function(){
 		  <input type="hidden" name="page" value="${param.page }">
 		  <input type="hidden" name="return" value="getQnA">
 		  
-		  <textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 680px; height: 132px;">${cmt.content }</textarea>       
+		  <textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 100%; height: 132px;">${cmt.content }</textarea>       
 		  <!-- <div> -->
 		  	<button class="comment-submit-btn comment-submit-btn-color" type="submit"><b>✔ 수정</b></button>
 		  <!-- </div> -->
@@ -192,19 +201,8 @@ $(document).ready(function(){
   </c:forEach>
 	
   </c:if>
-  
-  <form action="${initParam.root }comment.do" method="post">
-	<input type="hidden" name="command" value="write">
-	<input type="hidden" name="postNo" value="${requestScope.pvo.postNo}">
-	<input type="hidden" name="page" value="${param.page }">
-	<input type="hidden" name="return" value="getQnA">
-		  
-	<textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 680px; height: 132px;">${cmt.content }</textarea>       
 
-  <button class="comment-submit-btn comment-submit-btn-color" type="submit">
-   <b>✔ 작성</b></button>
-  
-  </form>
+
 		
 </section>
 

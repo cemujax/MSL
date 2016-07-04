@@ -5,37 +5,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>익명게시판</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords"
-	content="Nuptials Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>익명게시판</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Nuptials Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 		   Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-
 <link rel="stylesheet" href="css/bootstrap.min.css">
-
-
-<link href="css/style_index.css" rel="stylesheet" type="text/css"
-	media="all" />
-
-
-<link href='//fonts.googleapis.com/css?family=Poiret+One'
-	rel='stylesheet' type='text/css'>
-<link
-	href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
-	rel='stylesheet' type='text/css'>
-
-
+<link href="css/style_index.css" rel="stylesheet" type="text/css" media="all" />
+<link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
 <link rel="stylesheet" href="post/css/postAnoneQnaList.css">
-
-
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+<!--light-box-files-->
 <!--light-box-files-->
 <script type="text/javascript" charset="utf-8">
  var xhr;
-
  function logout() {
      var f = confirm("로그아웃 하시겠습니까?");
      if (f)
@@ -43,20 +30,20 @@
 	}
 </script>
 </head>
-
 <body>
 
   <c:if test="${sessionScope.mvo == NULL }">
-    <c:redirect url="authentication/login.jsp" />
+    <c:redirect url="${initParam.root }login/loginregister.jsp" />
   </c:if>
 
 
-  <div class="container" id="cardManage"
-style="background-image: url('post/images/anon_pic.jpg'); background-repeat: no-repeat; background-size: contain; background-position: center;">
-  </div>
+	<div class="container" style="background-image: url(${initParam.root }img/post_anone_board.png); width: 100%; height: 250px" align="center">
+		<p style="font-weight: bold; font-size:25px; margin-top: 7%;">익명 게시판</p>
+	</div>
 
   
   <div class="container" style="margin-top: 2%;">
+  <div class="jumbotron">
     <div class="table-responsive" >
 
       <table class="table table-condensed table-hover" align="center" style="padding-bottom: 0px;">
@@ -67,7 +54,7 @@ style="background-image: url('post/images/anon_pic.jpg'); background-repeat: no-
 	    <th class="not_mapped_style" style="text-align: center">제목</th>
 	    <th class="not_mapped_style" style="text-align: center">작성자</th>
 	    <th class="not_mapped_style" style="text-align: center">작성일</th>
-	    <!-- </tr> -->
+	    </tr>
 	</thead>
 
 
@@ -83,40 +70,22 @@ style="background-image: url('post/images/anon_pic.jpg'); background-repeat: no-
 	      </td>
 	      <!-- </tr> -->
 	  </c:forEach>
-
-
-
-
-<%-- 	  <tr class="select-row">
-	    <td class="not_mapped_style" style="text-align: center"></td>
-	    <td class="not_mapped_style" style="text-align: center"></td>
-	    <td class="not_mapped_style" style="text-align: right">
-	      <c:if test="${sessionScope.mvo!=null}">
-		<a href="postAnoneQnaWrite.jsp"> <input type="button"
-class="btn btn-warning" value="글쓰기" id="writeCard" style="margin-right:15%;" ></a>
-	      </c:if>
-	    </td>
-	  </tr>  --%>
-	  
-	   
-	  
-	  
-
 	</tbody>
       </table>
       
       
        <c:if test="${sessionScope.mvo!=null}">
-		<a href="post/postAnoneQnaWrite.jsp"> <input type="button"
-class="btn btn-warning" value="글쓰기" id="writeCard" style="margin-left: 85%;" ></a>
-	      </c:if>
-      
+			<div class="" style=" text-align: center ;">
+				<a href="post/postAnoneQnaWrite.jsp">
+					<input type="button" class="btn btn-primary btn-lg" value="글쓰기"
+						id="writeCard" style="width: 100px; font-family: 'Nanum Gothic', serif;"></a>
+			</div>
+	   </c:if>
     </div>
-  </div>
-
-
+    
+    <div class="" style="margin-top: 20px;">
+    	
   <c:set value="${listVO.pagingBean}" var="pb"></c:set>
-
   <div align="center">
     <!-- ================= paging Start ================ -->
     <c:if test="${pb.previousPageGroup}">
@@ -141,13 +110,14 @@ class="btn btn-warning" value="글쓰기" id="writeCard" style="margin-left: 85%
       <br>
     </c:if> <!-- ============== paging End ============ -->
   </div>
-
+    
+    
+    
+    </div>
+    
+   </div> 
+  </div>
 
 
 </body>
 </html>
-
-
-<!-- <a href="postAnoneQnaWrite.jsp"><input style="width: 100px;"
-     type="button" style="float: right;" class="btn btn-warning"  style="margin-right:30%;" value="글쓰기"
-     id="writeCard"></a> -->

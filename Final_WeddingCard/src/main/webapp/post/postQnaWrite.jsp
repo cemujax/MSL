@@ -6,85 +6,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>QnA Community Write</title>
-
 	<!-- Daum Editor -->
 	<link rel="stylesheet" href="css/editor.css" type="text/css" charset="utf-8"/>
     <script src="js/editor_loader.js?environment=development" type="text/javascript" charset="utf-8"></script>
 	
-	
 	<!-- from card list -->
 	<!-- <script src="js/jquery-ddorai.js"></script> -->
 <link rel="stylesheet" href="../weddingCard/css/bootstrap.min.css">
-
-<link rel="stylesheet"
-   href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	
-	<link href='//fonts.googleapis.com/css?family=Poiret+One'
-   rel='stylesheet' type='text/css'>  
-   
-<link
-   href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>  
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
    rel='stylesheet' type='text/css'>
+  
+<link rel="stylesheet" href=" http://fonts.googleapis.com/earlyaccess/nanumgothic.css">   
+   
 </head>
 <body>
-<nav class="navbar navbar-inverse" style="background-color: #f8f8f8; border-color: #e7e7e7;">
-  <div class="container-fluid">
-    <div class="navbar-header" style="margin-top: 10px;font-size: 20px;">
-     <!--  <a class="navbar-brand" href="#">Home</a> -->
-     <a href="${initParam.root }index.jsp" ><span style="color:#777;">Home</span></a>
-    </div>
-    
-    	<ul class="nav navbar-nav" ><!-- style=" margin-left:73%;" -->
-				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>
-					 <li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
-							  <ul class="dropdown-menu">
-							      <li><a href="#">익명게시판</a></li>
-							         <li><a href="#">게시판</a></li>
-							         <li><a href="#">칭찬해요</a></li>
-							   </ul>
-					</li>
-							      
-							      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>
-							        <ul class="dropdown-menu">
-							          <li><a href="${initParam.root }weddingCard.jsp">청첩장만들기</a></li>
-							          <li><a href="${initParam.root }./card.do?command=getAllCards">청첩장보기</a></li>
-							        </ul>
-							      </li>
-							      
-							       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
-							        <ul class="dropdown-menu">
-							          <li><a href="${initParam.root }test.jsp">포토북만들기</a></li>
-							          <li><a href="${initParam.root }photoBook.do?command=list">포토북보기</a></li>
-							        </ul>
-							      </li>
-							      
-							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->
-							</ul>
-  </div>
-</nav><!-- nav div End -->
+	<div class="container"
+		style="background-image: url(${initParam.root }img/post_qna_board3.png); width: 100%; height: 250px"
+		align="center">
+		<p style="font-weight: bold; font-size: 25px; margin-top: 7%;">웨딩 QnA</p>
+	</div>
+
+
 
 <div class="body" style="margin-left: 13%; margin-right: 13%; margin-top: 3%;">
 
   <!-- 에디터 시작 -->
-  <form name="tx_editor_form" id="tx_editor_form" action="${initParam.root }post.do" method="post" accept-charset="utf-8">
+  <form name="tx_editor_form" id="tx_editor_form" action="${initParam.root }post.do" method="post" accept-charset="utf-8" style="text-align: center;">
 	<input type="hidden" name="command" value="writeQnA">
-  <h2 style="margin-bottom: 1%; font-family: 'Poiret One', cursive;">제목	<input type="text" name="title" height="25px" width="50%"></h2>
- 
+ <p style="font-family:'Nanum Gothic', serif; margin-right: 200px;">제목 : 
+ <input type="text" name="title" style="width: 300px; height: 15px; padding: 0px; margin-right: 450px;"></p>
 		<div id="tx_trex_container" class="tx-editor-container">
-			
-			<!-- 사이드바 삭제함 -->
 
-			<!-- 툴바 - 기본 시작 -->
-			<!--
-				@decsription
-				툴바 버튼의 그룹핑의 변경이 필요할 때는 위치(왼쪽, 가운데, 오른쪽) 에 따라 <li> 아래의 <div>의 클래스명을 변경하면 된다.
-				tx-btn-lbg: 왼쪽, tx-btn-bg: 가운데, tx-btn-rbg: 오른쪽, tx-btn-lrbg: 독립적인 그룹
-
-				드롭다운 버튼의 크기를 변경하고자 할 경우에는 넓이에 따라 <li> 아래의 <div>의 클래스명을 변경하면 된다.
-				tx-slt-70bg, tx-slt-59bg, tx-slt-42bg, tx-btn-43lrbg, tx-btn-52lrbg, tx-btn-57lrbg, tx-btn-71lrbg
-				tx-btn-48lbg, tx-btn-48rbg, tx-btn-30lrbg, tx-btn-46lrbg, tx-btn-67lrbg, tx-btn-49lbg, tx-btn-58bg, tx-btn-46bg, tx-btn-49rbg
-			-->
 			<div id="tx_toolbar_basic" class="tx-toolbar tx-toolbar-basic"><div class="tx-toolbar-boundary">
 				<ul class="tx-bar tx-bar-left">
 					<li class="tx-list">
@@ -434,9 +388,8 @@
 				<!-- 첨부박스 끝 -->
 		</div>
 		<!-- 에디터 컨테이너 끝 -->
-	
-  		<input type="submit" onclick='saveContent()' value="작    성" class="btn-lg btn-danger" 
-  		style="width: 126px; height: 40px; padding-top: 5px;">
+  		<input type="submit" onclick='saveContent()' value="글쓰기" class="btn btn-primary btn-lg" 
+  		style="width: 100px; font-family: 'Nanum Gothic', serif; padding-top: 5px;" >
   	
   </form>
 	
@@ -576,8 +529,6 @@
         return true;
 	}
 </script>
-<!-- <div><button onclick='saveContent()'>SAMPLE - submit contents</button></div> -->
-<!-- End: Saving Contents -->
 
 </body>
 </html>
