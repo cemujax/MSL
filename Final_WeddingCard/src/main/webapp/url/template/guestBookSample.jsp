@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 
-<link rel="stylesheet" type="text/css" href="url/css/guestBook.css">
+
 
 <!-- bootStrap  -->
 <link rel="stylesheet"
@@ -18,12 +18,14 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="url/css/guestBook.css">
 <!-- bootStrap End -->
 <script type="text/javascript" src="./js/jquery-1.12.3.js"></script>
 <script src="./js/jquery.form.js"></script>
 
 <script type="text/javascript">
 	var xhr;
+	var checkFlag;
 
 	function removeText() {
 		document.getElementById("content").value = "";
@@ -35,39 +37,88 @@
 		var content = document.getElementById("content").value;
 		var url = '${param.url}';
 
-		if (content == "") {
-			alert("방명록 내용을 입력해주세요");
-			return false;
-		}
+		
 		if ('${mvo}' == "") {// 로그인 안한경우
 			var guest = document.getElementById("guest").value;
 			var password = document.getElementById("passwordNoLogin").value;
 
 			if (guest == "") {
 				alert("작성자를 입력해주세요");
+				document.getElementById("guest").focus();
 				return false;
 			}
 			if (password == "") {
 				alert("password를 입력해주세요");
+				document.getElementById("passwordNoLogin").focus();
 				return false;
 			}
-
+			
 		} else {//회원 글쓰기
 			$('input[name=guest]').val('`MSL User`'+'${mvo.name}');
 			$('input[name=password]').val('${mvo.password}');
 		}
+		if (content == "") {
+			alert("방명록 내용을 입력해주세요");
+			document.getElementById("content").focus();
+			return false;
+		}
 		document.guestBookFrm.submit();
 	}//writeComment	
 
-	function deleteCommentByOwner(commentNo) {
-		alert("내꺼니까 삭제할끄"+commentNo);
-		location.href="./card.do?command=deleteCardCommentByOwner&&url=${param.url}&&commentNo="+commentNo;
+	function deleteCommentByUser(commentNo) {
+		if(confirm("정말 삭제하시겠습니까?"))
+			location.href="./card.do?command=deleteCardCommentByOwner&&url=${param.url}&&commentNo="+commentNo;
 	}
-	function deleteComment() {
-		alert("지울래");
+	function deleteComment(commentNo) {
+		if( $('#checkArea'+commentNo).css("display") != "none" ){
+			$('#checkArea'+commentNo).hide();
+			$('#guestName'+commentNo).val("");
+			$('#passwordCheck'+commentNo).val("");
+			
+		}else{
+			$('#checkArea'+commentNo).show();
+		}
 	}
-	$(document).ready(function() {
+	
+	function writerCheck(commentNo){
+		var guestName = $('#guestName'+commentNo).val();
+		var passwordCheck = $('#passwordCheck'+commentNo).val();
+		if (guestName == "") {
+			alert("작성자를 입력해주세요");
+			return false;
+		}
+		if (passwordCheck == "") {
+			alert("password를 입력해주세요");
+			return false;
+		}
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = callback;
+		xhr.open("post", "./card.do");
+		xhr.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded;charset=utf-8");
+		xhr.send("command=writerCheck&&url=${param.url}&&guestName="+guestName
+				+"&&passwordCheck="+passwordCheck+"&&comNo="+commentNo);
+	}
+	function callback() {
+		if (xhr.readyState == 4) {
+			if (xhr.status == 200) {
+				var jsonData = JSON.parse(xhr.responseText); //true, false
 
+					if (jsonData.comNo != "") {// 
+						if(confirm("정말 삭제하시겠습니까?"))
+							location.href="./card.do?command=deleteCardCommentByOwner&&url=${param.url}&&commentNo="+jsonData.comNo;
+					} else {
+						alert("작성자, password를 다시 확인해주세요");
+					}
+			}
+		}
+	}//callback
+	
+	
+	$(document).ready(function() {
+		$('td[id*=checkArea]').hide();
+		//$('class*=checkArea').hide();
+		
 		$('#removeText').hide();
 		//$('#logout').hide();
 		if ('${mvo}' != "")
@@ -129,7 +180,7 @@
 		<div class="header">
 			<div class="row">
 				<div class="col-sm-1"></div>
-				<div class="col-sm-2">
+				<div class="col-xs-2 col-sm-2">
 					<h2>
 						<a
 							href="http://localhost:8888/Final_WeddingCard/url/${param.url}.jsp">
@@ -142,14 +193,12 @@
 						
 					</h2>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-xs-5 col-sm-4">
 					<h2 align="center" style="color: white; margin-left: 40%;">GuestBook</h2>
 				</div>
 			</div>
 
 		</div>
-
-
 
 
 		<!-- <input type="hidden" name="command" value="writeCardComment"> -->
@@ -187,15 +236,15 @@
 					<div class="col-sm-6 text-left" style="margin-left: 3%;">
 						<div class="write_box">
 							<div class="text-box">
-								<textarea class="ui-state-disabled" name="content" id="content"
-									rows="5" cols="20" placeholder="로그인 없이 방명록 사용이 가능합니다."></textarea>
 								<c:if test="${sessionScope.mvo == NULL }">
 									<input type="text" name="guest" id="guest" placeholder="작성자"
-										style="WIDTH: 40%; MARGIN-LEFT: 5%;">
+										style="WIDTH: 48%; ">
 									<input type="password" name="passwordNoLogin"
 										id="passwordNoLogin" placeholder="password"
-										style="WIDTH: 40%;">
+										style="WIDTH: 50%;">
 								</c:if>
+								<textarea class="ui-state-disabled" name="content" id="content"
+									rows="5" cols="20" placeholder="로그인 없이 방명록 사용이 가능합니다."></textarea>
 							</div>
 							<!-- text-box -->
 							<div class="text-button">
@@ -211,32 +260,41 @@
 
 
 						<div class="commentsList" style="margin-top: 30px;">
-							<table class="table">
+							<table class="table" style="border: solid 1px black;" >
 								<c:forEach items="${commentList}" var="comment">
+								
+									<c:set var="guest" value="${comment.guest}"/>
+									<c:set var="memberName" value="${fn:substringAfter(guest, '`MSL User`')}"/>
+									<c:set var="cDate" value="${fn:split(comment.writeDate, ':') }"/>
+									
 									<tr style="border: 1px solid black;">
-										<c:set var="guest" value="${comment.guest}"/>
 										<c:choose>
 											<c:when test="${fn:contains(guest, '`MSL User`')}">
-												<td rowspan="2" style="width: 100px;" align="center">
-												<img alt="" src="${initParam.root}img/msl.png" style="width: 20%; height: 20%;"></td>
-												<td>${fn:substringAfter(guest, "`MSL User`")}</td>
+												<td rowspan="3" style="width: 15%;" align="center">
+												<img alt="" src="${initParam.root}img/msl.png"></td>
+												<td>${memberName}</td>
 											</c:when>
 											<c:otherwise>
-												<td rowspan="2" style="width: 100px;" align="center">
-												<img alt="" src="${initParam.root}img/user.png" style="width: 20%; height: 20%;"></td>
+												<td rowspan="3" style="width: 15%;" align="center">
+												<img alt="" src="${initParam.root}img/user.png" ></td>
 												<td>${comment.guest}</td>
 											</c:otherwise>
 										</c:choose>
-										<td style="padding-left: 40%">&nbsp;&nbsp;&nbsp;${comment.writeDate}
-										&nbsp;&nbsp;&nbsp; 
+										<td id="cardDate">&nbsp;${cDate[0]}:${cDate[1]}
+										&nbsp;
 										<c:choose>
-											<c:when test="${mvo.memberId == param.memberId }">
-												<a href="javascript:deleteCommentByOwner(${comment.cardCommentNo})"><span class="glyphicon glyphicon-trash"></span>	</a>
-												${comment.cardCommentNo}
-											
+											<c:when test="${mvo != null }">
+												<c:if test="${mvo.memberId == param.memberId }">
+													<a href="javascript:deleteCommentByUser(${comment.cardCommentNo})"><span class="glyphicon glyphicon-trash"></span></a>
+												</c:if>
+												<c:if test="${ mvo.name == memberName && mvo.password == comment.password && mvo.memberId != param.memberId}">
+													<a href="javascript:deleteCommentByUser(${comment.cardCommentNo})"><span class="glyphicon glyphicon-trash"></span></a>
+												</c:if>
 											</c:when>
 											<c:otherwise>
-												<a href="javascript:deleteComment()"><span class="glyphicon glyphicon-trash"></span>	</a>
+												<c:if test="${!fn:contains(guest, '`MSL User`') }">
+													<a href="javascript:deleteComment(${comment.cardCommentNo})"><span class="glyphicon glyphicon-trash"></span></a>
+												</c:if>
 											</c:otherwise>
 										</c:choose>
 										</td>
@@ -245,6 +303,17 @@
 									<tr style="border: 1px solid black;">
 										<td colspan="2"><pre>${comment.content}</pre></td>
 									</tr>
+									<tr >
+										<td colspan="2" class="checkArea${comment.cardCommentNo}" id="checkArea${comment.cardCommentNo}">
+											<input type="text" name="guestName" id="guestName${comment.cardCommentNo}" placeholder="작성자"
+										style="WIDTH: 30%; ">
+									<input type="password" name="passwordCheck"
+										id="passwordCheck${comment.cardCommentNo}" placeholder="password"
+										style="WIDTH: 30%;">&nbsp;&nbsp;&nbsp;
+										<input type="button" onclick ="writerCheck(${comment.cardCommentNo})" value="확인">
+										</td>
+											
+	  								</tr>
 								</c:forEach>
 							</table>
 
@@ -257,10 +326,6 @@
 			</div>
 
 
-			<div align="center">
-				<a href="${initParam.root }index.jsp">메인으로</a>
-				<p>
-			</div>
 		</div>
 
 	</form>

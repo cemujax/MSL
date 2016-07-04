@@ -25,7 +25,7 @@ pageEncoding='UTF-8' isELIgnored='false'%><%@ taglib prefix='c'
 <jsp:param value='' name='photoBookComment'/>
 <jsp:param value='1@1' name='memberId'/>
 <jsp:param value='Mtest5' name='url'/>
-<jsp:param value='0' name='cardNo'/>
+<jsp:param value='1297' name='cardNo'/>
 <jsp:param value='' name='imgSrc'/>
 <jsp:param value='' name='imgGroom'/>
 <jsp:param value='' name='imgBride'/>

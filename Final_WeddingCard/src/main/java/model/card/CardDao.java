@@ -16,6 +16,7 @@ public interface CardDao {
    /////////// cardComment
    void writeCardComment(CardcommentVO comvo) throws SQLException;
    void deleteCardCommentByOwner(CardcommentVO comvo) throws SQLException;
+   boolean writerCheck(CardcommentVO comvo) throws SQLException;
    List<CardcommentVO>  getAllCardComments(int cardNo) throws SQLException;
    
    

@@ -186,8 +186,8 @@ public class CardController extends MultiActionController {
 			// file_name);
 			QRUtil.makeQR(card_url, 300, 300, file_path, file_name);
 			cardService.createCard(cvo);
-			cvo = cardService.getCard(url); // cardNo 알기 위해
 		}
+		cvo = cardService.getCard(url); // cardNo 알기 위해
 		System.out.println("cardVo===" + cvo);
 
 		String format = "<%@ page language='java' contentType='text/html; charset=UTF-8'\n"
@@ -579,6 +579,7 @@ public class CardController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 
 		System.out.println("getAllCardComments 컨트롤러");
+		
 		int cardNo = Integer.parseInt(request.getParameter("cardNo"));
 
 		List<CardcommentVO> commentList = cardService
@@ -588,5 +589,25 @@ public class CardController extends MultiActionController {
 		System.out.println(commentList);
 		return new ModelAndView("JsonView", "commentList", commentList);
 	}
+	
+	public ModelAndView writerCheck(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 
+		System.out.println("writerCheck 컨트롤러");
+		
+		String url = request.getParameter("url");
+		CardVO cardVO = cardService.getCard(url);
+		CardcommentVO comvo = new CardcommentVO();
+		comvo.setCardVO(cardVO);
+		comvo.setGuest(request.getParameter("guestName"));
+		comvo.setPassword(request.getParameter("passwordCheck"));
+		comvo.setCardCommentNo(Integer.parseInt(request.getParameter("comNo")));
+		
+		boolean flag = cardService.writerCheck(comvo);
+		System.out.println(flag+"\n"+comvo);
+		if(flag)	
+			return new ModelAndView("JsonView","comNo", comvo.getCardCommentNo());
+		else
+			return new ModelAndView("JsonView","comNo", "");
+	}
 }
