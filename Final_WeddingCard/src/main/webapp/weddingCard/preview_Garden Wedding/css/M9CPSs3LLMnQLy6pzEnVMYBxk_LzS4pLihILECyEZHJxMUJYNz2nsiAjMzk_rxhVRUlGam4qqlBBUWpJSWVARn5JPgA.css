@@ -916,7 +916,8 @@ img {
 
 .img-responsive {
 	display: block;
-	height: auto;
+	/* height: auto; */
+	height: 160px;
 	max-width: 100%
 }
 
@@ -1749,8 +1750,14 @@ code {
 			max-height: none; max-width: none; z-index: -999999; 
 			left: 0px; top: -206.193px;
 		}
+		.img-responsive{
+			height: 160px;
+		}
+		
 	}
 @media ( min-width : 1200px) {
+
+	
 	.container {
 		max-width: 1170px
 	}
@@ -8547,7 +8554,8 @@ li.recentcomments {
 	.backstretch{
 	left: 0px; top: 0px; 
 	overflow: hidden; 
-	margin: 0px; padding: 0px; height: 486px; 
+	margin: 0px; padding: 0px; /* height: 486px;  */
+	height: 400px;
 	width: 205px; z-index: -999998; 
 	position: absolute;
 }

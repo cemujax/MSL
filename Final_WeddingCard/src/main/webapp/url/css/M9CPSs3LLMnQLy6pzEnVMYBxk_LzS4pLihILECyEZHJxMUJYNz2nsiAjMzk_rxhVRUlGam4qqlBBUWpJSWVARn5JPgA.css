@@ -20,6 +20,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	vertical-align: baseline
 }
 
+
+	#kakao-link-btn img
+			{
+			margin-left: 50%;
+			}
+			
+			
 html {
 	font-size: 62.5%;
 	overflow-y: scroll;
@@ -94,7 +101,7 @@ p {
 }
 
 ul, ol {
-	margin: 0 0 1.5em 3em
+	/* margin: 0 0 1.5em 3em */
 }
 
 ul {
@@ -916,7 +923,8 @@ img {
 
 .img-responsive {
 	display: block;
-	height: auto;
+	/* height: auto; */
+	height: 160px;
 	max-width: 100%
 }
 

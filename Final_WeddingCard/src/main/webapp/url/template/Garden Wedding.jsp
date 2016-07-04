@@ -11,9 +11,12 @@
 <link rel="stylesheet" type="text/css"
 	href="css/M9CPSs3LLMnQLy6pzEnVMYBxk_LzS4pLihILECyEZHJxMUJYNz2nsiAjMzk_rxhVRUlGam4qqlBBUWpJSWVARn5JPgA.css"
 	media="all">
+	<%-- <script type="text/javascript" src="${initParam.root}weddingCard/js/jquery-1.12.3.js"></script> --%>
+	<script src="js/jquery.min.js"> </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <title>Zenith | Just another demo Sites site</title>
+
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="http://demo.fabthemes.com/zenith/xmlrpc.php">
 <link href="css/application.css" rel="stylesheet" type="text/css" media="all" /><!-- 방명록 -->
@@ -68,15 +71,217 @@ img.wp-smiley, img.emoji {
 	padding: 0 !important;
 	margin: 0 !important;
 }
+
+
+/*  */
+.header-top {
+    padding: 0.5em 0;
+	}
+	.backstretch {
+     background: url(img/13.jpg)no-repeat 0px 0px; 
+	 background-size:cover;
+	}
+	
+	/* 업로드한 이미지 */
+	.backstretch_select {
+    min-height: 600px;
+	}
+	.backstretch_select-top {
+    padding: 0.5em 0;
+	}
+	.backstretch_select {
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px;
+	 background-size:cover;
+	}
+	
+	#kakao-link-btn img
+		{
+		margin-left: 48%;
+		}	
+			
+	#msl{
+		margin-left:48%;
+	}
+	
+	@media ( max-width : 992px ){
+	.backstretch_select {
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat -170px 0px; 
+	background-size:cover;
+	min-height: 250px;
+		}
+		
+		.img-responsive{
+			height: 80px
+		}
+		#kakao-link-btn img
+			{
+			margin-left: 30%;
+			}
+		#msl{
+		margin-left:30%;
+		}
+	}
+	
+	@media ( max-width : 360px ){
+		.backstretch_select{
+			background: url(/Final_WeddingCard/url/1106s/013.jpg)no-repeat 0px 0px;
+			background-size: cover;
+   			min-height: 250px;
+		}
+		
+		#ctimer
+			span{
+			width: 340px;
+		}
+		
+		.pricingtable.pricing_free{
+			margin-left: 0%;
+   			margin-right: 5%;
+    		margin-top: 20px;
+    		min-width: 320px;
+    		margin-bottom: 1%;
+		}
+		.pricing_iconlist{
+			width: 320px;
+		}
+		
+		.textbox p{
+			margin-left: 10%;
+		}
+		
+		#msl {
+		    margin-left: 40%;
+		}
+		
+		#kakao-link-btn img {
+		    margin-left: 40%;
+		}
+		
+		.img-responsive {
+		    height: 200px;
+		    margin-left: 0%;
+		}
+		
+		#photo {
+			height: 200px;
+		    margin-left: 6%;
+  		  	width: 310px;
+		}
+		
+	}
+	
+	/* 375px 아이폰 6 */
+	@media ( max-width : 375px ){
+		.backstretch_select{
+			background: url(/Final_WeddingCard/url/1106s/013.jpg)no-repeat 0px 0px;
+			background-size: cover;
+   			min-height: 250px;
+		}
+		
+		#ctimer
+			span{
+			width: 340px;
+		}
+		
+		.pricingtable.pricing_free{
+			margin-left: 0%;
+   			margin-right: 5%;
+    		margin-top: 20px;
+    		min-width: 320px;
+    		margin-bottom: 1%;
+		}
+		.pricing_iconlist{
+			width: 320px;
+		}
+		
+		.textbox p{
+			margin-left: 10%;
+		}
+		
+		#msl {
+		    margin-left: 40%;
+		}
+		
+		#kakao-link-btn img {
+		    margin-left: 40%;
+		}
+		
+		.img-responsive {
+		    height: 200px;
+		    margin-left: 0%;
+		}
+		
+		#photo {
+			height: 200px;
+		    margin-left: 6%;
+  		  	width: 310px;
+		}
+		
+	}
+	
+	/* 320px 아이폰 5*/
+	@media ( max-width : 320px ){
+		#ctimer
+			span{
+			width: 300px;
+		}
+		
+		.pricingtable.pricing_free{
+			margin-left: 0%;
+   			margin-right: 5%;
+    		margin-top: 20px;
+    		min-width: 300px;
+    		margin-bottom: 1%;
+		}
+		.pricing_iconlist{
+			width: 300px;
+		}
+		
+		.textbox p{
+			margin-left: 10%;
+		}
+		
+		#msl {
+		    margin-left: 40%;
+		}
+		
+		#kakao-link-btn img {
+		    margin-left: 40%;
+		}
+		
+		.img-responsive {
+		    height: 200px;
+		    margin-left: 0%;
+		}
+		
+		#photo {
+			height: 200px;
+		    margin-left: 6%;
+  		  	width: 300px;
+		}
+		
+	}
+	
+	
+	
+.button4 {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+
 </style>
+
+
+
 <!-- 카카오톡 -->
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <!-- 방명록 -->
+<link href="css/application.css" rel="stylesheet" type="text/css" media="all" /><!-- 방명록 -->
 <script type="text/javascript">
-	function writeComment() {
-		location.href = "${initParam.root}card.do?command=linkGuestBook&&url=${param.url}";
-	}
-
+function writeComment() {
+	location.href = "${initParam.root}card.do?command=linkGuestBook&&url=${param.url}";
+}
 	$(document).ready(function() {
 
 		$.ajax({
@@ -92,14 +297,14 @@ img.wp-smiley, img.emoji {
 
 				for (i = 0; i < commentList.length; i++) {
 					 $('.guestBook').append(
-						"<div class='pricingtable pricing_free'><ul class='pricing_iconlist iconset_free'>"
-						+"<li style='background-color:#c791a6; font-size:15px; border-radius: 10px;'><font style='color: black;'>"+"작성자"+"&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"+commentList[i].guest+"</font><br>"
-						+"<font style='float:right;'>"+commentList[i].writeDate+"</font></li>"
-						+"<li style='font-size: 15px; margin-top:20px;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
-						+ "<p><li>&nbsp;&nbsp;</li>"
-						+ "<li>&nbsp;&nbsp;</li>"+
-						/* +"<li style='border-style: ridge;'>"+commentList[i].guest+":: &nbsp;"+commentList[i].writeDate+"</li>"+ */
-						"</ul></div>"
+								"<div class='pricingtable pricing_free' style='margin-left:2%; margin-top:50px;'><ul class='pricing_iconlist iconset_free'>"
+								+"<li style='background-color:rgba(0, 143, 127, 0.57); font-size:15px; border-radius: 10px;'><font style='color: black;'>"+"작성자"+"&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"+commentList[i].guest+"</font><br>"
+								+"<font style='float:right;'>"+commentList[i].writeDate+"</font></li>"
+								+"<li style='font-size: 15px; margin-top:20px;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
+								+ "<p><li>&nbsp;&nbsp;</li>"
+								+ "<li>&nbsp;&nbsp;</li>"+
+								/* +"<li style='border-style: ridge;'>"+commentList[i].guest+":: &nbsp;"+commentList[i].writeDate+"</li>"+ */
+								"</ul></div>"
 					 );
 				}//for
 			}//success
@@ -127,11 +332,18 @@ img.wp-smiley, img.emoji {
 							</div>
 
 							<div class="col-md-6">
-							
 								<div class="bridecol">
 									<div class="bridepic">
-										<img src="img/01.jpg" alt="bride">
+										<c:choose>
+											<c:when test="${param.imgBride == ''  }">
+											<img src="img/01.jpg" alt="bride">
+											</c:when>
+											<c:otherwise>
+									 			<img src="${param.url}/${param.imgBride}" class="img-responsive" alt="">
+									 		</c:otherwise>
+									 	</c:choose>
 									</div>
+									
 
 									<div class="brideinfo">
 										<h3>${param.groomName}</h3>
@@ -144,9 +356,14 @@ img.wp-smiley, img.emoji {
 							<div class="col-md-6">
 								<div class="groomcol">
 									<div class="groompic">
-										<img
-											src="img/02.jpg"
-											alt="groom" >
+										<c:choose>
+									 		<c:when test="${param.imgGroom == '' }">
+									 				<img src="img/02.jpg" alt="groom" >
+									 		</c:when>
+									 		<c:otherwise>
+									 			<img src="${param.url}/${param.imgGroom}" class="img-responsive" alt="">
+									 		</c:otherwise>
+									 	</c:choose>
 									</div>
 									
 									<div class="groominfo">
@@ -159,10 +376,27 @@ img.wp-smiley, img.emoji {
 						</div>
 					</div>
 				</div>
-				<div class="backstretch" >
-					<img src="img/013.jpg" >
-				</div><!-- http://cdn.demo.fabthemes.com/zenith/files/2013/12/photodune-3979777-couple-at-autumn-outdoors-s.jpg -->
-			</div>
+				
+				<c:choose >
+					<c:when test="${param.imgSrc == ''}">
+				   		<div class="backstretch">
+				     		 <div class="container">
+				                  <script defer src="js/jquery.flexslider.js"></script>
+				      		</div>
+				   		</div>
+					</c:when>
+					<c:otherwise>
+				   		<div class="backstretch_select">
+				     		 <div class="container">
+				                  <script defer src="js/jquery.flexslider.js"></script>
+				      		</div>
+			   			</div>
+					</c:otherwise>
+				</c:choose>
+							<!-- <div class="backstretch" >
+								<img src="img/013.jpg" >
+							</div> -->
+						</div>
 			
 			
 			<div class="timer-box">
@@ -205,10 +439,6 @@ img.wp-smiley, img.emoji {
 						</div>
 						<div class="col-sm-6">
 							<div class="dstory">
-								<!-- <img
-									src="http://cdn.demo.fabthemes.com/zenith/files/2013/12/groo-590x360.png"
-									alt="groom">
-								<h3>신랑</h3> -->
 								<p>초대글
 									${param.cardContext}
 								</p>
@@ -224,13 +454,15 @@ img.wp-smiley, img.emoji {
 		<div class="container">
 			<div class="guestBook">
 	        	<div class="about-head">
-	               <h2 class="section-title" id="section-title2">GuestBook</h2>
+	               <h2 class="section-title">GuestBook</h2>
 	               <input style="float: right;margin-right: 4%;" type="button" class="button4" name="writeComment" onclick="writeComment()" value="축하글 쓰기" />
+	            
 	            </div>
 			</div>
 		</div>
 	</div>
   <!-- //방명록 -->
+  
   
 <!-- Photo Album -->
 			<div class="album-box">
@@ -238,9 +470,7 @@ img.wp-smiley, img.emoji {
 					<div class="row">
 						<div class="col-xs-12">
 							<h2 class="section-title" id="section-title2">
-								Photo Album <span> <!-- <a
-									href="http://demo.fabthemes.com/zenith/album/">View Full
-										Album</a> --></span>
+								Photo Album <span></span>
 							</h2>
 						</div>
 
@@ -257,7 +487,7 @@ img.wp-smiley, img.emoji {
                      </div> --%>
                   
 							<div class="col-md-4 album-post">
-								 <img src="${initParam.root }/img/photobook/${sessionScope.mvo.memberId}/${param.photoBookNo }/${pbImg[i] }" class="img-responsive" alt="/" width="280px">
+								 <img id="photo" src="${initParam.root }/img/photobook/${param.memberId}/${param.photoBookNo }/${pbImg[i] }" class="img-responsive" alt="/" width="280px">
 								<div class="textbox">
                         			<!-- <h4>my wedding</h4> -->
                       			  <p>${pbComment[i]}</p>
@@ -401,14 +631,44 @@ img.wp-smiley, img.emoji {
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<div class="container">
 				<div class="row">
-					<p style="text-align: center;">MySweetLove
+					<p id="msl">MySweetLove
 						<a href="#" class="go-top glyphicon glyphicon-circle-arrow-up"></a></p>
+						<a id="kakao-link-btn" href="javascript:;">
+<img style="width:40px; height: 40px;" src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
+</a>
+<!-- Facebook share -->
+<a 
+href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp">
+<img style="width:40px; height: 40px;"  src=${initParam.root}img/facebook-share.png></a>
+
 				</div>
 			</div>
 		</footer>
 		<!-- #colophon -->
 	</div>
 	<!-- #page -->
+
+<script type='text/javascript'>
+  //<![CDATA[
+    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('150642152529d54760872b2abd33da63');
+    
+    // // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    Kakao.Link.createTalkLinkButton({
+      container: '#kakao-link-btn',
+      label: '카카오링크 샘플에 오신 것을 환영합니다.',
+      image: {
+        src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
+        width: '60',
+        height: '60'
+      },
+      webButton: {
+        text: '카카오 디벨로퍼스',
+        url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+      }
+    });
+  //]]>
+</script>
 
 
 	<!-- <script type="text/javascript"
@@ -423,7 +683,8 @@ var fab_objects = {"timer":"04\/30\/2015 18:00:00"};
 	<script type="text/javascript">
 
 	jQuery(".subhead").backstretch("img/013.jpg");
-
+	
+	
 </script>
 
 </body>
