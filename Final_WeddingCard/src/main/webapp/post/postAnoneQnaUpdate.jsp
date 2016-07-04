@@ -8,27 +8,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>My Sweet Love . Wedding Card</title>
     <link rel="stylesheet" href="post/css/editor.css" type="text/css" charset="utf-8"/>
-    <link rel="stylesheet" href="../weddingCard/css/bootstrap.min.css">
-    <link rel="stylesheet" href=" http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
 </head>
-<body style="margin: 0px;">
-	<div class="container" style="background-image: url(${initParam.root }img/post_anone_board.png); width: 100%; height: 250px" align="center">
-		<p style="font-weight: bold; font-size:25px; margin-top: 0px; padding-top: 7%">익명 게시판</p>
-	</div>
-	
-<div class="" style="margin-top: 3%; margin-left: 13%; margin-right: 13%;">
-    <form name="tx_editor_form" id="tx_editor_form" action="${initParam.root }post.do" method="post" accept-charset="utf-8">
+<body>
+<div class="body">
+    <form name="tx_editor_form" id="tx_editor_form" action="${initParam.root }post.do" method="post"
+          accept-charset="utf-8">
+          
         <input type="hidden" name="command" value="modifyAnoneQnA">
 		<input type="hidden" name="postNo" value="${pvo.postNo }">
-        <textarea name="content" id="content" style="width: 100%; height: 490px; margin-left: 13%; margin-right: 13%; margin-top: 3%;"></textarea>
+        <textarea name="content" id="content" style="width: 100%; height: 490px;"></textarea>
     </form>
 </div>
-<div style="text-align: center;">
-    <!-- <button onclick="saveContent()">수정</button> -->
-    <input type="submit" onclick='saveContent()' value="글 수정" class="btn btn-primary btn-lg" 
-  		style="width: 100px; font-family: 'Nanum Gothic', serif; padding-top: 5px;" >
+<div>
+    <button onclick="saveContent()">수정</button>
 </div>
-
 <script src="post/js/editor_loader.js" type="text/javascript" charset="utf-8"></script>
 <script src="post/js/editor_creator.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">

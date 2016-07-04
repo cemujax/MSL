@@ -21,15 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--/script-->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
-<!-- <script type="text/javascript">
 
-			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
-				});
-			});
-</script> -->
 
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <!-- 방명록 -->
@@ -337,7 +329,6 @@ function writeComment() {
 			    
 			    
 <div class="copy">
-		   <!--  <p>&copy; 2015 Best Day. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p> -->
 				<p>MySweetLove</p>
 				<a id="kakao-link-btn" href="javascript:;">
 <img style="width:40px; height: 40px;" src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>

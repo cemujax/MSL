@@ -2391,7 +2391,7 @@ pre code {
 		margin-left: 41.66666667%
 	}
 	.col-md-offset-4 {
-		margin-left: 52%
+		margin-left: 33.33333333%
 	}
 	.col-md-offset-3 {
 		margin-left: 25%
@@ -3327,6 +3327,7 @@ select[multiple].input-lg, textarea.input-lg {
 	-ms-user-select: none;
 	user-select: none;
 	background-image: none;
+	border: 1px solid transparent;
 	border-radius: 4px
 }
 
@@ -4735,7 +4736,8 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 @media ( min-width :768px) {
 	.navbar-nav {
 		float: left;
-		margin: 0
+		margin: 0;
+			
 	}
 	.navbar-nav>li {
 		float: left
@@ -4744,6 +4746,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 		padding-top: 15px;
 		padding-bottom: 15px
 	}
+	
 }
 
 .navbar-form {

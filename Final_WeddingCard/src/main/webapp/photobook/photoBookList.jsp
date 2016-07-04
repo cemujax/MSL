@@ -14,11 +14,6 @@
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./css/pbresult.css">
     
-    <!-- font style -->
-    <link rel="stylesheet" type="text/css" 
-    href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
-    <link rel="stylesheet" type="text/css" 
-    href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css">
   </head>
   <body style="background-color: #fff1d4;">
   <nav class="navbar navbar-inverse" style="background-color: #f8f8f8; border-color: #e7e7e7;">
@@ -73,20 +68,16 @@
 	  <li class="col-lg-3 col-sm-4 col-xs-6" >
 	    <a href="photoBook.do?command=detail&&no=${i.bookNo}">
               <img id="test${i.bookNo}" src="http://www.freeiconspng.com/uploads/vector-book-icon-vector-graphic--creattor-7.jpg" alt="Barca" class="img-responsive" height="130px" onload="myFunction('${i.bookNo}', '${i.fileName}')" />
-              <h2 style="font-family: 'Noto Sans KR', sans-serif;">${i.bookName}</h2>
+              <h2>${i.bookName}</h2>
               <span class="glyphicon glyphicon-share-alt"></span>
               <span class="duration">${vs.count}</span>
-              
-              <input type="button" value="수정" onclick="modify_photoBook(${i.bookNo})"
-              style="background-color: white; border: 1px solid #89D06A; font-family: 'Noto Sans KR', sans-serif;">
-	   		  <input type="button" value="삭제" onclick="delete_photoBook(${i.bookNo})"
-	   		  style="background-color: white; border: 1px solid #fed8ab; font-family: 'Noto Sans KR', sans-serif;">
 	    </a>
-	    <%-- <input type="button" value="수정" onclick="modify_photoBook(${i.bookNo})">
-	    <input type="button" value="삭제" onclick="delete_photoBook(${i.bookNo})"> --%>
-	    <%-- <a href="photoBook.do?command=modifyView&&bookNo=${i.bookNo }" >
-	     수정</a> --%>
-	      <%-- <a onclick="delete_photoBook(${i.bookNo})">삭제</a> --%>
+	    <a href="photoBook.do?command=modifyView&&bookNo=${i.bookNo }" class="article"
+	      style="margin-left: 0px; padding-left: 8%; font-size: 180%; font-family: 'Nanum Pen Script', serif;">
+	      포토북 수정</a>
+	      <a onclick="delete_photoBook(${i.bookNo})" 
+	      style="margin-left: 0px; padding-left: 8%; font-size: 180%; font-family: 'Nanum Pen Script', serif;" class="demo">
+	      포토북 삭제</a>
 	  </li>
 	</c:forEach>
       </ul>
@@ -102,9 +93,6 @@
   		}  
       $(function(){
       });
-      function modify_photoBook(index) {
-        	location.href="photoBook.do?command=modifyView&&bookNo="+index;
-        }
       function delete_photoBook(index) {
       	if(confirm("해당 포토북을 삭제하시겠습니까?")) {
       		location.href="photoBook.do?command=delete&&bookNo="+ index;

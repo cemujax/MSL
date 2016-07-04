@@ -65,32 +65,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		
 	}  
 
-   /* .header {
-     background: url(img/banner.jpg)no-repeat 0px 0px; 
-	background-size:cover;
-	}
-	
-	/* 업로드한 이미지 
-	.header_select {
-    min-height: 600px;
-	}
-	.header_select-top {
-    padding: 0.5em 0;
-	}
-	.header_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
-	 background-size:cover;
-	}
-	
-	@media ( max-width : 320px ){
-		.header_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
-	background-size:cover;
-	min-height: 250px;
-		}
-		
-	}
-  */
 </style>
 
 </head>
