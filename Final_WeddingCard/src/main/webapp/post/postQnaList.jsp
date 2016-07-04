@@ -36,10 +36,9 @@
 
 
 	<div class="container"
-		style="background-image: url(images/board.png); width: 100%; height: 250px"
+		style="background-image: url(${initParam.root }img/post_qna_board3.png); width: 100%; height: 250px"
 		align="center">
-		<p style="font-weight: bold; font-size: 25px; margin-top: 7%;">웨딩
-			QnA</p>
+		<p style="font-weight: bold; font-size: 25px; margin-top: 7%;">웨딩 QnA</p>
 	</div>
 
 	<div class="container" style="margin-top: 2%;">
@@ -77,7 +76,7 @@
 
 
 				<c:if test="${sessionScope.mvo!=null}">
-						<div class="" style="margin-left: 600px;">
+						<div class="" style="text-align: center;">
 							<a href="post/postQnaWrite.jsp"> <input type="button"
 								class="btn btn-primary btn-lg" value="글쓰기"
 								id="writeCard"
@@ -112,7 +111,7 @@
     </c:forEach>
 					<c:if test="${pb.nextPageGroup}">
 						<a
-							href="./post.do?command=getAllQnAs&&page=${pb.endPageOfPageGroup +1}">
+							href="${initParam.root }post.do?command=getAllQnAs&&page=${pb.endPageOfPageGroup +1}">
 							다음 페이지</a>
 						<br>
 					</c:if>

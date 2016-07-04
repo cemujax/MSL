@@ -2,9 +2,16 @@
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-	제목
-	<input type="text" name="title">
+<html>
+<head>
+ <link rel="stylesheet" href="../weddingCard/css/bootstrap.min.css">
+    <link rel="stylesheet" href=" http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+</head>
+<body>
+<!-- <td>제목</td> -->
+	<p style="font-family:'Nanum Gothic', serif; margin-right: 200px;">제목 : 
+ <input type="text" name="title" style="width: 300px; height: 15px; padding: 0px; margin-right: 450px;"></p>
+ 
 	
 <div id="tx_trex_container" class="tx-editor-container">
 <div id="tx_sidebar" class="tx-sidebar">
@@ -358,11 +365,9 @@
     <img id="tx_resize_holder" src="post/images/icon/editor/skin/01/btn_drag01.gif" width="58" height="12" unselectable="on"
          alt=""/>
 </div>
-<div class="tx-side-bi" id="tx_side_bi">
-    <div style="text-align: right;">
-        <img hspace="4" height="14" width="78" align="absmiddle" src="post/images/icon/editor/editor_bi.png"/>
-    </div>
-</div>
+<!-- <div class="tx-side-bi" id="tx_side_bi">
+  
+</div> -->
 <div id="tx_attach_div" class="tx-attach-div">
     <div id="tx_attach_txt" class="tx-attach-txt">파일 첨부</div>
     <div id="tx_attach_box" class="tx-attach-box">
@@ -391,3 +396,5 @@
     </div>
 </div>
 </div>
+</body>
+</html>
