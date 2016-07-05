@@ -67,6 +67,9 @@ public class MemberController extends MultiActionController{
 			   
 			   else if(loc.equals("wdCardList"))
 				   loc = "card.do?command=getAllCards";
+			   
+			   else
+				   loc = "index.jsp";
 		   }
 		   
 		   return new ModelAndView("authentication/login_result", "location", loc);
