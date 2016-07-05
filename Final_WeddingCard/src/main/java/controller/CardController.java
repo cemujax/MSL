@@ -278,6 +278,9 @@ public class CardController extends MultiActionController {
 
 		if ("mainImage".equals(flag)) {
 			MultipartFile imgFile = cvo.getImgFile();
+			if(!imgFile.isEmpty()){
+				System.out.println("emp!!!!!!");
+			}
 			File file = new File(path + "temp_" + mvo.getMemberId() + "//"
 					+ imgFile.getOriginalFilename());
 			if (!file.getParentFile().exists()) {

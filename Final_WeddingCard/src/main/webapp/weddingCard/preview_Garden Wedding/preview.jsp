@@ -796,11 +796,9 @@ var fab_objects = {"timer":"04\/30\/2015 18:00:00"};
 	<script type="text/javascript">
 	
 	if('${param.imgSrc}' == ''){
-		alert("업로드 안함!!!");
 		 $('.subhead').backstretch("img/013.jpg");
 		//jQuery(".subhead").backstretch("img/013.jpg");
 	}else{
-		alert("zzz1111");
 		$('.subhead').backstretch("${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}"); 
 	}
 		

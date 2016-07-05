@@ -16,35 +16,47 @@
 
 <title>Wedding Card</title>
 
-<link rel="stylesheet" href="${initParam.root}weddingCard/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/bootstrap.min.css">
 
 <!-- <link href="${initParam.root}weddingCard/css/bootstrap-responsive.css" rel="stylesheet"> -->
 
 <link rel="stylesheet"
 	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/ -->
-<link rel="stylesheet" href="${initParam.root}weddingCard/css/font-awesome.min.css">
-<link rel="stylesheet" href="${initParam.root}weddingCard/css/jquery-ui.css" />
-<link rel="stylesheet" href="${initParam.root}weddingCard/css/uploadifive.css" />
-<link rel="stylesheet" href="${initParam.root}weddingCard/css/jquery.cropbox.custom.css" />
-<link rel="stylesheet" href="${initParam.root}weddingCard/css/builder.css" />
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/jquery-ui.css" />
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/uploadifive.css" />
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/jquery.cropbox.custom.css" />
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/builder.css" />
 <link rel="stylesheet" href="${initParam.root}weddingCard/css/style.css">
-<link rel="stylesheet" href="${initParam.root}weddingCard/css/common.css">
-<link rel="stylesheet" type="text/css" href="${initParam.root}weddingCard/css/default.css" />
-<link rel="stylesheet" type="text/css" href="${initParam.root}weddingCard/css/component.css" />
-<link href="${initParam.root}weddingCard/css/bootstrap_index.css" rel="stylesheet" type="text/css"
-	media="all" />
-<link href="${initParam.root}weddingCard/css/style_index.css" rel="stylesheet" type="text/css"
-	media="all" />
-<link rel="stylesheet" href="${initParam.root}weddingCard/css/chocolat.css" type="text/css"
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/common.css">
+<link rel="stylesheet" type="text/css"
+	href="${initParam.root}weddingCard/css/default.css" />
+<link rel="stylesheet" type="text/css"
+	href="${initParam.root}weddingCard/css/component.css" />
+<link href="${initParam.root}weddingCard/css/bootstrap_index.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link href="${initParam.root}weddingCard/css/style_index.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet"
+	href="${initParam.root}weddingCard/css/chocolat.css" type="text/css"
 	media="screen" charset="utf-8">
 
 <!-- 우리꺼 -->
-<link rel="stylesheet" type="text/css" href="${initParam.root}weddingCard/css/weddingCard.css">
+<link rel="stylesheet" type="text/css"
+	href="${initParam.root}weddingCard/css/weddingCard.css">
 
 
 <!-- ================================== -->
-<script type="text/javascript" src="${initParam.root}weddingCard/js/jquery-1.12.3.js"></script>
+<script type="text/javascript"
+	src="${initParam.root}weddingCard/js/jquery-1.12.3.js"></script>
 <!-- <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
 <script
@@ -55,9 +67,12 @@
  -->
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="${initParam.root}weddingCard/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="${initParam.root}weddingCard/js/hammer.js"></script>
-<script type="text/javascript" src="${initParam.root}weddingCard/js/jquery.mousewheel.js"></script>
-<script src="${initParam.root}weddingCard/js/jquery.datepicker.regional.kr.js"></script>
+<script type="text/javascript"
+	src="${initParam.root}weddingCard/js/hammer.js"></script>
+<script type="text/javascript"
+	src="${initParam.root}weddingCard/js/jquery.mousewheel.js"></script>
+<script
+	src="${initParam.root}weddingCard/js/jquery.datepicker.regional.kr.js"></script>
 <script src="${initParam.root}weddingCard/js/jquery.scrollTo.min.js"></script>
 
 <!-- 이미지 업로드 -->
@@ -97,7 +112,7 @@
 			}
 		}
 	} // pbCallback
-	$(document).ready(function(){
+	$(document).ready(function() {
 		$("#tabs").tabs();
 	});
 </script>
@@ -154,7 +169,8 @@
 							<div class="cont_preview mobile" id="cont_preview">
 
 								<div class="look_bg">
-									<img src="${initParam.root}img/preview_mobile2.png" alt="미리보기화면"
+									<img src="${initParam.root}img/preview_mobile2.png"
+										alt="미리보기화면"
 										style="width: 250px; height: 500px; margin-left: 40%; margin-top: 15%;">
 
 
@@ -205,16 +221,15 @@
 				</div>
 			</div>
 		</div>
-		
-		<div class="md-overlay">
-		</div>
-		the overlay element
-		classie.js by @desandro: https://github.com/desandro/classie
+
+		<div class="md-overlay"></div>
+		the overlay element classie.js by @desandro:
+		https://github.com/desandro/classie
 		<script src="js/classie.js"></script>
 		<script src="js/modalEffects.js"></script>
 
-		for the blur effect
-		by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill
+		for the blur effect by @derSchepp
+		https://github.com/Schepp/CSS-Filters-Polyfill
 		<script>
 			// this is important for IEs
 			var polyfilter_scriptpath = '/js/';
@@ -231,10 +246,8 @@
 				<!-- style="width: 80%; margin-left: 10%; padding-left: 2%;" -->
 
 				<li><a href="#tabs-1"> <span> <i
-							class="fa fa-calendar-check-o"></i>
-						<!-- style="font-size: 36px; margin-left: 20%;" -->
-					</span><br>
-					<font size="1">스킨선택</font>
+							class="fa fa-calendar-check-o"></i> <!-- style="font-size: 36px; margin-left: 20%;" -->
+					</span><br> <font size="1">스킨선택</font>
 				</a></li>
 
 				<li><a href="#tabs-2"> <span> <i class="fa fa-list"></i>
@@ -256,7 +269,8 @@
 				<input type="hidden" name="templateType" value="" id="templateType">
 				<table>
 					<tr align="center">
-						<td><img src="${initParam.root}weddingCard/preview_Fall In Love/img/Fall In Love.jpg"
+						<td><img
+							src="${initParam.root}weddingCard/preview_Fall In Love/img/Fall In Love.jpg"
 							class="img-rounded" style="height: 70px;"> <input
 							type="radio" name="template" id="template" value="Fall In Love">
 						</td>
@@ -265,7 +279,8 @@
 							class="img-rounded"> <input type="radio" name="template"
 							id="template2" value="Innocent Bride"></td>
 
-						<td><img src="${initParam.root}weddingCard/preview_Garden Wedding/img/ze.PNG"
+						<td><img
+							src="${initParam.root}weddingCard/preview_Garden Wedding/img/ze.PNG"
 							class="img-rounded"> <input type="radio" name="template"
 							id="template3" value="Garden Wedding"></td>
 
@@ -318,7 +333,7 @@
 			<input type="hidden" name="imgSrc" value="">
 			<div id="tabs-2" style="font-size: 13px; text-align: left;">
 				<table style="width: 330px;">
-				  <!-- <tr>
+					<!-- <tr>
 				       <td colspan="3">
 				       <img alt="" src="../img/222.jpg"
 				       style="margin-top: 10%; margin-bottom: 5%; margin-left: 30px;">
@@ -329,7 +344,7 @@
 						<td>메인사진:</td>
 						<td><input type="file" name="imgFile" id="imgFile"
 							style="font-size: 10px; width: 150px; padding-left: 5px;">
-						<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
+							<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
 						<td><input type="submit" value="업로드 " id="sendImage">
 						</td>
 					</tr>
@@ -338,24 +353,24 @@
 						<td>신부사진:</td>
 						<td><input type="file" name="imgBride" id="imgBride"
 							style="font-size: 10px; width: 150px; padding-left: 5px;">
-						<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
+							<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
 						<td><input type="submit" value="업로드 " id="sendBride">
 						</td>
 					</tr>
 
 					<tr>
 						<td>신부이름:</td>
-						<td colspan="2"><input type="text" id="groomName" name="groomName"
-						 value="${groomName}"> <!-- style="margin: 2%;" --></td>
+						<td colspan="2"><input type="text" id="groomName"
+							name="groomName" value="${groomName}"> <!-- style="margin: 2%;" --></td>
 					</tr>
 
 
 					<tr>
 						<td>신부번호:</td>
 						<td colspan="2"><input type="text" id="groomTel"
-							name="groomTel" value="${groomTel}" onkeydown='return onlyNumber(event)'
-							onkeyup='removeChar(event)' style='ime-mode: disabled;'>
-						</td>
+							name="groomTel" value="${groomTel}"
+							onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'
+							style='ime-mode: disabled;'></td>
 					</tr>
 
 					<!--  신랑 영역 -->
@@ -363,22 +378,22 @@
 						<td>신랑사진:</td>
 						<td><input type="file" name="imgGroom" id="imgGroom"
 							style="font-size: 10px; width: 150px; padding-left: 5px;">
-						<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
+							<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
 						<td><input type="submit" value="업로드 " id="sendGroom">
 						</td>
 					</tr>
 
 					<tr>
 						<td>신랑이름:</td>
-						<td><input type="text" name="brideName" id="brideName" value="${brideName}">
-						</td>
+						<td><input type="text" name="brideName" id="brideName"
+							value="${brideName}"></td>
 					</tr>
 
 					<tr>
 						<td>신랑번호:</td>
-						<td><input type="text" name="brideTel" id="brideTel" value="${brideTel}"
-							onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'
-							style='ime-mode: disabled;'></td>
+						<td><input type="text" name="brideTel" id="brideTel"
+							value="${brideTel}" onkeydown='return onlyNumber(event)'
+							onkeyup='removeChar(event)' style='ime-mode: disabled;'></td>
 					</tr>
 
 					<tr>
@@ -386,15 +401,14 @@
 						<c:choose>
 							<c:when test="${cardVo.url == null }">
 								<td><input type="text" name="url" id="url"
-							onkeyup="urlCheck()"><br>
-						<span id="checkResult"></span></td></c:when>
+									onkeyup="urlCheck()"><br> <span id="checkResult"></span></td>
+							</c:when>
 							<c:otherwise>
 								<td><input type="text" name="url" id="url"
-								value="${cardVo.url}" readonly="readonly"><br>
-								<!-- <span id="checkResult"></span> --></td>
+									value="${cardVo.url}" readonly="readonly"><br> <!-- <span id="checkResult"></span> --></td>
 							</c:otherwise>
 						</c:choose>
-						
+
 					</tr>
 
 				</table>
@@ -475,10 +489,11 @@
 							<td colspan="2">
 								<div class="section">
 									<textarea name="cardContext" id="cardContext"
-										class="input_box_type2" value="${cardVO.cardContext}" rel="tooltip"
+										class="input_box_type2" value="${cardVO.cardContext}"
+										rel="tooltip"
 										title="<span class='tooltip_title'>초대글</span>
 									<br>- 초대(모시는)글을 입력 해주십시요"
-										placeholder="초대글" ></textarea>
+										placeholder="초대글"></textarea>
 								</div>
 							</td>
 						</tr>
@@ -491,20 +506,105 @@
 
 						<tr>
 							<td colspan="2">예식장소 : &nbsp; <input type="text"
-								id="hallLocation" name="hallLocation" value="${cardVO.hallLocation}">
+								id="hallLocation" name="hallLocation">
+								<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
 							</td>
 						</tr>
 
 						<tr>
-							<td colspan="2">지도</td>
+							<!-- <td colspan="2">지도</td> -->
 						</tr>
 
 						<tr>
 							<td colspan="2">
-								<div id="map" style="width: 100%; height: 200px;">
+								<div id="map"
+									style="width: 300px; height: 200px; margin-top: 5px; display: none">
+									asdfsdaf
+									<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 									<script
-										src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services"></script>
-									<script src="${initParam.root}weddingCard/js/map.js"></script>
+										src="http://apis.daum.net/maps/maps3.js?apikey=e5bf529fb1433a428d71db4065ceda03&libraries=services"></script>
+									<script>
+										var mapContainer = document
+												.getElementById('map'), // 지도를 표시할 div
+										mapOption = {
+											center : new daum.maps.LatLng(
+													50.537187, 127.005476), // 지도의 중심좌표
+											level : 2
+										// 지도의 확대 레벨
+										};
+
+										//지도를 미리 생성
+										var map = new daum.maps.Map(
+												mapContainer, mapOption);
+										//주소-좌표 변환 객체를 생성
+										var geocoder = new daum.maps.services.Geocoder();
+										//마커를 미리 생성
+										var marker = new daum.maps.Marker({
+											position : new daum.maps.LatLng(
+													37.537187, 127.005476),
+											map : map
+										});
+
+										function sample5_execDaumPostcode() {
+											new daum.Postcode({oncomplete : function(
+																data) {
+															// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+															// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+															var fullAddr = data.address; // 최종 주소 변수
+															var extraAddr = ''; // 조합형 주소 변수
+
+															// 기본 주소가 도로명 타입일때 조합한다.
+															if (data.addressType === 'R') {
+																//법정동명이 있을 경우 추가한다.
+																if (data.bname !== '') {
+																	extraAddr += data.bname;
+																}
+																// 건물명이 있을 경우 추가한다.
+																if (data.buildingName !== '') {
+																	extraAddr += (extraAddr !== '' ? ', '
+																			+ data.buildingName
+																			: data.buildingName);
+																}
+																// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+																fullAddr += (extraAddr !== '' ? ' ('
+																		+ extraAddr
+																		+ ')'
+																		: '');
+															}
+
+															// 주소 정보를 해당 필드에 넣는다.
+															document
+																	.getElementById("hallLocation").value = fullAddr;
+															// 주소로 좌표를 검색
+															geocoder.addr2coord(data.address,
+																			function(
+																					status,
+																					result) {
+																				// 정상적으로 검색이 완료됐으면
+																				if (status === daum.maps.services.Status.OK) {
+																					// 해당 주소에 대한 좌표를 받아서
+																					var coords = new daum.maps.LatLng(
+																							result.addr[0].lat,
+																							result.addr[0].lng);
+																					// 지도를 보여준다.
+																					mapContainer.style.display = "block";
+																					map
+																							.relayout();
+																					// 지도 중심을 변경한다.
+																					map
+																							.setCenter(coords);
+																					// 마커를 결과값으로 받은 위치로 옮긴다.
+																					marker.setPosition(coords)
+																						
+																					/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
+																					document.getElementById(frmWeddingCard).attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+																						
+																				}
+																			});
+														}
+													}).open();
+										}
+									</script>
 								</div>
 							</td>
 						</tr>
