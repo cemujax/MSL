@@ -544,9 +544,9 @@
 							</td>
 						</tr>
 
-						<tr>
+				<!-- 		<tr>
 							<td colspan="2">지도</td>
-						</tr>
+						</tr> -->
 
 						<tr>
 							<td colspan="2">
