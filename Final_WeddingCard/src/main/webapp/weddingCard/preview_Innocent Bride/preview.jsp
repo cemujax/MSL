@@ -297,6 +297,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a id="kakao-link-btn" href="javascript:;">
 <img style="width:40px; height: 40px;" src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
 </a>
+
+<!-- Facebook share -->
+<a 
+href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp">
+<img style="width:40px; height: 40px;"  src=${initParam.root}img/facebook-share.png></a>
+
 				<a href="#home" id="toTop" class="scroll" style="display: block;"> 
 				<span id="toTopHover" style="opacity: 1;"> </span></a>
 		</div>

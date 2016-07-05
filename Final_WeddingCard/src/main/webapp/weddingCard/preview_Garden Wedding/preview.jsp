@@ -22,7 +22,7 @@
 
 .backstretch {
 	
-	background: url(${initParam.root}img/13.jpg) no-repeat 0px 0px;
+	background: url(${initParam.root}img/013.jpg) no-repeat 0px 0px;
 	background-size: cover;
 }
 
@@ -133,7 +133,7 @@ img.wp-smiley, img.emoji {
     padding: 0.5em 0;
 	}
 	.backstretch {
-     background: url(${initParam.root}img/13.jpg)no-repeat 0px 0px; 
+     background: url(${initParam.root}img/013.jpg)no-repeat 0px 0px; 
 	background-size:cover;
 	}
 	
@@ -166,7 +166,7 @@ img.wp-smiley, img.emoji {
 		}
 		
 		.img-responsive{
-			height: 80px
+			height: 150px;
 		}
 		#kakao-link-btn img
 			{
@@ -213,7 +213,7 @@ img.wp-smiley, img.emoji {
 	<div id="page" class="hfeed site">
 		<div id="content" class="site-content">
 			<div class="subhead"
-				style="position: relative; z-index: 0; background: url(${initParam.root}img/13.jpg) no-repeat 0px 0px;" >
+				style="position: relative; z-index: 0; background: url(${initParam.root}img/013.jpg) no-repeat 0px 0px;" >
 				<div class="subinner">
 					<div class="container">
 						<div class="row">
@@ -258,7 +258,7 @@ img.wp-smiley, img.emoji {
 									</div>
 									
 									<div class="brideinfo">
-										<h3>${param.groomName}</h3>
+										<h5>${param.groomName}</h5>
 										${fn:substring(param.groomTel, 0,3) }<br>${fn:substring(param.groomTel, 3,11)}
 									</div>
 									<div class="cplus glyphicon glyphicon-heart"></div>
@@ -279,7 +279,7 @@ img.wp-smiley, img.emoji {
 									</div>
 
 									<div class="groominfo">
-										<h3>${param.brideName}</h3>
+										<h5>${param.brideName}</h5>
 										<%-- ${fn:substring(param.brideTel, 0,3) }<br>${param.brideTel} --%>
 										${fn:substring(param.brideTel, 0,3) }<br>${fn:substring(param.brideTel, 3,11)}
 									</div>
@@ -341,19 +341,17 @@ img.wp-smiley, img.emoji {
 					<div class="row">
 
 						<div class="col-xs-12">
-							<h2 class="section-title">Our Story</h2>
+							<h2 class="section-title"  id="section-title3" >Invitation</h2>
 						</div>
 
 						<div class="col-sm-6">
 							<div class="dstory">
 								<img src="img/wedding001.jpg" alt="bride">
-								<!-- <h3>신부</h3> 
-								<p>초대글</p> -->
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="dstory">
-								<p>초대글
+								<p>
 									${param.cardContext}
 								</p>
 							</div>
@@ -795,14 +793,14 @@ var fab_objects = {"timer":"04\/30\/2015 18:00:00"};
 		src="http://demo.fabthemes.com/zenith/wp-content/cache/minify/000125/M9CPSs3LLMnQzyrWTy4tLsnP1THRLy_QTc1NSk3Ry83MAwA.js"></script>
 	<script type="text/javascript">
 	
-	if('${param.imgSrc}' == ''){
-		 $('.subhead').backstretch("img/013.jpg");
-		//jQuery(".subhead").backstretch("img/013.jpg");
-	}else{
+	/* if('${param.imgSrc}' == ''){
+		 $('.subhead').backstretch("img/013.jpg"); */
+		jQuery(".subhead").backstretch("img/013.jpg");
+/* 	}else{
 		$('.subhead').backstretch("${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}"); 
 	}
 		
-	 
+ */	 
 </script>
 
 

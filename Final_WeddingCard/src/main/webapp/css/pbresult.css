@@ -6,8 +6,8 @@
 .video-list-thumbs > li > a{
     display:block;
     position:relative;
-    background-color: #111;
-    color: #fff;
+    background-color: white;
+    color: black;
     padding: 8px;
     border-radius:3px
 		      transition:all 500ms ease-in-out;

@@ -228,7 +228,7 @@
 									login</button>
 							</c:when>
 							<c:otherwise>
-								<img alt="" src="${initParam.root}img/msl.png" style="width: 40%; height: 40%;"><br>
+								<img alt="" src="${initParam.root}img/logo_02.png" style="width: 40%; height: 40%;"><br>
 								${mvo.name}님
 								<button type="button" class="btn btn-info" id="logout">logout</button>
 								<input type="hidden" name="guest" value="">
@@ -275,12 +275,12 @@
 										<c:choose>
 											<c:when test="${fn:contains(guest, '`MSL User`')}">
 												<td rowspan="3" style="width: 15%;" align="center">
-												<img alt="" src="${initParam.root}img/msl.png"></td>
+												<img alt="" src="${initParam.root}img/logo_02.png"></td>
 												<td>${memberName}</td>
 											</c:when>
 											<c:otherwise>
 												<td rowspan="3" style="width: 15%;" align="center">
-												<img alt="" src="${initParam.root}img/user.png" ></td>
+												<img alt="" src="${initParam.root}url/img/p3.png" ></td>
 												<td>${comment.guest}</td>
 											</c:otherwise>
 										</c:choose>

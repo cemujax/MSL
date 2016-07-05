@@ -27,9 +27,9 @@
 	</c:if>
 	
 	<div class="container"
-		style="background-image: url(${initParam.root }img/post_qna_board3.png); width: 100%; height: 250px"
+		style="background-image: url(${initParam.root }img/post_qna_board.jpg); width: 100%; height: 250px"
 		align="center">
-		<p style="font-weight: bold; font-size: 25px; margin-top: 7%;">웨딩 QnA</p>
+		<!-- <p style="font-weight: bold; font-size: 25px; margin-top: 7%;">웨딩 QnA</p> -->
 	</div>
 
 

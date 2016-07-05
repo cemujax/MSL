@@ -48,7 +48,7 @@
   <!-- 3. Model 빈 등록 -->
   <bean id="memberDao" class="model.member.MemberDaoImpl" p:sqlSession-ref="sqlSessionTemplate" />
   <bean id="memberService" class="model.member.MemberServiceImpl" p:memberDao-ref="memberDao" />
-
+  
   <bean id="cardDao" class="model.card.CardDaoImpl" p:sqlSession-ref="sqlSessionTemplate" />
   <bean id="cardService" class="model.card.CardServiceImpl" p:cardDao-ref="cardDao" />
 

@@ -132,14 +132,14 @@ $(document).ready(function(){
 	
 	function deleteComment(cmtNo) {
 		if(confirm("정말 삭제하시겠습니까?"))
-			location.href="${initParam.root}comment.do?command=delete&&commentNo="+ cmtNo+ "&&postNo=${requestScope.pvo.postNo}&&page=${param.page}";            
+			location.href="${initParam.root}comment.do?command=delete&&return=getQnA&&commentNo="+ cmtNo+ "&&postNo=${requestScope.pvo.postNo}&&page=${param.page}";            
 			
 			
 		return;
 	} // deleteComment
 	
 	function checkLogin() {
-		if("${sessionScope.mvo.memberId == ''}"){
+		if("${sessionScope.mvo == NULL}" == "true"){
 			alert("로그인 후 이용해주세요.");
 			
 			return false;

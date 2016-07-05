@@ -132,7 +132,7 @@ $(document).ready(function(){
 	
 	function deleteComment(cmtNo) {
 		if(confirm("정말 삭제하시겠습니까?"))
-			location.href="${initParam.root}comment.do?command=delete&&commentNo="+ cmtNo+ "&&postNo=${requestScope.pvo.postNo}&&page=${param.page}";            
+			location.href="${initParam.root}comment.do?command=delete&&return=getAnoneQnA&&commentNo="+ cmtNo+ "&&postNo=${requestScope.pvo.postNo}&&page=${param.page}";            
 			
 			
 		return;
@@ -199,7 +199,7 @@ $(document).ready(function(){
 		  <input type="hidden" name="commentNo" value="${cmt.commentNo }">
 		  <input type="hidden" name="postNo" value="${requestScope.pvo.postNo}">
 		  <input type="hidden" name="page" value="${param.page }">
-		  <input type="hidden" name="return" value="getQnA">
+		  <input type="hidden" name="return" value="getAnoneQnA">
 		  
 		  <textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 100%; height: 132px;">${cmt.content }</textarea>       
 		  <!-- <div> -->

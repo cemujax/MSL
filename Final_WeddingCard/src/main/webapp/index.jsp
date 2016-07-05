@@ -70,6 +70,8 @@
 <!-- //timer -->
 <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/earlyaccess/notosanskr.css' rel='stylesheet' type='text/css'>
+
 <!-- start-smoth-scrolling -->
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
@@ -178,6 +180,8 @@ html,body{height:100%;}
 
 
 
+
+
 </style>
 </head>
 	
@@ -187,17 +191,20 @@ html,body{height:100%;}
 <div class="banner" id="home1">
       <div class="container">
          <div class="banner-phone animated wow slideInLeft" data-wow-delay=".5s">
-            <p><a href="http://skype.daesung.com" style="color: white" ><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>010 7777 8282</a></p>
+            <p><a href="http://skype.daesung.com" style="color: white" >
+            <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>010 7777 8282</a></p>
          </div>
          
-         <div class="banner-phone animated wow slideInRight" data-wow-delay=".5s" style="float: right;">
+         <div class="banner-phone animated wow slideInRight" data-wow-delay=".5s" style="float: right;width: 150px;">
             <c:choose>
                   <c:when test="${sessionScope.mvo==null}">
-                  <p><a href="authentication/login.jsp" style="margin-right:15px;"><span class="glyphicon glyphicon-log-in" ></span><font size="2" color="#fff"> Login</font></a><!-- #F15F5F -->
-                    <a href="authentication/signup.jsp" style="margin-left:0px; padding-left:0px;"><span class="glyphicon glyphicon-user"></span><font size="2" color="#fff"> Sign Up</font></a></p><!-- #45CBBF -->
+                  <p><a href="authentication/login.jsp"  style="color:#fff; margin-right:20px;" >
+                  <span class="glyphicon glyphicon-log-in" ></span>Login</a><!-- #F15F5F -->
+                    <a href="authentication/signup.jsp" style="margin-left:0px; padding-left:0px; color:#fff;">
+                    <span class="glyphicon glyphicon-user"></span>Sign Up</a></p><!-- #45CBBF -->
                      </c:when>
                   <c:otherwise>
-                  <p><a href="javascript:logout()"><span class="glyphicon glyphicon-log-in"></span><font size="2" color="#fff"> Logout</font></a></p>
+                  <p><a href="javascript:logout()" style="color:#fff; margin-right:15px;"><span class="glyphicon glyphicon-log-in"></span>Logout</a></p>
                   </c:otherwise>
                      </c:choose>
                      
@@ -229,8 +236,8 @@ html,body{height:100%;}
                <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                   <nav class="link-effect-14" id="link-effect-14">
                      <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.jsp"><span>Home</span></a></li>
-                           <li><a href="#">메뉴얼</a></li>
+                        <li class="active"><a href="index.jsp"><span>HOME</span></a></li>
+                           <li><a href="#"><span>메뉴얼</span></a></li>
                            
                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>
                              <ul class="dropdown-menu">
@@ -282,10 +289,10 @@ html,body{height:100%;}
 
 <!-- gallery -->
 <section id="step2">
-	<div class="gallery" id="gallery" style="background-color: #ffffd9;  height:100%; padding-bottom: 24px; padding-top: 24px;">
+	<div class="gallery" id="gallery" style="font-family: 'Noto Sans KR', sans-serif; background-color: #ffffd9;  height:100%; padding-bottom: 24px; padding-top: 24px;">
 		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>Responsible Size</span></h3>
-		<div class="gallery-grids" >
-						<font size="6" style="color: #0e6973; padding-left: 10%" >어떤 기기든 반응하는</font><br>
+		<div class="gallery-grids" style="font-family: 'Noto Sans KR', sans-serif;" >
+						<font size="6" style="font-family: 'Noto Sans KR', sans-serif;color: #0e6973; padding-left: 10%" >어떤 기기든 반응하는</font><br>
 				<div class="team-grid animated wow slideInDown" data-wow-delay=".5s" align="center">
 						<img src="img_service/all.png" alt=" " class="img-responsive" style="width: 800px; height: 400px; margin-top: 50px;"   />
 				</div>	
@@ -302,7 +309,7 @@ html,body{height:100%;}
 	<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>mobile invitation</span></h3>
 		<div class="gallery-grids" align="left" style="margin-top: 30px;">
 			<div style="text-align: right; padding-right: 10%">
-				<font id="font1" size="6" style="color: #0e6973; " >기존 종이 청첩장과는 다른<br>모바일 청첩장의 매력을 만나보세요</font>
+				<font id="font1" size="6" style="color: #0e6973; font-family: 'Noto Sans KR', sans-serif; " >기존 종이 청첩장과는 다른<br>모바일 청첩장의 매력을 만나보세요</font>
 			</div>
 			
 			<table style="margin: auto; padding-top: 30px; margin-top: 50px;">
@@ -327,10 +334,10 @@ html,body{height:100%;}
 			<div class="gallery-grids">
 			<!-- <div class="gallery-grids" style="background-color: #fff; width: 100%; height: 90%;"> -->
 				<div class="cycle-slideshow" >
-					<img alt="" src="img_service/pic1.jpg" style="width: 100%;height: 500px; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
-					<img alt="" src="img_service/wedding5.jpg" style="width: 100%;height: 500px; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
-					<img alt="" src="img_service/wedding2.jpg" style="width: 100%;height: 500px; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
-					<img alt="" src="img_service/11.jpg" style="width: 100%;height: 500px; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
+					<img alt="" src="img_service/pic1.jpg" style="width: 100%;height: auto; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
+					<img alt="" src="img_service/wedding5.jpg" style="width: 100%;height: auto; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
+					<img alt="" src="img_service/wedding2.jpg" style="width: 100%;height: auto; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
+					<img alt="" src="img_service/11.jpg" style="width: 100%;height: auto; padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
 				</div>
 			<!-- </div> -->
 		</div>
@@ -343,7 +350,7 @@ html,body{height:100%;}
 		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>communication</span></h3>
 			<div class="gallery-grids">
 				<div style="text-align: right; padding-right: 10%">
-					<font id="font1" size="6" style="color: #8c6751; " >웨딩 Tip, QnA는 물론<br>익명게시판으로 고민까지 나눠보세요</font>
+					<font id="font1" size="6" style="color: #8c6751;font-family: 'Noto Sans KR', sans-serif; " >웨딩 Tip, QnA는 물론<br>익명게시판으로 고민까지 나눠보세요</font>
 				</div>
 				<img alt="" src="img_service/comunication.jpg" style="height: 450px; width: 100%">
 		</div>

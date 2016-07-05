@@ -23,21 +23,23 @@ public class PostController extends MultiActionController {
 	// TODO ==================================== QnA ==============================
 	public ModelAndView writeQnA(HttpServletRequest request,HttpServletResponse response, PostVO pvo)
 			throws Exception {		
-		System.out.println("Post Controller :: writeQnA");
+		System.out.print("Post Controller :: writeQnA :: ");
 		
 		MemberVO mvo = (MemberVO) request.getSession().getAttribute("mvo");
 		
 		if (mvo != null) {
-			System.out.println(mvo);
-			System.out.println(pvo);
 			pvo.setMemberVO(mvo);
 			pvo.setKind("qna");
 			postService.writePost(pvo);
 
+			System.out.println(mvo.getMemberId());
+			
 			return new ModelAndView("redirect:/post.do?command=getQnA&&postNo="
 					+ pvo.getPostNo());
 
 		} else {
+			System.out.println("");
+			
 			return new ModelAndView("redirect:/authentication/login.jsp");
 		}
 

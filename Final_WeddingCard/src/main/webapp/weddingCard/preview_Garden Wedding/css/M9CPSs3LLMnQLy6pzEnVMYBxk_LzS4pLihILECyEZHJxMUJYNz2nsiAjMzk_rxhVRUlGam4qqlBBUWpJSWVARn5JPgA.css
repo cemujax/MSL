@@ -20,6 +20,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	vertical-align: baseline
 }
 
+
+	#kakao-link-btn img
+			{
+			margin-left: 50%;
+			}
+			
+			
 html {
 	font-size: 62.5%;
 	overflow-y: scroll;
@@ -94,7 +101,7 @@ p {
 }
 
 ul, ol {
-	margin: 0 0 1.5em 3em
+	/* margin: 0 0 1.5em 3em */
 }
 
 ul {
@@ -1750,14 +1757,8 @@ code {
 			max-height: none; max-width: none; z-index: -999999; 
 			left: 0px; top: -206.193px;
 		}
-		.img-responsive{
-			height: 160px;
-		}
-		
 	}
 @media ( min-width : 1200px) {
-
-	
 	.container {
 		max-width: 1170px
 	}
@@ -8554,8 +8555,7 @@ li.recentcomments {
 	.backstretch{
 	left: 0px; top: 0px; 
 	overflow: hidden; 
-	margin: 0px; padding: 0px; /* height: 486px;  */
-	height: 400px;
+	margin: 0px; padding: 0px; height: 486px; 
 	width: 205px; z-index: -999998; 
 	position: absolute;
 }
@@ -8600,7 +8600,7 @@ li.recentcomments {
 	    color: #fff;
 	    text-align: center;
 	    margin: 5px 5px;
-	    width: 180px;
+	    width: 190px;
 	    height: 80px;
 	    border-radius: 3px;
 	    padding-right: 0px;
@@ -8661,6 +8661,13 @@ li.recentcomments {
 		padding-left: 20px;
 		color: #008f7f;
 		font-size: 25px;
+		margin-top: 30px;
+		
+	}
+	h2.section-title, #section-title3{
+		padding-left: 30px;
+		color: #008f7f;
+		font-size: 30px;
 		margin-top: 30px;
 		
 	}

@@ -4,9 +4,9 @@ import java.sql.SQLException;
 
 public class MemberServiceImpl implements MemberService{
 	
-	private MemberDaoImpl memberDao;
+	private MemberDao memberDao;
 
-	public void setMemberDao(MemberDaoImpl memberDao) {
+	public void setMemberDao(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
 

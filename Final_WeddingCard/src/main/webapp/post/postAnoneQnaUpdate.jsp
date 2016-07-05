@@ -16,6 +16,7 @@
           
         <input type="hidden" name="command" value="modifyAnoneQnA">
 		<input type="hidden" name="postNo" value="${pvo.postNo }">
+		<input type="hidden" name="page" value="${param.page }">
         <textarea name="content" id="content" style="width: 100%; height: 490px;"></textarea>
     </form>
 </div>

@@ -296,17 +296,36 @@ function writeComment() {
 				//$('.guestBook').innerHTML = "123123213";
 
 				for (i = 0; i < commentList.length; i++) {
-					 $('.guestBook').append(
-								"<div class='pricingtable pricing_free' style='margin-left:2%; margin-top:50px;'><ul class='pricing_iconlist iconset_free'>"
-								+"<li style='background-color:rgba(0, 143, 127, 0.57); font-size:15px; border-radius: 10px;'><font style='color: black;'>"+"작성자"+"&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"+commentList[i].guest+"</font><br>"
-								+"<font style='float:right;'>"+commentList[i].writeDate+"</font></li>"
-								+"<li style='font-size: 15px; margin-top:20px;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
-								+ "<p><li>&nbsp;&nbsp;</li>"
-								+ "<li>&nbsp;&nbsp;</li>"+
-								/* +"<li style='border-style: ridge;'>"+commentList[i].guest+":: &nbsp;"+commentList[i].writeDate+"</li>"+ */
-								"</ul></div>"
-					 );
-				}//for
+	               var cDate = commentList[i].writeDate.split(':');
+	               if(commentList[i].guest.indexOf('`MSL User`') != -1){//MSL 회원이 남긴 방명록
+	            	   +"&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"
+                       /*  /* 이미지 부분 +"<img alt='' src='${initParam.root}url/img/logo_01.png' >"*/ 
+	                  $('.guestBook').append(
+	                        "<div class='pricingtable pricing_free' style='margin-left:2%; margin-top:50px;'><ul class='pricing_iconlist iconset_free'>"
+	                        +"<li style='background-color:rgba(0, 143, 127, 0.57); font-size:20px; border-radius: 10px;'><font style='color: black;'>"
+	                        +"<img alt='' width='40px' style='margin-right: 10%;' src='${initParam.root}url/img/logo_02.png' ><b>"
+	                        +commentList[i].guest.substring(10)+"</b></font><br>"
+	                        +"<font style='float:right;'>"+cDate[0]+":"+ cDate[1]+"</font></li>"
+	                        +"<li style='font-size: 15px; margin-top:20px;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
+	                        + "<p><li>&nbsp;&nbsp;</li>"
+	                        + "<li>&nbsp;&nbsp;</li>"+
+	                        "</ul></div>");
+	               }
+	               else{//비로그인 방명록
+	                  $('.guestBook').append(
+	                        "<div class='pricingtable pricing_free' style='margin-left:2%; margin-top:50px;'><ul class='pricing_iconlist iconset_free'>"
+	                        +"<li style='background-color:rgba(0, 143, 127, 0.57); font-size:15px; border-radius: 10px;'><font style='color: black;'>"+
+	                        "<img alt='' width='40px' style='margin-right: 10%;' src='${initParam.root}url/img/p3.png' >"
+	                        +commentList[i].guest+"</font><br>"
+	                        +"<font style='float:right;'>"+cDate[0]+":"+ cDate[1]+"</font></li>"
+	                        +"<li style='font-size: 20px; margin-top:20px;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
+	                        + "<p><li>&nbsp;&nbsp;</li>"
+	                        + "<li>&nbsp;&nbsp;</li>"+
+	                        "</ul></div>");
+	               }
+               
+            	}//for
+			
 			}//success
 		});//ajax
 	});//ready

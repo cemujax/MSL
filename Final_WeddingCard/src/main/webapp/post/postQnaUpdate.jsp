@@ -10,12 +10,19 @@
     <link rel="stylesheet" href="post/css/editor.css" type="text/css" charset="utf-8"/>
 </head>
 <body>
+	<div class="container"
+		style="background-image: url(${initParam.root }img/post_qna_board.jpg); width: 100%; height: 250px"
+		align="center">
+		<!-- <p style="font-weight: bold; font-size: 25px; margin-top: 7%;">웨딩 QnA</p> -->
+	</div>
+	
 <div class="body">
     <form name="tx_editor_form" id="tx_editor_form" action="${initParam.root }post.do" method="post"
           accept-charset="utf-8">
           
         <input type="hidden" name="command" value="modifyQnA">
 		<input type="hidden" name="postNo" value="${pvo.postNo }">
+		<input type="hidden" name="page" value="${param.page }">
         <textarea name="content" id="content" style="width: 100%; height: 490px;"></textarea>
     </form>
 </div>

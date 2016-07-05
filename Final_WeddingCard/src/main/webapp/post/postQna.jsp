@@ -82,17 +82,24 @@ textarea{
 </style>
 
 <script type="text/javascript">
+	function checkIsDelete() {
+		if("${pvo == null}" == "true") {
+			alert("삭제된 게시물입니다.");
+			location.href="${initParam.root}post.do?command=getAllQnAs";
+		}
+	}
+
 	function deleteQnA() {
 
 		if(confirm("정말 삭제하시겠습니까?")){
-			location.href="${initParam.root }post.do?command=deleteAnoneQnA&&postNo="+${pvo.postNo};
+			location.href="${initParam.root }post.do?command=deleteQnA&&postNo=${pvo.postNo}";
 		}
 	}
 	
 </script>
 
 </head>
-<body style="margin: 0px;">
+<body style="margin: 0px;" onLoad="checkIsDelete()">
 <div class="container" style="background-image: url(${initParam.root }img/post_qna_board.jpg); width: 100%; height: 250px" align="center">
 		<!-- <p style="font-weight: bold; font-size:25px; margin:0px; padding-top: 70px;">웨딩 QnA</p> -->
 	</div>
