@@ -117,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     
                   <c:forEach begin="0" end="${fn:length(pbImg)-1 }" var="i">
                   <div class="col-md-3 about-grid test1">
-                  <img src="${initParam.root }/img/photobook/${sessionScope.mvo.memberId}/${param.photoBookNo }/${pbImg[i] }" class="img-responsive" alt="/" width="280px">              
+                  <img src="${initParam.root }img/photobook/${sessionScope.mvo.memberId}/${param.photoBookNo }/${pbImg[i] }" class="img-responsive" alt="/" width="280px">              
                      <div class="textbox">
                         <!-- <h4>my wedding</h4> -->
                         <p>${pbComment[i]}</p>

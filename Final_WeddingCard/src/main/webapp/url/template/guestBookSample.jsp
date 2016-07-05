@@ -183,14 +183,17 @@
 				<div class="col-sm-1"></div>
 				<div class="col-xs-2 col-sm-2">
 					<h2>
+					<!-- For windows -->
 						<a
 							href="http://localhost:8888/Final_WeddingCard/url/${param.url}.jsp">
 							<span class="glyphicon glyphicon-circle-arrow-left" id="back"></span>
-						</a><!-- 로컬용 -->
+						</a>
+						
+						<!-- For linux remote -->
 						<%-- <a
 							href="http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp">
 							<span class="glyphicon glyphicon-circle-arrow-left" id="back"></span>
-						</a><!-- 서버용 --> --%>
+						</a> --%>
 						
 					</h2>
 				</div>

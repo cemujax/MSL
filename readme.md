@@ -20,3 +20,19 @@
 (war 파일을 직접 톰캣 webapps폴더에 넣어 실행할 경우)
 * web.xml: 12 라인 활성화
 * dispatcher-servlet.xml: 93,111 라인 활성화
+
+
+### guestbook back button
+* guestBookSample.jsp
+'''xml
+<!-- 로컬용 -->
+<%-- <a href="http://localhost:8888/Final_WeddingCard/url/${param.url}.jsp">
+<span class="glyphicon glyphicon-circle-arrow-left" id="back"></span>
+</a> --%>
+
+<!-- 서버용 --> 
+ <a href="http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp">
+<span class="glyphicon glyphicon-circle-arrow-left" id="back"></span>
+</a>
+
+'''
