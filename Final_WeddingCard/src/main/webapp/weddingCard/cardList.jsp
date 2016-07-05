@@ -308,6 +308,21 @@
        }
        //나중에 실패했을때 에러 처리
    } 
+   
+   function linkQr(url){
+	   //alert(url);
+	   
+	   var height= 500;
+	   var width = 600;
+	   var sst = window.open('${initParam.root}weddingCard/linkQr.jsp?url='+url,'popwin',
+			   'top='+((screen.availHeight - height)/2 - 40) +', left='+(screen.availWidth - width)/2+', width='+width+', height='+height+', toolbar=no, directories=0, location=no, status=no, menubar=no, scrollbars=no, resizable=no');
+	   if(sst){
+	     sst.focus();
+	   }
+
+	   //window.open('${initParam.root}weddingCard/linkQr.jsp', '', 'width=400, height=350, scrollbars=yes');
+	  // ${initParam.root}url//qrCode.png
+   }
    ///////////////////////////////////////////////////////////////
    $(document).ready(function(){
        
@@ -438,9 +453,9 @@
           <td><input type="checkbox" id="cardNo" name="cardNo" value="${card.cardNo}`${card.url}"></td>
 		  <td style="width:64px; height:64px;">
 <%-- 		    <a href="./card.do?command=getQr&&url=${card.url}"> --%>
-		    <a href="${initParam.root}url/${card.url}/qrCode.png">
+		    <a href="javascript:linkQr('${card.url}');">
 	    	  <img src="${initParam.root}img/qr_small.png" style="max-height:100%; max-width:100%"/>
-		    </a>
+		  		</a>
 		  </td>
           <td>
             <a href="${initParam.root }url/${card.url}.jsp">${card.url}</a>          </td>

@@ -108,7 +108,7 @@
    </delete>
 
    <select id="getAllCardComments" resultMap="cardCommentRM" parameterType="int">
-      SELECT guest, password, content, write_date, card_no
+      SELECT guest, password, content, write_date, card_no, cardComment_no
       FROM cardcomment
       where card_no = #{value}
       ORDER BY write_date DESC
