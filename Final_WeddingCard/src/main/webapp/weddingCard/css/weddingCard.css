@@ -68,6 +68,6 @@
 }
 
 li:hover {
-	background-color: #080808;
-	color: #fff;
+	/* background-color: #080808; */
+	color: #337ab7;
 }

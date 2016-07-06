@@ -7,12 +7,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
     font-size: 100%;
     /* for windows */
-
-    
- 
-        
-        
-
 	height: 800px;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -1148,8 +1142,10 @@ h2.resp-accordion {
     border: none;
 }
 .nav > li > a:hover, .nav > li > a:focus {
-    background-color: #45CBBF;
-    color: #fff;
+   /*  background-color: #45CBBF; */
+  /*  background-color: #eee; */
+    /* color: #fff; */
+   color: #337ab7;
 }
 /*-- //gallery --*/
 /*-- mail-us --*/

@@ -63,7 +63,7 @@ body {
 a {
   text-decoration: none;
  /*  color: #1ab188; */
- /*  color:#fff; */
+   color:#fff; 
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
@@ -75,7 +75,7 @@ a:hover {
   padding: 40px;
   max-width: 500px;
   max-height: 600px;
-  margin: 80px auto;
+  margin: 10px auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
@@ -300,14 +300,15 @@ $(document).ready(function(){
 
 <body>
 <!-- 메뉴바 -->		
-<nav class="navbar navbar-inverse" style="background-color: #f8f8f8; border-color: #e7e7e7;">		
+<nav class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.18); border-color: transparent;">		
   <div class="container-fluid">		
     <div class="navbar-header" >		
      <!--  <a class="navbar-brand" href="#">Home</a> -->		
-     <a href="${initParam.root }index.jsp" class="navbar-brand" style="color: #777;" >Home</a>		
+     <a href="${initParam.root }index.jsp" class="navbar-brand" ><!-- Home</a>	 -->
+     <img alt="" src="../img/logo_02.png"  style="width: 60px; margin-left: 50px; margin-top: 0px;"> </a>
     </div>		
     		
-    	<ul class="nav navbar-nav" >		
+    	<ul class="nav" >		<!--  navbar-nav -->
 				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>		
 					 <li class="dropdown">		
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>		

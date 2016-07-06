@@ -1128,7 +1128,7 @@ img {
   vertical-align: middle;
   width:250px;
  /*  width: 120px; */
-  margin-top:30%;
+  margin-top:40%;
  /*  margin-top: 1%; */
 }
 .img-responsive,
@@ -1610,10 +1610,10 @@ pre code {
   }
 }
 .container-fluid {
-  padding-right: 15px;
+  /* padding-right: 15px; */
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+ /*  margin-right: auto;
+  margin-left: auto; */
 }
 .row {
   margin-right: -15px;
@@ -3890,13 +3890,22 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-left: -1px;
 }
 .nav {
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
+        padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    float: left;
+    /* margin: 0; */
+    margin-left: 72%;
+    width: 245px;
+    height: 70px;
+    padding-top: 10px;
+    /* padding-left: 10px; */
 }
 .nav > li {
   position: relative;
   display: block;
+  width: 120px;
+    float: left;
 }
 .nav > li > a {
   position: relative;
@@ -4516,8 +4525,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+      background-color: rgba(0, 0, 0, 0.18);
+    border-color: transparent;
 }
 .navbar-inverse .navbar-brand {
   color: /* #9d9d9d */ #fff;

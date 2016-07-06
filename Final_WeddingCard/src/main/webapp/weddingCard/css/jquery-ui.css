@@ -781,7 +781,7 @@ button.ui-button::-moz-focus-inner {
 .ui-tabs .ui-tabs-nav {
 	margin: 0;
 	padding: .1em .1em 0;
-	
+	padding-left: 5px;
 }
 .ui-tabs .ui-tabs-nav li {
 	list-style: none;
@@ -892,10 +892,10 @@ body .ui-tooltip {
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
-	border: 1px solid #5FD4D3;
+	/* border: 1px solid #5FD4D3; */
 	background: #ffffff url("img/ui-bg_flat_100_ffffff_40x100.png") 50% 50% repeat-x;
 	font-weight: normal;
-	color: #5FD4D3;
+	/* color: #5FD4D3; */
 }
 .ui-state-hover a,
 .ui-state-hover a:hover,
@@ -911,10 +911,10 @@ body .ui-tooltip {
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border: 1px solid #5FD4D3;
+/* 	border: 1px solid #5FD4D3; */
 	background: #ffffff url("img/ui-bg_flat_50_ffffff_40x100.png") 50% 50% repeat-x;
 	font-weight: normal;
-	color: #5FD4D3;
+	/* color: #5FD4D3; */
 }
 .ui-state-active a,
 .ui-state-active a:link,

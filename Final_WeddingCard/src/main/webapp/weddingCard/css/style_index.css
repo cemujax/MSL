@@ -193,7 +193,7 @@ ul.social-icons li .icon-button .icon-g-plus:hover{
 }
 .navbar {
     margin-bottom: 0;
-    height: 10px;
+    height: 70px;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border: none;
@@ -1146,8 +1146,10 @@ h2.resp-accordion {
     border: none;
 }
 .nav > li > a:hover, .nav > li > a:focus {
-    background-color: #45CBBF;
-    color: #fff;
+        /* background-color: #45CBBF; */
+    /* background-color: #eee; */
+    /* color: #fff; */
+    color: #337ab7;
 }
 /*-- //gallery --*/
 /*-- mail-us --*/
