@@ -102,13 +102,23 @@ textarea{
 <div class="postInfoPanel" >
 		제목 : ${requestScope.pvo.title}
 		&nbsp;
-		작성자 : 익명
-		&nbsp;
-		<span style=" color: #5D5D5D;">
-			<i class="fa fa-comment"></i>
-			${fn:length(commentList) }
-		</span>
-		&nbsp;
+		
+		<c:choose>
+			<c:when test="${pvo.memberVO.memberId == 'pcp8282' }">
+				작성자 : 관리자
+				&nbsp;
+			</c:when>
+			<c:otherwise>
+				작성자 : 익명
+				&nbsp;
+				<span style=" color: #5D5D5D;">
+					<i class="fa fa-comment"></i>
+					${fn:length(commentList) }
+				</span>
+				&nbsp;
+			</c:otherwise>
+		</c:choose>
+		
 		<span style="float:right; color: #5D5D5D;">
 			<i class="fa fa-clock-o" aria-hidden="true"></i>
 			<c:set var="writeDate" value="${fn:split(pvo.writeDate, ' ') }"/>
@@ -122,21 +132,25 @@ textarea{
 </div>
 
 <!-- ===================== Comment Start ================= -->
-<div  style="margin-left: 13%; margin-right: 13%; margin-top: 3%">
-<jsp:include page="postAnoneComment.jsp"/>
-</div>
+<c:if test="${pvo.memberVO.memberId != 'pcp8282' }">
+	<div  style="margin-left: 13%; margin-right: 13%; margin-top: 3%">
+		<jsp:include page="postAnoneComment.jsp"/>
+	</div>
+</c:if>
 <!-- ===================== Comment End ================= -->
 
 <div class="postButtonView">
-	<c:if test="${pvo.memberVO.memberId == mvo.memberId }">
+	<c:if test="${pvo.memberVO.memberId == mvo.memberId || mvo.memberId == 'pcp8282' }">
 		<button class="list-write-btn list-write-btn-color" onclick="deleteQnA()">          
 			<i class="fa fa-times"></i> 
 			<b>삭제</b>
 		</button>
-		<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='${initParam.root }post.do?command=modifyViewAnoneQnA&&postNo=${pvo.postNo}&&page=${param.page}'">             
-			<i class="fa fa-plus"></i>
-			<b>수정</b>
-		</button>
+		<c:if test="${pvo.memberVO.memberId == mvo.memberId }">
+			<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='${initParam.root }post.do?command=modifyViewAnoneQnA&&postNo=${pvo.postNo}&&page=${param.page}'">             
+				<i class="fa fa-plus"></i>
+				<b>수정</b>
+			</button>
+		</c:if>
 	</c:if>
 
 	<button class="list-write-btn list-write-btn-color" onclick="javascript:location.href='${initParam.root }post.do?command=getAllAnoneQnAs&&page=${param.page }'">          

@@ -221,18 +221,18 @@
 			</div>
 		</div>
 
-	<!-- 	<div class="md-overlay"></div>
-		the overlay element classie.js by @desandro:
-		https://github.com/desandro/classie
+		<div class="md-overlay"></div>
+	<!-- 	the overlay element classie.js by @desandro:
+		https://github.com/desandro/classie -->
 		<script src="js/classie.js"></script>
 		<script src="js/modalEffects.js"></script>
-
+<!-- 
 		for the blur effect by @derSchepp
-		https://github.com/Schepp/CSS-Filters-Polyfill
+		https://github.com/Schepp/CSS-Filters-Polyfill -->
 		<script>
 			// this is important for IEs
 			var polyfilter_scriptpath = '/js/';
-		</script> -->
+		</script>
 
 		<!-- Tab 영역 include  -->
 
@@ -270,6 +270,11 @@
 			<div id="tabs-1">
 				<input type="hidden" name="templateType" value="" id="templateType">
 				<table>
+					<tr>
+						<td>
+							
+						</td>
+					</tr>
 					<tr align="center"><!-- 스킨선택영역 1번째 라인 --> 
 						<td><img
 							src="${initParam.root}weddingCard/preview_Fall In Love/img/Fall In Love.jpg"

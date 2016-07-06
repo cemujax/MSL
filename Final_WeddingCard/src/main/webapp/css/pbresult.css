@@ -1,4 +1,7 @@
-.video-list-thumbs{}
+.video-list-thumbs{
+	padding-left: 0px;
+    margin-left: -70px;
+}
 .video-list-thumbs > li{
     margin-bottom:12px;
 }
@@ -19,7 +22,7 @@
 }
 .video-list-thumbs h2{
     bottom: 0;
-    font-size: 14px;
+    font-size: 20px;
     height: 33px;
     margin: 8px 0 0;
 }

@@ -67,6 +67,9 @@ public class PostController extends MultiActionController {
 		map.put("page", request.getParameter("page"));
 
 		ListVO listVO = postService.getPostList(map);
+		
+		// Admin
+		request.setAttribute("adminList", postService.getAdminPost("qna"));
 
 		return new ModelAndView("post/postQnaList", "listVO", listVO);
 	}

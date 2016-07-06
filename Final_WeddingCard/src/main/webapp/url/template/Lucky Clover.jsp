@@ -6,28 +6,12 @@
 <html>
 <head>
 <style>
-	.header2 {
-    min-height: 600px;
-	}
-	.header2-top {
+.header-top {
     padding: 0.5em 0;
 	}
-	.header2 {
-     background: url(${initParam.root}img/luckyClover.png)no-repeat -90px 0px; 
+	.header {
+     background: url(${initParam.root}img/luckyClover.png)no-repeat 0px 0px; 
 	background-size:cover;
-	}
-	
-	@media (max-width: 320px){
-		.header2 {
-   	 		background: url(${initParam.root}img/luckyClover.png)no-repeat -140px 0px;
-   			 background-size: cover;
-		}
-	}
-	
-	@media (max-width: 640px){
-		.header2 {
-    	min-height: 400px;
-		}
 	}
 	
 	/* 업로드한 이미지 */
@@ -38,29 +22,37 @@
     padding: 0.5em 0;
 	}
 	.header_select {
-     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px; 
+     background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px;
 	 background-size:cover;
 	}
 	
 	@media ( max-width : 320px ){
-		.header_select {
+	.header_select {
      background: url(${initParam.root}url/${param.url}/${param.imgSrc})no-repeat 0px 0px; 
 	background-size:cover;
-	min-height: 250px;
 		}
-		
 	}
+	
+.button4 {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
 </style>
 <title>My Wedding a Wedding Category Flat Bootstrap Responsive  Website Template | Home :: w3layouts</title>
+
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style_d.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/application.css" rel="stylesheet" type="text/css" media="all" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- <link href="css/common.css" rel="stylesheet" type="text/css" media="all" /> -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="My Wedding " />
+<meta name="keywords" content="My Wedding Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 <script src="js/jquery-1.11.1.min.js"></script>
@@ -68,93 +60,143 @@
 
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<!-- 방명록 -->
+<script type="text/javascript">
+function writeComment() {
+	location.href = "${initParam.root}card.do?command=linkGuestBook&&url=${param.url}";
+}
+	$(document).ready(function() {
+
+		$.ajax({
+			type : "get",
+			url : "../card.do",
+			data : "command=getAllCardComments&&cardNo=" + '${param.cardNo}',
+			dataType : "json",
+
+			success : function(jsonData) {
+
+				var commentList = jsonData.commentList;
+				//$('.guestBook').innerHTML = "123123213";
+
+				for (i = 0; i < 6; i++) {
+	               var cDate = commentList[i].writeDate.split(':');
+	               if(commentList[i].guest.indexOf('`MSL User`') != -1){//MSL 회원이 남긴 방명록
+	            	   +"&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"
+                       /*  /* 이미지 부분 +"<img alt='' src='${initParam.root}url/img/logo_01.png' >"*/ 
+	                  $('.guestBook').append(
+	                        "<div class='pricingtable pricing_free' style='margin-left:2%; margin-top:50px;'><ul class='pricing_iconlist iconset_free'>"
+	                        +"<li style='background-color:rgba(0, 143, 127, 0.57); font-size:20px; border-radius: 10px;'><font style='color: black;'>"
+	                        +"<img alt='' width='40px' style='margin-right: 10%;' src='${initParam.root}url/img/logo_02.png' ><b>"
+	                        +commentList[i].guest.substring(10)+"</b></font><br>"
+	                        +"<font style='float:right;'>"+cDate[0]+":"+ cDate[1]+"</font></li>"
+	                        +"<li style='font-size: 15px; margin-top:20px;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
+	                        + "<p><li>&nbsp;&nbsp;</li>"
+	                        + "<li>&nbsp;&nbsp;</li>"+
+	                        "</ul></div>");
+	               }
+	               else{//비로그인 방명록
+	                  $('.guestBook').append(
+	                        "<div class='pricingtable pricing_free' style='margin-left:2%; margin-top:50px;'><ul class='pricing_iconlist iconset_free'>"
+	                        +"<li style='background-color:rgba(0, 143, 127, 0.57); font-size:15px; border-radius: 10px;'><font style='color: black;'>"+
+	                        "<img alt='' width='40px' style='margin-right: 10%;' src='${initParam.root}url/img/p3.png' >"
+	                        +commentList[i].guest+"</font><br>"
+	                        +"<font style='float:right;'>"+cDate[0]+":"+ cDate[1]+"</font></li>"
+	                        +"<li style='font-size: 20px; margin-top:20px;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
+	                        + "<p><li>&nbsp;&nbsp;</li>"
+	                        + "<li>&nbsp;&nbsp;</li>"+
+	                        "</ul></div>");
+	               }
+               
+            	}//for
+			
+			}//success
+		});//ajax
+	});//ready
+</script>
+<!-- //방명록 -->
 
 </head>
 <body>
 
-<!--header-->
-
 	<c:choose >
-		<c:when test="${ param.imgSrc == ''}">
-	   		<div class="header2">
+		<c:when test="${param.imgSrc == ''}">
+	   		<div class="header">
 	     		 <div class="container">
-	                 <script defer src="js/jquery.flexslider.js"></script>
+	                  <script defer src="js/jquery.flexslider.js"></script>
 	      		</div>
 	   		</div>
-	   		
 		</c:when>
 		<c:otherwise>
-			<div class="header_select">
+	   		<div class="header_select">
 	     		 <div class="container">
-	                    <script defer src="js/jquery.flexslider.js"></script>
+	                  <script defer src="js/jquery.flexslider.js"></script>
 	      		</div>
    			</div>
-   			
 		</c:otherwise>
 	</c:choose>
 	
    <!--  신랑/ 신부 -->
       <div class="content" >
       	<div class="container">
-	        <div class="panel panel-default">
+	        	<div class="panel panel-default">
 			        <div class="panel-body">
-			        	<table style="width: 150px;">
+			        	<table style="width: 30%;">
 			        		<tr>
-			        			<td>신부</td>
+			        			<td><b>신부</b></td>
 			        			<td>&nbsp;<b>${param.groomName}</b></td>
-			        		</tr>
+			        		<!-- </tr>
 			        		
-			        		<tr>
+			        		<tr> -->
 			        			<td> <i class="glyphicon glyphicon-earphone"></i></td>
 			        			<td>&nbsp;${param.groomTel}</td>
 			        		</tr>
 			        		
 			        		<tr>
-			        			<td>신랑</td>
+			        			<td><b>신랑</b></td>
 			        			<td>&nbsp;<b>${param.brideName}</b></td>
-			        		</tr>
+			        		<!-- </tr>
 			        		
-			        		<tr>
+			        		<tr> -->
 			        			<td> <i class="glyphicon glyphicon-earphone"></i></td>
 			        			<td>&nbsp;${param.brideTel}</td>
 			        		</tr>
 			        		
 			        	</table>
 			        </div>
-	    	  </div>
+	    	  	</div>
 	    	  	
       			<div class="about-head">
                   <h2>Party Invitation</h2>
-                </div>
-               
-		         <div style=" text-align: center; margin-top: 5%; height:150px;">
-		     		<b>${param.cardContext}</b>   
+               </div>
+		         <div style=" height:150px; border-style: groove;">
+		           
+		     	${param.cardContext}  
+		            
 		         </div>
          </div>
-      </div>
+      </div> <!--  // 신랑/ 신부 -->
       
-	
+	<!-- 방명록 -->
 	<div class="content">
 	<input type="hidden" name="comments" value="">
-		<div class="guestBook">
-			<div class="container">
-                  <div class="about-head">
-                  <h2>GuestBook</h2>
-               </div>
-		<br>
-		<input type="button" name="writeComment" onclick="writeComment()"
-				value="축하글 쓰기">
-		<!-- 
-			수연아 요쪽에 방명록 잡아줭
-		
-		 -->		
+		<div class="container">
+			<div class="guestBook">
+	        	<div class="about-head">
+	               <h2>GuestBook</h2>
+	               <input style="float: right;margin-right: 4%;" type="button" class="button4" name="writeComment" onclick="writeComment()" value="축하글 쓰기" />
+	            </div><br><br><br><br><br>
 			</div>
 		</div>
 	</div>
+  <!-- //방명록 -->
    
-    <!--  // 신랑/ 신부 -->
    
-   <!-- ############################ photoBook ######################## -->
+   <!-- ############################ photoBook ####################### -->
    <!--header-->
    <div class="content">
          <c:if test="${param.photoBookNo != null && param.photoBookNo != ''}">
@@ -171,7 +213,8 @@
                     
                   <c:forEach begin="0" end="${fn:length(pbImg)-1 }" var="i">
                   <div class="col-md-3 about-grid test1">
-                   <img src="${initParam.root }img/photobook/${sessionScope.mvo.memberId}/${param.photoBookNo }/${pbImg[i] }" class="img-responsive" alt="/" width="280px">               
+                  <%-- <img src="${initParam.root }img/photobook/${sessionScope.mvo.memberId}/${param.photoBookNo }/${pbImg[i] }" class="img-responsive" alt="/" width="280px"> --%>     
+                  <img src="${initParam.root }img/photobook/${param.memberId}/${param.photoBookNo }/${pbImg[i] }" class="img-responsive" alt="/" width="280px">               
                   
                      <div class="textbox">
                         <!-- <h4>my wedding</h4> -->
@@ -277,9 +320,9 @@
                
             </div>
          </div>
+       </div>
             <!-- ////location -->
-            
-         </div>
+       
 	<!--indicate-->
          
          <!--footer-->
@@ -291,15 +334,10 @@
     <a id="kakao-link-btn" href="javascript:;">
 <img style="width:40px; height: 40px;" src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
 </a>
-
 <!-- Facebook share -->
 <a 
 href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp">
 <img style="width:40px; height: 40px;"  src=${initParam.root}img/facebook-share.png></a>
-
-
-
-
 
 <script type='text/javascript'>
   //<![CDATA[
@@ -309,19 +347,21 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
     // // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
     Kakao.Link.createTalkLinkButton({
       container: '#kakao-link-btn',
-      label: '카카오링크 샘플에 오신 것을 환영합니다.',
+      label: '${param.groomName}♥${param.brideName}',
       image: {
-        src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
-        width: '60',
-        height: '60'
+        src: '${initParam.root}url/${param.url}/${param.imgSrc}',
+        width: '320',
+        height: '190'
       },
       webButton: {
-        text: '카카오 디벨로퍼스',
-        url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+        text: 'D-${param.dDay} ${param.cardDate} ${param.hour}:${param.min} ',
+       /*  url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다. */
+       url: 'http://mysweetlove.org/url/${param.url}.jsp'
       }
     });
   //]]>
 </script>
+
             </div>
          </div>
       </div>

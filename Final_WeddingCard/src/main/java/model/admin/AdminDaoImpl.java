@@ -18,27 +18,18 @@ public class AdminDaoImpl implements AdminDao{
 		return sqlSession.selectList("memberSql.getAllMembers", page);
 	}
 
-
 	public int totalCount() {
 		return sqlSession.selectOne("memberSql.totalCount");
 	}
-
 
 	public int modifyMember(MemberVO memberVO) {
 		return sqlSession.update("memberSql.modifyMember", memberVO);
 		
 	}
 
-
 	public int deleteMember(String member_id) {
 		return sqlSession.delete("memberSql.deleteMember", member_id);
 		
-	}
-
-
-	public int executeUpdate(MemberVO memberVO) {
-		
-		return sqlSession.update("memberSql.executeUpdate", memberVO);
 	}
 
 }

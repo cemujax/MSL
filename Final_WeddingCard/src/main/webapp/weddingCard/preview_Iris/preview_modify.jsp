@@ -36,9 +36,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <style>
 	
 	.banner {
-     background: url(img/banner.jpg)no-repeat 0px 0px; 
+     background: url(${initParam.root}img/Iris.png)no-repeat -100px 0px; 
 	 background-size:cover;
 	}
+	
+	@media (max-width: 320px){
+		.banner {
+   		 height: 300px;
+    	 max-height: 170px;
+		}
+	}
+
+@media (max-width: 414px){
+	.banner {
+    min-height: 154px;
+	}
+}
+	
 	
 	.banner_select {
     min-height: 600px;
@@ -65,32 +79,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		
 	}  
 
-   /* .header {
-     background: url(img/banner.jpg)no-repeat 0px 0px; 
-	background-size:cover;
-	}
-	
-	/* 업로드한 이미지 
-	.header_select {
-    min-height: 600px;
-	}
-	.header_select-top {
-    padding: 0.5em 0;
-	}
-	.header_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
-	 background-size:cover;
-	}
-	
-	@media ( max-width : 320px ){
-		.header_select {
-     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc})no-repeat 0px 0px; 
-	background-size:cover;
-	min-height: 250px;
-		}
-		
-	}
-  */
 </style>
 
 </head>
@@ -124,28 +112,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="couple">
 				 <div class="bride"><!-- 신부 신랑 -->
 				 	<c:choose>
-				 		<c:when test="${param.imgBrideSrc == ''  }">
-				 			<img src="img/bride.jpg" class="img-responsive" alt="">
+				 		<c:when test="${param.imgBride == ''  }">
+				 			<img src="img/bride.png" class="img-responsive" alt="">
 				 		</c:when>
 				 		<c:otherwise>
-				 			<img src="${initParam.root}url/${param.url}/${param.imgBrideSrc}" class="img-responsive" alt="">
+				 			<img src="${initParam.root}url/${param.url}/${param.imgBride}" class="img-responsive" alt="">
 				 		</c:otherwise>
 				 	</c:choose>
-				 	<h5>${param.brideName}</h5>
-				 	<p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.brideTel}</i></p>
+				 	<h5>${param.groomName}</h5>
+				 	<p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.groomTel}</i></p>
 				 </div>
 				 
 				 <div class="groom">
 				 	<c:choose>
-				 		<c:when test="${param.imgGroomSrc == '' }">
-				 			<img src="img/groom.jpg" class="img-responsive" alt="">
+				 		<c:when test="${param.imgGroom == '' }">
+				 			<img src="img/groom1.png" class="img-responsive" alt="">
 				 		</c:when>
 				 		<c:otherwise>
-				 			<img src="${initParam.root}url/${param.url}/${param.imgGroomSrc}" class="img-responsive" alt="">
+				 			<img src="${initParam.root}url/${param.url}/${param.imgGroom}" class="img-responsive" alt="">
 				 		</c:otherwise>
 				 	</c:choose>
-				  <h5>${param.groomName}</h5>
-				  <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.groomTel}</i></p>
+				  <h5>${param.brideName}</h5>
+				  <p style="color:#fff;"><i class="glyphicon glyphicon-earphone">${param.brideTel}</i></p>
 				 </div>
 				 </div>
 			 </div>
@@ -158,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   <div class="welcome">
 		    <div class="container">
 				<div class="welcome-top">
-				    <img src="img/couple.jpg" class="img-responsive" alt="">
+				    <img src="img/mid.png" class="img-responsive" alt="">
 					 <h2>초대글</h2>
 					 <p>${param.cardContext}</p>
 				    </div>
@@ -199,8 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     
                   <c:forEach begin="0" end="${fn:length(pbImg)-1 }" var="i">
                   <div class="col-md-3 about-grid test1">
-                   <img src="${initParam.root }img/photobook/${sessionScope.mvo.memberId}/${param.photoBookNo }/${pbImg[i] }" class="img-responsive" alt="/" width="280px">               
-                 
+                  <img src="${initParam.root }img/photobook/${sessionScope.mvo.memberId}/${param.photoBookNo }/${pbImg[i] }" class="img-responsive" alt="/" width="280px">              
                      <div class="textbox">
                         <!-- <h4>my wedding</h4> -->
                         <p>${pbComment[i]}</p>
@@ -324,6 +311,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a id="kakao-link-btn" href="javascript:;">
 <img style="width:40px; height: 40px;" src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
 </a>
+
+<!-- Facebook share -->
+<a 
+href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp">
+<img style="width:40px; height: 40px;"  src=${initParam.root}img/facebook-share.png></a>
+
 				<a href="#home" id="toTop" class="scroll" style="display: block;"> 
 				<span id="toTopHover" style="opacity: 1;"> </span></a>
 		</div>

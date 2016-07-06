@@ -37,5 +37,9 @@ public class PostDaoImpl implements PostDao{
 		return sqlSession.selectOne("postSql.totalCount", kind);
 	}
 
+	public List<PostVO> getAdminPost(String kind) {
+		return sqlSession.selectList("postSql.getAdminPost", kind);
+	}
+
 
 }

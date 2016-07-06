@@ -9,12 +9,7 @@ public interface AdminDao {
 	List<MemberVO> getAllMembers(String page);
 	int totalCount();
 	
-	
-	
 	int modifyMember(MemberVO memberVO);
-	
-	int executeUpdate(MemberVO memberVO);
-	
 	
 	int deleteMember(String member_id);
 	

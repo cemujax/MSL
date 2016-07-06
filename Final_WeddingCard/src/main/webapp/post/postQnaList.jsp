@@ -9,17 +9,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>QnA게시판</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
 <meta name="keywords" content="Nuptials Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 		   Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<link rel="stylesheet" href="css/bootstrap.min.css">
 <link href="css/style_index.css" rel="stylesheet" type="text/css" media="all" />
 <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <link rel="stylesheet" href="post/css/postAnoneQnaList.css">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+<link href="post/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
 <!--light-box-files-->
+
+<style type="text/css">
+.admin-tr {
+	background-color: #f5f5f5;
+	font-size: 16px;
+}
+.admin-tr:hover{
+	 background-color: white; 
+}
+</style>
+
 <script type="text/javascript" charset="utf-8">
 	var xhr;
 	function logout() {
@@ -55,13 +68,32 @@
 
 
 					<tbody>
+						<c:forEach items="${requestScope.adminList}" var="post">
+							<tr class="admin-tr">
+								<td class="not_mapped_style " style="text-align: center">
+									<a href="${initParam.root }post.do?command=getQnA&&postNo=${post.postNo}&&page=${listVO.pagingBean.nowPage}">
+										<b>
+											<font color="#FFBB00"><i class="fa fa-bullhorn" aria-hidden="true"></i></font>
+											<font color="#000">${post.title}</font>
+										</b>
+									</a>
+								</td>
+								<td class="not_mapped_style" style="text-align: center"><b>관리자</b></td>
+								<td class="not_mapped_style" style="text-align: center">
+									<c:set var="writeDate" value="${fn:split(post.writeDate, ' ') }" />
+									<c:set var="writeTime" value="${fn:split(writeDate[1], ':') }" />
+									${writeDate[0] } ${writeTime[0] }:${writeTime[1] }
+								</td>
+							</tr>
+						</c:forEach>
+					
 						<c:forEach items="${listVO.list}" var="post">
 							<tr>
 								<td class="not_mapped_style" style="text-align: center"><a
 									href="${initParam.root }post.do?command=getQnA&&postNo=${post.postNo}&&page=${listVO.pagingBean.nowPage}">${post.title}</a></td>
-								<td class="not_mapped_style" style="text-align: center">${post.memberVO.memberId}</td>
-								<td class="not_mapped_style" style="text-align: center"><c:set
-										var="writeDate" value="${fn:split(post.writeDate, ' ') }" />
+								<td class="not_mapped_style" style="text-align: center">${post.memberVO.name}</td>
+								<td class="not_mapped_style" style="text-align: center">
+									<c:set var="writeDate" value="${fn:split(post.writeDate, ' ') }" />
 									<c:set var="writeTime" value="${fn:split(writeDate[1], ':') }" />
 									${writeDate[0] } ${writeTime[0] }:${writeTime[1] }</td>
 								<!-- </tr> -->

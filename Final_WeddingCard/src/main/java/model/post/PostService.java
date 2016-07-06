@@ -9,7 +9,9 @@ public interface PostService {
 	void deletePost(int postNo);
 	ListVO getPostList(HashMap<String, String> map) throws Exception;
 	PostVO getPostByNo(int postNo);
+	List<PostVO> getAdminPost(String kind);
 	
+	//////////////////////// comment
 	List<PostCommentVO> getCommentList(String postNo);
 	void deleteCommentListByPostNo(String postNo);
 }

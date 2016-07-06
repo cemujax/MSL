@@ -346,7 +346,7 @@ img.wp-smiley, img.emoji {
 
 						<div class="col-sm-6">
 							<div class="dstory">
-								<img src="img/wedding001.jpg" alt="bride">
+								<img src="${initParam.root}img/invitation2.png" alt="bride">
 							</div>
 						</div>
 						<div class="col-sm-6">
@@ -603,7 +603,7 @@ var fab_objects = {"timer":"04\/30\/2015 18:00:00"};
 		 $('.subhead').backstretch("img/013.jpg"); */
 		jQuery(".subhead").backstretch("img/013.jpg");
 /* 	}else{
-		$('.subhead').backstretch("${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}"); 
+		$('.subhead').backstretch("${initParam.root}url/${param.url}/${param.imgSrc}"); 
 	}
 		
  */	 

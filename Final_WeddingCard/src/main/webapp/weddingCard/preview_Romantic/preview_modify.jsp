@@ -6,14 +6,28 @@
 <html>
 <head>
 <style>
-	.header-top {
+	.header2 {
+    min-height: 600px;
+	}
+	.header2-top {
     padding: 0.5em 0;
 	}
-	.header {
-     background: url(${initParam.root}img/banner2.jpg)no-repeat 0px 0px; 
+	
+	.header2 {
+     background: url(${initParam.root}img/romantic.jpg)no-repeat 0px 0px; 
 	background-size:cover;
 	}
-	
+	@media (max-width: 320px){
+		.header2 {
+   		 background: url(${initParam.root}img/romantic.jpg)no-repeat -100px 0px;
+   		 background-size: cover;
+		}
+	}
+	@media (max-width: 640px){
+		.header2 {
+    	min-height: 400px;
+		}
+	}
 	/* 업로드한 이미지 */
 	.header_select {
     min-height: 600px;
@@ -52,48 +66,6 @@
 
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
-<!-- 방명록 -->
-<script type="text/javascript">
-	function writeComment() {
-
-		location.href = "${initParam.root}card.do?command=linkGuestBook&&url=${param.url}";
-	}
-
-	$(document).ready(function() {
-
-		/* $.ajax({
-			type : "get",
-			url : "../card.do",
-			data : "command=getAllCardComments&&cardNo=" + '${param.cardNo}',
-			dataType : "json",
-
-			
-			success : function(jsonData) {
-
-				var commentList = jsonData.commentList;
-				
-				//$('.guestBook').innerHTML = "123123213";
-				
-				var table = "<table class='table'><tr>"
-					+"<th>내용</th><th>작성자</th><th>작성일</th></tr>";
-				 $('.guestBook').append(table);
-				 
-				 for (i = 0; i < commentList.length; i++) {
-					 $('.guestBook').append(
-						"<tr><td>"+commentList[i].content+"</td><td>"
-						+commentList[i].guest+"</td><td>"
-						+commentList[i].writeDate+"</td>"
-					 );
-				}//for
-				
-				 $('.guestBook').append("</tr></table>");
-			}//success
-			
-		});
- */
-	});//ready
-</script>
-<!-- //방명록 -->
 
 </head>
 <body>
@@ -102,7 +74,7 @@
 
 	<c:choose >
 		<c:when test="${ param.imgSrc == ''}">
-	   		<div class="header">
+	   		<div class="header2">
 	     		 <div class="container">
 	                 <script defer src="js/jquery.flexslider.js"></script>
 	      		</div>
@@ -150,7 +122,7 @@
 	    	  </div>
 	    	  	
       			<div class="about-head">
-                  <h2>Party Invitation</h2>
+                  <h2>Party Invitation!</h2>
                 </div>
                
 		         <div style=" text-align: center; margin-top: 5%; height:150px;">
@@ -305,27 +277,6 @@
          </div>
             <!-- ////location -->
             
-               <!--indicate-->
-          <!--   <div class="indicate">
-               <div class="container">
-                  <div class="indicate-grids">
-                     <div class="col-md-3 indicate-grid">
-                        <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>Newyork 9870 St Vincent</p>
-                     </div>
-                     <div class="col-md-3 indicate-grid">
-                        <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>Telephone :  +1 800 603 6035</p>
-                     </div>
-                     <div class="col-md-3 indicate-grid">
-                        <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Email : <a href="mailto:example@mail.com"> example@mail.com</a></p>
-                     </div>
-                     <div class="col-md-3 indicate-grid">
-                        <p><span class="glyphicon glyphicon-send" aria-hidden="true"></span>FAX :  +1 555 999 444</p>
-                     </div>
-                     <div class="clearfix"></div>
-                  </div>
-               </div>
-            </div> -->
-         <!--indicate-->
          </div>
 	<!--indicate-->
          
@@ -338,6 +289,16 @@
     <a id="kakao-link-btn" href="javascript:;">
 <img style="width:40px; height: 40px;" src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
 </a>
+
+<!-- Facebook share -->
+<a 
+href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp">
+<img style="width:40px; height: 40px;"  src=${initParam.root}img/facebook-share.png></a>
+
+
+
+
+
 <script type='text/javascript'>
   //<![CDATA[
     // // 사용할 앱의 JavaScript 키를 설정해 주세요.

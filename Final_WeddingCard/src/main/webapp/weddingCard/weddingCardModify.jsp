@@ -340,27 +340,33 @@
 		<!-- Tab 영역 include  -->
 
 		<div id="tabs">
-			<!-- style="width: 30%; margin-left: 70%; height: 800px;" -->
 			<ul>
-				<!-- style="width: 80%; margin-left: 10%; padding-left: 2%;" -->
+				<li>
+					<a href="#tabs-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1"> 
+					<p> <i class="fa fa-calendar-check-o"></i></p>
+					<span style="font-size: 12px;">스킨선택</span>
+					</a>
+				</li>
 
-				<li><a href="#tabs-1"> <span> <i
-							class="fa fa-calendar-check-o"></i> <!-- style="font-size: 36px; margin-left: 20%;" -->
-					</span><br> <font size="1">스킨선택</font>
+				<li>
+					<a href="#tabs-2"> 
+					<p><i class="fa fa-list"></i></p>
+					<span style="font-size: 12px;">신랑신부</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="#tabs-3" onclick="photoBookAjax()"> 
+					<p><i class="fa fa-list"></i></p>
+					<span style="font-size: 12px;">포토북</span>
 				</a></li>
 
-				<li><a href="#tabs-2"> <span> <i class="fa fa-list"></i>
-					</span><br> <font size="1">신랑신부</font>
-				</a></li>
-
-				<li><a href="#tabs-3" onclick="photoBookAjax()"> <span>
-							<i class="fa fa-list"></i>
-					</span><br> <font size="1">&nbsp;포토북&nbsp;</font>
-				</a></li>
-
-				<li><a href="#tabs-4"> <span> <i class="fa fa-bars"></i>
-					</span><br> <font size="1">&nbsp;예식장&nbsp;</font>
-				</a></li>
+				<li>
+					<a href="#tabs-4"> 
+					<p><i class="fa fa-bars"></i></p>
+					<span style="font-size: 12px;">예식장</span>
+					</a>
+				</li>
 
 			</ul>
 

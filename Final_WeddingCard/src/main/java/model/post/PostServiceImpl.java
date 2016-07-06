@@ -33,13 +33,9 @@ public class PostServiceImpl implements PostService{
 		if(map.get("page") == null || map.get("page") == "")
 			map.put("page", "1");
 		
-		System.out.println("page = "+ map.get("page"));
 		List<PostVO> postList = postDao.getPostList(map);
 		PagingBean pb = new PagingBean(postDao.totalCount(map.get("kind")),
 				Integer.parseInt(map.get("page")));
-		
-		System.out.println("pagingBean getNowPageGroup::"+pb.getNowPageGroup());
-		System.out.println("pagingBean getNowPage::"+pb.getNowPage());
 		
 		ListVO listVO = new ListVO(postList, pb); 
 		
@@ -50,6 +46,11 @@ public class PostServiceImpl implements PostService{
 		return postDao.getPostByNo(postNo);
 	}
 
+	public List<PostVO> getAdminPost(String kind) {
+		return postDao.getAdminPost(kind);
+	}
+
+	///////////////////////////////////// comment
 	public List<PostCommentVO> getCommentList(String postNo) {
 		return postCommentService.getCommentList(postNo);
 	}

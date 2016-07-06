@@ -1,5 +1,9 @@
 package model.admin;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import model.card.CardVO;
 import model.member.MemberVO;
 
 public interface AdminService {
@@ -7,7 +11,8 @@ public interface AdminService {
 	int totalCount();
 
 	int modifyMember(MemberVO memberVO);
-	int deleteMember(String member_id);
-	int executeUpdate(MemberVO mvo);
+	void deleteMember(String member_id);
+	
+	List<String> getUrlById(String memberId) throws SQLException;
 	
 }

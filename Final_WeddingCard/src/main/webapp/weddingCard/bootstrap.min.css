@@ -3810,7 +3810,7 @@ tbody.collapse.in {
 	z-index: 1000;
 	display: none;
 	float: left;
-	min-width: 160px;
+	min-width: 110px;
 	padding: 5px 0;
 	margin: 2px 0 0;
 	font-size: 17px;
@@ -4308,15 +4308,17 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	padding-left: 0;
     margin-bottom: 0;
     list-style: none;
-    width: 310px;
-    margin-left: 77%;
+    width: 330px;
+    margin-left: 73%;
+    margin-top: 10px;
 }
 
 .nav>li {
 	position: relative;
     display: block;
-    width: 100px;
+    width: 110px;
     float: left;
+        font-size: 17px;
 }
 
 .nav>li>a {

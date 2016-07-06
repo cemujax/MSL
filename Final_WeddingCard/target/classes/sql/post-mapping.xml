@@ -14,8 +14,12 @@
 	</resultMap>
 	
 	<sql id="post-select">
-		SELECT post_no, title, content, write_date, kind, member_id
-		FROM post
+		SELECT 
+			p.post_no post_no, p.title title, p.content content, 
+			p.write_date write_date, p.kind kind, 
+			m.member_id member_id, m.name name
+		FROM post p, member m
+		WHERE p.member_id = m.member_id
 	</sql>
 	
 	<insert id="writePost" parameterType="post">
@@ -44,25 +48,43 @@
 	</delete>
 	
 	<select id="getPostList" parameterType="hashmap" resultMap="postRM">
-		SELECT post_no, title, content, write_date, kind, member_id
+		SELECT post_no, title, content, write_date, kind, member_id, name
 		FROM (
-			SELECT post_no, title, content, write_date, kind, member_id, CEIL(rownum/10) page
+			SELECT
+				post_no, title, content, write_date, kind,
+				member_id, name, CEIL(rownum/10) page
 			FROM (
-				SELECT post_no, title, content, write_date, kind, member_id
-				FROM post
-				WHERE kind = #{kind} 
-				ORDER BY post_no DESC
+				SELECT 
+					p.post_no post_no, p.title title, p.content content, 
+					p.write_date write_date, p.kind kind, 
+					m.member_id member_id, m.name name
+				FROM post p, member m
+				WHERE
+					p.kind = #{kind} 
+					AND p.member_id != 'pcp8282'
+					AND p.member_id = m.member_id
+				ORDER BY p.post_no DESC
 			)
 		)
 		WHERE page = #{page}
 	</select>
 	
 	<select id="getPostByNo" parameterType="int" resultMap="postRM">
-		<include refid="post-select"></include>
-		where post_no = #{value}
+		<include refid="post-select"/>
+		AND p.post_no = #{value}
 	</select>
 	
 	<select id="totalCount" parameterType="string" resultType="int">
-	select count(-1) as totalCount from post where kind = #{value}
+		SELECT count(-1) as totalCount
+		FROM post
+		WHERE
+			kind = #{value}
+			AND member_id != 'pcp8282'
+	</select>
+	
+	<select id="getAdminPost" resultMap="postRM">
+		<include refid="post-select"/>
+		AND p.kind = #{value}
+		AND p.member_id = 'pcp8282'
 	</select>
 </mapper>	

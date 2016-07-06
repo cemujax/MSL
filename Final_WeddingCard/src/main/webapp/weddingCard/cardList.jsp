@@ -6,7 +6,7 @@
 <html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Insert title here</title>
+  <title>초대장 보기</title>
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords"
@@ -16,7 +16,7 @@
 
   <!-- <script src="js/jquery-ddorai.js"></script> -->
   <link rel="stylesheet" href="weddingCard/css/bootstrap.min.css">
-
+<!-- <link rel="stylesheet" href="weddingCard/css/bootstrap_index.css"> -->
   <!-- <link rel="stylesheet"
        href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
      -->
@@ -36,7 +36,7 @@
       href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
       rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="weddingCard/css/bootstrap.min.css">
+  <link rel="stylesheet" href="${initParam.root }weddingCard/bootstrap.min.css">
 
   <style type="text/css">
    /* 스마트폰 가로+세로 */
@@ -70,12 +70,9 @@
    }
 
    .cardManage{
-       position: relative;
-       padding-top: 100%;
-       overflow: hidden; 
-       /*  border: solid 2px; */
-       padding:0px;
-       
+  		background: url("/Final_WeddingCard/img/cardManage.jpg") -350px;
+	    height: 350px;
+	    background-size: cover;
        
    }
    .cardManage .centered  {
@@ -87,13 +84,13 @@
    }
 
    img {
-       
+     
        top: 0;
        left: 0;
        right: 0;
        bottom: 0;
        max-width: 100%;
-       height: 350px;
+       height: 350px; 
    } 
 
    img.landscape {
@@ -102,9 +99,9 @@
    } 
 
    /* table 쪽 */
-   .table-users {
+  /*  .table-users {
        border: 1px solid #327a81;
-       /*  border-radius: 10px; */
+       /*  border-radius: 10px; 
        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
        max-width: calc(100% - 2em);
        margin: 1em auto;
@@ -193,7 +190,7 @@
 	   display: none;
        }
        tr:last-child {
-	   /* float: right; */
+	   /* float: right; 
 	   height: 100px;
        }
        
@@ -209,7 +206,7 @@
        td:first-child {
 	   background-color: #fdc562;
 	   border-bottom: 1px solid #91ced4;
-	   /* border-radius: 10px 10px 0 0; */
+	   /* border-radius: 10px 10px 0 0; 
 	   position: relative;
 	   top: 0;
 	   -webkit-transform: translateY(0);
@@ -231,7 +228,7 @@
        }
        /* td:last-child {
 	  padding-bottom: 1rem !important;
-	  } */
+	  } 
 
        tr {
 	   background-color: white !important;
@@ -252,7 +249,7 @@
 	   box-shadow: none;
 	   overflow: visible;
        }
-   }
+   } */
 
   </style>
 
@@ -390,53 +387,52 @@
   </c:if>
   
   
-  
-  <!-- 메뉴바 -->
-  <nav class="navbar navbar-inverse" style="background-color: #f8f8f8; border-color: #e7e7e7;">
-    <div class="container-fluid">
-      <div class="navbar-header" style="margin-top: 10px;font-size: 20px;">
-	<!--  <a class="navbar-brand" href="#">Home</a> -->
-	<a href="./index.jsp" ><span style="color:#777;">Home</span></a>
-      </div>
-      
-      <ul class="nav navbar-nav" ><!-- style=" margin-left:73%;" -->
-	<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>
-	<li class="dropdown">
-	  <a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
-	  <ul class="dropdown-menu">
-	    <li><a href="#">익명게시판</a></li>
-	    <li><a href="#">게시판</a></li>
-	    <li><a href="#">칭찬해요</a></li>
-	  </ul>
-	</li>
+ <!-- 메뉴바 -->	
+ <div class="cardManage" >
+ 	
+<nav class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.18); border-color: transparent;">		
+  <div class="container-fluid">		
+    <div class="navbar-header" >		
+     <!--  <a class="navbar-brand" href="#">Home</a> -->		
+     <a href="${initParam.root }index.jsp"  ><!-- Home</a>	 -->
+     <img alt="" src="${initParam.root }img/logo_02.png"  style="height:60px; width: 60px; margin-left: 50px; margin-top: 0px;"> </a>
+    </div>		
+    		
+    	<ul class="nav" >		<!--  navbar-nav -->
+				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>		
+					 <li class="dropdown">		
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>		
+							  <ul class="dropdown-menu">		
+							      <li><a href="#">익명게시판</a></li>		
+							         <li><a href="#">게시판</a></li>		
+							         <li><a href="#">칭찬해요</a></li>		
+							   </ul>		
+					</li>		
+							      		
+							      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>		
+							        <ul class="dropdown-menu">		
+							          <li><a href="${initParam.root }weddingCard.jsp">청첩장만들기</a></li>		
+							          <li><a href="${initParam.root }./card.do?command=getAllCards">청첩장보기</a></li>		
+							        </ul>		
+							      </li>		
+							      		
+							       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>		
+							        <ul class="dropdown-menu">		
+							          <li><a href="${initParam.root }test.jsp">포토북만들기</a></li>		
+							          <li><a href="${initParam.root }photoBook.do?command=list">포토북보기</a></li>		
+							        </ul>		
+							      </li>		
+							      		
+							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->		
+							</ul>		
+  </div>		
+</nav><!-- nav Bar -->
 	
-	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>
-	  <ul class="dropdown-menu">
-	    <li><a href="${initParam.root }weddingCard.jsp">청첩장만들기</a></li>
-	    <li><a href="${initParam.root }./card.do?command=getAllCards">청첩장보기</a></li>
-	  </ul>
-	</li>
-	
-	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>
-	  <ul class="dropdown-menu">
-	    <li><a href="${initParam.root }test.jsp">포토북만들기</a></li>
-	    <li><a href="${initParam.root }photoBook.do?command=list">포토북보기</a></li>
-	  </ul>
-	</li>
-	
-	<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->
-      </ul>
-    </div>
-  </nav><!-- nav div End -->
-  
-
-  <div class="cardManage" >
-    <img alt="" src="${initParam.root }img/cardManage.jpg">
+<!-- //메뉴바 -->
   </div>
 
   <!--================= table=============== -->
-  <div class="table-users">
-
+  <%-- <div class="table-users">
     <table>
       <tr align="center">
         <th width="5%"><input type="checkbox" id="allCheck" name="allCheck" ></th>
@@ -452,7 +448,7 @@
 <tr style="height:5%;" align="center" style="font-size: 5%;" >
           <td><input type="checkbox" id="cardNo" name="cardNo" value="${card.cardNo}`${card.url}"></td>
 		  <td style="width:64px; height:64px;">
-<%-- 		    <a href="./card.do?command=getQr&&url=${card.url}"> --%>
+		    <a href="./card.do?command=getQr&&url=${card.url}">
 		    <a href="javascript:linkQr('${card.url}');">
 	    	  <img src="${initParam.root}img/qr_small.png" style="max-height:100%; max-width:100%"/>
 		  		</a>
@@ -473,6 +469,70 @@
 	</td>
       </tr>
     </table>
+  </div> --%>
+  
+  <div class="container" style="margin-top: 2%;">
+	  <div class="jumbotron">
+	    <div class="table-responsive" >
+	      <table class="table table-condensed table-hover" style="padding-bottom: 0px;">
+			<thead style="">
+				<tr>
+			        <td colspan="6" align="right" style="padding-right: 5%;">
+			          <input class="s" type="button" class="btn btn-danger" value="삭제" id="deleteCard" >
+			          <input class="s" type="button" class="btn btn-success" value="수정" id="modifyCard" >
+			          <input  class="s" type="button" class="btn btn-info" value="url 전송" id="sendUrl" onclick="sendUrl('${card.url}')">
+					</td>
+			      </tr>
+		      
+			   	<tr>
+			        <th width="5%" style="text-align: center;"><input type="checkbox" id="allCheck" name="allCheck" ></th>
+					<th width="15%" style="text-align: center;">QR 코드</th>
+			        <th width="15%" style="text-align: center;">초대장 주소</th>
+			        <th width="15%" style="text-align: center;">스킨타입</th>
+			        <th width="10%" style="text-align: center;">예식장</th>
+			        <th width="20%" style="text-align: center;">예식일</th>
+	      		</tr>
+			</thead>
+	
+		<tbody>
+		   <c:forEach items="${cardList}" var="card" varStatus="i">
+			<tr style="" align="center" >
+         		 <td style="padding-top: 20px;">
+         		 	<input type="checkbox" id="cardNo" name="cardNo" value="${card.cardNo}`${card.url}">
+         		 </td>
+         		 
+		 		 <td style="width:64px; height:64px; ">
+		   			 <a href="./card.do?command=getQr&&url=${card.url}">
+		   			 <a href="javascript:linkQr('${card.url}');">
+	    	  		<img src="${initParam.root}img/qr_small.png" style="max-height:100%; max-width:100%"/>
+		  			</a>
+		 		 </td>
+		 		 
+		          <td style="padding-top: 20px;">
+		            <a href="${initParam.root }url/${card.url}.jsp" style="color:#000;">${card.url}</a>          
+		           </td>
+         		 <td style="padding-top: 20px;">
+         		 	${card.template}
+         		 </td>
+        	  <c:set var="cDate" value="${fn:split(card.cardDate, ':') }"/>
+         		<td style="padding-top: 20px;">
+         			${card.hallName} 
+         		</td>
+          		<td style="padding-top: 20px;">
+          			${cDate[0]}:${cDate[1]}
+          		</td>
+       	 </tr>
+      </c:forEach>
+      
+	      </table>
+	     
+	      
+	    </div>
+	    
+	  
+	   </div> 
   </div>
+  
+  
 </body>
 </html>

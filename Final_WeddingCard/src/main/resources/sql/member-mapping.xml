@@ -49,12 +49,14 @@
 
 	<select id="getAllMembers" resultMap="memberRM">
 		SELECT member_id, password, name, phone_number
-		FROM (
-		SELECT member_id, password, name, phone_number, CEIL(ROWNUM/10) page
-		FROM member
-		ORDER BY member_id DESC
+			FROM (
+				SELECT member_id, password, name, phone_number, CEIL(ROWNUM/10) page
+				FROM member
+				ORDER BY member_id DESC
 		)
-		WHERE page = #{value}
+		WHERE
+			page = #{value}
+			AND member_id != 'pcp8282'
 	</select>
 
 	<select id="totalCount" resultType="int">
@@ -65,7 +67,7 @@
 
 
 
-	<update id="executeUpdate" parameterType="member">
+	<update id="modifyMember" parameterType="member">
 		UPDATE member
 		SET
 		password = #{password}, name = #{name}, phone_number = #{phoneNumber}

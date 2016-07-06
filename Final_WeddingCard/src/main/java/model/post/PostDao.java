@@ -10,7 +10,7 @@ public interface PostDao {
 	int deletePost(int postNo);
 	List<PostVO> getPostList(HashMap<String, String> map);
 	PostVO getPostByNo(int postNo);
-	
 	int totalCount(String kind) throws SQLException;
+	List<PostVO> getAdminPost(String kind);
 
 }

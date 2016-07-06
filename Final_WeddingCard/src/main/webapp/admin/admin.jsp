@@ -76,9 +76,18 @@ $(function() {
       source: availableTags
     });
   });
+  
+  function frmSubmit(index) {
+	  var name = index+ "Frm";
+	  document.getElementById(name).submit();
+  }
 </script>
 </head>
 <body>
+	<c:if test="${mvo == null }">
+		<c:redirect url="index.jsp"/>
+	</c:if>
+
 <nav class="navbar navbar-default navbar-static-top">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -124,10 +133,10 @@ $(function() {
 	<div class="container-fluid main-container">
 		<div class="col-md-2 sidebar">
 			<ul class="nav nav-pills nav-stacked">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Link</a></li>
-				<li><a href="#">Link</a></li>
-				<li><a href="#">Link</a></li>
+				<li class="active"><a href="${initParam.root }admin.do?command=getAllMembers">Home</a></li>
+				<li><a href="${initParam.root }/post.do?command=getAllAnoneQnAs">익명게시판</a></li>
+				<li><a href="${initParam.root }/post.do?command=getAllQnAs">웨딩 QnA</a></li>
+				<li><a href="${initParam.root }/reviewComment.do?command=getAllReviewComments">칭찬해요</a></li>
 				<li><a href="#">Link</a></li>
 			</ul>
 		</div>
@@ -165,17 +174,31 @@ $(function() {
                     
                     	<c:forEach items="${list }" var="l">
 	                        <li class="list-group-item">
-	                            <div class="checkbox" >
+	                            <%-- <div class="checkbox" >
 	                                <input type="checkbox" id="checkbox" />
 	                                <label for="checkbox">
 	                                    ${l.memberId }
 	                                </label>
-	                            </div>
-	                            <div class="pull-right action-buttons">
-	                                <a href="admin.do?command=modifyMember&&member_id=${l.memberId}"><span class="glyphicon glyphicon-pencil"></span></a>
-	                                <a href="admin.do?command=deleteMember&&member_id=${l.memberId}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
-	                                <a href="http://www.jquery2dotnet.com" class="flag"><span class="glyphicon glyphicon-flag"></span></a>
-	                            </div>
+	                            </div> --%>
+	                            <form action="${initParam.root }admin.do" method="post" id="${l.memberId }Frm">
+          							<input type="hidden" name="command" value="modifyMember">
+          							<input type="hidden" name="memberId" value="${l.memberId }">
+          							${l.memberId }
+          							<input type="text" name="password" value="${l.password }">
+          							<input type="text" name="name" value="${l.name }">
+          							<input type="text" name="phoneNumber" value="${l.phoneNumber }">
+	                            
+		                            <div class="pull-right action-buttons">
+		                                <a style="cursor: pointer;" onclick="frmSubmit('${l.memberId }')">
+		                                	<span class="glyphicon glyphicon-pencil"></span>
+		                                </a>
+		                                <a href="admin.do?command=deleteMember&&id=${l.memberId}" class="trash">
+		                                	<span class="glyphicon glyphicon-trash"></span>
+		                                </a>
+		                                <!-- <a href="http://www.jquery2dotnet.com" class="flag"><span class="glyphicon glyphicon-flag"></span></a> -->
+		                            </div>
+	                            
+	                            </form>
 	                        </li>
                     	</c:forEach>
                         
