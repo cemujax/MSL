@@ -132,13 +132,12 @@
 			<div class="navbar-header">
 				<a class="navbar-brand" href="../index.jsp" >
 				<img alt="" src="../img/logo_02.png" style="width: 60px; margin-left: 50px; margin-top: 0px;"> 
-				<!-- Home --></a>
+				</a>
 			</div>
 			<ul class="nav">
-				<!-- style="margin-left: 82%;" -->
 				<li><a href="../card.do?command=getAllCards">청첩장보기</a></li>
-				<li class="lnb_icon5"><a href="javascript:logout()"> <span
-						class="glyphicon glyphicon-log-in"></span> 로그아웃
+				<li class="lnb_icon5"><a href="javascript:logout()"> 
+				<span class="glyphicon glyphicon-log-in"></span> 로그아웃
 				</a></li>
 			</ul>
 		</div>

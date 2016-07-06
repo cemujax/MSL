@@ -226,14 +226,14 @@
 	</c:if>
 
 	<!-- 메뉴바 -->
-	<nav class="navbar navbar-inverse"
-		style="background-color: #f8f8f8; border-color: #e7e7e7;">
+	<nav class="navbar navbar-inverse" >
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="./index.jsp" style="color: #777;">Home</a>
+				<a class="navbar-brand" href="../index.jsp" >
+				<img alt="" src="${initParam.root}img/logo_02.png" style="width: 60px; margin-left: 50px; margin-top: 0px;"> 
+				</a>
 			</div>
-			<ul class="nav navbar-nav">
-				<!-- style="margin-left: 82%;" -->
+			<ul class="nav">
 				<li><a href="../card.do?command=getAllCards">청첩장보기</a></li>
 				<li class="lnb_icon5"><a href="javascript:logout()"> <span
 						class="glyphicon glyphicon-log-in"></span> 로그아웃
