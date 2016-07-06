@@ -120,7 +120,6 @@
 
 <script
 	src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
-
 </head>
 <body>
 	<c:if test="${sessionScope.mvo == NULL }">
@@ -268,63 +267,54 @@
 			<div id="tabs-1">
 				<input type="hidden" name="templateType" value="" id="templateType">
 				<table>
-					<tr align="center">
+					<tr align="center"><!-- 스킨선택영역 1번째 라인 --> 
 						<td><img
 							src="${initParam.root}weddingCard/preview_Fall In Love/img/Fall In Love.jpg"
 							class="img-rounded" style="height: 70px;"> <input
-							type="radio" name="template" id="template" value="Fall In Love">
+							type="radio" name="template" id="template_basick1" value="Fall In Love">
 						</td>
 						<td><img
 							src="${initParam.root}weddingCard/preview_Innocent Bride/img/Innocent Bride.jpg"
 							class="img-rounded"> <input type="radio" name="template"
-							id="template2" value="Innocent Bride"></td>
+							id="template_advance1" value="Innocent Bride"></td>
 
 						<td><img
 							src="${initParam.root}weddingCard/preview_Garden Wedding/img/ze.PNG"
 							class="img-rounded"> <input type="radio" name="template"
-							id="template3" value="Garden Wedding"></td>
-
+							id="template_advance2" value="Garden Wedding"></td>
 					</tr>
+					
+					<tr><!-- 스킨선택영역 2번째 라인 -->
+					     <td><img
+							src="${initParam.root}weddingCard/preview_Romantic/img/romantic.jpg"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_basick2" value="Romantic"></td>
+						<td><img
+							src="${initParam.root}weddingCard/preview_Yellow Rose/img/Yellow Rose.png"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_advance3" value="Yellow Rose"></td>
+					     <td><img
+							src="${initParam.root}weddingCard/preview_Mint/img/invitation.png"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_advance4" value="Mint"></td>
+							
+					     </tr>
 					<!--  -->
-					<!-- <tr>
-					     <td><img src="img/222.jpg" class="img-rounded"
-					     alt="Cinque Terre"> <input type="radio" name="template"
-					     id="template" value="basicSkin"></td>
+					<tr><!-- 스킨선택영역 3번째 라인 -->
+					     <td><img
+							src="${initParam.root}weddingCard/preview_Lucky Clover/img/luckyClover.png"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_basick3" value="Lucky Clover"></td>
 
-					     <td><img src="img/15.jpg" class="img-rounded"
-					     alt="Cinque Terre"> <input type="radio" name="template"
-					     id="template" value="basicSkin"></td>
-					     <td><img src="img/17.jpg" class="img-rounded"
-					     alt="Cinque Terre"> <input type="radio" name="template"
-					     id="template" value="basicSkin"></td>
-					     </tr> -->
-					<!--  -->
-					<!-- <tr>
-					     <td><img src="img/bouquet02.png" class="img-rounded"
-					     alt="Cinque Terre"> <input type="radio" name="template"
-					     id="template" value="basicSkin"></td>
-					     <td><img src="img/wedding00.jpg" class="img-rounded"
-					     alt="Cinque Terre"> <input type="radio" name="template"
-					     id="template" value="basicSkin"></td>
-					     <td><img src="img/bbb.jpg" class="img-rounded"
-					     alt="Cinque Terre"> <input type="radio" name="template"
-					     id="template" value="basicSkin"></td>
-					     </tr> -->
-					<!--  -->
-					<!-- <tr>
-						<td><img src="img/222.jpg" class="img-rounded"
-							alt="Cinque Terre" > <input
-							type="radio" name="template" id="template" value="basicSkin"
-							></td>
-						<td><img src="img/222.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							></td>
-						<td><img src="img/222.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							></td>
-					</tr> -->
+						<td><img
+							src="${initParam.root}weddingCard/preview_Iris/img/Iris.png"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_advance5" value="Iris"></td>
+					     <td><img
+							src="${initParam.root}weddingCard/preview_Cresendo/img/invitation2.png"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_advance6" value="Cresendo"></td>
+					     </tr>
 				</table>
 			</div>
 			<!-- tabs-1 -->
@@ -519,7 +509,6 @@
 							<td colspan="2">
 								<div id="map"
 									style="width: 300px; height: 200px; margin-top: 5px; display: none">
-									asdfsdaf
 									<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 									<script
 										src="http://apis.daum.net/maps/maps3.js?apikey=e5bf529fb1433a428d71db4065ceda03&libraries=services"></script>
@@ -597,7 +586,7 @@
 																					marker.setPosition(coords)
 																						
 																					/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
-																					document.getElementById(frmWeddingCard).attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+																					//document.getElementById(frmWeddingCard).attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
 																						
 																				}
 																			});
