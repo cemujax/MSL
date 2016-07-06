@@ -17,7 +17,7 @@ pageEncoding='UTF-8' isELIgnored='false'%><%@ taglib prefix='c'
 <jsp:param value='11' name='hour'/>
 <jsp:param value='00' name='min'/>
 <jsp:param value='AM' name='ampm'/>
-<jsp:param value='8' name='dDay'/>
+<jsp:param value='' name='dDay'/>
 <jsp:param value='판교' name='hallName'/>
 <jsp:param value='판교' name='hallLocation'/>
 <jsp:param value='320' name='photoBookNo'/>
@@ -25,10 +25,10 @@ pageEncoding='UTF-8' isELIgnored='false'%><%@ taglib prefix='c'
 <jsp:param value='ffqw`END`qdq`END`qwdq`END`qwdq' name='photoBookComment'/>
 <jsp:param value='s@naver.com' name='memberId'/>
 <jsp:param value='1106s' name='url'/>
-<jsp:param value='1298' name='cardNo'/>
-<jsp:param value='013.jpg' name='imgSrc'/>
-<jsp:param value='bouquet02.png' name='imgGroom'/>
-<jsp:param value='15.jpg' name='imgBride'/>
+<jsp:param value='0' name='cardNo'/>
+<jsp:param value='타코야끼.jpg' name='imgSrc'/>
+<jsp:param value='몬자야키.jpg' name='imgGroom'/>
+<jsp:param value='우에노공원.jpg' name='imgBride'/>
 </jsp:include>
 </body>
 </html>

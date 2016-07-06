@@ -326,10 +326,10 @@ img.wp-smiley, img.emoji {
 								<span>
 									<h3>${param.cardDate}</h3>
 								</span><span>
-									<h3>${param.hour}:${param.min}</h3>
-								</span><span>
+									<h3>${param.hour}:${param.min}&nbsp;${param.ampm} </h3>
+								<%-- </span><span>
 									<h3>${param.ampm}</h3>
-								</span>
+								</span> --%>
 							</div>
 						</div>
 					</div>
@@ -390,7 +390,7 @@ img.wp-smiley, img.emoji {
 						</div>
 
 						<div class="albumcover">
-
+						<c:if test="${param.photoBookNo != null && param.photoBookNo != ''}">
 							<c:set var="pbImg" value="${fn:split(param.photoBookImg, '`') }" />
 							<c:set var="pbComment"
 								value="${fn:split(param.photoBookComment, '`END`') }" />
@@ -412,6 +412,7 @@ img.wp-smiley, img.emoji {
 									</div>
 								</div>
 							</c:forEach>
+							</c:if>
 						</div>
 						<!-- albumcover -->
 					</div>
@@ -435,17 +436,14 @@ img.wp-smiley, img.emoji {
 							type="hidden" id="wedding_pmap_lon" value=""> <input
 							type="hidden" id="wedding_paddr" value="예식장 주소 (test)"> <input
 							type="hidden" id="wedding_pname" value="웨딩홀">
-						<div id="map" style="">
+						<div id="map" style=" position: relative; overflow: hidden;">
 
-							<script type="text/javascript"
-								src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&amp;libraries=services">
+						<script type="text/javascript"
+							src="//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services">
 						</script>
-							<script charset="UTF-8"
-								src="http://s1.daumcdn.net/svc/attach/U03/cssjs/mapapi/3.4.7/1461828377452/open.js"></script>
-							<script charset="UTF-8"
-								src="http://s1.daumcdn.net/svc/attach/U03/cssjs/mapapi/libs/1441176450396/services.js"></script>
-							<script>
-				 			var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
+						<script >
+						
+							var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
 							var loc = '${param.hallLocation}';
 							
 							//alert("loc::"+loc);
@@ -461,6 +459,8 @@ img.wp-smiley, img.emoji {
 
 							// 주소-좌표 변환 객체를 생성합니다
 							var geocoder = new daum.maps.services.Geocoder();
+							
+							
 							
 							
 							// 주소로 좌표를 검색합니다
@@ -490,201 +490,7 @@ img.wp-smiley, img.emoji {
 							});  
 
 						</script>
-							<div
-								style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; cursor: url(&amp;quot;http://i1.daumcdn.net/dmaps/apis/cursor/openhand.cur.ico&amp;quot;) 7 5, url(&amp;quot;http://i1.daumcdn.net/dmaps/apis/cursor/openhand.cur.ico&amp;quot;), default;">
-								<div style="position: absolute;">
-									<div
-										style="position: absolute; z-index: 1; left: 0px; top: 0px;">
-										<img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L4/107/367.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -223px; top: 125px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;">
-										<img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L4/107/368.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 33px; top: 125px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L4/107/369.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 289px; top: 125px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L4/107/370.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 545px; top: 125px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L4/107/371.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 801px; top: 125px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L4/107/372.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1057px; top: 125px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L4/107/373.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1313px; top: 125px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L4/107/374.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1569px; top: 125px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L4/108/367.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -223px; top: -131px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L4/108/368.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 33px; top: -131px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L4/108/369.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 289px; top: -131px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L4/108/370.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 545px; top: -131px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L4/108/371.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 801px; top: -131px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L4/108/372.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1057px; top: -131px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L4/108/373.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1313px; top: -131px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L4/108/374.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1569px; top: -131px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L4/109/367.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -223px; top: -387px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L4/109/368.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 33px; top: -387px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L4/109/369.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 289px; top: -387px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L4/109/370.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 545px; top: -387px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L4/109/371.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 801px; top: -387px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L4/109/372.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1057px; top: -387px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L4/109/373.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1313px; top: -387px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L4/109/374.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1569px; top: -387px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;">
-									</div>
-									<div
-										style="position: absolute; z-index: 0; left: 0px; top: 0px;">
-										<img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L3/215/739.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 416.5px; top: 126px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L3/215/740.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 544.5px; top: 126px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L3/215/741.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 672.5px; top: 126px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L3/215/742.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 800.5px; top: 126px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L3/215/743.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 928.5px; top: 126px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L3/215/744.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1056.5px; top: 126px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L3/215/745.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1184.5px; top: 126px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L3/215/746.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1312.5px; top: 126px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L3/216/739.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 416.5px; top: -2px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L3/216/740.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 544.5px; top: -2px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L3/216/741.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 672.5px; top: -2px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L3/216/742.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 800.5px; top: -2px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L3/216/743.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 928.5px; top: -2px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L3/216/744.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1056.5px; top: -2px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L3/216/745.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1184.5px; top: -2px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L3/216/746.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1312.5px; top: -2px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L3/217/739.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 416.5px; top: -130px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L3/217/740.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 544.5px; top: -130px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L3/217/741.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 672.5px; top: -130px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L3/217/742.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 800.5px; top: -130px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map3.daumcdn.net/map_2d/165fbd/L3/217/743.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 928.5px; top: -130px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map0.daumcdn.net/map_2d/165fbd/L3/217/744.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1056.5px; top: -130px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map1.daumcdn.net/map_2d/165fbd/L3/217/745.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1184.5px; top: -130px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
-											src="http://map2.daumcdn.net/map_2d/165fbd/L3/217/746.png"
-											alt="" draggable="false"
-											style="position: absolute; -webkit-user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1312.5px; top: -130px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;">
-									</div>
-									<div style="position: absolute; z-index: 1;"></div>
-									<div
-										style="width: 1771px; height: 349px; position: absolute; z-index: 1;"></div>
-									<div style="position: absolute; z-index: 1;">
-										<svg version="1.1"
-											style="stroke: none; stroke-dashoffset: 0.5; stroke-linejoin: round; fill: none; position: absolute; left: -3542px; top: -698px; width: 8855px; height: 1745px;"
-											viewBox="0 0 8855 1745">
-											<defs></defs></svg>
-									</div>
-									<div
-										style="position: absolute; z-index: 1; width: 100%; height: 0px;"></div>
-								</div>
-							</div>
-							<div
-								style="position: absolute; cursor: default; z-index: 1; white-space: nowrap; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 11px; line-height: normal; font-family: tahoma, sans-serif; color: rgb(85, 85, 85); left: 7px; bottom: 5px;">
-								<a target="_blank" href="http://map.daum.net/"
-									title="Daum 지도로 보시려면 클릭하세요."
-									style="float: left; height: 17px; cursor: pointer; width: 38px;"><img
-									src="http://i1.daumcdn.net/localimg/localimg/07/mapjsapi/m_bi.png"
-									style="width: 37px; height: 18px; border: none;"></a>
-								<div
-									style="color: rgb(0, 0, 0); text-align: center; font-size: 10px; margin: 0px 2px; float: left; width: 52px;">
-									<div style="color: rgb(0, 0, 0);">100m</div>
-									<div
-										style="position: relative; overflow: hidden; height: 8px; margin-top: -4px;">
-										<img
-											src="http://i1.daumcdn.net/localimg/localimg/07/mapjsapi/scalebar.png"
-											style="position: absolute; width: 164px; height: 40px; max-width: none; top: 0px; left: -82px;">
-									</div>
-								</div>
-								<div
-									style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 11px; line-height: normal; font-family: tahoma, sans-serif; float: left; margin: 3px 2px 0px;">
-									ⓒ Kakao<span></span>
-								</div>
-							</div>
-							<div
-								style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;"></div>
-						</div>
-						<!-- map  -->
+					</div><!-- map  -->
 					</div>
 				</div>
 				<div class="col-md-6 program-text">

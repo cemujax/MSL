@@ -115,7 +115,9 @@
 		}
 	} // pbCallback
 
-	$(document).ready(	function() {
+	$(document)
+			.ready(
+					function() {
 
 						init_tempate = "";
 						function init_preview() {
@@ -129,33 +131,92 @@
 
 						var templateName = '${cardVO.template}';
 						// 생성시 선택한 스킨으로 체크되고 preview에 뜨게
-						$(
-								"input:radio[name='template']:radio[value='${cardVO.template}']")
-								.attr('checked', true);
-						init_tempate = $('input:radio[name=template]:checked')
-								.val();
+						$("input:radio[name='template']:radio[value='${cardVO.template}']")
+						.attr('checked', true);
+						init_tempate = $('input:radio[name=template]:checked').val();
 
-						if (templateName == $('#template2').val()
-								|| templateName == $('#template3').val()) {
+						if($('input[name=template]:checked').attr('id').indexOf('template_advance') != -1){
 							$('#GroomDiv').show();
 							$('#BrideDiv').show();
-						} else {
+						}else{
 							$('#GroomDiv').hide();
 							$('#BrideDiv').hide();
 						}
 
-						
-			//예식날짜 처리
-			$("#ampm").val('${ampm}').prop("selected", true);
-			$("#hour").val('${hour}').prop("selected", true);
-			$("#min").val('${min}').prop("selected", true);
-			
-			$('#cardContext').val('${cardVO.cardContext}') //초대장 내용
-			init_preview();
-			
-	});//ready
+						//예식날짜 처리
+						$("#ampm").val('${ampm}').prop("selected", true);
+						$("#hour").val('${hour}').prop("selected", true);
+						$("#min").val('${min}').prop("selected", true);
+
+						$('#cardContext').val('${cardVO.cardContext}') //초대장 내용
+
+						function sample5_execDaumPostcode() {
+							new daum.Postcode(
+									{
+										oncomplete : function(data) {
+											// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+											// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+											var fullAddr = data.address; // 최종 주소 변수
+											var extraAddr = ''; // 조합형 주소 변수
+
+											// 기본 주소가 도로명 타입일때 조합한다.
+											if (data.addressType === 'R') {
+												//법정동명이 있을 경우 추가한다.
+												if (data.bname !== '') {
+													extraAddr += data.bname;
+												}
+												// 건물명이 있을 경우 추가한다.
+												if (data.buildingName !== '') {
+													extraAddr += (extraAddr !== '' ? ', '
+															+ data.buildingName
+															: data.buildingName);
+												}
+												// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+												fullAddr += (extraAddr !== '' ? ' ('
+														+ extraAddr + ')'
+														: '');
+											}
+
+											// 주소 정보를 해당 필드에 넣는다.
+											document
+													.getElementById("hallLocation").value = fullAddr;
+											// 주소로 좌표를 검색
+											geocoder
+													.addr2coord(
+															'${cardVO.hallLocation}',
+															function(status,
+																	result) {
+																// 정상적으로 검색이 완료됐으면
+																if (status === daum.maps.services.Status.OK) {
+																	// 해당 주소에 대한 좌표를 받아서
+																	var coords = new daum.maps.LatLng(
+																			result.addr[0].lat,
+																			result.addr[0].lng);
+																	// 지도를 보여준다.
+																	mapContainer.style.display = "block";
+																	map
+																			.relayout();
+																	// 지도 중심을 변경한다.
+																	map
+																			.setCenter(coords);
+																	// 마커를 결과값으로 받은 위치로 옮긴다.
+																	marker
+																			.setPosition(coords)
+
+																	/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
+																	//document.getElementById(frmWeddingCard).attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+																}
+															});
+										}
+									}).open();
+						}
+						init_preview();
+
+					});//ready
 </script>
 <script src="${initParam.root}weddingCard/js/weddingCardModify.js"></script>
+<script
+	src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
 
 
 </head>
@@ -272,7 +333,7 @@
 			// this is important for IEs
 			var polyfilter_scriptpath = '/js/';
 		</script>
-	<!-- 	<script src="js/cssParser.js"></script> 속도느리게하는 원흉ㄴ
+		<!-- 	<script src="js/cssParser.js"></script> 속도느리게하는 원흉ㄴ
 		<script src="js/css-filters-polyfill.js"></script> -->
 
 
@@ -307,62 +368,56 @@
 				<input type="hidden" name="templateType" value="" id="templateType">
 				<table>
 					<tr align="center">
+						<!-- 스킨선택영역 1번째 라인 -->
 						<td><img
 							src="${initParam.root}weddingCard/preview_Fall In Love/img/Fall In Love.jpg"
 							class="img-rounded" style="height: 70px;"> <input
-							type="radio" name="template" id="template" value="Fall In Love">
-						</td>
+							type="radio" name="template" id="template_basick1"
+							value="Fall In Love"></td>
 						<td><img
 							src="${initParam.root}weddingCard/preview_Innocent Bride/img/Innocent Bride.jpg"
 							class="img-rounded"> <input type="radio" name="template"
-							id="template2" value="Innocent Bride"></td>
+							id="template_advance1" value="Innocent Bride"></td>
 
 						<td><img
 							src="${initParam.root}weddingCard/preview_Garden Wedding/img/ze.PNG"
 							class="img-rounded"> <input type="radio" name="template"
-							id="template3" value="Garden Wedding"></td>
-
+							id="template_advance2" value="Garden Wedding"></td>
 					</tr>
-					<!--  -->
-					<!-- 	<tr>
-						<td><img src="img/222.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
 
-						<td><img src="img/15.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
-						<td><img src="img/17.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
-					</tr>
-					
 					<tr>
-						<td><img src="img/bouquet02.png" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
-						<td><img src="img/wedding00.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
-						<td><img src="img/bbb.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input type="radio" name="template"
-							id="template" value="basicSkin"></td>
-					</tr> -->
+						<!-- 스킨선택영역 2번째 라인 -->
+						<td><img
+							src="${initParam.root}weddingCard/preview_Romantic/img/romantic.jpg"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_basick2" value="Romantic"></td>
+						<td><img
+							src="${initParam.root}weddingCard/preview_Yellow Rose/img/Yellow Rose.png"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_advance3" value="Yellow Rose"></td>
+						<td><img
+							src="${initParam.root}weddingCard/preview_Mint/img/invitation.png"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_advance4" value="Mint"></td>
+
+					</tr>
 					<!--  -->
-					<!-- <tr>
-						<td><img src="img/222.jpg" class="img-rounded"
-							alt="Cinque Terre" > <input
-							type="radio" name="template" id="template" value="basicSkin"
-							></td>
-						<td><img src="img/222.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							></td>
-						<td><img src="img/222.jpg" class="img-rounded"
-							alt="Cinque Terre"> <input
-							type="radio" name="template" id="template" value="basicSkin"
-							></td>
-					</tr> -->
+					<tr>
+						<!-- 스킨선택영역 3번째 라인 -->
+						<td><img
+							src="${initParam.root}weddingCard/preview_Lucky Clover/img/luckyClover.png"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_basick3" value="Lucky Clover"></td>
+
+						<td><img
+							src="${initParam.root}weddingCard/preview_Iris/img/Iris.png"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_advance5" value="Iris"></td>
+						<td><img
+							src="${initParam.root}weddingCard/preview_Cresendo/img/invitation2.png"
+							class="img-rounded"> <input type="radio" name="template"
+							id="template_advance6" value="Cresendo"></td>
+					</tr>
 				</table>
 			</div>
 			<!-- tabs-1 -->
@@ -497,7 +552,7 @@
 								<div class="ui-block-e">
 									<select name="min" id="min" class="input_box_type1">
 										<!-- <option value="" selected="selected">분</option> -->
-										<option value="00" >00</option>
+										<option value="00">00</option>
 										<option value="05">05</option>
 										<option value="10">10</option>
 										<option value="15">15</option>
@@ -522,8 +577,7 @@
 							<td colspan="2">
 								<div class="section">
 									<textarea name="cardContext" id="cardContext"
-										class="input_box_type2" 
-										rel="tooltip"
+										class="input_box_type2" rel="tooltip"
 										title="<span class='tooltip_title'>초대글</span>
 									<br>- 초대(모시는)글을 입력 해주십시요"
 										placeholder="초대글"></textarea>
@@ -540,63 +594,108 @@
 						<tr>
 							<td colspan="2">예식장소 : &nbsp; <input type="text"
 								id="hallLocation" name="hallLocation"
-								value="${cardVO.hallLocation}">
+								value="${cardVO.hallLocation}"> <input type="button"
+								onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
 							</td>
 						</tr>
 
-						<tr>
+						<!-- 		<tr>
 							<td colspan="2">지도</td>
-						</tr>
+						</tr> -->
 
 						<tr>
 							<td colspan="2">
-								<div id="map" style="width: 100%; height: 200px;">
+								<div id="map"
+									style="width: 300px; height: 200px; margin-top: 5px; display: none">
+									<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 									<script
-										src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>
-									<script type="text/javascript">
+										src="http://apis.daum.net/maps/maps3.js?apikey=e5bf529fb1433a428d71db4065ceda03&libraries=services"></script>
+									<script>
 										var mapContainer = document
-												.getElementById('map'), // 지도를 표시할div
+												.getElementById('map'), // 지도를 표시할 div
 										mapOption = {
 											center : new daum.maps.LatLng(
-													33.450701, 126.570667), // 지도의 중심좌표
-											level : 3
+													50.537187, 127.005476), // 지도의 중심좌표
+											level : 2
 										// 지도의 확대 레벨
 										};
 
-										// 지도를 생성합니다
+										//지도를 미리 생성
 										var map = new daum.maps.Map(
 												mapContainer, mapOption);
-
-										// 주소-좌표 변환 객체를 생성합니다
+										//주소-좌표 변환 객체를 생성
 										var geocoder = new daum.maps.services.Geocoder();
-										
-										var loc = '${cardVO.hallLocation}';
-										// 주소로 좌표를 검색합니다
-										geocoder.addr2coord(loc, function(status, result) {
-
-										    // 정상적으로 검색이 완료됐으면
-										     if (status === daum.maps.services.Status.OK) {
-
-										        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
-
-										        // 결과값으로 받은 위치를 마커로 표시합니다
-										        var marker = new daum.maps.Marker({
-										            map: map,
-										            position: coords
-										        });
-
-										        // 인포윈도우로 장소에 대한 설명을 표시합니다
-										        var infowindow = new daum.maps.InfoWindow({
-										            content: '<div style="width:150px;text-align:center;padding:6px 0;">예식장</div>'
-										        });
-										        infowindow.open(map, marker);
-
-										        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-										        map.setCenter(coords);
-										    } 
+										//마커를 미리 생성
+										var marker = new daum.maps.Marker({
+											position : new daum.maps.LatLng(
+													37.537187, 127.005476),
+											map : map
 										});
-									</script>
 
+										function sample5_execDaumPostcode() {
+											new daum.Postcode(
+													{
+														oncomplete : function(
+																data) {
+															// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+															// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+															var fullAddr = data.address; // 최종 주소 변수
+															var extraAddr = ''; // 조합형 주소 변수
+
+															// 기본 주소가 도로명 타입일때 조합한다.
+															if (data.addressType === 'R') {
+																//법정동명이 있을 경우 추가한다.
+																if (data.bname !== '') {
+																	extraAddr += data.bname;
+																}
+																// 건물명이 있을 경우 추가한다.
+																if (data.buildingName !== '') {
+																	extraAddr += (extraAddr !== '' ? ', '
+																			+ data.buildingName
+																			: data.buildingName);
+																}
+																// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+																fullAddr += (extraAddr !== '' ? ' ('
+																		+ extraAddr
+																		+ ')'
+																		: '');
+															}
+
+															// 주소 정보를 해당 필드에 넣는다.
+															document
+																	.getElementById("hallLocation").value = fullAddr;
+															// 주소로 좌표를 검색
+															geocoder
+																	.addr2coord(
+																			data.address,
+																			function(
+																					status,
+																					result) {
+																				// 정상적으로 검색이 완료됐으면
+																				if (status === daum.maps.services.Status.OK) {
+																					// 해당 주소에 대한 좌표를 받아서
+																					var coords = new daum.maps.LatLng(
+																							result.addr[0].lat,
+																							result.addr[0].lng);
+																					// 지도를 보여준다.
+																					mapContainer.style.display = "block";
+																					map
+																							.relayout();
+																					// 지도 중심을 변경한다.
+																					map
+																							.setCenter(coords);
+																					// 마커를 결과값으로 받은 위치로 옮긴다.
+																					marker
+																							.setPosition(coords)
+
+																					/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
+																					//document.getElementById(frmWeddingCard).attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+																				}
+																			});
+														}
+													}).open();
+										}
+									</script>
 								</div>
 							</td>
 						</tr>

@@ -119,28 +119,23 @@ $(document).ready(function(){
 	   
 	   ///=========== 템플릿쪽===================================
 	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
-	   $('#template').attr("checked", true);
+	   $('#template_basick1').attr("checked", true);
 	   $('#GroomDiv').hide();  $('#BrideDiv').hide();
+	   
 	   var sel_template = $('input:radio[name=template]:checked').val();
 	   set_preview();
 	   
-	   $('#template').click(function(){
-		   sel_template = ($('input[name=template]:checked').val());
+	   $('input[id*=template_basick]').click(function(){
+		   sel_template = ($(this).val());
 		   $('#GroomDiv').hide();  $('#BrideDiv').hide();
 	  		set_preview();
 	  	});
 	   
-	   $('#template2').click(function(){
-		   sel_template = ($('input[name=template]:checked').val());
+	   $('input[id*=template_advance]').click(function(){
+		   sel_template = ($(this).val());
 		   $('#GroomDiv').show();  $('#BrideDiv').show();
-	  		set_preview();
-	  	});
-	   
-	   $('#template3').click(function(){
-		   sel_template = ($('input[name=template]:checked').val());
-			   $('#GroomDiv').show();  $('#BrideDiv').show();
-		  		set_preview();
-		  	});
+		   set_preview();
+	   });
 	   
 	 ///=========== 템플릿쪽 End===================================
 	   
@@ -197,63 +192,6 @@ $(document).ready(function(){
 	   });
 					
   $('#hallLocation').change(function(){
-	  
-	  if($(this).val() != ""){
-		  alert("mapmap");
-		  
-		  var mapScript = 
-				"<script src='./js/map.js'></script>";
-			  $('#map').html("<script src='//apis.daum.net/maps/maps3.js?apikey=3f17108ee4529ef634468783d7ef555a&libraries=services'></script>");
-			  $('#map').html(mapScript);
-		  
-		  
-		  var mapContainer = document.getElementById('map'), // 지도를
-			// 표시할
-			// div
-		  mapOption = {
-			  center : new daum.maps.LatLng(33.450701,
-					  126.570667), // 지도의 중심좌표
-					  level : 3
-					  // 지도의 확대 레벨
-		  };
-
-							// 지도를 생성합니다
-							var map = new daum.maps.Map(mapContainer, mapOption);
-
-							// 주소-좌표 변환 객체를 생성합니다
-							var geocoder = new daum.maps.services.Geocoder();
-		 
-		  
-		  var loc = $(this).val();
-			// 주소로 좌표를 검색합니다
-			geocoder.addr2coord(loc, function(status, result) {
-
-			    // 정상적으로 검색이 완료됐으면
-			     if (status === daum.maps.services.Status.OK) {
-
-			        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
-
-			        // 결과값으로 받은 위치를 마커로 표시합니다
-			        var marker = new daum.maps.Marker({
-			            map: map,
-			            position: coords
-			        });
-
-			        // 인포윈도우로 장소에 대한 설명을 표시합니다
-			        var infowindow = new daum.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">예식장</div>'
-			        });
-			        infowindow.open(map, marker);
-
-			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-			        map.setCenter(coords);
-			    } 
-			});
-		  
-	  }else{
-		  alert("gg");
-	  }
-	  
    	set_preview();
     });
    
@@ -456,9 +394,8 @@ $(document).ready(function(){
     	  return false;
       }
       
-      // 신랑신부 업로드 가능 템플릿 선택한경우
-      if($('input[name=template]:checked').val()== "Garden Wedding"
-    	  || $('input[name=template]:checked').val()== "Innocent Bride"){
+      // 신랑신부 업로드 가능 템플릿 선택한경우 이미지 업로드!
+      if($('input[name=template]:checked').attr('id').indexOf('template_advance') != -1){
     	  if($('#imgBride').val() == ""){
         	  $( '#tabs' ).tabs( { active: 1,} );
         	  alert("신부 이미지 업로드 해주세요!");
@@ -470,7 +407,6 @@ $(document).ready(function(){
         	  return false;
           }
       }
-      
       
       if($('#url').val() == ""){
     	  $( '#tabs' ).tabs( { active: 1,} );
