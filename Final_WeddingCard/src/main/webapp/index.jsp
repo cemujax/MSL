@@ -291,7 +291,7 @@ html,body{height:100%;}
 <!-- gallery -->
 <section id="step2">
 	<div class="gallery" id="gallery" style="font-family: 'Noto Sans KR', sans-serif; background-color: #ffffd9;  height:100%; padding-bottom: 24px; padding-top: 24px;">
-		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>Responsible Size</span></h3>
+		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>Responsive Web Design</span></h3>
 		<div class="gallery-grids" style="font-family: 'Noto Sans KR', sans-serif;" >
 						<font size="6" style="font-family: 'Noto Sans KR', sans-serif;color: #0e6973; padding-left: 10%" >어떤 기기든 반응하는</font><br>
 				<div class="team-grid animated wow slideInDown" data-wow-delay=".5s" align="center">
