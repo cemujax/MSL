@@ -17,7 +17,7 @@
 <link href="css/style_index.css" rel="stylesheet" type="text/css" media="all" />
 <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
 <link rel="stylesheet" href="post/css/postAnoneQnaList.css">
 <link href="post/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
@@ -31,8 +31,28 @@
 .admin-tr:hover{
 	 background-color: white; 
 }
-</style>
+ .container-fluid {
+    padding-top: 20px;
+} 
+.nav{
+   margin-left: 75%;
+    width: 300px;
+    font-size: 15px
 
+}
+.nav>li>a {
+    /* width: 140px; */
+   /*  float: right; */
+    color: #fff;
+}
+.container {
+    width: 1170px;
+    height: auto;
+}
+</style>
+<!-- 부트스트랩 nav사용 -->
+  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 <script type="text/javascript" charset="utf-8">
 	var xhr;
 	function logout() {
@@ -44,11 +64,7 @@
 </head>
 <body>
 
-	<div class="container"
-		style="background-image: url(${initParam.root }img/post_qna_board.jpg); width: 100%; height: 250px"
-		align="center">
-		<!-- <p style="font-weight: bold; font-size: 25px; margin-top: 7%;">웨딩 QnA</p> -->
-	</div>
+<jsp:include page="postQnaNav.jsp"></jsp:include>
 
 	<div class="container" style="margin-top: 2%;">
 		<div class="jumbotron">
@@ -70,7 +86,7 @@
 					<tbody>
 						<c:forEach items="${requestScope.adminList}" var="post">
 							<tr class="admin-tr">
-								<td class="not_mapped_style " style="text-align: center">
+								<td class="not_mapped_style " style="text-align: left; padding-left: 130px">
 									<a href="${initParam.root }post.do?command=getQnA&&postNo=${post.postNo}&&page=${listVO.pagingBean.nowPage}">
 										<b>
 											<font color="#FFBB00"><i class="fa fa-bullhorn" aria-hidden="true"></i></font>
@@ -87,10 +103,14 @@
 							</tr>
 						</c:forEach>
 					
+						<c:set value="0" var="i"/>
 						<c:forEach items="${listVO.list}" var="post">
 							<tr>
-								<td class="not_mapped_style" style="text-align: center"><a
-									href="${initParam.root }post.do?command=getQnA&&postNo=${post.postNo}&&page=${listVO.pagingBean.nowPage}">${post.title}</a></td>
+								<td class="not_mapped_style" style="text-align: left; padding-left: 130px">
+									<a href="${initParam.root }post.do?command=getQnA&&postNo=${post.postNo}&&page=${listVO.pagingBean.nowPage}">
+										${post.title} <font color="#FF8224">[${commentLength.get(i) }]</font>
+	      								<c:set value="${i+1 }" var="i"/>
+									</a></td>
 								<td class="not_mapped_style" style="text-align: center">${post.memberVO.name}</td>
 								<td class="not_mapped_style" style="text-align: center">
 									<c:set var="writeDate" value="${fn:split(post.writeDate, ' ') }" />
@@ -103,11 +123,10 @@
 				</table>
 
 
-				<div class="" style="text-align: center;">
-					<a href="post/postQnaWrite.jsp"> <input type="button"
-						class="btn btn-primary btn-lg" value="글쓰기"
-						id="writeCard"
-						style="width: 100px; font-family: 'Nanum Gothic', serif;"></a>
+				<div class="" style="margin-left: 93%;">
+					<a href="post/postQnaWrite.jsp"> 
+					<input type="button" value="글쓰기" class="btn btn-warning"
+						id="writeCard" style=" font-family: 'Nanum Gothic', serif;"></a>
 				</div>
 
 			</div>

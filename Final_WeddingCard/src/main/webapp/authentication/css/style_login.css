@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
     font-size: 100%;
     /* for windows */
-	height: 800px;
+	/* height: 800px; */
 	font-family: 'Open Sans', sans-serif;
 }
 p{

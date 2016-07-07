@@ -6,16 +6,46 @@
 <head>
  <link rel="stylesheet" href="../weddingCard/css/bootstrap.min.css">
     <link rel="stylesheet" href=" http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    
+
+
+ <style type="text/css">
+ .body{
+ margin-left: 13%; margin-right: 13%; margin-top: 3%;
+ }
+#tit{
+font-family:'Nanum Gothic', serif; 
+float:left;
+ margin-left: 30%; 
+ margin-top: 1.5%;
+}
+
+#in{
+width: 300px; height: 25px; float: left; margin-left: 1%; margin-top: 1%;
+}
+.btn, .btn-warning{
+    font-family: 'Nanum Gothic', serif;
+    margin-top: 1%;
+    margin-left: 20px;
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+    padding: 5px;
+}
+</style>
+
 </head>
 <body>
 	<c:if test="${sessionScope.mvo == NULL }">
 		<c:redirect url="../authentication/login.jsp" />
 	</c:if>
-<!-- <td>제목</td> -->
-	<p style="font-family:'Nanum Gothic', serif; margin-right: 200px;">제목 : 
- <input type="text" name="title" style="width: 300px; height: 15px; padding: 0px; margin-right: 450px;"></p>
- 
-	
+
+<p id="tit" >제목  </p>
+ <input id="in" type="text" name="title" >
+  <button onclick='saveContent()'class="btn btn-warning">
+  	수정하기
+  </button>
+  	
 <div id="tx_trex_container" class="tx-editor-container">
 <div id="tx_sidebar" class="tx-sidebar">
     <div class="tx-sidebar-boundary">

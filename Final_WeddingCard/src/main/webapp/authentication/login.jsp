@@ -62,8 +62,7 @@ body {
 
 a {
   text-decoration: none;
- /*  color: #1ab188; */
-   color:#fff; 
+ color: #1ab188; 
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
@@ -74,7 +73,7 @@ a:hover {
 .form {
   padding: 40px;
   max-width: 500px;
-  max-height: 600px;
+  max-height: 565px;
   margin: 10px auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
@@ -83,7 +82,7 @@ a:hover {
 .tab-group {
   list-style: none;
   padding: 0;
-  margin: 0 0 40px 0;
+  margin: 0 0 10px 0;
 }
 .tab-group:after {
   content: "";
@@ -93,7 +92,7 @@ a:hover {
 .tab-group li a {
   display: block;
   text-decoration: none;
-  padding: 15px;
+  padding: 10px;
   background: rgba(160, 179, 176, 0.25);
  /*  color: #a0b3b0; */
  color: #000;
@@ -104,6 +103,7 @@ a:hover {
   cursor: pointer;
   -webkit-transition: .5s ease;
   transition: .5s ease;
+  height: 50px;
 }
 .tab-group li a:hover {
  /*  background: #179b77; */
@@ -205,21 +205,21 @@ textarea {
 }
 
 .button {
-  border: 0;
-  outline: none;
-  border-radius: 0;
-  padding: 15px 0;
-  font-size: 2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  /* background: #1ab188; */
-  
-  background: #475b55;
-  color: #ffffff;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  -webkit-appearance: none;
+ border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 10px 0;
+    font-size: 1.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    /* background: #1ab188; */
+    background: #475b55;
+    color: #ffffff;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+    height: 60px;
 }
 .button:hover, .button:focus {
   background: #179b77;
@@ -300,44 +300,7 @@ $(document).ready(function(){
 
 <body>
 <!-- 메뉴바 -->		
-<nav class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.18); border-color: transparent;">		
-  <div class="container-fluid">		
-    <div class="navbar-header" >		
-     <!--  <a class="navbar-brand" href="#">Home</a> -->		
-     <a href="${initParam.root }index.jsp" class="navbar-brand" ><!-- Home</a>	 -->
-     <img alt="" src="../img/logo_02.png"  style="width: 60px; margin-left: 50px; margin-top: 0px;"> </a>
-    </div>		
-    		
-    	<ul class="nav" >		<!--  navbar-nav -->
-				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>		
-					 <li class="dropdown">		
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>		
-							  <ul class="dropdown-menu">		
-							      <li><a href="#">익명게시판</a></li>		
-							         <li><a href="#">게시판</a></li>		
-							         <li><a href="#">칭찬해요</a></li>		
-							   </ul>		
-					</li>		
-							      		
-							      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>		
-							        <ul class="dropdown-menu">		
-							          <li><a href="${initParam.root }weddingCard.jsp">청첩장만들기</a></li>		
-							          <li><a href="${initParam.root }./card.do?command=getAllCards">청첩장보기</a></li>		
-							        </ul>		
-							      </li>		
-							      		
-							       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>		
-							        <ul class="dropdown-menu">		
-							          <li><a href="${initParam.root }test.jsp">포토북만들기</a></li>		
-							          <li><a href="${initParam.root }photoBook.do?command=list">포토북보기</a></li>		
-							        </ul>		
-							      </li>		
-							      		
-							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->		
-							</ul>		
-  </div>		
-</nav><!-- nav Bar -->
-	
+	<jsp:include page="loginNav.jsp"></jsp:include>
 <!-- //메뉴바 -->
 
 

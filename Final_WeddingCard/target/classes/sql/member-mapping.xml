@@ -39,7 +39,7 @@
 	</select>
 
 	<select id="findPassword" parameterType="member" resultType="string">
-		select member_id
+		select password
 		from member
 		WHERE
 		member_id = #{memberId}

@@ -84,8 +84,8 @@ $(function() {
 </script>
 </head>
 <body>
-	<c:if test="${mvo == null }">
-		<c:redirect url="index.jsp"/>
+	<c:if test="${mvo == null  || mvo.memberId != 'pcp8282'}">
+		<c:redirect url="../index.jsp"/>
 	</c:if>
 
 <nav class="navbar navbar-default navbar-static-top">

@@ -55,6 +55,7 @@ input[type="submit"],.btn-primary,.date-tag-right a,.news-grid-right ul li a,.na
 }
 .banner-phone{
 	float:left;
+	margin-left: 5%;
 }
 .banner-phone p{
 	color:#fff;
@@ -67,7 +68,7 @@ input[type="submit"],.btn-primary,.date-tag-right a,.news-grid-right ul li a,.na
 }
 .logo{
 	float:left;
-	margin-left: 18em;
+	margin-left: 16em;
 }
 .logo h2 a{
 	font-size: 2em;

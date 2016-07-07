@@ -20,29 +20,46 @@
   
 <link rel="stylesheet" href=" http://fonts.googleapis.com/earlyaccess/nanumgothic.css">   
    
+ <style type="text/css">
+#tit{
+font-family:'Nanum Gothic', serif; 
+float:left;
+ margin-left: 30%; 
+ margin-top: 1%;
+}
+
+#in{
+width: 300px; height: 25px; float: left; margin-left: 1%; margin-top: 1%;
+}
+.btn-warning{
+font-family: 'Nanum Gothic', serif; margin-right: 25%; margin-bottom:2%;margin-top: 0.5%;
+}
+.body{
+margin-left: 13%; margin-right: 13%; margin-top: 3%;
+}
+</style>
+   
 </head>
 <body>
 	<c:if test="${sessionScope.mvo == NULL }">
 		<c:redirect url="../authentication/login.jsp?location=qnaWrite" />
 	</c:if>
 	
-	<div class="container"
-		style="background-image: url(${initParam.root }img/post_qna_board.jpg); width: 100%; height: 250px"
-		align="center">
-		<!-- <p style="font-weight: bold; font-size: 25px; margin-top: 7%;">웨딩 QnA</p> -->
-	</div>
+	<jsp:include page="postQnaNav.jsp"></jsp:include>
 
 
 
-<div class="body" style="margin-left: 13%; margin-right: 13%; margin-top: 3%;">
+<div class="body">
 
   <!-- 에디터 시작 -->
   <form name="tx_editor_form" id="tx_editor_form" action="${initParam.root }post.do" method="post" accept-charset="utf-8" style="text-align: center;">
 	<input type="hidden" name="command" value="writeQnA">
- <p style="font-family:'Nanum Gothic', serif; margin-right: 200px;">제목 : 
- <input type="text" name="title" style="width: 300px; height: 15px; padding: 0px; margin-right: 450px;"></p>
+		
+		<p id="tit" >제목</p>
+		 <input id="in" type="text" name="title" >
+		 <input type="submit" onclick='saveContent()' value="작성하기" class="btn btn-warning" >
+ 
 		<div id="tx_trex_container" class="tx-editor-container">
-
 			<div id="tx_toolbar_basic" class="tx-toolbar tx-toolbar-basic"><div class="tx-toolbar-boundary">
 				<ul class="tx-bar tx-bar-left">
 					<li class="tx-list">
@@ -392,8 +409,7 @@
 				<!-- 첨부박스 끝 -->
 		</div>
 		<!-- 에디터 컨테이너 끝 -->
-  		<input type="submit" onclick='saveContent()' value="글쓰기" class="btn btn-primary btn-lg" 
-  		style="width: 100px; font-family: 'Nanum Gothic', serif; padding-top: 5px;" >
+  		
   	
   </form>
 	

@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="reviewSql">
-	<resultMap type="reviewComment" id="reviewCommentRM">
-		<result property="content" column="content" jdbcType="VARCHAR"/>
-		<result property="writeDate" column="write_date" jdbcType="VARCHAR"/>
-		<result property="memberVO.memberId" column="member_id" jdbcType="VARCHAR"/>
-		<result property="memberVO.name" column="name" jdbcType="VARCHAR"/>
-	</resultMap>
-	
-	<insert id="writeReview" parameterType="reviewComment">
-		INSERT
-		INTO reviewcomment (content, write_date, member_id)
-		VALUES (
-			#{content}, sysdate, #{memberVO.memberId}
-		)
-	</insert>
-	
-	<select id="getReviewList" resultMap="reviewCommentRM">
-		SELECT content, write_date, member_id
-		FROM reviewcomment
-		order by write_date desc
-	</select>
-	
+   <resultMap type="reviewComment" id="reviewCommentRM">
+      <result property="content" column="content" jdbcType="VARCHAR"/>
+      <result property="writeDate" column="write_date" jdbcType="VARCHAR"/>
+      <result property="memberVO.memberId" column="member_id" jdbcType="VARCHAR"/>
+      <result property="memberVO.name" column="name" jdbcType="VARCHAR"/>
+   </resultMap>
+   
+   <insert id="writeReview" parameterType="reviewComment">
+      INSERT
+      INTO reviewcomment (content, write_date, member_id)
+      VALUES (
+         #{content}, sysdate, #{memberVO.memberId}
+      )
+   </insert>
+   
+   <select id="getReviewList" resultMap="reviewCommentRM">
+      SELECT r.content content, TO_CHAR(r.write_date, 'YYYY-MM-DD HH24:MI:SS') write_date, m.member_id member_id, m.name name
+      FROM reviewcomment r, member m
+      WHERE r.member_id = m.member_id
+      ORDER BY r.write_date DESC
+   </select>
 
-	
+   <delete id="deleteReview" parameterType="hashmap">
+      DELETE
+      FROM (
+         SELECT TO_CHAR(write_date, 'YYYY-MM-DD HH24:MI:SS') write_date, member_id
+         FROM reviewcomment
+      )
+      WHRER
+         member_id = #{memberId}
+         AND write_date = #{writeDate}
+   </delete>
+   
 
-	
-</mapper>	
-
+   
+</mapper>   

@@ -3488,11 +3488,12 @@ body .ui-tooltip {
 
 .ui-widget-content {
 	border: 1px solid #E1E1E1;
-	     width: 26%;
+	    /*  width: 26%; */
     /* margin-left: 78%; */
 }
 #tabs {
-    margin-left: 74%;
+   /*  margin-left: 74%; */
+    margin-left: 70%;
 }
 
 .ui-datepicker {

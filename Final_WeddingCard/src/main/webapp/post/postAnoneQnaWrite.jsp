@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,9 +15,9 @@
 	<!-- <script src="js/jquery-ddorai.js"></script> -->
 <link rel="stylesheet" href="../weddingCard/css/bootstrap.min.css">
 
-<link rel="stylesheet"
+<!-- <link rel="stylesheet"
    href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+ -->
 <link rel="stylesheet" href=" http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
 
  <link href='//fonts.googleapis.com/css?family=Poiret+One'
@@ -28,25 +28,39 @@
    rel='stylesheet' type='text/css'>
 
 
+
+<style type="text/css">
+#tit{
+font-family:'Nanum Gothic', serif; 
+float:left;
+ margin-left: 30%; 
+ margin-top: 1%;
+}
+
+#in{
+width: 300px; height: 25px; float: left; margin-left: 1%; margin-top: 1%;
+}
+.btn-warning{
+font-family: 'Nanum Gothic', serif; margin-right: 25%; margin-bottom:2%;margin-top: 0.5%;
+}
+</style>
+
 </head>
 <body>
 	<c:if test="${sessionScope.mvo == NULL }">
 		<c:redirect url="../authentication/login.jsp?location=anoneWrite" />
 	</c:if>
+	<jsp:include page="postAnoneQnaNav.jsp"></jsp:include>
 	
-	<div class="container" style="background-image: url(${initParam.root }img/post_anone_board.png); width: 100%; height: 250px" align="center">
-		<p style="font-weight: bold; font-size:25px; margin-top: 7%;">익명 게시판</p>
-	</div>
-
 <div class="body" style="margin-left: 13%; margin-right: 13%; margin-top: 3%;">
 
   <!-- 에디터 시작 -->
   <form name="tx_editor_form" id="tx_editor_form" action="${initParam.root }post.do" method="post" accept-charset="utf-8" style="text-align: center;">
 	<input type="hidden" name="command" value="writeAnoneQnA">
-	<!-- <td>제목</td> -->
-	<p style="font-family:'Nanum Gothic', serif; margin-right: 200px;">제목 : 
- <input type="text" name="title" style="width: 300px; height: 15px; padding: 0px; margin-right: 450px;"></p>
+	<p id="tit" >제목</p>
+ <input id="in" type="text" name="title" >
  
+ <input type="submit" onclick='saveContent()' value="작성하기" class="btn btn-warning" >
 		<div id="tx_trex_container" class="tx-editor-container">
 			
 			<!-- 사이드바 삭제함 -->
@@ -403,8 +417,8 @@
 		</div>
 		<!-- 에디터 컨테이너 끝 -->
 	
-  	<input type="submit" onclick='saveContent()' value="글쓰기" class="btn btn-primary btn-lg" 
-  		style="width: 100px; font-family: 'Nanum Gothic', serif; padding-top: 5px;" >
+  	<!-- <input type="submit" onclick='saveContent()' value="글쓰기" class="btn btn-warning" 
+  		style="width: 100px; font-family: 'Nanum Gothic', serif; padding-top: 5px;" > -->
   </form>
 	
 </div>

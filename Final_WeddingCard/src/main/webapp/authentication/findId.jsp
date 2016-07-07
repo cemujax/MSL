@@ -6,15 +6,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
+<script type="text/javascript">
+function closeWindow() {
+	
+	self.close();
+}
+</script>
 </head>
 <body>
-<form action="member.do" method="post">
-<input type="hidden" name="command" value="findId">
-Name :: <input type="text" name="name" id="name"><p>
-PhoneNo :: <input type="text" name="phoneNumber" id="phoneNumber"><p>
-<button type="submit">findId</button>
-
-</form>
+				<div class="" style="text-align: center; font-family: 'Nanum Gothic', serif;" >
+					<c:choose>
+						<c:when test="${memberId!=null}">
+							<h4 style="color: black; margin-bottom: 40px;">${param.name}님의 아이디는 ${memberId } 입니다.</h4>
+						</c:when>
+							
+						<c:otherwise>
+							<h4 style="color: black;margin-bottom: 40px;">입력한 정보를 다시 확인해주세요.</h4>
+						</c:otherwise>
+					</c:choose>
+					<input type="button" class="btn btn-info btn-lg" value="닫기" onclick="closeWindow()">
+				</div>
 </body>
 </html>

@@ -7,13 +7,17 @@
 		<result property="commentNo" column="comment_no" jdbcType="NUMERIC"/>
 		<result property="content" column="content" jdbcType="VARCHAR"/>
 		<result property="writeDate" column="write_date" jdbcType="VARCHAR"/>
-		<result property="memberVO.memberId" column="member_id" jdbcType="VARCHAR"/>
 		<result property="postVO.postNo" column="post_no" jdbcType="NUMERIC"/>
+		<result property="memberVO.memberId" column="member_id" jdbcType="VARCHAR"/>
+		<result property="memberVO.name" column="name" jdbcType="VARCHAR"/>
 	</resultMap>
 	
 	<sql id="postComment-select">
-		SELECT comment_no, content, write_date, member_id, post_no
-		FROM postcomment
+		SELECT
+			c.comment_no comment_no, c.content content, c.write_date write_date, c.post_no post_no,
+			m.member_id member_id, m.name name
+		FROM postcomment c, member m
+		WHERE c.member_id = m.member_id
 	</sql>
 	
 	<insert id="writeComment" parameterType="postComment">
@@ -47,12 +51,12 @@
 	
 	<select id="getCommentByNo" resultMap="postCommentRM">
 		<include refid="postComment-select"/>
-		WHERE comment_no = #{value}
+		AND c.comment_no = #{value}
 	</select>
 	
 	<select id="getCommentList" resultMap="postCommentRM">
 		<include refid="postComment-select"/>
-		WHERE post_no = #{value}
-		ORDER BY comment_no
+		AND c.post_no = #{value}
+		ORDER BY c.comment_no
 	</select>
 </mapper>	

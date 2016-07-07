@@ -3433,8 +3433,11 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-primary:hover {
 	color: #fff;
-	background-color: #286090;
-	border-color: #204d74
+	/* background-color: #286090; */
+	background-color: #f0ad4e;
+	border-color: #204d74;
+	padding: 6px 12px;
+	font-size: 15px
 }
 
 .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary
@@ -3710,8 +3713,8 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-group-lg>.btn, .btn-lg {
-	padding: 10px 16px;
-	font-size: 18px;
+/* 	padding: 10px 16px; */
+	font-size: 15px;
 	line-height: 1.3333333;
 	border-radius: 6px
 }
@@ -5417,7 +5420,7 @@ a.badge:focus, a.badge:hover {
 
 .jumbotron p {
 	margin-bottom: 15px;
-	font-size: 21px;
+	font-size: 15px;
 	font-weight: 200
 }
 

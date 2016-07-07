@@ -111,14 +111,13 @@ public class MemberController extends MultiActionController{
    public ModelAndView findId(HttpServletRequest request, HttpServletResponse response,MemberVO mvo) throws SQLException{
       
       String memberId =memberService.findId(mvo);
-      return new ModelAndView("findIdResult","memberId",memberId);
+      return new ModelAndView("authentication/findId","memberId",memberId);
 
       
    }
    public ModelAndView findPassword(HttpServletRequest request, HttpServletResponse response, MemberVO mvo) throws SQLException{
-      
       String password=memberService.findPassword(mvo);
-      return new ModelAndView("findPasswordResult","password",password);
+      return new ModelAndView("authentication/findPassword","password",password);
       
    }
    

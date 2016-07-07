@@ -385,7 +385,9 @@ public class CardController extends MultiActionController {
 		System.out.println(url);
 
 		flag = cardService.urlCheck(url);
-		System.out.println(flag);
+		if(url.equals("bootstrap") || url.equals("css") || url.equals("fonts")
+	            || url.equals("FT") || url.equals("img") || url.equals("inc") || url.equals("template") )
+	         flag = true;
 
 		request.setAttribute("flag", flag);
 		System.out.println("flag 값 넘김");

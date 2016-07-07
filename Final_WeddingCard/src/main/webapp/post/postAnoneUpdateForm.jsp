@@ -1,21 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
  <link rel="stylesheet" href="../weddingCard/css/bootstrap.min.css">
     <link rel="stylesheet" href=" http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    
+<style type="text/css">
+#tit{
+font-family:'Nanum Gothic', serif; 
+float:left;
+ margin-left: 30%; 
+ margin-top: 1%;
+}
+
+#in{
+width: 300px; 
+height: 25px; 
+float: left; 
+margin-left: 1%; 
+margin-top: 1%;
+margin-right: 2%;
+}
+.btn-warning{
+font-family: 'Nanum Gothic', serif; margin-right: 25%; margin-bottom:2%;margin-top: 0.5%;
+}
+</style>  
+    
 </head>
 <body>
 	<c:if test="${sessionScope.mvo == NULL }">
 		<c:redirect url="../authentication/login.jsp" />
 	</c:if>
-	
-<!-- <td>제목</td> -->
-	<p style="font-family:'Nanum Gothic', serif; margin-right: 200px;">제목 : 
- <input type="text" name="title" style="width: 300px; height: 15px; padding: 0px; margin-right: 450px;"></p>
- 
+
+<p id="tit" >제목  </p>
+ <input id="in" type="text" name="title" >
+  <input type="button" onclick='saveContent()' value="수정하기" class="btn btn-warning" >
+  
+<!--  <button onclick="saveContent()"  class="btn btn-warning">수정하기</button> -->
 	
 <div id="tx_trex_container" class="tx-editor-container">
 <div id="tx_sidebar" class="tx-sidebar">

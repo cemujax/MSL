@@ -77,7 +77,7 @@
 	background-color: rgb(213, 7, 15);
 }
 textarea{
-	width: 99%
+	width: 100%;
 }
 </style>
 
@@ -100,10 +100,8 @@ textarea{
 
 </head>
 <body style="margin: 0px;" onLoad="checkIsDelete()">
-<div class="container" style="background-image: url(${initParam.root }img/post_qna_board.jpg); width: 100%; height: 250px" align="center">
-		<!-- <p style="font-weight: bold; font-size:25px; margin:0px; padding-top: 70px;">웨딩 QnA</p> -->
-	</div>
 
+<jsp:include page="postQnaNav.jsp"></jsp:include>
 
 <div class="postInfoPanel" >
 		제목 : ${requestScope.pvo.title}

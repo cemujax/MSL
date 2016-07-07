@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,18 +10,29 @@
     <link rel="stylesheet" href="post/css/editor.css" type="text/css" charset="utf-8"/>
 </head>
 <body>
-<div class="body">
+
+<jsp:include page="postAnoneQnaNav.jsp"></jsp:include>
+
+<div class="body" style="margin-left: 13%; margin-right: 13%; margin-top: 3%;">
+
     <form name="tx_editor_form" id="tx_editor_form" action="${initParam.root }post.do" method="post"
           accept-charset="utf-8">
           
         <input type="hidden" name="command" value="modifyAnoneQnA">
 		<input type="hidden" name="postNo" value="${pvo.postNo }">
 		<input type="hidden" name="page" value="${param.page }">
+		
+		
+		<!-- <button onclick="saveContent()"  class="btn btn-warning">수정하기</button> -->
         <textarea name="content" id="content" style="width: 100%; height: 490px;"></textarea>
+        
+        
+        
     </form>
+    
 </div>
 <div>
-    <button onclick="saveContent()">수정</button>
+    
 </div>
 <script src="post/js/editor_loader.js" type="text/javascript" charset="utf-8"></script>
 <script src="post/js/editor_creator.js" type="text/javascript" charset="utf-8"></script>
@@ -42,7 +53,7 @@
         }
     };
 
-    EditorCreator.convert(document.getElementById("content"), 'post/postUpdateForm.jsp', function () {
+    EditorCreator.convert(document.getElementById("content"), 'post/postAnoneUpdateForm.jsp', function () {
         EditorJSLoader.ready(function (Editor) {
             new Editor(config);
             Editor.modify({

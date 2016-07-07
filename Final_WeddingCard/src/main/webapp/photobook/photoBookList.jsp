@@ -9,11 +9,10 @@
     <title>Insert title here</title>
     
     <link rel="stylesheet" type="text/css" href="${initParam.root }photobook/booklet/bootstrap_index.css">
-<link rel="stylesheet" type="text/css" href="${initParam.root }photobook/booklet/bootstrap.min.css">
-    
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"> -->
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="${initParam.root }photobook/booklet/bootstrap.min.css">
+    <script type="text/javascript" src="${initParam.root}weddingCard/js/jquery-1.12.3.js"></script>
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+<%-- <script type="text/javascript" src="${initParam.root}weddingCard/js/bootstrap.min.js"></script> --%>
 
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./css/pbresult.css">
@@ -25,47 +24,10 @@
     href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css">
   </head>
   
-<body style="background-color: #fff1d4;">
+<body style="background-color: #ffffd9;">
 
  <!-- 메뉴바 -->		
-<nav class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.18); border-color: transparent;">		
-  <div class="">		
-    <div class="navbar-header" >		
-     <!--  <a class="navbar-brand" href="#">Home</a> -->		
-     <a href="${initParam.root }index.jsp"  >
-     <img alt="" src="${initParam.root }img/logo_02.png"  style="width: 60px; margin-left: 50px; margin-top: 0px;"> </a>
-    </div>		
-    		
-    	<ul class="nav" style="margin-left: 67%;">		<!--  navbar-nav -->
-				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>		
-					 <li class="dropdown">		
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>		
-							  <ul class="dropdown-menu">		
-							      <li><a href="#">익명게시판</a></li>		
-							         <li><a href="#">게시판</a></li>		
-							         <li><a href="#">칭찬해요</a></li>		
-							   </ul>		
-					</li>		
-							      		
-							      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>		
-							        <ul class="dropdown-menu">		
-							          <li><a href="${initParam.root }weddingCard.jsp">청첩장만들기</a></li>		
-							          <li><a href="${initParam.root }./card.do?command=getAllCards">청첩장보기</a></li>		
-							        </ul>		
-							      </li>		
-							      		
-							       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>		
-							        <ul class="dropdown-menu">		
-							          <li><a href="${initParam.root }test.jsp">포토북만들기</a></li>		
-							          <li><a href="${initParam.root }photoBook.do?command=list">포토북보기</a></li>		
-							        </ul>		
-							      </li>		
-							      		
-							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->		
-							</ul>		
-  </div>		
-</nav><!-- nav Bar -->
-	
+	<jsp:include page="photobookNav.jsp"></jsp:include>
 <!-- //메뉴바 -->
   
   <c:if test="${sessionScope.mvo.memberId == null }">
@@ -81,7 +43,7 @@
 	<c:forEach items="${pbList}" var="i" varStatus="vs">
 	  <li class="col-lg-3 col-sm-4 col-xs-6" >
 	    <a href="photoBook.do?command=detail&&no=${i.bookNo}" id="photoBookHref${i.bookNo }"><!-- src="http://www.freeiconspng.com/uploads/vector-book-icon-vector-graphic--creattor-7.jpg" -->
-              <img id="test${i.bookNo}" src="${initParam.root }img/db.JPG" alt="Barca" class="img-responsive" height="130px" onload="myFunction('${i.bookNo}', '${i.fileName}')" />
+              <img id="test${i.bookNo}" src="${initParam.root }img/nofile3.png" alt="Barca" class="img-responsive" height="130px" style="margin-top:0px;" onload="myFunction('${i.bookNo}', '${i.fileName}')" />
               <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center;">${i.bookName}</h2>
              <!--  <span class="glyphicon glyphicon-share-alt"></span> -->
               <span class="duration">${vs.count}</span>

@@ -54,32 +54,48 @@ function photoBookAjax() {
 } // photobookAjax
 
 function chooseBook(bookNo) {
-	document.getElementById("photoBookNo").value = bookNo;
+	   if(document.getElementById("photoBookNo").value == bookNo) {
+	      clearCheckBook();
+	   }
+	   
+	   else {
+	      document.getElementById("photoBookNo").value = bookNo;
+	      
+	      $.ajax({
+	         url : "photoBook.do?command=ajaxDetail&&no=" + bookNo,
+	         type : 'GET',
 
-	xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = imgCallback;
-	var url = "photoBook.do?command=ajaxDetail&&no=" + bookNo;
-	xhr.open("get", url);
-	xhr.send(null);
+	         success : function(response) {
+	            document.getElementById("photoBookImg").value = response.pbvo.fileName;
+	            document.getElementById("photoBookComment").value = response.pbvo.bookComment;
 
-} // chooseBook
+	            var imgValue = document.getElementById("photoBookImg").value;
+	            var contentValue = document.getElementById("photoBookComment").value;
 
-function imgCallback() {
-	if (xhr.readyState == 4) {
-		if (xhr.status == 200) {
-			var jsonData = JSON.parse(xhr.responseText);
+	            // preview 적용 위해
+	            $('#photoBookImg').val(imgValue).trigger('change');
+	            $('#photoBookComment').val(contentValue).trigger('change');
+	         },// success
+	         error : function(jqXHR) {
+	            console.log('error');
+	         }
+	      });
+	   }
+	} // photobookAjax
 
-			document.getElementById("photoBookImg").value = jsonData.pbvo.fileName;
-			document.getElementById("photoBookComment").value = jsonData.pbvo.bookComment;
+	function clearCheckBook(){
+	   document.getElementById("photoBookNo").value = "";
 
-			var imgValue = document.getElementById("photoBookImg").value;
-			var contentValue = document.getElementById("photoBookComment").value;
+	   document.getElementById("photoBookImg").value = "";
+	   document.getElementById("photoBookComment").value = "";
 
-			$('#photoBookImg').val(imgValue).trigger('change');
-			$('#photoBookComment').val(contentValue).trigger('change');
-		}
-	}
-} // imgCallback
+	   var imgValue = document.getElementById("photoBookImg").value;
+	   var contentValue = document.getElementById("photoBookComment").value;
+
+	   // preview 적용 위해
+	   $('#photoBookImg').val(imgValue).trigger('change');
+	   $('#photoBookComment').val(contentValue).trigger('change');
+	} // clearCheckBook
 
 // /////////////////////////// Tel Only Input Number
 function onlyNumber(event) {
@@ -236,6 +252,7 @@ $(document)
 					 */
 
 					var form = document.frmWeddingCard;
+					var imgFormat = ['.jpg', '.png', '.gif','.bmp'];//이미지 업로드 허용 확장자
 					// ================== 메인이미지==========================
 					$("#sendImage")
 							.bind(
@@ -243,6 +260,18 @@ $(document)
 									function() {
 
 										var formData = new FormData(form);
+								   		var formatCheck = false;
+								   		
+								   		for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
+								     		  if($('#imgFile').val().indexOf(imgFormat[i]) != -1 
+								     				  || $('#imgFile').val().indexOf(imgFormat[i].toUpperCase()) != -1)
+								     			 formatCheck = true; // 사용가능한 확장자
+								   		};//for
+								   		if(!formatCheck){
+								   			alert("지원하지 않는 확장자입니다"	);
+								   			$('#imgFile').val("");
+								   			return false;
+								   		}
 
 										if ($('#imgFile').val() != null
 												&& $('#imgFile').val() != '') {
@@ -272,8 +301,6 @@ $(document)
 																	.val(src);
 															setTimeout(
 																	function() {
-																		alert('업로드 성공 디폴트로 변경 enctype: '
-																				+ document.frmWeddingCard.encoding);
 																		set_preview();
 																	}, 3000);
 
@@ -295,7 +322,18 @@ $(document)
 									"click",
 									function() {
 										var formData = new FormData(form);
-
+										var formatCheck = false;
+								   		
+								   		for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
+								     		  if($('#imgGroom').val().indexOf(imgFormat[i]) != -1 
+								     				  || $('#imgGroom').val().indexOf(imgFormat[i].toUpperCase()) != -1)
+								     			 formatCheck = true; // 사용가능한 확장자
+								   		};//for
+								   		if(!formatCheck){
+								   			alert("지원하지 않는 확장자입니다"	);
+								   			return false;
+								   		}
+								   		
 										if ($('#imgGroom').val() != null
 												&& $('#imgGroom').val() != '') {
 											form.encoding = "multipart/form-data"; // 파일전송위해
@@ -320,8 +358,6 @@ $(document)
 															 $('input[name=imgGroomSrc]').val(src);// 히든값에 넣음
 															setTimeout(
 																	function() {
-																		alert('업로드 성공 디폴트로 변경 enctype: '
-																				+ document.frmWeddingCard.encoding);
 																		set_preview();
 																	}, 3000);
 														},
@@ -342,7 +378,17 @@ $(document)
 									"click",
 									function() {
 										var formData = new FormData(form);
-
+										var formatCheck = false;
+								   		
+								   		for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
+								     		  if($('#imgBride').val().indexOf(imgFormat[i]) != -1 
+								     				  || $('#imgBride').val().indexOf(imgFormat[i].toUpperCase()) != -1)
+								     			 formatCheck = true; // 사용가능한 확장자
+								   		};//for
+								   		if(!formatCheck){
+								   			alert("지원하지 않는 확장자입니다"	);
+								   			return false;
+								   		}
 										if ($('#imgBride').val() != null
 												&& $('#imgBride').val() != '') {
 											form.encoding = "multipart/form-data"; // 파일전송위해
@@ -367,8 +413,6 @@ $(document)
 															 $('input[name=imgBrideSrc]').val(src);
 															setTimeout(
 																	function() {
-																		alert('업로드 성공 디폴트로 변경 enctype: '
-																				+ document.frmWeddingCard.encoding);
 																		set_preview();
 																	}, 3000);
 														},
@@ -382,6 +426,34 @@ $(document)
 											return false;
 										}
 									});
+				
+						//업로드 이미지 지우는쪽
+					 $('#imgFileDelete').click(function(){
+						   if($('#imgFile').val() != null && $('#imgFile').val() != ''){
+							   $('#imgFile').val("");
+							   $('input[name=imgSrc]').val("");
+							   set_preview();
+						   }else
+							   alert("이미지를 업로드해주세요");
+					   });
+					   $('#imgBirdeDelete').click(function(){
+						   if($('#imgBride').val() != null && $('#imgBride').val() != ''){
+							   $('#imgBride').val("");
+							   $('input[name=imgBrideSrc]').val("");
+							   set_preview();
+						   }else
+							   alert("이미지를 업로드해주세요");
+					   });
+					   $('#imgGroomDelete').click(function(){
+						   if($('#imgGroom').val() != null && $('#imgGroom').val() != ''){
+							   $('#imgGroom').val("");
+							   $('input[name=imgGroomSrc]').val("");
+							   set_preview();
+						   }else
+							   alert("이미지를 업로드해주세요");
+					   });
+					
+					
 					// /==================== =========================
 					function set_preview(md) {
 

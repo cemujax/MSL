@@ -198,12 +198,12 @@ html,body{height:100%;}
          
          <div class="banner-phone animated wow slideInRight" data-wow-delay=".5s" style="float: right;width: 150px;">
             <c:choose>
-                  <c:when test="${sessionScope.mvo==null}">
+                <c:when test="${sessionScope.mvo==null}">
                   <p><a href="authentication/login.jsp"  style="color:#fff; margin-right:20px;" >
                   <span class="glyphicon glyphicon-log-in" ></span>Login</a><!-- #F15F5F -->
                     <a href="authentication/signup.jsp" style="margin-left:0px; padding-left:0px; color:#fff;">
                     <span class="glyphicon glyphicon-user"></span>Sign Up</a></p><!-- #45CBBF -->
-                     </c:when>
+                </c:when>
                   <c:otherwise>
                   <p><a href="javascript:logout()" style="color:#fff; margin-right:15px;"><span class="glyphicon glyphicon-log-in"></span>Logout</a></p>
                   </c:otherwise>
@@ -271,7 +271,7 @@ html,body{height:100%;}
          </div>
 	</div>
 	</div>
-	</div>
+	</div><!-- 배너 -->
 	
 </section>
 
@@ -384,10 +384,10 @@ html,body{height:100%;}
 			 					<li class="copy"><span>Copyright ©MSL  Co.,Ltd. All rights reserved.</span></li>
 						</ul>
             </div>
+            
         </footer>
      </section>
 <!-- footer end -->
-
 
 <!-- for bootstrap working -->
 	<!-- <script src="js/bootstrap_index.js"></script> -->

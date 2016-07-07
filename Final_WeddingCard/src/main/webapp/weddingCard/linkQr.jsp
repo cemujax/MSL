@@ -20,6 +20,9 @@
 </script>
 </head>
 <body>
+<c:if test="${mvo == null  || param.url == null}">
+		<c:redirect url="../error.jsp"/>
+	</c:if>
 <div align="center" class="qr">
 <img alt="" src="${initParam.root}url/${param.url }/qrCode.png"><p>
 <input type="button" class="btn btn-info btn-lg" value="닫기" onclick="closeWindow()">

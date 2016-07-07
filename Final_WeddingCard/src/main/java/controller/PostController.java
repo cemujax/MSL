@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -67,6 +68,15 @@ public class PostController extends MultiActionController {
 		map.put("page", request.getParameter("page"));
 
 		ListVO listVO = postService.getPostList(map);
+		
+		// Comment Length
+		ArrayList<Integer> commentLength = new ArrayList<Integer>();
+						
+		for(PostVO vo : listVO.getList()) {
+			commentLength.add(postService.getCommentList(vo.getPostNo()+ "").size());
+		}
+						
+		request.setAttribute("commentLength", commentLength);
 		
 		// Admin
 		request.setAttribute("adminList", postService.getAdminPost("qna"));
@@ -152,6 +162,18 @@ public class PostController extends MultiActionController {
 		map.put("page", request.getParameter("page"));
 
 		ListVO listVO = postService.getPostList(map);
+		
+		// Comment Length
+		ArrayList<Integer> commentLength = new ArrayList<Integer>();
+				
+		for(PostVO vo : listVO.getList()) {
+			commentLength.add(postService.getCommentList(vo.getPostNo()+ "").size());
+		}
+				
+		request.setAttribute("commentLength", commentLength);
+				
+		// Admin
+		request.setAttribute("adminList", postService.getAdminPost("anone"));
 
 		return new ModelAndView("post/postAnoneQnaList", "listVO", listVO);
 	}

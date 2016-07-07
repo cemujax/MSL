@@ -98,158 +98,6 @@
        height: 100%;    
    } 
 
-   /* table 쪽 */
-  /*  .table-users {
-       border: 1px solid #327a81;
-       /*  border-radius: 10px; 
-       box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
-       max-width: calc(100% - 2em);
-       margin: 1em auto;
-       overflow: hidden;
-       width: 1200px;
-   }
-
-   table {
-       width: 100%;
-   }
-   table td, table th {
-       color: #000;
-       padding: 10px;
-   }
-   table td {
-       text-align: center;
-       vertical-align: middle;
-   }
-   table td:last-child {
-       font-size: 0.95em;
-       line-height: 1.4;
-       text-align: center;
-       width: 100px;
-   }
-   table th {
-       background-color: #fdc562;
-       font-size: 20px;
-       text-align: center;
-   }
-   table tr:nth-child(2n) {
-       background-color: white;
-   }
-   table tr:nth-child(2n+1) {
-       background-color: rgba(251, 205, 145, 0.61);
-   }
-   tr:last-child .s{
-       width: 100px;
-   }
-
-   @media screen and (max-width: 700px) {
-       table, tr, td {
-	   display: block;
-       }
-       th{
-	   text-align: center;
-       }
-       td:first-child {
-	   position: absolute;
-	   top: 50%;
-	   -webkit-transform: translateY(-50%);
-           transform: translateY(-50%);
-	   width: 80px;
-       }
-       td:not(:first-child) {
-	   clear: both;
-	   margin-left: 100px;
-	   padding: 4px 20px 4px 130px;
-	   position: relative;
-	   text-align: left;
-       }
-       td:not(:first-child):before {
-	   color: #000;
-	   display: block;
-	   left: 0;
-	   position: absolute;
-	   margin-right: 10px;
-       }
-       td:nth-child(2):before {
-	   content: '초대장 주소:';
-       }
-       td:nth-child(3):before {
-	   content: '스킨타입:';
-       }
-       td:nth-child(4):before {
-	   content: '예식장:';
-       }
-       td:nth-child(5):before {
-	   content: '예식일:';
-       }
-       
-       tr {
-	   padding: 10px 0;
-	   position: relative;
-       }
-       tr:first-child {
-	   display: none;
-       }
-       tr:last-child {
-	   /* float: right; 
-	   height: 100px;
-       }
-       
-       tr:last-child .s{
-  	   width: 350px;
-	   margin-bottom: 5%;
-	   margin-left: 20%;
-       }
-   }
-   @media screen and (max-width: 500px) {
-
-
-       td:first-child {
-	   background-color: #fdc562;
-	   border-bottom: 1px solid #91ced4;
-	   /* border-radius: 10px 10px 0 0; 
-	   position: relative;
-	   top: 0;
-	   -webkit-transform: translateY(0);
-           transform: translateY(0);
-	   width: 100%;
-	   
-	   
-       }
-
-       td:not(:first-child) {
-	   margin: 0;
-	   padding: 5px 1em;
-	   width: 100%;
-       }
-       td:not(:first-child):before {
-	   font-size: .8em;
-	   padding-top: 0.3em;
-	   position: relative;
-       }
-       /* td:last-child {
-	  padding-bottom: 1rem !important;
-	  } 
-
-       tr {
-	   background-color: white !important;
-	   border: 1px solid #6cbec6;
-	   border-radius: 10px;
-	   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
-	   margin: 0.5rem 0;
-	   padding: 0;
-       }
-
-       tr:last-child .s{
-  	   width: 150px;
-	   margin-bottom: 5%;
-	   margin-left: 10%;
-       }
-       .table-users {
-	   border: none;
-	   box-shadow: none;
-	   overflow: visible;
-       }
-   } */
 
   </style>
 
@@ -386,9 +234,10 @@
     <c:redirect url="../authentication/login.jsp?location=wdCardList"/>
   </c:if>
   
+<jsp:include page="weddingcardNav.jsp"></jsp:include>
   
  <!-- 메뉴바 -->	
- <div class="cardManage" >
+ <%-- <div class="cardManage" >
  	
 <nav class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.18); border-color: transparent;">		
   <div class="container-fluid">		
@@ -399,7 +248,7 @@
     </div>		
     		
     	<ul class="nav" >		<!--  navbar-nav -->
-				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>		
+				<li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li>		
 					 <li class="dropdown">		
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>		
 							  <ul class="dropdown-menu">		
@@ -426,50 +275,12 @@
 							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->		
 							</ul>		
   </div>		
-</nav><!-- nav Bar -->
+</nav> --%><!-- nav Bar -->
 	
 <!-- //메뉴바 -->
-  </div>
+ <!--  </div> -->
 
   <!--================= table=============== -->
-  <%-- <div class="table-users">
-    <table>
-      <tr align="center">
-        <th width="5%"><input type="checkbox" id="allCheck" name="allCheck" ></th>
-		<th width="15%">QR 코드</th>
-        <th width="15%">초대장 주소</th>
-        <th width="15%">스킨타입</th>
-        <th width="10%">예식장</th>
-        <th width="20%">예식일</th>
-      </tr>
-
-      <c:forEach items="${cardList}" var="card" varStatus="i">
-<!--         <tr style="height:5%;" align="center" style="font-size: 20px;" > -->
-<tr style="height:5%;" align="center" style="font-size: 5%;" >
-          <td><input type="checkbox" id="cardNo" name="cardNo" value="${card.cardNo}`${card.url}"></td>
-		  <td style="width:64px; height:64px;">
-		    <a href="./card.do?command=getQr&&url=${card.url}">
-		    <a href="javascript:linkQr('${card.url}');">
-	    	  <img src="${initParam.root}img/qr_small.png" style="max-height:100%; max-width:100%"/>
-		  		</a>
-		  </td>
-          <td>
-            <a href="${initParam.root }url/${card.url}.jsp">${card.url}</a>          </td>
-          <td>${card.template}</td>
-          <c:set var="cDate" value="${fn:split(card.cardDate, ':') }"/>
-          <td>${card.hallName} </td>
-          <td>${cDate[0]}:${cDate[1]}</td>
-        </tr>
-      </c:forEach>
-      <tr>
-        <td colspan="5" align="right">
-          <input class="s" type="button" class="btn btn-danger" value="삭제" id="deleteCard" >
-          <input class="s" type="button" class="btn btn-success" value="수정" id="modifyCard" >
-          <input  class="s" type="button" class="btn btn-info" value="url 전송" id="sendUrl" onclick="sendUrl('${card.url}')">
-	</td>
-      </tr>
-    </table>
-  </div> --%>
   
   <div class="container" style="margin-top: 2%;">
 	  <div class="jumbotron">
@@ -478,9 +289,9 @@
 			<thead style="">
 				<tr>
 			        <td colspan="6" align="right" style="padding-right: 5%;">
-			          <input class="s" type="button" class="btn btn-danger" value="삭제" id="deleteCard" >
-			          <input class="s" type="button" class="btn btn-success" value="수정" id="modifyCard" >
-			          <input  class="s" type="button" class="btn btn-info" value="url 전송" id="sendUrl" onclick="sendUrl('${card.url}')">
+			          <input  type="button" class="btn btn-danger" value="삭제" id="deleteCard" >
+			          <input  type="button" class="btn btn-success" value="수정" id="modifyCard" >
+			          <input  type="button" class="btn btn-info" value="url 전송" id="sendUrl" onclick="sendUrl('${card.url}')">
 					</td>
 			      </tr>
 		      

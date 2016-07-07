@@ -134,7 +134,7 @@ ul {
 
    <!--  -->
 <div style="
-      background-image: url(${initParam.root }img/post_qna_board.jpg); width: 100%; height: 300px; align=center;">
+      background-image: url(${initParam.root }img/post_review_board.png); width: 100%; height: 300px; background-repeat: no-repeat;" align="center">
    <nav class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.18); border-color: transparent;">      
   
   <div class="container-fluid">      
@@ -172,6 +172,7 @@ ul {
                      </ul>      
            </div>      
 </nav><!-- nav Bar -->
+	 <p style="font-weight: bold; font-size:25px; margin-top: 5%;">칭찬해요</p>
 </div>
 
 <%-- 
@@ -195,11 +196,13 @@ ul {
                   <input type="hidden" name="command" value="writeReviewComment">
                   <div class="col-md-4" style="">
                      <label></label><span>
-                     <input type="text" name="name" value="${mvo.memberId}" readonly="readonly" class="form-control"></span>
+                     <input type="text" name="name" value="${mvo.name}"  readonly="readonly" class="form-control"></span>
                   </div>
                   <div class="col-md-4 col-md-offset-4" style="width: 160px;">
                      <label></label> 
-                     <input type="submit" value="글 등록" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg"
+                     <input type="submit" value="글 등록" 
+                     data-toggle="modal" data-target="#alertModal"
+						class="btn btn-warning"
                         style="width: 100px; margin-left: 160px;" onclick="return checkLogin()">
                      <i class="ion-android-arrow-forward"></i>
                   </div>
@@ -212,7 +215,6 @@ ul {
                   
                </form>
             </div>
-
          </div>
       </div>
    </div>
@@ -261,37 +263,35 @@ ul {
    </script>
       <div style="text-align: center; margin-bottom: 30px;">
       <a href="#" id="load"><input type="submit" value="댓글 더 보기" data-toggle="modal" data-target="#alertModal"
-                        class="btn btn-primary btn-lg" style="width: 200px;"></a>
+                        class="btn btn-warning" style="width: 200px;"></a><!-- class="btn btn-primary btn-lg" -->
                         
       </div>                  
    <!-- footer begin -->
-   <section id="step6"> <footer
-      style="background-color: #142740;">
-   <div class="footer-pos" style="margin-top: 2%;"></div>
-   <div class="container">
-      <a href="#" class="scrollpoint sp-effect3"> <!-- <img src="../img_index/logo.png" alt=""  style="text-align: center;"> -->
-      </a>
-      <div class="social">
-         <a href="#" class="scrollpoint sp-effect3"><i
-            class="fa fa-twitter fa-lg"></i></a> <a href="#"
-            class="scrollpoint sp-effect3"><i
-            class="fa fa-google-plus fa-lg"></i></a> <a href="#"
-            class="scrollpoint sp-effect3"><i
-            class="fa fa-facebook-square fa-lg"></i></a>
-      </div>
-      <div class="rights">
-         <br>
-         <ul class="" style="text-align: right;">
-            <li><span>(주)MSL</span><span>대표이사 : 홍길동</span>
-            <li><span>대표전화 : 031-111-1004 </span><span>팩스 :
-                  02-559-1001~3</span><span>고객센터 : abc@naver.com</span></li>
-            <li><span>경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 8층</span></li>
-            <li class="copy"><span>Copyright ©MSL Co.,Ltd. All
-                  rights reserved.</span></li>
-         </ul>
-      </div>
-   </div>
-   </footer> </section>
+ <footer style="background-color: #142740; height: 100%; padding-bottom: 220px; padding-top: 12px;">
+            <div class="container" style="height: 160px;">
+				<!-- style="padding-top: 6%" -->
+                
+                <a href="#" class="scrollpoint sp-effect3">
+                    <img src="${initParam.root}img/logo.png" alt=""  style="text-align: center; width: 350px;"><!-- width: 100% -->
+                </a>
+                
+                <a href="#home1" class="scroll">
+                <img src="${initParam.root}img/7.png" alt=" " style="float: right;margin-top: 50px;" >
+				</a>
+                <div class=" social">
+                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-twitter fa-lg"></i></a>
+                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-google-plus fa-lg"></i></a>
+                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-facebook-square fa-lg"></i></a>
+                </div>
+                    	<ul class="" style="text-align: right; font-size:14px;color: #fff;">
+							<li><span>(주)MSL</span><span>대표이사 : 홍길동</span>
+							<li><span>대표전화 : 031-111-1004 </span><span>팩스 : 02-559-1001~3</span><span>고객센터 : abc@naver.com</span></li>
+							<li><span>경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 8층</span></li>
+			 					<li class="copy"><span>Copyright ©MSL  Co.,Ltd. All rights reserved.</span></li>
+						</ul>
+            </div>
+            
+        </footer>
    <!-- footer end -->
 
 </body>

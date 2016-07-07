@@ -15,7 +15,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Wedding Card</title>
-
 <link rel="stylesheet"
 	href="${initParam.root}weddingCard/css/bootstrap.min.css">
 
@@ -53,7 +52,44 @@
 <link rel="stylesheet" type="text/css"
 	href="${initParam.root}weddingCard/css/weddingCard.css">
 
+<style type="text/css">
+[data-tooltip-text]:hover {
+   position: relative;
+   display: inline-block;
+    border-bottom: 1px dotted black;
+}
 
+[data-tooltip-text]:hover:after {
+    background-color: #000000;
+   background-color: rgba(0, 0, 0, 0.8);
+
+   -webkit-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+   -moz-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+   box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px; 
+
+   color: #FFFFFF;
+   font-size: 12px;
+   content: attr(data-tooltip-text);
+
+    margin-bottom: 10px;
+   bottom: 100%;
+   right: 0;    
+   padding: 7px 12px;
+   position: absolute;
+   width: auto;
+   min-width: 50px;
+   max-width: 300px;
+   word-wrap: break-word;
+   white-space: pre;
+
+   z-index: 1;
+   
+}
+</style>
 <!-- ================================== -->
 <script type="text/javascript"
 	src="${initParam.root}weddingCard/js/jquery-1.12.3.js"></script>
@@ -74,6 +110,8 @@
 <script
 	src="${initParam.root}weddingCard/js/jquery.datepicker.regional.kr.js"></script>
 <script src="${initParam.root}weddingCard/js/jquery.scrollTo.min.js"></script>
+
+
 
 <!-- 이미지 업로드 -->
 <!-- <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>  -->
@@ -101,7 +139,7 @@
 							+ jsonData.pbList[i].bookNo
 							+ "\\"
 							+ jsonData.pbList[i].fileName.split('`')[0]
-							+ "' alt='photo' class='img-responsive' height='130px' />"
+							+ "' rel='tooltip' title='두번 클릭시 추가한 포토북이 해제됩니다' alt='photo' class='img-responsive' height='130px' />"
 							+ jsonData.pbList[i].bookName
 							/* + "<span class='glyphicon glyphicon-share-alt' ></span>" */
 							+ "<span class='duration'>" + i + "</span>"
@@ -126,7 +164,8 @@
 		<c:redirect url="../authentication/login.jsp?location=wdCard" />
 	</c:if>
 
-	<!-- 메뉴바 -->
+	
+<!-- 메뉴바 -->
 	<nav class="navbar navbar-inverse" >
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -142,7 +181,6 @@
 			</ul>
 		</div>
 	</nav>
-
 	<!-- //메뉴바 -->
 
 	<form name="frmWeddingCard" id="frmWeddingCard" method="post">
@@ -239,27 +277,27 @@
 		<div id="tabs">
 			<ul>
 				<li>
-					<a href="#tabs-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1"> 
+					<a href="#tabs-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1" data-tooltip-text="원하는 스킨을 자유롭게 선택하세요"> 
 					<p> <i class="fa fa-calendar-check-o"></i></p>
 					<span style="font-size: 12px;">스킨선택</span>
 					</a>
 				</li>
 
 				<li>
-					<a href="#tabs-2"> 
+					<a href="#tabs-2" data-tooltip-text="신랑 , 신부 정보를 각각 입력해주세요"> 
 					<p><i class="fa fa-list"></i></p>
 					<span style="font-size: 12px;">신랑신부</span>
 					</a>
 				</li>
 
 				<li>
-					<a href="#tabs-3" onclick="photoBookAjax()"> 
+					<a href="#tabs-3" onclick="photoBookAjax()" data-tooltip-text="생성하신 포토북 중 청첩장에 넣고 싶은 것을 고르세요"> 
 					<p><i class="fa fa-list"></i></p>
 					<span style="font-size: 12px;">포토북</span>
 				</a></li>
 
 				<li>
-					<a href="#tabs-4"> 
+					<a href="#tabs-4"  data-tooltip-text="예식장 정보를 입력해주세요"> 
 					<p><i class="fa fa-bars"></i></p>
 					<span style="font-size: 12px;">예식장</span>
 					</a>
@@ -269,19 +307,30 @@
 
 			<div id="tabs-1">
 				<input type="hidden" name="templateType" value="" id="templateType">
-				<table>
+				<table style="margin-top: 20px;">
 					<tr>
-						<td>
-							
+						<td style="padding-top: 0px;font-size: 13px">스킨사진&nbsp;:</td>
+						<td colspan="2">
+						<input type="file" name="imgFile" id="imgFile" rel="tooltip" 
+                        title="사진을 선택한 후 업로드를 눌러주세요"
+							style="font-size: 10px; width: 150px; padding-left: 5px; padding-top: 0px;">
 						</td>
+						<td style="padding : 0px; padding-top: 8px;">
+						<i class="fa fa-close" style="font-size:10px;color:red" id="imgFileDelete" rel="tooltip" title="스킨 기본 이미지로 돌아갑니다"></i>
+						<input type="submit" class="btn" 
+						style="width: 65px;font-size: 12px; border: 1px solid #e1e1e1;" value="업로드 " id="sendImage">
+						</td>
+						
 					</tr>
+				</table>
+				<table style="margin-top: -30px;">
 					<tr align="center"><!-- 스킨선택영역 1번째 라인 --> 
 						<td><img
 							src="${initParam.root}weddingCard/preview_Fall In Love/img/Fall In Love.jpg"
 							class="img-rounded" style="height: 70px;"> <input
 							type="radio" name="template" id="template_basick1" value="Fall In Love">
 						</td>
-						<td><img
+						<td colspan="2"> <img
 							src="${initParam.root}weddingCard/preview_Innocent Bride/img/Innocent Bride.jpg"
 							class="img-rounded"> <input type="radio" name="template"
 							id="template_advance1" value="Innocent Bride"></td>
@@ -297,7 +346,7 @@
 							src="${initParam.root}weddingCard/preview_Romantic/img/romantic.jpg"
 							class="img-rounded"> <input type="radio" name="template"
 							id="template_basick2" value="Romantic"></td>
-						<td><img
+						<td colspan="2"><img
 							src="${initParam.root}weddingCard/preview_Yellow Rose/img/Yellow Rose.png"
 							class="img-rounded"> <input type="radio" name="template"
 							id="template_advance3" value="Yellow Rose"></td>
@@ -314,7 +363,7 @@
 							class="img-rounded"> <input type="radio" name="template"
 							id="template_basick3" value="Lucky Clover"></td>
 
-						<td><img
+						<td colspan="2"><img
 							src="${initParam.root}weddingCard/preview_Iris/img/Iris.png"
 							class="img-rounded"> <input type="radio" name="template"
 							id="template_advance5" value="Iris"></td>
@@ -324,6 +373,7 @@
 							id="template_advance6" value="Cresendo"></td>
 					     </tr>
 				</table>
+				
 			</div>
 			<!-- tabs-1 -->
 
@@ -331,40 +381,34 @@
 			<input type="hidden" name="imgSrc" value="">
 			<div id="tabs-2" style="font-size: 13px; text-align: left;">
 				<table style="width: 330px;">
-					<!-- <tr>
-				       <td colspan="3">
-				       <img alt="" src="../img/222.jpg"
-				       style="margin-top: 10%; margin-bottom: 5%; margin-left: 30px;">
-				       </td>
-				       </tr> -->
-
-					<tr>
-						<td>메인사진:</td>
-						<td><input type="file" name="imgFile" id="imgFile"
-							style="font-size: 10px; width: 150px; padding-left: 5px;">
-							<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
-						<td><input type="submit" value="업로드 " id="sendImage">
-						</td>
-					</tr>
 
 					<tr id="BrideDiv">
-						<td>신부사진:</td>
-						<td><input type="file" name="imgBride" id="imgBride"
-							style="font-size: 10px; width: 150px; padding-left: 5px;">
-							<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
-						<td><input type="submit" value="업로드 " id="sendBride">
+						<td style="text-align: right; padding-top: 0px;"> 신부사진:</td>
+  
+						<td colspan="2"><input type="file" name="imgBride" id="imgBride" rel="tooltip"
+                        title="사진을 선택한 후 업로드를 눌러주세요"
+							style="font-size: 10px; width: 150px; padding-left: 5px;"></td>
+						<td style="padding : 0px; padding-top: 8px;">
+						<i class="fa fa-close" style="font-size:24px;color:red" id="imgBirdeDelete" rel="tooltip" title="스킨 기본 이미지로 돌아갑니다"></i>
+						<input type="submit" value="업로드 " id="sendBride">
 						</td>
+						
+						<%-- <td>
+						<a href="#"><img alt="" src="${initParam.root }img/delete.png" style="width: 10px; height: 10px; margin-top: 0px;" 
+						id="imgBirdeDelete" rel="tooltip" title="스킨 기본 이미지로 돌아갑니다"></a>
+						<input type="submit" value="업로드 " id="sendBride">
+						</td> --%>
 					</tr>
 
 					<tr>
-						<td>신부이름:</td>
-						<td colspan="2"><input type="text" id="groomName"
+						<td  style="text-align: right; padding-top: 0px;">신부이름:</td>
+						<td colspan="2"><input type="text" id="groomName" 
 							name="groomName" value="${groomName}"> <!-- style="margin: 2%;" --></td>
 					</tr>
 
 
 					<tr>
-						<td>신부번호:</td>
+						<td style="text-align: right; padding-top: 0px;">신부번호:</td>
 						<td colspan="2"><input type="text" id="groomTel"
 							name="groomTel" value="${groomTel}"
 							onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'
@@ -373,40 +417,33 @@
 
 					<!--  신랑 영역 -->
 					<tr id="GroomDiv">
-						<td>신랑사진:</td>
+						<td style="text-align: right; padding-top: 0px;">신랑사진:</td>
 						<td><input type="file" name="imgGroom" id="imgGroom"
-							style="font-size: 10px; width: 150px; padding-left: 5px;">
-							<!-- style="font-size:10px; width:150px;padding-left: 5px;" --></td>
-						<td><input type="submit" value="업로드 " id="sendGroom">
+							style="font-size: 10px; width: 150px; padding-left: 5px;" rel="tooltip"
+                        title="사진을 선택한 후 업로드를 눌러주세요"></td>
+						<td style="padding : 0px; padding-top: 8px;">
+						<i class="fa fa-close" style="font-size:24px;color:red" id="imgGroomDelete" rel="tooltip" title="스킨 기본 이미지로 돌아갑니다"></i>
+						<input type="submit" value="업로드 " id="sendGroom">
 						</td>
+						<%-- 
+						<td>
+						<a href="#"><img alt="" src="${initParam.root }img/delete.png" style="width: 10px; height: 10px; 
+						margin-top: 0px;" id="imgGroomDelete" rel="tooltip" title="스킨 기본 이미지로 돌아갑니다"></a>
+						<input type="submit" value="업로드 " id="sendGroom">
+						</td> --%>
 					</tr>
 
 					<tr>
-						<td>신랑이름:</td>
+						<td style="text-align: right; padding-top: 0px;">신랑이름:</td>
 						<td><input type="text" name="brideName" id="brideName"
 							value="${brideName}"></td>
 					</tr>
 
 					<tr>
-						<td>신랑번호:</td>
+						<td style="text-align: right; padding-top: 0px;">신랑번호:</td>
 						<td><input type="text" name="brideTel" id="brideTel"
 							value="${brideTel}" onkeydown='return onlyNumber(event)'
 							onkeyup='removeChar(event)' style='ime-mode: disabled;'></td>
-					</tr>
-
-					<tr>
-						<td>&nbsp;&nbsp;&nbsp;url&nbsp;&nbsp;:</td>
-						<c:choose>
-							<c:when test="${cardVo.url == null }">
-								<td><input type="text" name="url" id="url"
-									onkeyup="urlCheck()"><br> <span id="checkResult"></span></td>
-							</c:when>
-							<c:otherwise>
-								<td><input type="text" name="url" id="url"
-									value="${cardVo.url}" readonly="readonly"><br> <!-- <span id="checkResult"></span> --></td>
-							</c:otherwise>
-						</c:choose>
-
 					</tr>
 
 				</table>
@@ -426,15 +463,16 @@
 			<div id="tabs-4">
 				<div class="ui-grid-f section">
 					<table style="width: 330px; font-size: 15px;">
-						<tr>
+						<!-- <tr>
 							<td colspan="2">예식일</td>
-						</tr>
+						</tr> -->
 
 						<tr>
 							<td colspan="2">
 								<div class="ui-block-b">
 									<input type="text" id="datepicker" class="input_box_type1"
-										name="cardDate">
+										name="cardDate" placeholder="날짜" rel="tooltip"
+                        title="예식일을 입력해주세요">
 								</div>
 								<div class="ui-block-c">
 									<input type="hidden" id="dDay" name="dDay" value=""> <select
@@ -479,9 +517,9 @@
 							</td>
 						</tr>
 
-						<tr>
+						<!-- <tr>
 							<td colspan="2">초대글</td>
-						</tr>
+						</tr> -->
 
 						<tr>
 							<td colspan="2">
@@ -489,28 +527,37 @@
 									<textarea name="cardContext" id="cardContext"
 										class="input_box_type2" value="${cardVO.cardContext}"
 										rel="tooltip"
-										title="<span class='tooltip_title'>초대글</span>
-									<br>- 초대(모시는)글을 입력 해주십시요"
+										title="초대(모시는)글을 입력 해주십시요"
 										placeholder="초대글"></textarea>
 								</div>
 							</td>
 						</tr>
-
+						
 						<tr>
-							<td colspan="2">예식장 : &nbsp;&nbsp; <input type="text"
-								id="hallName" name="hallName" value="${cardVO.hallName}">
+							<td colspan="2" align="left">예식장소 : &nbsp; <input type="text"
+								id="hallLocation" readonly="readonly" name="hallLocation" rel="tooltip"
+                        title="주소검색 버튼을 눌러 예식장 주소를 입력해주세요">
+								<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" ><br>
 							</td>
 						</tr>
-
+						
 						<tr>
-							<td colspan="2">예식장소 : &nbsp; <input type="text"
-								id="hallLocation" name="hallLocation">
-								<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+							<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;예식장 : &nbsp; <input type="text"
+								id="hallName" name="hallName" value="${cardVO.hallName}" rel="tooltip"
+                        title="예식장 이름을 입력해주세요">
 							</td>
 						</tr>
-
 						<tr>
-							<!-- <td colspan="2">지도</td> -->
+						<td colspan="2" align="left">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;&nbsp;
+							<input type="text" name="url" id="url"
+									onkeyup="urlCheck()">
+						</td>
+					</tr>
+						<tr>
+							<td colspan="2" align="left" style="padding-top: 0; padding-left: 85px;">
+							<span id="checkResult"></span>
+						</td>
 						</tr>
 
 						<tr>

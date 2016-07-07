@@ -55,33 +55,53 @@ function photoBookAjax() {
 
 
 function chooseBook(bookNo) {
-	document.getElementById("photoBookNo").value = bookNo;
+	   if(document.getElementById("photoBookNo").value == bookNo) {
+	      clearCheckBook();
+	   }
+	   
+	   else {
+	      document.getElementById("photoBookNo").value = bookNo;
 
-	xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = imgCallback;
-	var url = "../photoBook.do?command=ajaxDetail&&no=" + bookNo;
-	xhr.open("get", url);
-	xhr.send(null);
+	      xhr = new XMLHttpRequest();
+	      xhr.onreadystatechange = imgCallback;
+	      var url = "../photoBook.do?command=ajaxDetail&&no=" + bookNo;
+	      xhr.open("get", url);
+	      xhr.send(null);
+	   }
 
-} // chooseBook
+	} // chooseBook
 
-function imgCallback() {
-	if (xhr.readyState == 4) {
-		if (xhr.status == 200) {
-			var jsonData = JSON.parse(xhr.responseText);
+	function imgCallback() {
+	   if (xhr.readyState == 4) {
+	      if (xhr.status == 200) {
+	         var jsonData = JSON.parse(xhr.responseText);
 
-			document.getElementById("photoBookImg").value = jsonData.pbvo.fileName;
-	         document.getElementById("photoBookComment").value = jsonData.pbvo.bookComment;
-	         
-	         var imgValue = document.getElementById("photoBookImg").value;
-	         var contentValue = document.getElementById("photoBookComment").value;
+	         document.getElementById("photoBookImg").value = jsonData.pbvo.fileName;
+	           document.getElementById("photoBookComment").value = jsonData.pbvo.bookComment;
+	            
+	           var imgValue = document.getElementById("photoBookImg").value;
+	           var contentValue = document.getElementById("photoBookComment").value;
 
-	         $('#photoBookImg').val(imgValue).trigger('change');
-	         $('#photoBookComment').val(contentValue).trigger('change');
-		}
-	}
-} // imgCallback
+	           // preview 적용 위해
+	           $('#photoBookImg').val(imgValue).trigger('change');
+	           $('#photoBookComment').val(contentValue).trigger('change');
+	      }
+	   }
+	} // imgCallback
 
+	function clearCheckBook(){
+	   document.getElementById("photoBookNo").value = "";
+	   
+	   document.getElementById("photoBookImg").value = "";
+	    document.getElementById("photoBookComment").value = "";
+	    
+	    var imgValue = document.getElementById("photoBookImg").value;
+	    var contentValue = document.getElementById("photoBookComment").value;
+
+	    // preview 적용 위해
+	    $('#photoBookImg').val(imgValue).trigger('change');
+	    $('#photoBookComment').val(contentValue).trigger('change');
+	} // clearCheckBook
 ///////////////////////////// Tel Only Input Number
 function onlyNumber(event){
    event = event || window.event;
@@ -110,7 +130,6 @@ function logout() {
 	if (f)
 		location.href = "../member.do?command=logout"; //Controller에서 기능으로 연결..
 }
-
 
 //////////////////////////////////JQuery ///////////////////////////////
 
@@ -239,10 +258,24 @@ $(document).ready(function(){
    });*/
    
    var form = document.frmWeddingCard;
+   var imgFormat = ['.jpg', '.png', '.gif','.bmp'];//이미지 업로드 허용 확장자
    // ================== 메인이미지==========================
    $("#sendImage").bind("click", function() {
    		
    		var formData = new FormData(form);
+   		var formatCheck = false;
+   		
+   		for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
+     		  if($('#imgFile').val().indexOf(imgFormat[i]) != -1 
+     				  || $('#imgFile').val().indexOf(imgFormat[i].toUpperCase()) != -1)
+     			 formatCheck = true; // 사용가능한 확장자
+   		};//for
+   		if(!formatCheck){
+   			alert("지원하지 않는 확장자입니다"	);
+   			$('#imgFile').val("");
+   			return false;
+   		}
+   			
    		
    		if($('#imgFile').val() != null && $('#imgFile').val() != ''){
    			form.encoding="multipart/form-data"; //파일전송위해 변경
@@ -261,7 +294,6 @@ $(document).ready(function(){
 	            	  var src =  $('#imgFile').val().split('\\')[2];
 	     		 		$('input[name=imgSrc]').val(src);
 	     		 		setTimeout(function(){
-	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
 	     		 			set_preview();
 	     		 		}, 3000);
 	     		 		
@@ -279,7 +311,17 @@ $(document).ready(function(){
 // ================== 신랑이미지==========================
    $("#sendGroom").bind("click", function() {
   		var formData = new FormData(form);
-  		
+  		var formatCheck = false;
+   		
+   		for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
+     		  if($('#imgGroom').val().indexOf(imgFormat[i]) != -1 
+     				  || $('#imgGroom').val().indexOf(imgFormat[i].toUpperCase()) != -1)
+     			 formatCheck = true; // 사용가능한 확장자
+   		};//for
+   		if(!formatCheck){
+   			alert("지원하지 않는 확장자입니다"	);
+   			return false;
+   		}
   		if($('#imgGroom').val() != null && $('#imgGroom').val() != ''){
   			form.encoding="multipart/form-data"; //파일전송위해 변경
   			
@@ -294,12 +336,9 @@ $(document).ready(function(){
 	              success: function (response) {
 	            	  // refresh 때문에 다시잡아줘야된다.
 	            	  document.frmWeddingCard.encoding="application/x-www-form-urlencoded";
-	            	 
-	            	  
 	            	  //var src =  $('#imgGroom').val().split('\\')[2];
 	     		 		//$('input[name=imgSrc]').val(src);
 	            	  setTimeout(function(){
-	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
 	     		 			set_preview();
 	     		 		}, 3000);
 	              },
@@ -316,7 +355,17 @@ $(document).ready(function(){
 // ================== 신부이미지==========================
    $("#sendBride").bind("click", function() {
   		var formData = new FormData(form);
-  		
+  		var formatCheck = false;
+   		
+   		for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
+     		  if($('#imgBride').val().indexOf(imgFormat[i]) != -1 
+     				  || $('#imgBride').val().indexOf(imgFormat[i].toUpperCase()) != -1)
+     			 formatCheck = true; // 사용가능한 확장자
+   		};//for
+   		if(!formatCheck){
+   			alert("지원하지 않는 확장자입니다"	);
+   			return false;
+   		}
   		if($('#imgBride').val() != null && $('#imgBride').val() != ''){
   			form.encoding="multipart/form-data"; //파일전송위해 변경
   			
@@ -335,7 +384,6 @@ $(document).ready(function(){
 	            	  //var src =  $('#imgGroom').val().split('\\')[2];
 	     		 		//$('input[name=imgSrc]').val(src);
 	            	  setTimeout(function(){
-	     		 			alert('업로드 성공 디폴트로 변경 enctype: ' + document.frmWeddingCard.encoding);
 	     		 			set_preview();
 	     		 		}, 3000);
 	              },
@@ -348,13 +396,35 @@ $(document).ready(function(){
   			return false;
   		}	
   	});
+   $('#imgFileDelete').click(function(){
+	   if($('#imgFile').val() != null && $('#imgFile').val() != ''){
+		   $('#imgFile').val("");
+		   $('input[name=imgSrc]').val("");
+		   set_preview();
+	   }else
+		   alert("이미지를 업로드해주세요");
+   });
+   $('#imgBirdeDelete').click(function(){
+	   if($('#imgBride').val() != null && $('#imgBride').val() != ''){
+		   $('#imgBride').val("");
+		   set_preview();
+	   }else
+		   alert("이미지를 업로드해주세요");
+   });
+   $('#imgGroomDelete').click(function(){
+	   if($('#imgGroom').val() != null && $('#imgGroom').val() != ''){
+		   $('#imgGroom').val("");
+		   set_preview();
+	   }else
+		   alert("이미지를 업로드해주세요");
+   });
+   
   ///==================== =========================   
     function set_preview(md){
 		
 		/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
 		$('#frmWeddingCard').attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
 	}	
-  
   
   
   //모바일,PC 확대버튼 클릭

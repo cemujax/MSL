@@ -152,29 +152,31 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<!-- 
-<div class="postCommentView">
-	Comments
-</div> -->
-
 	
 <section class="commentArea" >
-
   <form action="${initParam.root }comment.do" method="post">
   	<button class="comment-submit-btn comment-submit-btn-color" type="submit" style="margin-left: 900px; margin-bottom: 2px;" onclick="return checkLogin()"><b>✔ 댓글 남기기</b></button>
 	<input type="hidden" name="command" value="write">
 	<input type="hidden" name="postNo" value="${requestScope.pvo.postNo}">
 	<input type="hidden" name="page" value="${param.page }">
 	<input type="hidden" name="return" value="getQnA">
-	<textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 99%; height: 132px;">${cmt.content }</textarea>       
+	<textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 100%; height: 132px;">${cmt.content }</textarea>       
   </form>
-  
   
 <c:if test="${requestScope.commentList != null}">
   <c:forEach items="${commentList }" var="cmt">	
  	<div class="area">
 	  <div class="area-heading">
-		<b><span class="commentMemberId">${cmt.memberVO.memberId}</span></b>
+		<b><span class="commentMemberId">
+			<c:choose>
+				<c:when test="${cmt.memberVO.memberId == 'pcp8282' }">
+					관리자
+				</c:when>
+				<c:otherwise>
+					${cmt.memberVO.name}
+				</c:otherwise>
+			</c:choose>
+		</span></b>
 		<span class="commentWriteDate">
 			<i class="fa fa-clock-o" aria-hidden="true"></i>
 			<c:set var="commentDate" value="${fn:split(cmt.writeDate, ' ') }"/>
@@ -183,9 +185,11 @@ $(document).ready(function(){
 		</span>
 		<span class="pull-right">
 		  <!-- 작성자일때 -->
-		  <c:if test="${cmt.memberVO.memberId == mvo.memberId }">
+		  <c:if test="${cmt.memberVO.memberId == mvo.memberId || mvo.memberId == 'pcp8282' }">
 			<td>
-			  <a class="text-muted" onclick="modifyComment(${cmt.commentNo})">수정</a>
+			  <c:if test="${cmt.memberVO.memberId == mvo.memberId }">
+				  <a class="text-muted" onclick="modifyComment(${cmt.commentNo})">수정</a>
+			  </c:if>
 			  <a class="text-muted" onclick="deleteComment(${cmt.commentNo})">삭제</a>
 			</td>
 		  </c:if>

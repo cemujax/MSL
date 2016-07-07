@@ -67,7 +67,11 @@
   <bean id="reviewCommentService" class="model.post.ReviewCommentServiceImpl" p:reviewCommentDao-ref="reviewCommentDao"/>
 
   <bean id="adminDao" class="model.admin.AdminDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
-  <bean id="adminService" class="model.admin.AdminServiceImpl" p:adminDao-ref="adminDao"/>
+  <bean id="adminService" class="model.admin.AdminServiceImpl" 
+  	p:adminDao-ref="adminDao"
+  	p:cardService-ref="cardService"
+  />
+  
 
   <!--Controller 등록  -->
   <bean id="methodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
@@ -132,6 +136,16 @@
   <bean name="/admin.do" class="controller.AdminController">
     <property name="methodNameResolver" ref="methodNameResolver"/>
   	<property name="adminService" ref="adminService"/>
+  	<property name="path">
+  		<!-- for windows -->
+		<value>../../MSL/Final_WeddingCard/src/main/webapp/</value>
+
+		<!-- for linux local -->
+		<!-- <value>EFI/MSL/Final_WeddingCard/src/main/webapp/</value> -->
+
+		<!-- for linux remote -->
+		<!-- <value>../webapps/Final_WeddingCard/</value> -->
+  	</property>
   </bean>
 
   <bean name="downloadView" class="util.DownloadView"/> 

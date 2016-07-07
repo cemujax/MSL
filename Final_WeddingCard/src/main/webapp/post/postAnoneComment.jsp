@@ -163,7 +163,7 @@ $(document).ready(function(){
 	<input type="hidden" name="postNo" value="${requestScope.pvo.postNo}">
 	<input type="hidden" name="page" value="${param.page }">
 	<input type="hidden" name="return" value="getAnoneQnA">
-	<textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 99%; height: 132px;">${cmt.content }</textarea>       
+	<textarea class="formContent" name="content" maxlength="10000" rows="5" required="required" title="내용" style="margin: 0px -1px 0px 0px; width: 100%; height: 132px;">${cmt.content }</textarea>       
   </form>
   
 <c:if test="${requestScope.commentList != null}">
@@ -179,9 +179,11 @@ $(document).ready(function(){
 		</span>
 		<span class="pull-right">
 		  <!-- 작성자일때 -->
-		  <c:if test="${cmt.memberVO.memberId == mvo.memberId }">
+		  <c:if test="${cmt.memberVO.memberId == mvo.memberId || mvo.memberId == 'pcp8282' }">
 			<td>
-			  <a class="text-muted" onclick="modifyComment(${cmt.commentNo})">수정</a>
+			  <c:if test="${cmt.memberVO.memberId == mvo.memberId }">
+				  <a class="text-muted" onclick="modifyComment(${cmt.commentNo})">수정</a>
+			  </c:if>
 			  <a class="text-muted" onclick="deleteComment(${cmt.commentNo})">삭제</a>
 			</td>
 		  </c:if>
