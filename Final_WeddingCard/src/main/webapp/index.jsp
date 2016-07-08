@@ -291,7 +291,7 @@ html,body{height:100%;}
 <!-- gallery -->
 <section id="step2">
 	<div class="gallery" id="gallery" style="font-family: 'Noto Sans KR', sans-serif; background-color: #ffffd9;  height:100%; padding-bottom: 24px; padding-top: 24px;">
-		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>Responsible Size</span></h3>
+		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>Responsive Web Design</span></h3>
 		<div class="gallery-grids" style="font-family: 'Noto Sans KR', sans-serif;" >
 						<font size="6" style="font-family: 'Noto Sans KR', sans-serif;color: #0e6973; padding-left: 10%" >어떤 기기든 반응하는</font><br>
 				<div class="team-grid animated wow slideInDown" data-wow-delay=".5s" align="center">
@@ -307,7 +307,7 @@ html,body{height:100%;}
 
 <section id="step3">
 <div class="gallery" id="gallery" style="background-color:#f1fdd7;  width:100%; height:100%; padding-bottom: 24px;">
-	<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>mobile invitation</span></h3>
+	<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>Mobile Invitations</span></h3>
 		<div class="gallery-grids" align="left" style="margin-top: 30px;">
 			<div style="text-align: right; padding-right: 10%">
 				<font id="font1" size="6" style="color: #0e6973; font-family: 'Noto Sans KR', sans-serif; " >기존 종이 청첩장과는 다른<br>모바일 청첩장의 매력을 만나보세요</font>
@@ -331,7 +331,7 @@ html,body{height:100%;}
 
 <section id="step4">
 <div class="gallery" id="gallery" style="background-color: #fff1d4;  height:100%;">
-		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 24px; padding-bottom: 30px;"><span>Photo Book</span></h3>
+		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 24px; padding-bottom: 30px;"><span>Photo Books</span></h3>
 			<div class="gallery-grids">
 			<!-- <div class="gallery-grids" style="background-color: #fff; width: 100%; height: 90%;"> -->
 				<div class="cycle-slideshow" >
@@ -348,7 +348,7 @@ html,body{height:100%;}
 
 <section id="step5">
 <div class="gallery" id="gallery" style="background-color:#fed8ab;   height:100%;">
-		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>communication</span></h3>
+		<h3 class="animated wow zoomIn" data-wow-delay=".5s" style="padding-top: 6px;"><span>Bulletin Board System</span></h3>
 			<div class="gallery-grids">
 				<div style="text-align: right; padding-right: 10%">
 					<font id="font1" size="6" style="color: #8c6751;font-family: 'Noto Sans KR', sans-serif; " >웨딩 Tip, QnA는 물론<br>익명게시판으로 고민까지 나눠보세요</font>
@@ -378,8 +378,8 @@ html,body{height:100%;}
                     <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-facebook-square fa-lg"></i></a>
                 </div>
                     	<ul class="" style="text-align: right; font-size:14px;color: #fff;">
-							<li><span>(주)MSL</span><span>대표이사 : 홍길동</span>
-							<li><span>대표전화 : 031-111-1004 </span><span>팩스 : 02-559-1001~3</span><span>고객센터 : abc@naver.com</span></li>
+							<li><span>(주)MSL</span><span>설립자: 황희, 박찬영, 이승현, 김진선, 조수연, 송지현</span>
+							<li><span>대표전화 : 010-6535-6597 </span><span>팩스 : 02-559-1001~3</span><span>고객센터 : heehkosta@gmail.com</span></li>
 							<li><span>경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 8층</span></li>
 			 					<li class="copy"><span>Copyright ©MSL  Co.,Ltd. All rights reserved.</span></li>
 						</ul>
