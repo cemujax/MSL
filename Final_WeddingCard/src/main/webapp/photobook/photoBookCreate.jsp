@@ -20,7 +20,7 @@
 <link rel="stylesheet" type="text/css" href="${initParam.root }photobook/booklet/bootstrap.min.css">
     
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"> -->
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
      
 <script type="text/javascript"
@@ -84,15 +84,15 @@ li a:hover {
    </c:if>
    
    <form method="post" action="../photoBook.do" enctype="multipart/form-data">
-      <h2 style="font-family: 'Nanum Pen Script', serif; width: 500px; margin-top: 0px; margin-bottom: 0px;" class="col-md-6" >
+      <h2 style="font-family: 'Nanum Pen Script', serif; width: 500px; margin-top: 0px; margin-bottom: 0px; margin-left: 20%;" class="col-md-6" >
          포토앨범 명 : <input type="text" name="bookName" style="height: 30px; width: 300px; border: 0px solid #555555; border-bottom: 2px solid black; text-align: left;" >
       </h2>
       <h2 style="margin-top: 0px; margin-bottom: 0px;">
-         <input type="reset" id="reset0" value="초기화" onclick="resetImg()" style="background-color: white; color: black; border: 0px solid #555555; margin-left: 650px; font-family: 'Nanum Pen Script', serif;">
-         <input type="submit" value="생성하기" style="background-color: white; color: #ff9966; border: 0px solid #555555; border-radius: 15px; margin-left: 50px; font-family: 'Nanum Pen Script', serif;"></h2>
+         <input type="reset" id="reset0" value="초기화" onclick="resetImg()" style="background-color: white; color: black; border: 0px solid #555555; margin-left: 13%; font-family: 'Nanum Pen Script', serif;">
+         <input type="submit" value="생성하기" style="background-color: white; color: #ff9966; border: 0px solid #555555; border-radius: 15px; margin-left: 0.5%; font-family: 'Nanum Pen Script', serif;"></h2>
          
      
-      <div class="book_wrapper" style="">
+      <div class="book_wrapper" >
          <input type="hidden" name="command" value="create"> <a
             id="next_page_button"></a> <a id="prev_page_button"></a>
          <div id="loading" class="loading">Loading pages...</div>

@@ -31,14 +31,14 @@
       	 	 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>      
                  <ul class="dropdown-menu">      
                     <li><a href="${initParam.root }photobook/photoBookCreate.jsp">포토북만들기</a></li>      
-                    <li><a href="${initParam.root }photoBook.do?command=list">포토북보기</a></li>      
+                    <li><a href="${initParam.root }photoBook.do?command=list">포토북관리</a></li>      
                  </ul>      
              </li>  
       	 
       	 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>      
                              <ul class="dropdown-menu">      
                                <li><a href= "${initParam.root }weddingCard/weddingCard.jsp" >청첩장만들기</a></li>      
-                               <li><a href="${initParam.root }./card.do?command=getAllCards">청첩장보기</a></li>      
+                               <li><a href="${initParam.root }./card.do?command=getAllCards">청첩장관리</a></li>      
                              </ul>      
                            </li>   
       	 	

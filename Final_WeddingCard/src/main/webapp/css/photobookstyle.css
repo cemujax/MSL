@@ -92,7 +92,7 @@ span.reference a:hover{
 }
 .book_wrapper p{
 	font-size:20px;
-	margin:5px 5px 5px 15px;
+	/* margin:5px 5px 5px 15px; */
 }
 .book_wrapper a.article,
 .book_wrapper a.demo{

@@ -799,7 +799,7 @@ button.ui-button::-moz-focus-inner {
 	text-decoration: none;
 	background-color: /* rgba(236, 172, 85, 0.81) */ #fdc562;
 	width: 85px;
-    height: 55px;
+    /* height: 55px; */
 }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active {
 	margin-bottom: -1px;
@@ -819,7 +819,7 @@ button.ui-button::-moz-focus-inner {
 	/* padding: 1em 1.4em; */
 	 /*    padding: 0px 10px; */
 	background: none;
-	width: 330px;
+	width: 400px;
 	/* padding: 19px; */
 }
 .ui-tooltip {
