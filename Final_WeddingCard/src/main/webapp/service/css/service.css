@@ -1287,7 +1287,7 @@ background: url("/img/service/new2/about_header.jpg") no-repeat 50% 50% / cover 
 	width: 100%;
 	min-width: 768px;
 	margin: 0px auto;
-	padding: 0 10px;
+	/* padding: 0 10px; */
 	box-sizing: border-box;
 }
 
@@ -1322,9 +1322,10 @@ background: url("/img/service/new2/about_header.jpg") no-repeat 50% 50% / cover 
 .about-grid-a.img06 {
 	height: 390px;
 	/* background: #fff; */
-	background: #f2836b;
+	/* background: #f2836b; */
+	/* background-image: url("${initParam.root}service/img/photo1.jpg"); */
 	/* color: #eec142; */
-	color: #403324;
+	color: #fff; 
 }
 
 .about-grid-a.img07 {
@@ -1445,7 +1446,7 @@ background: url("/img/service/new2/about_header.jpg") no-repeat 50% 50% / cover 
 	text-align: left;
 	float: left;
 	margin: 20px 0 0 0;
-	color: #fff;
+	color: #a54949;
 }
 
 .about-grid-a .text_R {
@@ -1459,14 +1460,14 @@ background: url("/img/service/new2/about_header.jpg") no-repeat 50% 50% / cover 
 }
 
 .about-grid-a  h3 .title {
-	font-size: 2.3em;
+	font-size: 43px;
 	font-weight: bold;
 	margin: 10px 0;
 	line-height: 50px;
 }
 
 .about-grid-a  p.info_small {
-	font-size: 1.2em;
+	font-size: 18px;
 	font-weight: normal;
 	padding: 5px 0 0 5px;
 	line-height: 30px;

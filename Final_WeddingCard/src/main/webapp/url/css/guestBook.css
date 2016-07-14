@@ -31,6 +31,7 @@ img{
 	margin-top: 8%;
 }
 
+
 /* Set gray background color and 100% height */
 .sidenav {
 	padding-top: 40px;
@@ -38,24 +39,6 @@ img{
 	height: 50%;
 	margin-left: 15%;
 	border: 1px solid black;
-}
-@media screen and (max-width: 500px) {
-	.sidenav {
-		height: auto;
-		margin: 0%;
-		margin-bottom: 5%;
-	}
-}
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
-	.sidenav {
-		height: auto;
-		padding: 15px;
-	}
-	.row.content {
-		height: auto;
-		margin-top: 8%;
-	}
 }
 
 .write_box {
@@ -72,7 +55,10 @@ img{
 	border-top-right-radius: 5px;
 	background-color: #fff;
 }
-
+.commentArea{
+		 max-width: 700px;
+   		 max-height: 80px;
+	}
 .text-button{
 	text-align: right;
 }
@@ -91,40 +77,58 @@ img{
 #cardDate{
 	padding-left: 50%;
 }
+.imgArea{
+  	vertical-align:middle;
+  } 
+  
+  
+/*               미디어 라인      */             
+@media screen and (max-width: 900px) {
+	
+	img {
+  	width: 100px; 
+    height: 40px;
+    margin: 0.5rem 0;
+  }
+}
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+	}
+	.row.content {
+		height: auto;
+		margin-top: 8%;
+	}
+	/*  */
+	img {
+  	width: 80px; 
+    height: 40px;
+    margin: 0.5rem 0;
+  }
+}
+
 
 @media screen and (max-width: 500px) {
-
-  img {
-  	width: 50%; 
-    height: 20%;
+	.sidenav {
+		height: auto;
+		margin: 0%;
+		margin-bottom: 5%;
+	}
+	/*  */
+	img {
+  	width: 60px; 
+    height: 35px;
     margin: 0.5rem 0;
-    width: 100px;
   }
-
-  /* td:first-child {
-    border-bottom: 1px solid #91ced4;
-    border-radius: 10px 10px 0 0;
-    position: relative;
-    top: 0;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    width: 100%;
-  } */
-
- /*  tr {
-    background-color: white !important;
-    border: 1px solid #6cbec6;
-    border-radius: 10px;
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
-    margin: 0.5rem 0;
-    padding: 0;
-  } */
-  	#cardDate{
+  #cardDate{
 	padding-left: 0%;
 	}
 	.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
 		padding: 0px;
 		vertical-align: middle;
 	}
-		
 }
+
+

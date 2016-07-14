@@ -11,7 +11,7 @@ function urlCheck() { //Ajax 기술이 사용됨
 	var url = document.getElementById("url").value;
 	xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = callback;
-	xhr.open("post", "../card.do");
+	xhr.open("post", "./card.do");
 	xhr.setRequestHeader("Content-Type",
 			"application/x-www-form-urlencoded;charset=utf-8");
 	xhr.send("command=urlCheck&&url=" + url);
@@ -47,7 +47,7 @@ function callback() {
 function photoBookAjax() {
 	xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = pbCallback;
-	var url = "../photoBook.do?command=ajaxList";
+	var url = "./photoBook.do?command=ajaxList";
 	xhr.open("get", url);
 	xhr.send(null);
 } // photobookAjax
@@ -58,13 +58,12 @@ function chooseBook(bookNo) {
 	   if(document.getElementById("photoBookNo").value == bookNo) {
 	      clearCheckBook();
 	   }
-	   
 	   else {
 	      document.getElementById("photoBookNo").value = bookNo;
 
 	      xhr = new XMLHttpRequest();
 	      xhr.onreadystatechange = imgCallback;
-	      var url = "../photoBook.do?command=ajaxDetail&&no=" + bookNo;
+	      var url = "./photoBook.do?command=ajaxDetail&&no=" + bookNo;
 	      xhr.open("get", url);
 	      xhr.send(null);
 	   }
@@ -128,17 +127,14 @@ function removeChar(event) {
 function logout() {
 	var f = confirm("로그아웃 하시겠습니까?");
 	if (f)
-		location.href = "../member.do?command=logout"; //Controller에서 기능으로 연결..
+		location.href = "./member.do?command=logout"; //Controller에서 기능으로 연결..
 }
 
 //////////////////////////////////JQuery ///////////////////////////////
 
 $(document).ready(function(){
-    
-	   
 	   ///=========== 템플릿쪽===================================
-	   // 시작시 맨 처음꺼 체크되있고 기본값으로 가짐
-	   $('#template_basick1').attr("checked", true);
+	   $('#template_basick1').attr("checked", true); //맨첫번째 템플릿 선택
 	   $('#GroomDiv').hide();  $('#BrideDiv').hide();
 	   
 	   var sel_template = $('input:radio[name=template]:checked').val();
@@ -147,12 +143,14 @@ $(document).ready(function(){
 	   $('input[id*=template_basick]').click(function(){
 		   sel_template = ($(this).val());
 		   $('#GroomDiv').hide();  $('#BrideDiv').hide();
+		   $('input[name=templateName]').val($(this).val());
 	  		set_preview();
 	  	});
 	   
 	   $('input[id*=template_advance]').click(function(){
 		   sel_template = ($(this).val());
 		   $('#GroomDiv').show();  $('#BrideDiv').show();
+		   $('input[name=templateName]').val($(this).val());
 		   set_preview();
 	   });
 	   
@@ -182,8 +180,6 @@ $(document).ready(function(){
 		   		dDay = parseInt(dDay);
 		   		
 		   		document.getElementById("dDay").value = dDay;
-		   		
-		   		
 		   });
 	   
 ///==================== 예식 정보 =========================
@@ -201,19 +197,26 @@ $(document).ready(function(){
    $('#min').change(function(){
      	set_preview();
       });
-  $('#cardContext').change(function(){
-	  
-  	set_preview();
+   
+   $('#cardContext').change(function() {
+
+       if($(this).val().length > 400) {
+           $(this).val($(this).val().substring(0, 400));
+       }
+       set_preview();
    });
+  
   $('#hallName').change(function(){
-	  
 	  	set_preview();
 	   });
 					
   $('#hallLocation').change(function(){
    	set_preview();
     });
-   
+  $('#hallTel').change(function(){
+	   	set_preview();
+	    });
+  
  ///==================== 신랑 신부 정보 =========================  
  $('#groomName').change(function(){
      	set_preview();
@@ -237,50 +240,30 @@ $(document).ready(function(){
    $('#photoBookComment').change(function(){
    		set_preview();
     });
-  
-   /*
-   $('#imgFile').change(function(){
-	   $('#imgFile').MultiFile({
-			max : 1, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
-			accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
-			maxfile : 10240, //각 파일 최대 업로드 크기
-			STRING : { //Multi-lingual support : 메시지 수정 가능
-				remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
-				duplicate : "$file 은 이미 선택된 파일입니다.",
-				denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
-				selected : '$file 을 선택했습니다.',
-				toomuch : "업로드할 수 있는 최대크기를 초과하였습니다.($size)",
-				toomany : "업로드할 수 있는 최대 갯수는 $max개 입니다.",
-				toobig : "$file 은 크기가 매우 큽니다. (max $size)"
-			},
-			//list:"#afile3-list" //파일목록을 출력할 요소 지정가능
-		});
-   });*/
    
    var form = document.frmWeddingCard;
-   var imgFormat = ['.jpg', '.png', '.gif','.bmp'];//이미지 업로드 허용 확장자
+   var imgFormat = ['.jpg', '.jpeg', '.png', '.gif','.bmp'];//이미지 업로드 허용 확장자
    // ================== 메인이미지==========================
    $("#sendImage").bind("click", function() {
    		
    		var formData = new FormData(form);
    		var formatCheck = false;
-   		
-   		for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
-     		  if($('#imgFile').val().indexOf(imgFormat[i]) != -1 
-     				  || $('#imgFile').val().indexOf(imgFormat[i].toUpperCase()) != -1)
-     			 formatCheck = true; // 사용가능한 확장자
-   		};//for
-   		if(!formatCheck){
-   			alert("지원하지 않는 확장자입니다"	);
-   			$('#imgFile').val("");
-   			return false;
-   		}
    			
    		
    		if($('#imgFile').val() != null && $('#imgFile').val() != ''){
+   			for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
+       		  if($('#imgFile').val().indexOf(imgFormat[i]) != -1 
+       				  || $('#imgFile').val().indexOf(imgFormat[i].toUpperCase()) != -1)
+       			 formatCheck = true; // 사용가능한 확장자
+     		};//for
+     		if(!formatCheck){
+     			alert("지원하지 않는 확장자입니다"	);
+     			$('#imgFile').val("");
+     			return false;
+     		}
    			form.encoding="multipart/form-data"; //파일전송위해 변경
    			$.ajax({
-	              url: "../card.do?command=uploadImage&&flag=mainImage",
+	              url: "./card.do?command=uploadImage&&flag=mainImage",
 	              data: formData,
 	              dataType: 'text',
 	              processData: false,
@@ -295,7 +278,7 @@ $(document).ready(function(){
 	     		 		$('input[name=imgSrc]').val(src);
 	     		 		setTimeout(function(){
 	     		 			set_preview();
-	     		 		}, 3000);
+	     		 		}, 1000);
 	     		 		
 	              },//success
 	              error: function (jqXHR) {
@@ -313,20 +296,20 @@ $(document).ready(function(){
   		var formData = new FormData(form);
   		var formatCheck = false;
    		
-   		for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
-     		  if($('#imgGroom').val().indexOf(imgFormat[i]) != -1 
-     				  || $('#imgGroom').val().indexOf(imgFormat[i].toUpperCase()) != -1)
-     			 formatCheck = true; // 사용가능한 확장자
-   		};//for
-   		if(!formatCheck){
-   			alert("지원하지 않는 확장자입니다"	);
-   			return false;
-   		}
   		if($('#imgGroom').val() != null && $('#imgGroom').val() != ''){
+  			for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
+       		  if($('#imgGroom').val().indexOf(imgFormat[i]) != -1 
+       				  || $('#imgGroom').val().indexOf(imgFormat[i].toUpperCase()) != -1)
+       			 formatCheck = true; // 사용가능한 확장자
+     		};//for
+     		if(!formatCheck){
+     			alert("지원하지 않는 확장자입니다"	);
+     			return false;
+     		}
   			form.encoding="multipart/form-data"; //파일전송위해 변경
   			
   			$.ajax({
-	              url: "../card.do?command=uploadImage&&flag=imgGroom",
+	              url: "./card.do?command=uploadImage&&flag=imgGroom",
 	              data: formData,
 	              dataType: 'text',
 	              processData: false,
@@ -340,7 +323,7 @@ $(document).ready(function(){
 	     		 		//$('input[name=imgSrc]').val(src);
 	            	  setTimeout(function(){
 	     		 			set_preview();
-	     		 		}, 3000);
+	     		 		}, 1000);
 	              },
 	              error: function (jqXHR) {
 	                console.log('error');
@@ -357,20 +340,20 @@ $(document).ready(function(){
   		var formData = new FormData(form);
   		var formatCheck = false;
    		
-   		for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
-     		  if($('#imgBride').val().indexOf(imgFormat[i]) != -1 
-     				  || $('#imgBride').val().indexOf(imgFormat[i].toUpperCase()) != -1)
-     			 formatCheck = true; // 사용가능한 확장자
-   		};//for
-   		if(!formatCheck){
-   			alert("지원하지 않는 확장자입니다"	);
-   			return false;
-   		}
   		if($('#imgBride').val() != null && $('#imgBride').val() != ''){
+  			for(var i = 0; i < imgFormat.length; i++) {//대소문자 비교
+       		  if($('#imgBride').val().indexOf(imgFormat[i]) != -1 
+       				  || $('#imgBride').val().indexOf(imgFormat[i].toUpperCase()) != -1)
+       			 formatCheck = true; // 사용가능한 확장자
+     		};//for
+     		if(!formatCheck){
+     			alert("지원하지 않는 확장자입니다"	);
+     			return false;
+     		}
   			form.encoding="multipart/form-data"; //파일전송위해 변경
   			
   			$.ajax({
-	              url: "../card.do?command=uploadImage&&flag=imgBride",
+	              url: "./card.do?command=uploadImage&&flag=imgBride",
 	              data: formData,
 	              dataType: 'text',
 	              processData: false,
@@ -385,7 +368,7 @@ $(document).ready(function(){
 	     		 		//$('input[name=imgSrc]').val(src);
 	            	  setTimeout(function(){
 	     		 			set_preview();
-	     		 		}, 3000);
+	     		 		}, 1000);
 	              },
 	              error: function (jqXHR) {
 	                console.log('error');
@@ -422,27 +405,66 @@ $(document).ready(function(){
   ///==================== =========================   
     function set_preview(md){
 		
+    	  var msg = $('#cardContext').val();
+  	  	while(msg.indexOf('\n') != -1){
+  	  		msg = msg.replace("\n", "<br>");
+  	  		$('#cardContext').val(msg);
+  	  	}  
 		/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
-		$('#frmWeddingCard').attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
-	}	
+		$('#frmWeddingCard').attr('target','left_skin_preview').attr('action',"./weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+		
+		while(msg.indexOf('<br>') != -1){
+  	        msg = msg.replace("<br>", "\n");
+  	        $('#cardContext').val(msg);
+  	     }
+    
+    }	
   
   
   //모바일,PC 확대버튼 클릭
   $('#md-mobile').click(function(){
- 	 $('#frmWeddingCard').attr('target','left_skin_preview_mobile').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+	  var msg = $('#cardContext').val();
+	  	while(msg.indexOf('\n') != -1){
+	  		msg = msg.replace("\n", "<br>");
+	  		$('#cardContext').val(msg);
+	  	}  
+	  	$('#frmWeddingCard').attr('target','left_skin_preview_mobile').attr('action',"./weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+	  	
+	  	$('.md-close').click(function(){//닫기버튼 클릭시
+	  		while(msg.indexOf('<br>') != -1){
+		        msg = msg.replace("<br>", "\n");
+		        $('#cardContext').val(msg);
+		     }
+	  	});
   });
   
   $('#md-pc').click(function(){
- 	 $('#frmWeddingCard').attr('target','left_skin_preview_pc').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+	  var msg = $('#cardContext').val();
+	  
+	  	while(msg.indexOf('\n') != -1){
+	  		msg = msg.replace("\n", "<br>");
+	  		$('#cardContext').val(msg);
+	  	}  
+	  	$('#frmWeddingCard').attr('target','left_skin_preview_pc').attr('action',"./weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+	  	$('.md-close').click(function(){//닫기버튼 클릭시
+	  		while(msg.indexOf('<br>') != -1){
+		        msg = msg.replace("<br>", "\n");
+		        $('#cardContext').val(msg);
+		     }
+	  	});
   });
 
   $('#createCardBtn').click(function(){
- 	 
- 	 alert("createCard");
       var url = document.frmWeddingCard.url.value;
       
+      //var submitFlag = false;
       
       // ==========2번째 탭(신랑 신부)
+      if($('#cardContext').val() == ""){
+    	  $( '#tabs' ).tabs( { active: 1,} );
+    	  $('#cardContext').focus();
+    	  return false;
+      }
       if($('#groomName').val() == ""){
     	  $( '#tabs' ).tabs( { active: 1,} );
     	  $('#groomName').focus();
@@ -477,24 +499,18 @@ $(document).ready(function(){
         	  return false;
           }
       }
-      
-      if($('#url').val() == ""){
-    	  $( '#tabs' ).tabs( { active: 1,} );
-    	  $('#url').focus();
-    	  alert("초대장 url 입력하세요!!!"	);
-    	  return false;
-      }
-      
    // ==========4번째 탭(예식장)
-      
       if($('#datepicker').val() == ""){
     	  $( '#tabs' ).tabs( { active: 3,} );
+    	  alert("예식일을 입력해주세요"	);
     	  $('#datepicker').focus();
     	  return false;
       }
-      if($('#cardContext').val() == ""){
+      
+      if($('#hallLocation').val() == ""){
     	  $( '#tabs' ).tabs( { active: 3,} );
-    	  $('#cardContext').focus();
+    	  alert("예식장 주소를 입력해주세요");
+    	  //$('#hallLocation').focus();
     	  return false;
       }
       if($('#hallName').val() == ""){
@@ -502,33 +518,43 @@ $(document).ready(function(){
     	  $('#hallName').focus();
     	  return false;
       }
-      if($('#hallLocation').val() == ""){
+      if($('#hallTel').val() == ""){
     	  $( '#tabs' ).tabs( { active: 3,} );
-    	  $('#hallLocation').focus();
+    	  $('#hallTel').focus();
     	  return false;
       }
       
-      document.frmWeddingCard.encoding = "multipart/form-data";
-      
-      //창 안바뀌게 target _self로 설정
-	  $('#frmWeddingCard').attr('target','_self').attr('action','../card.do?command=createCard').submit();
-      		
-     });// 초대장 생성 click   
+      if($('#url').val() == ""){
+    	  $( '#tabs' ).tabs( { active: 3,} );
+    	  $('#url').focus();
+    	  //alert("초대장 url 입력하세요!!!"	);
+    	  return false;
+      }
+      submitCheck();
+   });// 초대장 생성 click   
   
-    function move_pop_preview(id){
-		try{
-			if(id){
-				if(id=='skin') id = 'topinfo';
-				var $obj = $('#left_skin_preview').contents().find('#sk_'+id);
-				try{
-					$('#left_skin_preview').scrollTo($obj,100);
-				}catch(e){
-
-				}
-			}else{
-				// console.log('empty scroll target');
-			}
-		}catch(e){}
-	}  
+  var delay = 1000;
+  var submitted = false;
+  
+  function submitCheck() {
+    if(submitted == true) { return; }
+    $('#createCardBtn').val('전송중');
+    $('#createCardBtn').attr('disabled',true);
+    
+    setTimeout(function(){//전송하는거임
+    	 var msg = $('#cardContext').val();
+    	while(msg.indexOf('\n') != -1){
+	  		msg = msg.replace("\n", "<br>");
+	  		$('#cardContext').val(msg);
+	  	}  
+	  	
+    	 document.frmWeddingCard.encoding = "multipart/form-data";
+    	    //창 안바뀌게 target _self로 설정
+    		  $('#frmWeddingCard').attr('target','_self').attr('action','./card.do?command=createCard').submit();
+		}, delay);
+   
+    submitted = true;
+  }//submitCheck()
+  
 });//ready
 

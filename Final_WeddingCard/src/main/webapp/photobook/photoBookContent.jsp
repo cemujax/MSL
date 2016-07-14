@@ -126,7 +126,7 @@ li a:hover {
 	<div class="b-load">
 	  <c:forEach items="${pbImgList}" var="i">
 	    <div>
-	      <img alt="" src="${initParam.root}img/photobook/${pbvo.memberVO.memberId}/${pbvo.bookNo}/${i[0]}">
+	      <img alt="" style="width: 350px; height: 250px; margin-top: 5px; margin-left: 10px; margin-right: 30px; border: none;" src="${initParam.root}img/photobook/${pbvo.memberVO.memberId}/${pbvo.bookNo}/${i[0]}">
 	      <h1 style="font-family: 'Nanum Pen Script', serif; font-size: ">서로에게 전하는 말..</h1>
 	      <!-- <p style="font-family: serif;"> -->
 	      <p style="font-size: 180%; font-family: 'Nanum Pen Script', serif;">${i[1]}</p>

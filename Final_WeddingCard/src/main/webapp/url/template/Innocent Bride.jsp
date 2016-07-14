@@ -407,27 +407,27 @@ function writeComment() {
 	</div>
 
 	<script type='text/javascript'>
-		//<![CDATA[
-		// // 사용할 앱의 JavaScript 키를 설정해 주세요.
-		Kakao.init('150642152529d54760872b2abd33da63');
-
-		// // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
-		Kakao.Link
-				.createTalkLinkButton({
-					container : '#kakao-link-btn',
-					label : '카카오링크 샘플에 오신 것을 환영합니다.',
-					image : {
-						src : 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
-						width : '60',
-						height : '60'
-					},
-					webButton : {
-						text : '카카오 디벨로퍼스',
-						url : 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
-					}
-				});
-		//]]>
-	</script>
+  //<![CDATA[
+    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('150642152529d54760872b2abd33da63');
+    
+    // // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    Kakao.Link.createTalkLinkButton({
+      container: '#kakao-link-btn',
+      label: '${param.groomName}♥${param.brideName}',
+      image: {
+        src: '${initParam.root}url/${param.url}/${param.imgSrc}',
+        width: '320',
+        height: '190'
+      },
+      webButton: {
+        text: 'D-${param.dDay} ${param.cardDate} ${param.hour}:${param.min} ',
+       /*  url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다. */
+       url: 'http://mysweetlove.org/url/${param.url}.jsp'
+      }
+    });
+  //]]>
+</script>
 
 	<!--start-smooth-scrolling-->
 	<script type="text/javascript">

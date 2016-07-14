@@ -90,8 +90,8 @@ ul {
     padding-top: 20px;
 } 
 .nav{
-   margin-left: 75%;
-    width: 400px;
+   margin-left: 60%;
+    width: 500px;
 
 }
 /*  .nav>li {
@@ -144,8 +144,30 @@ ul {
      <img alt="" src="${initParam.root }img/logo_02.png"  style="width: 60px; margin-left: 50px; margin-top: -30px;"> </a>
     </div>      
        <ul class="nav">      <!--  navbar-nav -->
+       
+      	 <c:if test="${sessionScope.mvo.memberId == 'pcp8282' }">
+                  <li>	<a href="admin.do?command=getAllMembers"  style="color:#fff;">
+                  		 <span class="glyphicon glyphicon-wrench"></span>Admin
+                  	</a></li>
+                  </c:if>
+                  
+       		<li><a href="${initParam.root}service/menual.jsp"><span>메뉴얼</span></a></li>
             <%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>      
-                <li class="dropdown">      
+                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>      
+                             <ul class="dropdown-menu">      
+                               <li><a href= "${initParam.root}card.do?command=getAllCardTemplates" >청첩장만들기</a></li>      
+                               <li><a href="${initParam.root }./card.do?command=getAllCards">청첩장보기</a></li>      
+                             </ul>      
+                           </li>   
+                   
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>      
+                             <ul class="dropdown-menu">      
+                               <li><a href="${initParam.root }photobook/photoBookCreate.jsp">포토북만들기</a></li>      
+                               <li><a href="${initParam.root }photoBook.do?command=list">포토북보기</a></li>      
+                             </ul>      
+                           </li>    
+                             
+                              <li class="dropdown">      
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>      
                        <ul class="dropdown-menu">      
                            <li><a href="${initParam.root}post.do?command=getAllAnoneQnAs">익명게시판</a></li>      
@@ -153,21 +175,6 @@ ul {
                               <li><a href="${initParam.root}reviewComment.do?command=getAllReviewComments">칭찬해요</a></li>      
                         </ul>      
                </li>      
-                                 
-                           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>      
-                             <ul class="dropdown-menu">      
-                               <li><a href= "${initParam.root }weddingCard/weddingCard.jsp" >청첩장만들기</a></li>      
-                               <li><a href="${initParam.root }./card.do?command=getAllCards">청첩장보기</a></li>      
-                             </ul>      
-                           </li>      
-                                 
-                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">포토북<span class="caret"></span></a>      
-                             <ul class="dropdown-menu">      
-                               <li><a href="${initParam.root }photobook/photoBookCreate.jsp">포토북만들기</a></li>      
-                               <li><a href="${initParam.root }photoBook.do?command=list">포토북보기</a></li>      
-                             </ul>      
-                           </li>      
-                                 
                      <!--    <li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->      
                      </ul>      
            </div>      
@@ -284,8 +291,8 @@ ul {
                     <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-facebook-square fa-lg"></i></a>
                 </div>
                     	<ul class="" style="text-align: right; font-size:14px;color: #fff;">
-							<li><span>(주)MSL</span><span>대표이사 : 홍길동</span>
-							<li><span>대표전화 : 031-111-1004 </span><span>팩스 : 02-559-1001~3</span><span>고객센터 : abc@naver.com</span></li>
+							<li><span>(주)MSL</span><span>설립자: 황희, 박찬영, 이승현, 김진선, 조수연, 송지현</span>
+							<li><span>대표전화 : 010-6535-6597 </span><span>팩스 : 02-559-1001~3</span><span>고객센터 : heehkosta@gmail.com</span></li>
 							<li><span>경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 8층</span></li>
 			 					<li class="copy"><span>Copyright ©MSL  Co.,Ltd. All rights reserved.</span></li>
 						</ul>

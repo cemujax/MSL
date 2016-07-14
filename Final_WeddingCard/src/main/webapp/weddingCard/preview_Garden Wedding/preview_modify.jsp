@@ -62,7 +62,7 @@
 
 		location.href = "${initParam.root}card.do?command=linkGuestBook&&url=${param.url}";
 	}
-
+/* 
 	$(document).ready(function() {
 
 		/* $.ajax({
@@ -94,8 +94,8 @@
 			}//success
 			
 		});
- */
-	});//ready
+
+	});//ready */
 </script>
 <!-- //방명록 -->
 
@@ -247,11 +247,11 @@ img.wp-smiley, img.emoji {
 								<div class="bridecol">
 									<div class="bridepic">
 										<c:choose>
-											<c:when test="${param.imgBride == '' }">
+											<c:when test="${param.imgBrideSrc == ''  }">
 											<img src="img/01.jpg" alt="bride" height="160px">
 											</c:when>
 											<c:otherwise>
-									 			<img src="${initParam.root}url/${param.url}/${param.imgBride}" class="img-responsive" height="160px">
+									 			<img src="${initParam.root}url/${param.url}/${param.imgBrideSrc}" class="img-responsive" height="160px">
 									 			
 									 		</c:otherwise>
 									 	</c:choose>
@@ -269,11 +269,11 @@ img.wp-smiley, img.emoji {
 								<div class="groomcol">
 									<div class="groompic">
 										<c:choose>
-									 		<c:when test="${param.imgGroom == '' }">
+									 		<c:when test="${param.imgGroomSrc == '' }">
 									 				<img src="img/02.jpg" alt="groom" >
 									 		</c:when>
 									 		<c:otherwise>
-									 			<img height="160px" src="${initParam.root}url/${param.url}/${param.imgGroom}" class="img-responsive"  height="160px">
+									 			<img height="160px" src="${initParam.root}url/${param.url}/${param.imgGroomSrc}" class="img-responsive"  height="160px">
 									 		</c:otherwise>
 									 	</c:choose>
 									</div>
@@ -564,7 +564,7 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
 		<!-- #colophon -->
 	</div>
 	<!-- #page -->
-
+<!-- 
 <script type='text/javascript'>
   //<![CDATA[
     // // 사용할 앱의 JavaScript 키를 설정해 주세요.
@@ -585,23 +585,24 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
       }
     });
   //]]>
-</script>
+</script> -->
 
 	<!-- <script type="text/javascript"
 		src="http://demo.fabthemes.com/zenith/wp-content/cache/minify/000125/bYxBDoAgDAQ_ZICnePYG2ARQWoQSw-_FE5J428xsRskN0LOToUij7VE4A1u3qA8PV4XcROqG2-qIadKRjD8hAtaBDRH3lE5jiejxL2upIu9043t4AA.js"></script>
 	 -->
 	<script type="text/javascript">
-/* <![CDATA[ */
-var fab_objects = {"timer":"04\/30\/2015 18:00:00"};
-/* ]]> */
+/* <![CDATA[ 
+	var fab_objects = {"timer":"04\/30\/2015 18:00:00"};
+ ]]> */
 </script>
+
 	<script type="text/javascript"
 		src="http://demo.fabthemes.com/zenith/wp-content/cache/minify/000125/M9CPSs3LLMnQzyrWTy4tLsnP1THRLy_QTc1NSk3Ry83MAwA.js"></script>
 	<script type="text/javascript">
 	
 	/* if('${param.imgSrc}' == ''){
 		 $('.subhead').backstretch("img/013.jpg"); */
-		jQuery(".subhead").backstretch("img/013.jpg");
+		/* jQuery(".subhead").backstretch("img/013.jpg"); */
 /* 	}else{
 		$('.subhead').backstretch("${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}"); 
 	}

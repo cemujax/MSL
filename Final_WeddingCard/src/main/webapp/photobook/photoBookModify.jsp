@@ -133,7 +133,7 @@ li a:hover {
              <%-- <input type="file" name="file[${i}]" id="imgefile${i}"style="text-align: center;"><p>        --%>
              
              <img
-                src="http://104.244.124.250/~conollyp/diyFiles/123_File_Upload_Donload_m.jpg   "
+                src="http://104.244.124.250/~conollyp/diyFiles/123_File_Upload_Donload_m.jpg"
                 id="original${i}" style="width: 300px; height: 163px;" alt="" 
             />
             

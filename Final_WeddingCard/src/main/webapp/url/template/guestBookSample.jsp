@@ -9,16 +9,110 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 
-
-
-<!-- bootStrap  -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="url/css/guestBook.css">
+<style type="text/css">
+
+/* 320px 갤럭시 5 이승현 */
+@media( max-width: 320px ){
+	#mslImg{
+		width: 40px;
+   		 height: 40px;
+   		 margin: 0.5rem 0;
+	}
+	#userImg{
+		width: 40px;
+    	height: 40px;
+    	margin: 0.5rem 0;
+	}
+	.commentArea{
+		 max-width: 250px;
+   		 max-height: 80px;
+	}
+}
+/* 360px 갤럭시 5 이승현 */
+@media( max-width: 360px ){
+	#mslImg{
+		width: 40px;
+   		 height: 40px;
+   		 margin: 0.5rem 0;
+	}
+	#userImg{
+		width: 40px;
+    	height: 40px;
+    	margin: 0.5rem 0;
+	}
+	.commentArea{
+		 max-width: 270px;
+   		 max-height: 80px;
+	}
+}
+
+
+/* 375px 아이폰6 송지현 */
+@media( max-width: 375px ){
+	#mslImg{
+		width: 40px;
+   		 height: 40px;
+   		 margin: 0.5rem 0;
+	}
+	#userImg{
+		width: 40px;
+    	height: 40px;
+    	margin: 0.5rem 0;
+	}
+	.commentArea{
+		 max-width: 280px;
+   		 max-height: 80px;
+	}
+} /* // 송지현 */
+
+/* 411px nexus5X 황희 오빠 */
+@media( max-width: 411px ){
+	#mslImg{
+		width: 40px;
+   		 height: 40px;
+   		 margin: 0.5rem 0;
+	}
+	#userImg{
+		width: 40px;
+    	height: 40px;
+    	margin: 0.5rem 0;
+	}
+	.commentArea{
+		 max-width: 310px;
+   		 max-height: 80px;
+	}
+} /* // 황희 오빠 */
+
+/* 435px nexus6P 김진선 */
+@media( max-width: 435px ){
+	#mslImg{
+		width: 40px;
+   		 height: 40px;
+   		 margin: 0.5rem 0;
+	}
+	#userImg{
+		width: 40px;
+    	height: 40px;
+    	margin: 0.5rem 0;
+	}
+	.commentArea{
+		 max-width: 330px;
+   		 max-height: 80px;
+	}
+} /* // 김진선 */
+
+
+</style>
+
+<!-- bootStrap  -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="url/css/guestBook.css">
+	
 <!-- bootStrap End -->
 <script type="text/javascript" src="./js/jquery-1.12.3.js"></script>
 <script src="./js/jquery.form.js"></script>
@@ -31,14 +125,12 @@
 		document.getElementById("content").value = "";
 		document.getElementById("removeText").style.display = 'none';
 	}
-
+	
 	function writeCardComment() {
-
 		var content = document.getElementById("content").value;
 		var url = '${param.url}';
-
 		
-		if ('${mvo}' == "") {// 로그인 안한경우
+		if ('${mvo}' == "") {// 비로그인 글쓰기
 			var guest = document.getElementById("guest").value;
 			var password = document.getElementById("passwordNoLogin").value;
 
@@ -62,11 +154,11 @@
 			document.getElementById("content").focus();
 			return false;
 		}
+		
 		document.guestBookFrm.submit();
 	}//writeComment	
 
 	function deleteCommentByUser(commentNo) {
-		alert(commentNo);
 		if(confirm("정말 삭제하시겠습니까?"))
 			location.href="./card.do?command=deleteCardCommentByOwner&&url=${param.url}&&commentNo="+commentNo;
 	}
@@ -94,7 +186,7 @@
 		}
 		xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = callback;
-		xhr.open("post", "./card.do");
+		xhr.open("post", "./card.do?");
 		xhr.setRequestHeader("Content-Type",
 				"application/x-www-form-urlencoded;charset=utf-8");
 		xhr.send("command=writerCheck&&url=${param.url}&&guestName="+guestName
@@ -123,15 +215,21 @@
 		$('#removeText').hide();
 		//$('#logout').hide();
 		if ('${mvo}' != "")
-			$("#content").attr("placeholder", "회원 방명록쓰기");
+			$("#content").attr("placeholder", "회원 방명록쓰기(100자 제한)");
 
-		$('#content').change(function() {
+		$('#content').on('keyup',function() {
 			if ($(this).val() != "")
 				$('#removeText').show();
 			if ($(this).val() == "")
 				$('#removeText').hide();
+			
+			if($(this).val().length > 200) 
+		           $(this).val($(this).val().substring(0, 200));
 		});
-
+		
+		
+		
+		
 		$('#login').click(function() {
 
 			var formData = new FormData(document.guestBookFrm);
@@ -248,7 +346,7 @@
 										style="WIDTH: 50%;">
 								</c:if>
 								<textarea class="ui-state-disabled" name="content" id="content"
-									rows="5" cols="20" placeholder="로그인 없이 방명록 사용이 가능합니다."></textarea>
+									rows="5" cols="20" placeholder="로그인 없이 방명록 사용이 가능합니다(100자 제한)"></textarea>
 							</div>
 							<!-- text-box -->
 							<div class="text-button">
@@ -274,13 +372,13 @@
 									<tr style="border: 1px solid black;">
 										<c:choose>
 											<c:when test="${fn:contains(guest, '`MSL User`')}">
-												<td rowspan="3" style="width: 15%;" align="center">
-												<img alt="" src="${initParam.root}img/logo_02.png"></td>
+												<td rowspan="3" style="width: 15%; vertical-align: middle;" align="center" class="imgArea" >
+												<img alt="" src="${initParam.root}img/logo_02.png" id="mslImg"></td>
 												<td>${memberName}</td>
 											</c:when>
 											<c:otherwise>
-												<td rowspan="3" style="width: 15%;" align="center">
-												<img alt="" src="${initParam.root}url/img/p3.png" ></td>
+												<td rowspan="3" style="width: 15%; vertical-align: middle;" align="center" class="imgArea">
+												<img alt="" src="${initParam.root}url/img/p3.png" id="userImg"></td>
 												<td>${comment.guest}</td>
 											</c:otherwise>
 										</c:choose>
@@ -305,12 +403,13 @@
 
 									</tr>
 									<tr style="border: 1px solid black;">
-										<td colspan="2"><pre>${comment.content}</pre></td>
+										<td class="txtArea" colspan="2">
+										<pre class="commentArea">${comment.content}</pre></td>
 									</tr>
 									<tr >
 										<td colspan="2" class="checkArea${comment.cardCommentNo}" id="checkArea${comment.cardCommentNo}">
 											<input type="text" name="guestName" id="guestName${comment.cardCommentNo}" placeholder="작성자"
-										style="WIDTH: 30%; ">
+										style="width: 30%; ">
 									<input type="password" name="passwordCheck"
 										id="passwordCheck${comment.cardCommentNo}" placeholder="password"
 										style="WIDTH: 30%;">&nbsp;&nbsp;&nbsp;

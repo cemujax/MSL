@@ -24,7 +24,6 @@ import model.photobook.PhotoBookVO;
  */
 public class CardVO {
 	private int cardNo; // card_no
-	private String template;
 	private String cardDate; // card_date
 	private String hallName; // hall_name
 	private String hallLocation; // hall_location
@@ -34,7 +33,8 @@ public class CardVO {
 	// reference
 	private MemberVO memberVO;
 	private PhotoBookVO photobookVO;
-
+	private CardTemplateVO cardTemplateVO;
+	
 	private String url;
 	private String mainImage;
 	private String cardContext;
@@ -44,15 +44,14 @@ public class CardVO {
 	
 	public CardVO() {}
 
-	public CardVO(int cardNo, String template, String cardDate,
+	public CardVO(int cardNo,  String cardDate,
 			String hallName, String hallLocation, String hallTel,
 			String groomInfo, String brideInfo, MemberVO memberVO,
 			PhotoBookVO photobookVO, String url, String mainImage,
-			String cardContext, MultipartFile imgFile, MultipartFile imgGroom,
+			String cardContext, CardTemplateVO cardTemplateVO,  MultipartFile imgFile, MultipartFile imgGroom,
 			MultipartFile imgBride) {
 		super();
 		this.cardNo = cardNo;
-		this.template = template;
 		this.cardDate = cardDate;
 		this.hallName = hallName;
 		this.hallLocation = hallLocation;
@@ -67,6 +66,7 @@ public class CardVO {
 		this.imgFile = imgFile;
 		this.imgGroom = imgGroom;
 		this.imgBride = imgBride;
+		this.cardTemplateVO = cardTemplateVO;
 	}
 
 	public String getMainImage() {
@@ -110,12 +110,13 @@ public class CardVO {
 		this.cardNo = cardNo;
 	}
 
-	public String getTemplate() {
-		return template;
+
+	public CardTemplateVO getCardTemplateVO() {
+		return cardTemplateVO;
 	}
 
-	public void setTemplate(String template) {
-		this.template = template;
+	public void setCardTemplateVO(CardTemplateVO cardTemplateVO) {
+		this.cardTemplateVO = cardTemplateVO;
 	}
 
 	public String getCardDate() {
@@ -200,13 +201,14 @@ public class CardVO {
 
 	@Override
 	public String toString() {
-		return "CardVO [cardNo=" + cardNo + ", template=" + template
-				+ ", cardDate=" + cardDate + ", hallName=" + hallName
-				+ ", hallLocation=" + hallLocation + ", hallTel=" + hallTel
-				+ ", groomInfo=" + groomInfo + ", brideInfo=" + brideInfo
-				+ ", memberVO=" + memberVO + ", photobookVO=" + photobookVO
-				+ ", url=" + url + ", mainImage=" + mainImage
-				+ ", cardContext=" + cardContext + ", imgFile=" + imgFile + "]";
+		return "CardVO [cardNo=" + cardNo + ", cardDate=" + cardDate
+				+ ", hallName=" + hallName + ", hallLocation=" + hallLocation
+				+ ", hallTel=" + hallTel + ", groomInfo=" + groomInfo
+				+ ", brideInfo=" + brideInfo + ", memberVO=" + memberVO
+				+ ", photobookVO=" + photobookVO + ", cardTemplateVO="
+				+ cardTemplateVO + ", url=" + url + ", mainImage=" + mainImage
+				+ ", cardContext=" + cardContext + ", imgFile=" + imgFile
+				+ ", imgGroom=" + imgGroom + ", imgBride=" + imgBride + "]";
 	}
 
 }

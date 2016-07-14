@@ -300,9 +300,11 @@ $(document).ready(function(){
 
 <body>
 
-	
+<!-- 메뉴바 -->		
+	<jsp:include page="loginNav.jsp"></jsp:include>
+<!-- //메뉴바 -->	
 <!-- 메뉴바 -->
-<nav class="navbar navbar-inverse" style="background-color: #f8f8f8; border-color: #e7e7e7;">
+<%-- <nav class="navbar navbar-inverse" style="background-color: #f8f8f8; border-color: #e7e7e7;">
   <div class="container-fluid">
     <div class="navbar-header" >
      <!--  <a class="navbar-brand" href="#">Home</a> -->
@@ -310,7 +312,7 @@ $(document).ready(function(){
     </div>
     
     	<ul class="nav navbar-nav" >
-				<%-- <li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li> --%>
+				<li class="active"><a href="${initParam.root }index.jsp"><span>Home</span></a></li>
 					 <li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>
 							  <ul class="dropdown-menu">
@@ -337,8 +339,7 @@ $(document).ready(function(){
 							<!-- 	<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li> -->
 							</ul>
   </div>
-</nav><!-- nav Bar -->
-	
+</nav><!-- nav Bar --> --%>
 	
 <!-- //메뉴바 -->
 

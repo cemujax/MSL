@@ -17,6 +17,7 @@
 		<typeAlias alias="photoBook" type="model.photobook.PhotoBookVO" />
 		<typeAlias alias="card" type="model.card.CardVO" />
 		<typeAlias alias="cardComment" type="model.card.CardcommentVO" />
+		<typeAlias alias="cardTemplate" type="model.card.CardTemplateVO"/>
 	</typeAliases>
 
 	<!-- <environments default="development"> <environment id="development"> 

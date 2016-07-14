@@ -161,7 +161,7 @@
 </head>
 <body>
 	<c:if test="${sessionScope.mvo == NULL }">
-		<c:redirect url="../authentication/login.jsp?location=wdCard" />
+		<c:redirect url="./authentication/login.jsp?location=wdCard" />
 	</c:if>
 
 	
@@ -169,12 +169,12 @@
 	<nav class="navbar navbar-inverse" >
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="../index.jsp" >
-				<img alt="" src="../img/logo_02.png" style="width: 60px; margin-left: 50px; margin-top: 0px;"> 
+				<a class="navbar-brand" href="${initParam.root}index.jsp" >
+				<img alt="" src="${initParam.root}img/logo_02.png" style="width: 60px; margin-left: 50px; margin-top: 0px;"> 
 				</a>
 			</div>
 			<ul class="nav">
-				<li><a href="../card.do?command=getAllCards">청첩장관리</a></li>
+				<li><a href="${initParam.root}card.do?command=getAllCards">청첩장관리</a></li>
 				<li class="lnb_icon5"><a href="javascript:logout()"> 
 				<span class="glyphicon glyphicon-log-in"></span> 로그아웃
 				</a></li>
@@ -312,8 +312,8 @@
 			</ul>
 
 			<div id="tabs-1">
-				<input type="hidden" name="templateType" value="" id="templateType">
-				<table style="margin-top: 10px;width: 400px;">
+				<input type="hidden" name="templateName" value="" id="templateName">
+				<table style="margin-top: 10px; width: 400px; ">
 					<tr>
 						<td colspan="2" style="padding-top: 0px;font-size: 13px">
 							스킨사진&nbsp;:
@@ -332,65 +332,33 @@
 						
 					</tr>
 				</table>
-				<table style="margin-top: -30px;">
-					<tr align="center"><!-- 스킨선택영역 1번째 라인 --> 
-						<td colspan="2"><img
-							src="${initParam.root}weddingCard/preview_Fall In Love/img/Fall In Love.jpg"
-							class="img-rounded" style="height: 70px;"> <input
-							type="radio" name="template" id="template_basick1" value="Fall In Love">
+				<table style="margin-top: -30px; margin-bottom: 30px;">
+				
+				<tr align="center"><!-- 스킨선택영역 1번째 라인 -->
+					<c:forEach items="${templateList}" var="template" varStatus="i">
+					 	<td>
+					 	<c:choose>
+					 	<c:when test="${template.templateType == 'basick'}">
+					 			<img
+							src="${initParam.root}weddingCard/preview_${template.templateName}/img/thumbnail_${template.templateName}.jpg"
+							class="img-rounded" rel="tooltip" title="스킨 이미지 추가 서비스 제공" style="height: 70px;"> 
+					 		</c:when>
+					 		<c:otherwise>
+					 			<img
+							src="${initParam.root}weddingCard/preview_${template.templateName}/img/thumbnail_${template.templateName}.jpg"
+							class="img-rounded" rel="tooltip" title="+신랑/신부이미지 추가 서비스 제공" style="height: 70px;"> 
+					 		</c:otherwise>
+					 	</c:choose>
+						
+						<input
+							type="radio" name="template" id="template_${template.templateType}${i.count}" value="${template.templateName}">
 						</td>
-						<td colspan="2"> <img
-							src="${initParam.root}weddingCard/preview_Innocent Bride/img/Innocent Bride.jpg"
-							class="img-rounded"> <input type="radio" name="template"
-							id="template_advance1" value="Innocent Bride"></td>
-
-						<td colspan="2">
-							<img
-							src="${initParam.root}weddingCard/preview_Garden Wedding/img/ze.PNG"
-							class="img-rounded"> <input type="radio" name="template"
-							id="template_advance2" value="Garden Wedding">
-						</td>
+						
+					<c:if test="${i.count % 3 == 0}">
+						</tr><tr>
+					</c:if>		
+					</c:forEach>
 					</tr>
-					
-					<tr><!-- 스킨선택영역 2번째 라인 -->
-					     <td colspan="2">
-					     	<img
-							src="${initParam.root}weddingCard/preview_Romantic/img/romantic.jpg"
-							class="img-rounded"> <input type="radio" name="template"
-							id="template_basick2" value="Romantic"></td>
-						<td colspan="2"><img
-							src="${initParam.root}weddingCard/preview_Yellow Rose/img/Yellow Rose.png"
-							class="img-rounded"> <input type="radio" name="template"
-							id="template_advance3" value="Yellow Rose"></td>
-					     <td colspan="2"> 
-					     	<img
-							src="${initParam.root}weddingCard/preview_Mint/img/invitation.png"
-							class="img-rounded"> <input type="radio" name="template"
-							id="template_advance4" value="Mint"></td>
-							
-					     </tr>
-					<!--  -->
-					<tr><!-- 스킨선택영역 3번째 라인 -->
-					     <td colspan="2">
-					     	<img
-							src="${initParam.root}weddingCard/preview_Lucky Clover/img/luckyClover.png"
-							class="img-rounded"> <input type="radio" name="template"
-							id="template_basick3" value="Lucky Clover">
-							</td>
-
-						<td colspan="2">
-							<img
-							src="${initParam.root}weddingCard/preview_Iris/img/Iris.png"
-							class="img-rounded"> <input type="radio" name="template"
-							id="template_advance5" value="Iris">
-							</td>
-					     <td colspan="2">
-					     	<img
-							src="${initParam.root}weddingCard/preview_Cresendo/img/invitation2.png"
-							class="img-rounded"> <input type="radio" name="template"
-							id="template_advance6" value="Cresendo">
-						</td>
-					     </tr>
 				</table>
 				
 			</div>
@@ -398,80 +366,90 @@
 
 			<!-- 이미지 히든값 -->
 			<input type="hidden" name="imgSrc" value="">
+			<input type="hidden" name="tempCardContext" value="">
 			<div id="tabs-2" style="font-size: 13px; text-align: left;">
 				<table style="width: 400px;">
 
 					<tr>
-							<td colspan="4">
+							<td colspan="5">
 								<div class="section">
 									<textarea name="cardContext" id="cardContext"
-										class="input_box_type2" value="${cardVO.cardContext}"
+										class="input_box_type2" 
 										rel="tooltip"
 										title="초대(모시는)글을 입력 해주십시요"
-										placeholder="초대글"></textarea>
+										placeholder="초대글(200자 제한)"></textarea>
 								</div>
 							</td>
 						</tr>
 			
 
-					<tr  id="BrideDiv">
-						<td colspan="2" style="text-align: right; padding-top: 0px;"> 신부사진:</td>
+					<tr id="BrideDiv" style="display: table-row;">
+	<td colspan="2" style="text-align: right; padding-top: 0px;"> 신부사진:</td>
   
+<td colspan="3" style="width:200px;">
+<input type="file" name="imgBride" id="imgBride" rel="tooltip" title="사진을 선택한 후 업로드를 눌러주세요" 
+style="padding-top:5px;font-size: 10px; width: 150px; float:left; ">
+<i class="fa fa-close" style="font-size:24px;color:red;" id="imgBirdeDelete" rel="tooltip" title="스킨 기본 이미지로 돌아갑니다"></i>
+<input type="submit" value="업로드 " class="btn" style="float:right;width: 65px;font-size: 12px; margin-right:33px; 
+border: 1px solid #e1e1e1;" id="sendBride">
+</td>
+<td colspan="2" style="padding : 0px; padding-top: 8px;">
+							
+</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2" style="text-align: right; padding-top: 0px;">신부이름:</td>
 						<td colspan="2">
-							<input type="file" name="imgBride" id="imgBride" rel="tooltip"
-                        title="사진을 선택한 후 업로드를 눌러주세요"
-							style="font-size: 10px; width: 150px; padding-left: 5px;">
-						</td>
+						<input type="text" name="brideName" id="brideName"
+						class="form-control input-sm" 
+							value="${brideName}"></td>
+					</tr>
+
+					<tr>
+						<td colspan="2" style="text-align: right; padding-top: 0px;">신부번호:</td>
+						<td colspan="2">
+						<input type="text" name="brideTel" id="brideTel"
+						class="form-control input-sm" 
+							value="${brideTel}" onkeydown='return onlyNumber(event)'
+							onkeyup='removeChar(event)' style='ime-mode: disabled;'></td>
+					</tr>
+					
+					<!--  신랑 영역 -->
+					<tr id="GroomDiv">
+						<td colspan="2" style="text-align: right; padding-top: 0px;">신랑사진:</td>
+						<td colspan="3">
+							<input type="file" name="imgGroom" id="imgGroom"
+							style="font-size: 10px; width: 150px;float:left; padding-left: 5px;" rel="tooltip"
+                       		 title="사진을 선택한 후 업로드를 눌러주세요">
+                        	<i class="fa fa-close" style="font-size:24px;color:red" id="imgGroomDelete" 
+							rel="tooltip" title="스킨 기본 이미지로 돌아갑니다"></i>
+							<input type="submit"  class="btn" 
+							style="float:right; margin-right:33px;width: 65px;font-size: 12px; border: 1px solid #e1e1e1;" 
+							value="업로드 " id="sendGroom">
+                        </td>
+                        
 						<td colspan="2" style="padding : 0px; padding-top: 8px;">
-							<i class="fa fa-close" style="font-size:24px;color:red"
-							 id="imgBirdeDelete" rel="tooltip" title="스킨 기본 이미지로 돌아갑니다"></i>
-							<input type="submit" value="업로드 " id="sendBride">
+						
 						</td>
 					</tr>
 
 					<tr>
-						<td colspan="2" style="text-align: right; padding-top: 0px;">신부이름:</td>
+						<td colspan="2" style="text-align: right; padding-top: 0px;">신랑이름:</td>
 						<td colspan="2">
-						<input type="text" id="groomName" class="form-control input-sm" id="inputsm"
+						<input type="text" id="groomName" class="form-control input-sm" 
 							name="groomName" value="${groomName}"> 
 						</td>
 					</tr>
 
 
 					<tr>
-						<td colspan="2" style="text-align: right; padding-top: 0px;">신부번호:</td>
+						<td colspan="2" style="text-align: right; padding-top: 0px;">신랑번호:</td>
 						<td colspan="2"><input type="text" id="groomTel" class="form-control input-sm"
-						 id="inputsm"
+						 
 							name="groomTel" value="${groomTel}"
 							onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'
 							style='ime-mode: disabled;'></td>
-					</tr>
-
-					<!--  신랑 영역 -->
-					<tr id="GroomDiv">
-						<td colspan="2" style="text-align: right; padding-top: 0px;">신랑사진:</td>
-						<td colspan="2"><input type="file" name="imgGroom" id="imgGroom"
-							style="font-size: 10px; width: 150px; padding-left: 5px;" rel="tooltip"
-                        title="사진을 선택한 후 업로드를 눌러주세요"></td>
-						<td colspan="2" style="padding : 0px; padding-top: 8px;">
-						<i class="fa fa-close" style="font-size:24px;color:red" id="imgGroomDelete" rel="tooltip" title="스킨 기본 이미지로 돌아갑니다"></i>
-						<input type="submit" value="업로드 " id="sendGroom">
-						</td>
-					</tr>
-
-					<tr>
-						<td colspan="2" style="text-align: right; padding-top: 0px;">신랑이름:</td>
-						<td colspan="2"><input type="text" name="brideName" id="brideName"
-						class="form-control input-sm" id="inputsm"
-							value="${brideName}"></td>
-					</tr>
-
-					<tr>
-						<td colspan="2" style="text-align: right; padding-top: 0px;">신랑번호:</td>
-						<td colspan="2"><input type="text" name="brideTel" id="brideTel"
-						class="form-control input-sm" id="inputsm"
-							value="${brideTel}" onkeydown='return onlyNumber(event)'
-							onkeyup='removeChar(event)' style='ime-mode: disabled;'></td>
 					</tr>
 
 				</table>
@@ -493,7 +471,7 @@
 					<table style="width: 400px; font-size: 15px;">
 
 						<tr>
-							<td colspan="4">
+							<td colspan="5">
 								<div class="ui-block-b">
 									<input type="text" id="datepicker" class="input_box_type1"
 										name="cardDate" placeholder="날짜" rel="tooltip"
@@ -543,16 +521,15 @@
 						</tr>
 
 						<tr>
-							<td align="left">예식장소 : &nbsp; 
+							<td colspan="2" align="left">예식장소 : &nbsp; 
 							</td>
 							
 							<td colspan="2">
 							<input type="text"
-							class="form-control input-sm" id="inputsm"
+							class="form-control input-sm" 
 								style="margin-top: 15px;"
 								id="hallLocation" readonly="readonly" name="hallLocation" rel="tooltip"
                         title="주소검색 버튼을 눌러 예식장 주소를 입력해주세요">
-								
 							</td>
 							
 							
@@ -565,139 +542,146 @@
 						</tr>
 						
 						<tr>
-							<td  align="left">&nbsp;&nbsp;예식장&nbsp;: &nbsp; 
+							<td colspan="2" align="left">예식장명&nbsp;: &nbsp; 
 							</td>
-							
 							<td colspan="2">
 							<input type="text"
-							class="form-control input-sm" id="inputsm"
-								id="hallName" name="hallName" value="${cardVO.hallName}" rel="tooltip"
+							class="form-control input-sm"
+								id="hallName" name="hallName" maxlength="15" value="${cardVO.hallName}" rel="tooltip"
                         title="예식장 이름을 입력해주세요">
 							</td>
-							
-							
 						</tr>
 						
 						<tr>
-							<td align="left">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url&nbsp;:&nbsp;&nbsp;
+							<td colspan="2" align="left">예식장번호: &nbsp; 
+							</td>
+							<td colspan="2">
+							<input type="text"
+							class="form-control input-sm"
+								id="hallTel" name="hallTel" value="${cardVO.hallTel}" rel="tooltip"
+                        title="예식장  번호를 입력해주세요" onkeydown='return onlyNumber(event)'onkeyup='removeChar(event)'>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="left">
+						URL :
 							</td>
 							
 							<td colspan="2">
 								<input type="text" name="url" id="url"
-								class="form-control input-sm" id="inputsm"
+								class="form-control input-sm" rel="tooltip" title="청첩장 주소를 입력해주세요"
 									onkeyup="urlCheck()">
 							</td>
 					</tr>
 					
 					
 						<tr>
-							<td colspan="2" align="left" style="padding-top: 0; padding-left: 85px;">
+							<td colspan="5" align="left" style="padding-top: 0; padding-left: 85px;">
 							<span id="checkResult"></span>
 						</td>
 						</tr>
 
 						<tr>
-							<td colspan="2">
-								<div id="map"
-									style="width: 300px; height: 200px; margin-top: 5px; display: none">
-									<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-									<script
-										src="http://apis.daum.net/maps/maps3.js?apikey=e5bf529fb1433a428d71db4065ceda03&libraries=services"></script>
-									<script>
-										var mapContainer = document
-												.getElementById('map'), // 지도를 표시할 div
-										mapOption = {
-											center : new daum.maps.LatLng(
-													50.537187, 127.005476), // 지도의 중심좌표
-											level : 2
-										// 지도의 확대 레벨
-										};
+                     <td colspan="5">
+                        <div id="map"
+                           style="width: 300px; height: 200px; margin-top: 5px; display: none">
+                           <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+                           <script
+                              src="http://apis.daum.net/maps/maps3.js?apikey=e5bf529fb1433a428d71db4065ceda03&libraries=services"></script>
+                           <script>
+                              var mapContainer = document
+                                    .getElementById('map'), // 지도를 표시할 div
+                              mapOption = {
+                                 center : new daum.maps.LatLng(
+                                       50.537187, 127.005476), // 지도의 중심좌표
+                                 level : 2
+                              // 지도의 확대 레벨
+                              };
 
-										//지도를 미리 생성
-										var map = new daum.maps.Map(
-												mapContainer, mapOption);
-										//주소-좌표 변환 객체를 생성
-										var geocoder = new daum.maps.services.Geocoder();
-										//마커를 미리 생성
-										var marker = new daum.maps.Marker({
-											position : new daum.maps.LatLng(
-													37.537187, 127.005476),
-											map : map
-										});
+                              //지도를 미리 생성
+                              var map = new daum.maps.Map(
+                                    mapContainer, mapOption);
+                              //주소-좌표 변환 객체를 생성
+                              var geocoder = new daum.maps.services.Geocoder();
+                              //마커를 미리 생성
+                              var marker = new daum.maps.Marker({
+                                 position : new daum.maps.LatLng(
+                                       37.537187, 127.005476),
+                                 map : map
+                              });
 
-										function sample5_execDaumPostcode() {
-											new daum.Postcode({oncomplete : function(
-																data) {
-															// 각 주소의 노출 규칙에 따라 주소를 조합한다.
-															// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-															var fullAddr = data.address; // 최종 주소 변수
-															var extraAddr = ''; // 조합형 주소 변수
+                              function sample5_execDaumPostcode() {
+                                 new daum.Postcode({oncomplete : function(
+                                                data) {
+                                             // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                                             // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                                             var fullAddr = data.address; // 최종 주소 변수
+                                             var extraAddr = ''; // 조합형 주소 변수
 
-															// 기본 주소가 도로명 타입일때 조합한다.
-															if (data.addressType === 'R') {
-																//법정동명이 있을 경우 추가한다.
-																if (data.bname !== '') {
-																	extraAddr += data.bname;
-																}
-																// 건물명이 있을 경우 추가한다.
-																if (data.buildingName !== '') {
-																	extraAddr += (extraAddr !== '' ? ', '
-																			+ data.buildingName
-																			: data.buildingName);
-																}
-																// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-																fullAddr += (extraAddr !== '' ? ' ('
-																		+ extraAddr
-																		+ ')'
-																		: '');
-															}
+                                             // 기본 주소가 도로명 타입일때 조합한다.
+                                             if (data.addressType === 'R') {
+                                                //법정동명이 있을 경우 추가한다.
+                                                if (data.bname !== '') {
+                                                   extraAddr += data.bname;
+                                                }
+                                                // 건물명이 있을 경우 추가한다.
+                                                if (data.buildingName !== '') {
+                                                   extraAddr += (extraAddr !== '' ? ', '
+                                                         + data.buildingName
+                                                         : data.buildingName);
+                                                }
+                                                // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                                                fullAddr += (extraAddr !== '' ? ' ('
+                                                      + extraAddr
+                                                      + ')'
+                                                      : '');
+                                             }
 
-															// 주소 정보를 해당 필드에 넣는다.
-															document
-																	.getElementById("hallLocation").value = fullAddr;
-															// 주소로 좌표를 검색
-															geocoder.addr2coord(data.address,
-																			function(
-																					status,
-																					result) {
-																				// 정상적으로 검색이 완료됐으면
-																				if (status === daum.maps.services.Status.OK) {
-																					// 해당 주소에 대한 좌표를 받아서
-																					var coords = new daum.maps.LatLng(
-																							result.addr[0].lat,
-																							result.addr[0].lng);
-																					// 지도를 보여준다.
-																					mapContainer.style.display = "block";
-																					map
-																							.relayout();
-																					// 지도 중심을 변경한다.
-																					map
-																							.setCenter(coords);
-																					// 마커를 결과값으로 받은 위치로 옮긴다.
-																					marker.setPosition(coords)
-																						
-																					/* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
-																					//document.getElementById(frmWeddingCard).attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
-																						
-																				}
-																			});
-														}
-													}).open();
-										}
-									</script>
-								</div>
-							</td>
-						</tr>
-						<!-- map  -->
+                                             // 주소 정보를 해당 필드에 넣는다.
+                                             document
+                                                   .getElementById("hallLocation").value = fullAddr;
+                                             // 주소로 좌표를 검색
+                                             geocoder.addr2coord(data.address,
+                                                         function(
+                                                               status,
+                                                               result) {
+                                                            // 정상적으로 검색이 완료됐으면
+                                                            if (status === daum.maps.services.Status.OK) {
+                                                               // 해당 주소에 대한 좌표를 받아서
+                                                               var coords = new daum.maps.LatLng(
+                                                                     result.addr[0].lat,
+                                                                     result.addr[0].lng);
+                                                               // 지도를 보여준다.
+                                                               mapContainer.style.display = "block";
+                                                               map
+                                                                     .relayout();
+                                                               // 지도 중심을 변경한다.
+                                                               map
+                                                                     .setCenter(coords);
+                                                               // 마커를 결과값으로 받은 위치로 옮긴다.
+                                                               marker.setPosition(coords)
+                                                                  
+                                                               /* 왼쪽 미리보기 화면을 타겟으로 잡고 폼값을 submit */
+                                                               //document.getElementById(frmWeddingCard).attr('target','left_skin_preview').attr('action',"../weddingCard/preview_"+sel_template+"/preview.jsp").submit();
+                                                                  
+                                                            }
+                                                         });
+                                          }
+                                       }).open();
+                              }
+                           </script>
+                        </div>
+                     </td>
+                  </tr>
+                  <!-- map  -->
 					</table>
 				</div>
 			</div>
 			<!-- tabs-4 -->
 
 			<div>
-				<input style="background: #f96; width: 100%; height: 50px;"
-					type="button" value="초대장 생성" id="createCardBtn">
+				<input style="background: #f96; width: 100%; height: 50px; font-size: 20px;"
+					type="button" value="청첩장 만들기" id="createCardBtn">
 			</div>
 
 		</div>

@@ -293,10 +293,20 @@ function writeComment() {
 			success : function(jsonData) {
 
 				var commentList = jsonData.commentList;
-				//$('.guestBook').innerHTML = "123123213";
 
 				for (i = 0; i < 6; i++) {
 	               var cDate = commentList[i].writeDate.split(':');
+	               
+	              //줄 바꿈 문자를 기준으로 textarea 문자열을 분리
+	               var lines = commentList[i].content.split("\n");
+	               //내용을 HTML 버전으로 변경
+	               var resultString  = "<p>";
+	               for (var j = 0; j < lines.length; j++) {
+	                   resultString += lines[j] + "<br>";
+	               }
+	               resultString += "</p>"; 
+
+	               //alert(resultString);
 	               if(commentList[i].guest.indexOf('`MSL User`') != -1){//MSL 회원이 남긴 방명록
 	            	   +"&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"
                        /*  /* 이미지 부분 +"<img alt='' src='${initParam.root}url/img/logo_01.png' >"*/ 
@@ -306,7 +316,7 @@ function writeComment() {
 	                        +"<img alt='' width='40px' style='margin-right: 10%;' src='${initParam.root}url/img/logo_02.png' ><b>"
 	                        +commentList[i].guest.substring(10)+"</b></font><br>"
 	                        +"<font style='float:right;'>"+cDate[0]+":"+ cDate[1]+"</font></li>"
-	                        +"<li style='font-size: 15px; margin-top:20px;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
+	                        +"<li style='font-size: 15px; margin-top:20px;'><span class='user'></span><font>"+resultString+"</font></li>"
 	                        + "<p><li>&nbsp;&nbsp;</li>"
 	                        + "<li>&nbsp;&nbsp;</li>"+
 	                        "</ul></div>");
@@ -318,7 +328,7 @@ function writeComment() {
 	                        "<img alt='' width='40px' style='margin-right: 10%;' src='${initParam.root}url/img/p3.png' >"
 	                        +commentList[i].guest+"</font><br>"
 	                        +"<font style='float:right;'>"+cDate[0]+":"+ cDate[1]+"</font></li>"
-	                        +"<li style='font-size: 20px; margin-top:20px;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
+	                        +"<li style='font-size: 20px; margin-top:20px;'><span class='user'></span><font>"+resultString+"</font></li>"
 	                        + "<p><li>&nbsp;&nbsp;</li>"
 	                        + "<li>&nbsp;&nbsp;</li>"+
 	                        "</ul></div>");
@@ -428,11 +438,11 @@ function writeComment() {
 								<span>
 									<h3>${param.cardDate}</h3> 
 								</span><span>
-									<h3>${param.hour}:${param.min}
+									<h3>${param.hour}:${param.min} ${param.ampm}
 									</h3>
-								</span><span>
-									<h3>${param.ampm}</h3> 
-								</span>
+								<!-- </span><span>
+									<h3></h3> 
+								</span> -->
 							</div>
 						</div>
 					</div>
@@ -665,15 +675,16 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
     // // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
     Kakao.Link.createTalkLinkButton({
       container: '#kakao-link-btn',
-      label: '카카오링크 샘플에 오신 것을 환영합니다.',
+      label: '${param.groomName}♥${param.brideName}',
       image: {
-        src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
-        width: '60',
-        height: '60'
+        src: '${initParam.root}url/${param.url}/${param.imgSrc}',
+        width: '320',
+        height: '190'
       },
       webButton: {
-        text: '카카오 디벨로퍼스',
-        url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+        text: 'D-${param.dDay} ${param.cardDate} ${param.hour}:${param.min} ',
+       /*  url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다. */
+       url: 'http://mysweetlove.org/url/${param.url}.jsp'
       }
     });
   //]]>

@@ -61,4 +61,12 @@ public class CardDaoImpl implements CardDao {
 		
 	}
 
+	public String writerCheck(CardcommentVO comvo) throws SQLException {
+		return sqlSession.selectOne("cardSql.writerCheck", comvo);
+	}
+
+	public List<CardVO> getAllTemplateNoNullCards() throws SQLException {
+		return sqlSession.selectList("cardSql.getAllTemplateNoNullCards");
+	}
+
 }

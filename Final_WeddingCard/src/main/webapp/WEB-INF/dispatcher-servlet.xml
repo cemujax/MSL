@@ -52,6 +52,9 @@
   <bean id="cardDao" class="model.card.CardDaoImpl" p:sqlSession-ref="sqlSessionTemplate" />
   <bean id="cardService" class="model.card.CardServiceImpl" p:cardDao-ref="cardDao" />
 
+	<bean id="cardTemplateDao" class="model.card.CardTemplateDaoImpl" p:sqlSession-ref="sqlSessionTemplate" />
+  <bean id="cardTemplateService" class="model.card.CardTemplateServiceImpl" p:cardTemplateDao-ref="cardTemplateDao"/>
+
   <bean id="photoBookDao" class="model.photobook.PhotoBookDaoImpl" p:sqlSession-ref="sqlSessionTemplate"/>
   <bean id="photoBookService" class="model.photobook.PhotoBookServiceImpl" p:photoBookDao-ref="photoBookDao"/>
 
@@ -87,6 +90,7 @@
     <property name="methodNameResolver" ref="methodNameResolver"/>
     <property name="cardService" ref="cardService" />
     <property name="photoBookService" ref="photoBookService"/>
+    <property name="cardTemplateService" ref="cardTemplateService"/>
     <property name="path">
 	<!-- for windows -->
 	<value>../../MSL/Final_WeddingCard/src/main/webapp/url/</value>
@@ -136,6 +140,8 @@
   <bean name="/admin.do" class="controller.AdminController">
     <property name="methodNameResolver" ref="methodNameResolver"/>
   	<property name="adminService" ref="adminService"/>
+  	<property name="cardTemplateService" ref="cardTemplateService"/>
+  	<property name="cardService" ref="cardService"/>
   	<property name="path">
   		<!-- for windows -->
 		<value>../../MSL/Final_WeddingCard/src/main/webapp/</value>

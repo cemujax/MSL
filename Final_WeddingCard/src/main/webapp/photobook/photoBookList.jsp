@@ -11,8 +11,6 @@
     <link rel="stylesheet" type="text/css" href="${initParam.root }photobook/booklet/bootstrap_index.css">
 	<link rel="stylesheet" type="text/css" href="${initParam.root }photobook/booklet/bootstrap.min.css">
     <script type="text/javascript" src="${initParam.root}weddingCard/js/jquery-1.12.3.js"></script>
-    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
-<%-- <script type="text/javascript" src="${initParam.root}weddingCard/js/bootstrap.min.js"></script> --%>
 
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./css/pbresult.css">
@@ -22,6 +20,33 @@
     href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
     <link rel="stylesheet" type="text/css" 
     href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css">
+    
+    <script type="text/javascript">
+    	function myFunction(bookNo, fileName){
+    		
+  			var strArray= fileName.split('`');
+  			/* 
+  			$('#test'+bookNo).attr("src", "${initParam.root}img/photobook/${sessionScope.mvo.memberId}/"+bookNo+"/"+strArray[0]);
+  			 */
+  			 img1 = new Image;
+  			 img1.src = "${initParam.root}img/photobook/${sessionScope.mvo.memberId}/"+bookNo+"/"+strArray[0];
+  			 
+  			document.getElementById("test"+bookNo).src = img1.src;
+  			
+  			/* $('#test'+bookNo).trigger('onload'); */
+  		}  
+      
+      function modify_photoBook(index) {
+    	  $('#photoBookHref'+ index).attr("href", "photoBook.do?command=modifyView&&bookNo="+index);
+        	//location.href="photoBook.do?command=modifyView&&bookNo="+index;
+        }
+      function delete_photoBook(index) {
+      	if(confirm("해당 포토북을 삭제하시겠습니까?")) {
+      	  $('#photoBookHref'+ index).attr("href", "photoBook.do?command=delete&&bookNo="+ index);
+      		//location.href="photoBook.do?command=delete&&bookNo="+ index;
+      	}
+      }
+      </script>
   </head>
   
 <body style="background-color: #ffffd9;">
@@ -43,43 +68,19 @@
 	<c:forEach items="${pbList}" var="i" varStatus="vs">
 	  <li class="col-lg-3 col-sm-4 col-xs-6" >
 	    <a href="photoBook.do?command=detail&&no=${i.bookNo}" id="photoBookHref${i.bookNo }"><!-- src="http://www.freeiconspng.com/uploads/vector-book-icon-vector-graphic--creattor-7.jpg" -->
-              <img id="test${i.bookNo}" src="${initParam.root }img/nofile3.png" alt="Barca" class="img-responsive" height="130px" style="margin-top:0px;" onload="myFunction('${i.bookNo}', '${i.fileName}')" />
+              <img id="test${i.bookNo}" src="${initParam.root }img/nofile3.png" alt="Barca" class="img-responsive" height="130px" style="height: 180px; margin-top:0px;" onload="myFunction('${i.bookNo}', '${i.fileName}')" />
               <h2 style="font-family: 'Noto Sans KR', sans-serif; text-align: center;">${i.bookName}</h2>
              <!--  <span class="glyphicon glyphicon-share-alt"></span> -->
               <span class="duration">${vs.count}</span>
         <input type="button" value="수정" onclick="modify_photoBook(${i.bookNo})"
-              style="margin-left: 65%; background-color: white; border: 1px solid #89D06A; font-family: 'Noto Sans KR', sans-serif;">
+              style="margin-left: 65%; background-color: white; border: 1px solid #89D06A; font-family: 'Noto Sans KR', sans-serif;" required="required">
 	   		  <input type="button" value="삭제" onclick="delete_photoBook(${i.bookNo})"
-	   		  style="background-color: white; border: 1px solid #fed8ab; font-family: 'Noto Sans KR', sans-serif;">      
+	   		  style="background-color: white; border: 1px solid #fed8ab; font-family: 'Noto Sans KR', sans-serif;" required="required">      
 	    </a>
 	  </li>
 	</c:forEach>
       </ul>
       </div>
-      <script type="text/javascript">
-    	function myFunction(bookNo, fileName){
-    		//alert(fileName);
-  			/* $(this).attr("src", "http://image.flaticon.com/sprites/authors/1-freepik.png"); */
-    		
-  			var strArray= fileName.split('`');
-  			$('#test'+bookNo).attr("src", "${initParam.root}img/photobook/${sessionScope.mvo.memberId}/"+bookNo+"/"+strArray[0]);
-  			$('#test'+bookNo).trigger('onload');
-  		}  
-      $(function(){
-    	  /* var strArray= fileName.split('`');
-			$('#test${i.bookNo}').attr("src", "${initParam.root}img/photobook/${sessionScope.mvo.memberId}/"+bookNo+"/"+strArray[0]);
-			$('#test${i.bookNo}').trigger('onload'); */
-      });
-      function modify_photoBook(index) {
-    	  $('#photoBookHref'+ index).attr("href", "photoBook.do?command=modifyView&&bookNo="+index);
-        	//location.href="photoBook.do?command=modifyView&&bookNo="+index;
-        }
-      function delete_photoBook(index) {
-      	if(confirm("해당 포토북을 삭제하시겠습니까?")) {
-      	  $('#photoBookHref'+ index).attr("href", "photoBook.do?command=delete&&bookNo="+ index);
-      		//location.href="photoBook.do?command=delete&&bookNo="+ index;
-      	}
-      }
-      </script>
+      
   </body>
 </html>

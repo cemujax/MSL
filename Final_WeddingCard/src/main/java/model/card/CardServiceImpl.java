@@ -55,4 +55,12 @@ public class CardServiceImpl implements CardService {
 		cardDao.deleteCardCommentByOwner(comvo);
 		
 	}
+
+	public String writerCheck(CardcommentVO comvo) throws SQLException {
+		return cardDao.writerCheck(comvo);
+	}
+
+	public List<CardVO> getAllTemplateNoNullCards() throws SQLException {
+		return cardDao.getAllTemplateNoNullCards();
+	}
 }

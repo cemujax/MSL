@@ -66,7 +66,7 @@ input[type="password"] {font-family: Malgun Gothic !important; }
 .blind, legend {overflow:hidden; width:0!important; height:0!important; position:absolute; top:0; left:0; font-size:0!important; line-height:0!important; }
 
 .pLoader_outer {display:none;}
-.pLoader {position:fixed; top:0; left:0; bottom:0; right:0; background:#000 url(/css/img/ajax-loader.gif) no-repeat 50% 50%; opacity:0.2; z-index:99999999; box-sizing:border-box}
+.pLoader {position:fixed; top:0; left:0; bottom:0; right:0; background:#000 url(/css/images/ajax-loader.gif) no-repeat 50% 50%; opacity:0.2; z-index:99999999; box-sizing:border-box}
 
 .pLoader2_outer {display:none;}
 .pLoader2 {position:fixed; top:0; left:0; bottom:0; right:0; background:#000 url(/img/mypage/loader.gif) no-repeat 50% 50%; opacity:0.3; z-index:99999999; box-sizing:border-box}

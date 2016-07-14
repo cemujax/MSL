@@ -51,7 +51,20 @@
 <script src="js/bootstrap.js"></script>
 
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript">
 
+	$(document).ready(function() {
+	
+		
+	  //줄 바꿈 문자를 기준으로 textarea 문자열을 분리
+	 //alert('${param.cardContext}');
+	  
+     
+    // $('#cardContext').html('${param.cardContext}');
+     
+     
+	});
+</script>
 
 </head>
 <body>
@@ -110,9 +123,9 @@
       			<div class="about-head">
                   <h2>Party Invitation</h2>
                 </div>
-               
-		         <div style=" text-align: center; margin-top: 5%; height:150px;">
-		     		<b>${param.cardContext}</b>   
+		         <div style=" text-align: center; margin-top: 5%; height:150px;" id="cardContext">
+		         ${param.cardContext}
+		     		 
 		         </div>
          </div>
       </div>

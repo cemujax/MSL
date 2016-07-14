@@ -10,7 +10,6 @@
 
    <resultMap type="card" id="cardRM">
       <result property="cardNo" column="card_no" jdbcType="NUMERIC" />
-      <result property="template" column="template" jdbcType="VARCHAR" />
       <result property="cardDate" column="card_date" jdbcType="VARCHAR" />
       <result property="hallName" column="hall_name" jdbcType="VARCHAR" />
       <result property="hallLocation" column="hall_location"
@@ -23,12 +22,13 @@
       <result property="url" column="url" jdbcType="VARCHAR" />
       <result property="mainImage" column="main_image"/>
       <result property="cardContext" column="card_context" jdbcType="VARCHAR" />
+      <result property="cardTemplateVO.cardTemplateNo" column="cardTemplate_no" />
    </resultMap>
 
    <sql id="select-card">
-      SELECT card_no, template, card_date, hall_name,
+      SELECT card_no, card_date, hall_name,
       hall_location, hall_tel, groom_info
-      ,bride_info , member_id, book_no, url, main_image, card_context
+      ,bride_info , member_id, book_no, url, main_image, card_context,cardTemplate_no
       FROM
       card
    </sql>
@@ -41,8 +41,14 @@
    <select id="getAllCards" parameterType="string" resultMap="cardRM">
       <include refid="select-card" />
       WHERE member_id = #{value}
+      ORDER BY card_date
    </select>
 
+	 <select id="getAllTemplateNoNullCards"  resultMap="cardRM">
+      <include refid="select-card" />
+      WHERE cardTemplate_no Is NULL
+   </select>
+	
    <insert id="createCard" parameterType="card" >
    
       <selectKey keyProperty="cardNo" resultType="int" order="BEFORE">
@@ -50,25 +56,26 @@
       </selectKey>
 
       INSERT INTO
-      card(card_no, template, card_date, hall_name,
+      card(card_no, card_date, hall_name,
       hall_location, hall_tel, groom_info
-      ,bride_info , member_id, book_no, url,main_image, card_context)
-      VALUES(#{cardNo}, #{template}, TO_DATE(#{cardDate},'YYYY-MM-DD HH24:MI'),
+      ,bride_info , member_id, book_no, url,main_image, card_context, cardTemplate_no)
+      VALUES(#{cardNo}, TO_DATE(#{cardDate},'YYYY-MM-DD HH24:MI'),
       #{hallName}, #{hallLocation},
       #{hallTel}, #{groomInfo}, #{brideInfo},
       #{memberVO.memberId},
       #{photobookVO.bookNo},
-      #{url}, #{mainImage}, #{cardContext})
+      #{url}, #{mainImage}, #{cardContext}, #{cardTemplateVO.cardTemplateNo})
       <!--  -->
    </insert>
 
    <update id="modifyCard" parameterType="card">
       UPDATE card
-      SET template=#{template} ,card_date=TO_DATE(#{cardDate},'YYYY-MM-DD HH24:MI') , hall_name=#{hallName},
+      SET card_date=TO_DATE(#{cardDate},'YYYY-MM-DD HH24:MI') , hall_name=#{hallName},
       hall_location=#{hallLocation}, hall_tel=#{hallTel},
       groom_info=#{groomInfo}, bride_info=#{brideInfo},
       book_no=#{photobookVO.bookNo},
       main_image=#{mainImage}, card_context=#{cardContext}
+      , cardTemplate_no = #{cardTemplateVO.cardTemplateNo}
       WHERE url = #{url}
    </update>
 
@@ -114,12 +121,51 @@
       ORDER BY write_date DESC
    </select>
 
-   <select id="passwordCheck" parameterType="string" resultMap="cardCommentRM">
-      SELECT guest, password, content, write_date, card_no
+   <select id="writerCheck" parameterType="cardComment" resultType="string">
+      SELECT guest, password, content, write_date, card_no, cardComment_no
       FROM cardcomment
-      where password = #{password}
+      where guest = #{guest} and password = #{password}
+      and card_no = #{cardVO.cardNo}  and cardComment_no = #{cardCommentNo}
    </select>
 
    
-
+	<!-- ======================== cardTemplate=================================== -->
+   <resultMap type="cardTemplate" id="cardTemplateRM">
+       <result property="cardTemplateNo" column="cardTemplate_no" jdbcType="NUMERIC" />
+      <result property="templateName" column="template_name" jdbcType="VARCHAR" />
+      <result property="templateType" column="template_type" jdbcType="VARCHAR" />
+   </resultMap>
+   
+   <sql id="select-cardTemplate">
+      SELECT cardTemplate_no, template_name , template_type
+      FROM cardTemplate
+   </sql>
+   <select id="getCardTemplateByTemplateName" resultMap="cardTemplateRM" parameterType="string">
+      <include refid="select-cardTemplate" />
+      WHERE template_name=#{templateName}
+   </select>
+	
+	<select id="getCardTemplateByTemplateNo" resultMap="cardTemplateRM" parameterType="int">
+      <include refid="select-cardTemplate" />
+      WHERE cardTemplate_no=#{cardTemplateNo}
+   </select>
+   <select id="getAllCardTemplates" resultMap="cardTemplateRM">
+      <include refid="select-cardTemplate" />
+      order by cardTemplate_no asc
+   </select>
+   
+   <insert id="createCardTemplate" parameterType="cardTemplate">
+   	<selectKey keyProperty="cardTemplateNo" resultType="int" order="BEFORE">
+         SELECT cardTemplate_seq.nextVal FROM dual
+      </selectKey>
+      INSERT INTO
+      cardTemplate(cardTemplate_no, template_name , template_type)
+      VALUES(#{cardTemplateNo}, #{templateName}, #{templateType})
+   </insert>
+   
+    <delete id="deleteTemplate" parameterType="int">
+      DELETE FROM cardTemplate
+      WHERE
+      cardTemplate_no=#{value}
+   </delete>
 </mapper>   

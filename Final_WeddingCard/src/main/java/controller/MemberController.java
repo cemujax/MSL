@@ -63,7 +63,7 @@ public class MemberController extends MultiActionController{
 				   loc = "photoBook.do?command=list";
 			   
 			   else if(loc.equals("wdCard"))
-				   loc = "weddingCard/weddingCard.jsp";
+				   loc = "card.do?command=getAllCardTemplates";
 			   
 			   else if(loc.equals("wdCardList"))
 				   loc = "card.do?command=getAllCards";

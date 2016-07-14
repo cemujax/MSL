@@ -6,7 +6,7 @@
 <html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>초대장 보기</title>
+  <title>청첩장 관리</title>
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords"
@@ -157,7 +157,7 @@
    function linkQr(url){
 	   //alert(url);
 	   
-	   var height= 500;
+	   var height= 650;
 	   var width = 600;
 	   var sst = window.open('${initParam.root}weddingCard/linkQr.jsp?url='+url,'popwin',
 			   'top='+((screen.availHeight - height)/2 - 40) +', left='+(screen.availWidth - width)/2+', width='+width+', height='+height+', toolbar=no, directories=0, location=no, status=no, menubar=no, scrollbars=no, resizable=no');
@@ -231,7 +231,7 @@
 </head>
 <body>
   <c:if test="${sessionScope.mvo == NULL }">
-    <c:redirect url="../authentication/login.jsp?location=wdCardList"/>
+    <c:redirect url="${initParam.root}authentication/login.jsp?location=wdCardList"/>
   </c:if>
   
 <jsp:include page="weddingcardNav.jsp"></jsp:include>
@@ -291,15 +291,15 @@
 			        <td colspan="6" align="right" style="padding-right: 5%;">
 			          <input  type="button" class="btn btn-danger" value="삭제" id="deleteCard" >
 			          <input  type="button" class="btn btn-success" value="수정" id="modifyCard" >
-			          <input  type="button" class="btn btn-info" value="url 전송" id="sendUrl" onclick="sendUrl('${card.url}')">
+			          <input  type="button" class="btn btn-info" value="url 문자전송" id="sendUrl" onclick="sendUrl('${card.url}')">
 					</td>
 			      </tr>
 		      
 			   	<tr>
 			        <th width="5%" style="text-align: center;"><input type="checkbox" id="allCheck" name="allCheck" ></th>
 					<th width="15%" style="text-align: center;">QR 코드</th>
-			        <th width="15%" style="text-align: center;">초대장 주소</th>
-			        <th width="15%" style="text-align: center;">스킨타입</th>
+			        <th width="15%" style="text-align: center;">청첩장 주소</th>
+			        <th width="15%" style="text-align: center;">스킨 이미지</th>
 			        <th width="10%" style="text-align: center;">예식장</th>
 			        <th width="20%" style="text-align: center;">예식일</th>
 	      		</tr>
@@ -320,10 +320,18 @@
 		 		 </td>
 		 		 
 		          <td style="padding-top: 20px;">
-		            <a href="${initParam.root }url/${card.url}.jsp" style="color:#000;">${card.url}</a>          
+		            <a href="javascript:window.open('${initParam.root }url/${card.url}.jsp');" style="color:#000;">${card.url}</a>          
 		           </td>
-         		 <td style="padding-top: 20px;">
-         		 	${card.template}
+         		 <td style="">
+         		 	<c:if test="${card.cardTemplateVO == null}">
+         		 		<img src="${initParam.root }img/nofile3.png"
+         		 	 style="width: 100px; height: 50px; ">
+         		 	</c:if>
+         		 	<c:if test="${card.cardTemplateVO != null}">
+         		 		<img src="${initParam.root}weddingCard/preview_${card.cardTemplateVO.templateName}/img/thumbnail_${card.cardTemplateVO.templateName}.jpg"
+         		 	 style="width: 100px; height: 50px; ">
+         		 	</c:if>
+         		 	
          		 </td>
         	  <c:set var="cDate" value="${fn:split(card.cardDate, ':') }"/>
          		<td style="padding-top: 20px;">

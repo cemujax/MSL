@@ -205,7 +205,13 @@ html,body{height:100%;}
                     <span class="glyphicon glyphicon-user"></span>Sign Up</a></p><!-- #45CBBF -->
                 </c:when>
                   <c:otherwise>
-                  <p><a href="javascript:logout()" style="color:#fff; margin-right:15px;"><span class="glyphicon glyphicon-log-in"></span>Logout</a></p>
+                  <p>
+                  <c:if test="${sessionScope.mvo.memberId == 'pcp8282' }">
+                  	<a href="admin.do?command=getAllMembers"  style="color:#fff; margin-right:20px;">
+                  		 <span class="glyphicon glyphicon-wrench"></span>Admin
+                  	</a>
+                  </c:if>
+                  <a href="javascript:logout()" style="color:#fff; margin-right:15px;"><span class="glyphicon glyphicon-log-in"></span>Logout</a></p>
                   </c:otherwise>
                      </c:choose>
                      
@@ -238,12 +244,12 @@ html,body{height:100%;}
                   <nav class="link-effect-14" id="link-effect-14">
                      <ul class="nav navbar-nav">
                         <li class="active"><a href="index.jsp"><span>HOME</span></a></li>
-                           <li><a href="#"><span>메뉴얼</span></a></li>
+                           <li><a href="${initParam.root}service/menual.jsp"><span>메뉴얼</span></a></li>
                            
                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">청첩장<span class="caret"></span></a>
                              <ul class="dropdown-menu">
-                               <li><a href="weddingCard/weddingCard.jsp">청첩장만들기</a></li>
-                               <li><a href="./card.do?command=getAllCards">청첩장관리</a></li>
+                               <li><a href="./card.do?command=getAllCardTemplates">청첩장만들기</a></li>
+                               <li><a href="${initParam.root}card.do?command=getAllCards">청첩장관리</a></li>
                              </ul>
                            </li>
                            
@@ -377,12 +383,12 @@ html,body{height:100%;}
                     <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-google-plus fa-lg"></i></a>
                     <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-facebook-square fa-lg"></i></a>
                 </div>
-                    	<ul class="" style="text-align: right; font-size:14px;color: #fff;">
-							<li><span>(주)MSL</span><span>설립자: 황희, 박찬영, 이승현, 김진선, 조수연, 송지현</span>
-							<li><span>대표전화 : 010-6535-6597 </span><span>팩스 : 02-559-1001~3</span><span>고객센터 : heehkosta@gmail.com</span></li>
-							<li><span>경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 8층</span></li>
-			 					<li class="copy"><span>Copyright ©MSL  Co.,Ltd. All rights reserved.</span></li>
-						</ul>
+	                    	<ul class="" style="text-align: right; font-size:14px;color: #fff;">
+								<li><span>(주)MSL</span><span>설립자: 황희, 박찬영, 이승현, 김진선, 조수연, 송지현</span>
+								<li><span>대표전화 : 010-6535-6597 </span><span>팩스 : 02-559-1001~3</span><span>고객센터 : heehkosta@gmail.com</span></li>
+								<li><span>경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 8층</span></li>
+				 					<li class="copy"><span>Copyright ©MSL  Co.,Ltd. All rights reserved.</span></li>
+							</ul>
             </div>
             
         </footer>

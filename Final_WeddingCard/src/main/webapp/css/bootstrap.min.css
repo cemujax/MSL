@@ -2731,12 +2731,6 @@ table td[class*=col-], table th[class*=col-] {
 	overflow-x: auto
 }
 
-@media ( max-width: 360px ){
-	.h2, h2 {
-		font-size: 23px
-	}	
-}
-
 @media screen and (max-width:767px) {
 	.table-responsive {
 		width: 100%;
@@ -3811,11 +3805,11 @@ tbody.collapse.in {
 .dropdown-menu {
 	position: absolute;
 	top: 100%;
-	left: 13%;
+	left: 0;
 	z-index: 1000;
 	display: none;
 	float: left;
-	min-width: 10px;
+	min-width: 160px;
 	padding: 5px 0;
 	margin: 2px 0 0;
 	font-size: 17px;
@@ -3845,7 +3839,7 @@ tbody.collapse.in {
 
 .dropdown-menu>li>a {
 	display: block;
-	/* padding: 3px 20px; */
+	padding: 3px 20px;
 	clear: both;
 	font-weight: 400;
 	line-height: 1.42857143;
@@ -4743,8 +4737,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	.navbar-nav {
 		float: left;
 		margin: 0;
-		padding-top: 80px;
-		margin-left: 12%;
+		padding-top: 100px;
 	}
 	.navbar-nav>li {
 		float: left
@@ -6977,14 +6970,14 @@ button.close {
 }
 
 .carousel-control.left {
-	background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0,
+	/* background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0,
 		rgba(0, 0, 0, .0001) 100%);
 	background-image: -o-linear-gradient(left, rgba(0, 0, 0, .5) 0,
 		rgba(0, 0, 0, .0001) 100%);
 	background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)),
 		to(rgba(0, 0, 0, .0001)));
 	background-image: linear-gradient(to right, rgba(0, 0, 0, .5) 0,
-		rgba(0, 0, 0, .0001) 100%);
+		rgba(0, 0, 0, .0001) 100%); */
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000',
 		endColorstr='#00000000', GradientType=1);
 	background-repeat: repeat-x
@@ -6993,21 +6986,21 @@ button.close {
 .carousel-control.right {
 	right: 0;
 	left: auto;
-	background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0,
+	/* background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0,
 		rgba(0, 0, 0, .5) 100%);
 	background-image: -o-linear-gradient(left, rgba(0, 0, 0, .0001) 0,
 		rgba(0, 0, 0, .5) 100%);
 	background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)),
 		to(rgba(0, 0, 0, .5)));
 	background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0,
-		rgba(0, 0, 0, .5) 100%);
+		rgba(0, 0, 0, .5) 100%); */
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',
 		endColorstr='#80000000', GradientType=1);
 	background-repeat: repeat-x
 }
 
 .carousel-control:focus, .carousel-control:hover {
-	color: #fff;
+	color: #f79646;
 	text-decoration: none;
 	filter: alpha(opacity = 90);
 	outline: 0;
@@ -7071,7 +7064,7 @@ button.close {
 	cursor: pointer;
 	background-color: #000\9;
 	background-color: rgba(0, 0, 0, 0);
-	border: 1px solid #fff;
+	border: 1px solid rgba(0, 0, 0, 0.5);
 	border-radius: 10px
 }
 
@@ -7079,7 +7072,7 @@ button.close {
 	width: 12px;
 	height: 12px;
 	margin: 0;
-	background-color: #fff
+	background-color: #f79646;
 }
 
 .carousel-caption {
