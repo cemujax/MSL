@@ -282,16 +282,16 @@
 				<div class="col-xs-2 col-sm-2">
 					<h2>
 					<!-- For windows -->
-						<a
+						<%-- <a
 							href="http://localhost:8888/Final_WeddingCard/url/${param.url}.jsp">
 							<span class="glyphicon glyphicon-circle-arrow-left" id="back"></span>
-						</a>
+						</a> --%>
 						
 						<!-- For linux remote -->
-						<%-- <a
+						<a
 							href="http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp">
 							<span class="glyphicon glyphicon-circle-arrow-left" id="back"></span>
-						</a> --%>
+						</a>
 						
 					</h2>
 				</div>

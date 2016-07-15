@@ -2392,7 +2392,7 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
 			<!--// footer -->
 		</div>
 		
-		<script type='text/javascript'>
+<script type='text/javascript'>
   //<![CDATA[
     // // 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init('150642152529d54760872b2abd33da63');
@@ -2402,9 +2402,9 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
       container: '#kakao-link-btn',
       label: '${param.groomName}♥${param.brideName}',
       image: {
-        src: '${initParam.root}url/${param.url}/${param.imgSrc}',
-        width: '320',
-        height: '190'
+        src: 'http://cswiki.net/MSL/img/getting_married.jpg',
+        width: '1400',
+        height: '362'
       },
       webButton: {
         text: 'D-${param.dDay} ${param.cardDate} ${param.hour}:${param.min} ',
@@ -2414,7 +2414,6 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
     });
   //]]>
 </script>
-
 		<!-- <script>
 			(function(i, s, o, g, r, a, m) {
 				i['GoogleAnalyticsObject'] = r;
