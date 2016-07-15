@@ -73,7 +73,7 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티<span class="caret"></span></a>      
                      <ul class="dropdown-menu">      
                         <li><a href="${initParam.root}post.do?command=getAllAnoneQnAs">익명게시판</a></li>      
-                        <li><a href="${initParam.root}post.do?command=getAllQnAs">웨딩QnaA</a></li>      
+                        <li><a href="${initParam.root}post.do?command=getAllQnAs">웨딩QnA</a></li>      
                         <li><a href="${initParam.root}reviewComment.do?command=getAllReviewComments">칭찬해요</a></li>      
                      </ul>      
                 </li>   

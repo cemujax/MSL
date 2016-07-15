@@ -41,8 +41,13 @@ public class PhotoBookController extends MultiActionController {
 		for (int i=0; i< files.size(); i++) {
 			if(!files.get(i).isEmpty()) {
 				String fileName = files.get(i).getOriginalFilename();
-				String msg = ""+ cmt.get(i);
-
+				
+				String msg = "";
+	            if(cmt.get(i).length() == 0)
+	               msg = "EMPTY";
+	            else
+	               msg = cmt.get(i);
+	            
 				if (pbvo.getFileName() == null) {
 					pbvo.setFileName(fileName);
 					
@@ -112,7 +117,11 @@ public class PhotoBookController extends MultiActionController {
 			else 
 				fileName = files.get(i).getOriginalFilename();
 			
-			String msg = ""+ cmt.get(i);
+			String msg = "";
+            if(cmt.get(i).length() == 0)
+               msg = "EMPTY";
+            else
+               msg = cmt.get(i);
 			
 			if (pbvo.getFileName() == null) {
 				pbvo.setFileName(fileName);
@@ -129,7 +138,12 @@ public class PhotoBookController extends MultiActionController {
 		for (int i=oldList.length; i< files.size(); i++) {
 			if(!files.get(i).isEmpty()) {
 				String fileName = files.get(i).getOriginalFilename();
-				String msg = ""+ cmt.get(i);
+				
+				String msg = "";
+	            if(cmt.get(i).length() == 0)
+	               msg = "EMPTY";
+	            else
+	               msg = cmt.get(i);
 
 				if (pbvo.getFileName() == null) {
 					pbvo.setFileName(fileName);

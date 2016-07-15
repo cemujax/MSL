@@ -82,12 +82,16 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 </style>
 
 <script type="text/javascript" charset="utf-8">
- var xhr;
+/*  var xhr;
  function logout() {
      var f = confirm("로그아웃 하시겠습니까?");
      if (f)
 	 location.href = "member.do?command=logout"; //Controller에서 기능으로 연결..
 	}
+ $(function() {
+	 $("td:gt(0)").css("margin", "150px");
+ });
+  */
 </script>
 </head>
 <body>
@@ -107,8 +111,8 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 	<thead>
 	  <tr>
 	    <th class="not_mapped_style" style="text-align: center">제목</th>
-	    <th class="not_mapped_style" style="text-align: center">작성자</th>
-	    <th class="not_mapped_style" style="text-align: center">작성일</th>
+	    <th class="not_mapped_style" style="text-align: center; margin: 150px;">작성자</th>
+	    <th class="not_mapped_style" style="text-align: center; margin: 150px; ">작성일</th>
 	    </tr>
 	</thead>
 
@@ -123,8 +127,8 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						</b>
 					</a>
 				</td>
-				<td class="not_mapped_style" style="text-align: center"><b>관리자</b></td>
-				<td class="not_mapped_style" style="text-align: center">
+				<td class="not_mapped_style" style="text-align: center; margin: 150px;"><b>관리자</b></td>
+				<td class="not_mapped_style" style="text-align: center; margin: 150px;">
 					<c:set var="writeDate" value="${fn:split(post.writeDate, ' ') }" />
 					<c:set var="writeTime" value="${fn:split(writeDate[1], ':') }" />
 					${writeDate[0] } ${writeTime[0] }:${writeTime[1] }
@@ -135,14 +139,14 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 	<c:set value="0" var="i"/>
 	  <c:forEach items="${listVO.list}" var="post">
 	    <tr>
-	      <td class="not_mapped_style" style="text-align: left; padding-left: 130px">
+	      <td class="not_mapped_style" style="text-align: left; width:40%;">
 	      	<a href="${initParam.root }post.do?command=getAnoneQnA&&postNo=${post.postNo}&&page=${listVO.pagingBean.nowPage}">
 	      		${post.title} <font color="#FF8224">[${commentLength.get(i) }]</font>
 	      		<c:set value="${i+1 }" var="i"/>
 	      	</a>
 	      </td>
-	      <td class="not_mapped_style" style="text-align: center">익명</td>
-	      <td class="not_mapped_style" style="text-align: center">
+	      <td class="not_mapped_style" style="text-align: center; width:20%;">익명</td>
+	      <td class="not_mapped_style" style="text-align: center; width:40%;">
 			<c:set var="writeDate" value="${fn:split(post.writeDate, ' ') }"/>
 			<c:set var="writeTime" value="${fn:split(writeDate[1], ':') }"/>
 			${writeDate[0] } ${writeTime[0] }:${writeTime[1] }

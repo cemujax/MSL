@@ -451,7 +451,7 @@ public class CardController extends MultiActionController {
 
       String msg = "\n"+rvo.getName() + "님, 결혼을 축하합니다.\n청첩장 URL : "
             + "http://mysweetlove.org/Final_WeddingCard/url/" + url
-            + "jsp"; // 주소 나중에
+            + ".jsp"; // 주소 나중에
 
       Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 

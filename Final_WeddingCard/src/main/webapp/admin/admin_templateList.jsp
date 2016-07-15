@@ -114,9 +114,9 @@ function logout() {
 		      
 			   	<tr>
 					<th width="5%" style="text-align: center;">No</th>
-			        <th width="10%" style="text-align: center;">청첩장 이름</th>
-			        <th width="10%" style="text-align: center;">청첩장 이미지</th>
-			        <th width="10%" style="text-align: center;">청첩장 타입</th>
+			        <th width="10%" style="text-align: center;">템플릿 이름</th>
+			        <th width="10%" style="text-align: center;">템플릿 이미지</th>
+			        <th width="10%" style="text-align: center;">템플릿 타입</th>
 			        <th width="5%" style="text-align: center;">관리</th>
 	      		</tr>
 			</thead>

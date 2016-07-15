@@ -43,7 +43,11 @@ public class PhotoBookServiceImpl implements PhotoBookService{
 			String[] str = new String[2];
 			
 			str[0] = urlArr[i];
-			str[1] = comArr[i];
+			
+			if(comArr[i].equals("EMPTY"))
+	            str[1] = "";
+	         else
+	            str[1] = comArr[i];
 			
 			list.add(str);
 	

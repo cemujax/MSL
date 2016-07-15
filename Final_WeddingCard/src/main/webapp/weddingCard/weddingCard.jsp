@@ -553,7 +553,7 @@ border: 1px solid #e1e1e1;" id="sendBride">
 						</tr>
 						
 						<tr>
-							<td colspan="2" align="left">예식장번호: &nbsp; 
+							<td colspan="2" align="left">예식장Tel:
 							</td>
 							<td colspan="2">
 							<input type="text"
@@ -582,9 +582,9 @@ border: 1px solid #e1e1e1;" id="sendBride">
 						</tr>
 
 						<tr>
-                     <td colspan="5">
+                     <td colspan="6">
                         <div id="map"
-                           style="width: 300px; height: 200px; margin-top: 5px; display: none">
+                           style="width: 300px; height: 200px; margin-top: 5px; display: none;margin-left: 10%;">
                            <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
                            <script
                               src="http://apis.daum.net/maps/maps3.js?apikey=e5bf529fb1433a428d71db4065ceda03&libraries=services"></script>

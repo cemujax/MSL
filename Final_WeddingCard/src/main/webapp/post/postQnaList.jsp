@@ -86,7 +86,7 @@
 					<tbody>
 						<c:forEach items="${requestScope.adminList}" var="post">
 							<tr class="admin-tr">
-								<td class="not_mapped_style " style="text-align: left; padding-left: 130px">
+								<td class="not_mapped_style " style="text-align: left; ">
 									<a href="${initParam.root }post.do?command=getQnA&&postNo=${post.postNo}&&page=${listVO.pagingBean.nowPage}">
 										<b>
 											<font color="#FFBB00"><i class="fa fa-bullhorn" aria-hidden="true"></i></font>
@@ -106,13 +106,13 @@
 						<c:set value="0" var="i"/>
 						<c:forEach items="${listVO.list}" var="post">
 							<tr>
-								<td class="not_mapped_style" style="text-align: left; padding-left: 130px">
+								<td class="not_mapped_style" style="text-align: left; width:40%;">
 									<a href="${initParam.root }post.do?command=getQnA&&postNo=${post.postNo}&&page=${listVO.pagingBean.nowPage}">
 										${post.title} <font color="#FF8224">[${commentLength.get(i) }]</font>
 	      								<c:set value="${i+1 }" var="i"/>
 									</a></td>
-								<td class="not_mapped_style" style="text-align: center">${post.memberVO.name}</td>
-								<td class="not_mapped_style" style="text-align: center">
+								<td class="not_mapped_style" style="text-align: center; width:20%;">${post.memberVO.name}</td>
+								<td class="not_mapped_style" style="text-align: center;width:40%;">
 									<c:set var="writeDate" value="${fn:split(post.writeDate, ' ') }" />
 									<c:set var="writeTime" value="${fn:split(writeDate[1], ':') }" />
 									${writeDate[0] } ${writeTime[0] }:${writeTime[1] }</td>

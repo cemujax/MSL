@@ -120,7 +120,7 @@
 	   location.href = "member.do?command=logout"; //Controller에서 기능으로 연결..
    }
    
-   
+   /* 
    function sendUrl(url){
        
        var no = document.getElementsByName("cardNo");
@@ -143,7 +143,7 @@
 	   }
        }
        
-   }//sendUrl
+   }//sendUrl */
    
    function Callback() {
        if (xhr.readyState == 4) {
@@ -223,7 +223,41 @@
 	       }
 	   }
 	   
+       });//
+       
+       $('#sendUrl').click(function(){
+           var no = $('input[name=cardNo]:checked');
+           
+           if(no.length == 1){
+               var cardNo = ""; var url = "";
+               
+               no.each(function(index){
+              var datas = $(this).val().split("`");
+              cardNo += datas[0];
+              url += datas[1];
+              
+               });
+               if(confirm("폰번호 "+ '${mvo.phoneNumber}'+"로 url을 전송하시겠습니까?")){
+                  $.ajax({
+                         url: "${initParam.root}card.do",
+                         data: "command=sendUrl&&url="+url,
+                         dataType: 'text',
+                         type: 'POST',
+                         
+                         success: function (response) {
+                            alert("성공적으로 전송했습니다.");
+                         },//success
+                        
+                       });
+               } 
+           }
+           else{
+               alert("하나만 선택해주세요!   ");
+           }
        });
+       
+       
+       
    });
   </script>
 
@@ -291,7 +325,7 @@
 			        <td colspan="6" align="right" style="padding-right: 5%;">
 			          <input  type="button" class="btn btn-danger" value="삭제" id="deleteCard" >
 			          <input  type="button" class="btn btn-success" value="수정" id="modifyCard" >
-			          <input  type="button" class="btn btn-info" value="url 문자전송" id="sendUrl" onclick="sendUrl('${card.url}')">
+			          <input  type="button" class="btn btn-info" value="url 문자전송" id="sendUrl">
 					</td>
 			      </tr>
 		      

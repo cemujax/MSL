@@ -1130,7 +1130,7 @@ margin: 0px
 
 
 /* 320 */
-@media( max-width: 320px ){
+@media( min-width: 0px ) and ( max-width: 320px ){
 .add_li{
 	width: 230px;
 	}
@@ -1470,7 +1470,7 @@ margin: 0px
 	    background-size: 100% auto;
 	}
 	.col-md-4, .album-post img {
-		width: 300px;
+		width: 245px;
 	}
 	.dday_text .time span:first-child {
 	    padding: 0 2px 0 0;
@@ -1550,12 +1550,15 @@ margin: 0px
 
 
 /* 411px nexus5X  */
-@media( max-width: 411px ){
+@media( min-width: 0px ) and ( max-width: 411px ){
+.header_img_select {
+    min-height: 600px;
+}
 	
 } /* // 411px nexus5X */
 
 /* 375px 아이폰6 plus 황희 */
-@media( max-width: 414px ){
+@media( min-width: 0px ) and ( max-width: 414px ){
 	/* .header_img_select {
     background: url(/Final_WeddingCard/url/test_Pink9/romantic_main1.jpg) center center / cover no-repeat;
     min-height: 736px;
@@ -1587,6 +1590,103 @@ margin: 0px
     font-family: 'Cookie', cursive;
     line-height: 1;
 	} */
+	
+	 .header_content {
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/header_flower.png) no-repeat;
+       background-position: 50% 50%;
+       background-size: auto 350px;
+       height : 400px;
+   }
+
+   .header {
+      height:1000px;
+   }
+
+   .header_img_select {
+       min-height: 700px;
+   }
+
+   .header_content_select {
+       height: 800px;
+   }
+
+   .header_panel a .icon {
+       display: block;
+       margin: 0 auto 0;
+       padding: 0;
+       width: 55px;
+       height: 33px;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/pannel_icon.png) no-repeat;
+       background-size: 110px auto;
+   }
+
+   .greeting_wrap h2.title {
+       position: absolute;
+       left: 50%;
+       margin: 0 0 0 -150px;
+       width: 300px;
+       height: 105px;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/tit_greeting.png) no-repeat 50% 0;
+       background-size: 100%;
+   }
+
+   .gallery_wrap h2.title {
+       position: relative;
+       margin: 0 auto 30px;
+       width: 320px;
+       height: 70px;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/tit_gallery.png) no-repeat 50% 0;
+       background-size: 100%;
+   }
+
+   .col-md-4.album-post {
+    margin-left: 75px;
+   }
+
+   .dday_wrap {
+       position: relative;
+       padding: 100px 0;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_dday.jpg) no-repeat 50% 50%;
+       background-size: cover;
+       text-align: center;
+       z-index: 1;
+   }
+
+   .dday_title {
+       display: inline-block;
+       width: 320px;
+       height: 100px;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/txt_savethedate.png) no-repeat 50% 60%;
+       background-size: auto 55px;
+       font-size: 0;
+       line-height: 0;
+       text-indent: -999px;
+       vertical-align: top;
+   }
+
+   .guestbook_wrap {
+       position: relative;
+       padding: 120px 40px;
+       overflow: hidden;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_guestbooktop.jpg) no-repeat 50% 0,url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_guestbookbottom.jpg) no-repeat 50% 100%,#fff;
+   }
+
+   .location_wrap {
+       position: relative;
+       padding: 120px 0 0;
+       overflow: hidden;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/img_guestbook.jpg) no-repeat 50% 0,url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_gallery.png) repeat;
+       background-size: auto 580px,auto;
+   }
+
+   .lo_tab_wrap .on {
+       background: rgba(6,150,137,0.8) url(/Final_WeddingCard/weddingCard/preview_Romantic/img/ico_pin.png) no-repeat 20px 50%;
+       background-size: 16px;
+       padding-left: 20px;
+       color: #fff;
+   }
+	
+	
 } /* //375px 아이폰6 plus */
 
 
@@ -1598,8 +1698,8 @@ margin: 0px
 
 
 /* 360px 갤럭시 5 이승현 */
-@media( max-width: 360px ){
-  .header_panel a .icon {
+@media( min-width: 0px ) and ( max-width : 360px ){
+   .header_panel a .icon {
        display: block;
        margin: 0 auto 0;
        padding: 0;
@@ -1690,20 +1790,41 @@ margin: 0px
        margin-right: 10px;
        float: left;
    }
-
-
-
-}/* // 이승현 */
-
-/* 435px nexus6P 김진선 */
-@media( min-width: 0px ) and ( max-width: 435px ){
-h2.title span {
+   
+   .greeting_img_select>img{
+   position: relative;
+    display: inline-block;
+    max-width: 90%;
+    max-height: 500px;
+    border: 15px solid rgba(255,255,255,0.8);
+    border-bottom: 0;
+    min-height: 500px;
+    margin: 30px 0px 0px 15px;
+   }
+   h2.title span {
     font-size: 3.2em;
-    line-height: 1;
+    line-height: 5;
     color: #fff;
     font-family: 'Cookie', cursive;
 }
+   
+}       
 
+
+
+/* 435px nexus6P 김진선 */
+@media( min-width: 400px ) and ( max-width: 435px ){
+
+.col-md-4, .album-post img {
+    width: 290px;
+}
+
+h2.title span {
+    font-size: 3.2em;
+    line-height: 5;
+    color: #fff;
+    font-family: 'Cookie', cursive;
+}
    
    img.add_be {
        margin-left: 20px;
@@ -1731,7 +1852,7 @@ h2.title span {
     max-height: 400px;
     border: 15px solid rgba(255,255,255,0.8);
     border-bottom: 0;
-    min-height: 600px;
+    min-height: 500px;
     margin: 30px 0px 0px 30px;
 }
    .header {
@@ -1835,114 +1956,98 @@ h2.title span {
 } /* // 김진선 */
 
 /* 375px 아이폰6 송지현 */
-@media( max-width: 375px ){
-	  div.header_img_select{
-      min-height: 500px;
+@media( min-width: 0px ) and ( max-width: 375px ){
+	  .header_panel a .icon {
+       display: block;
+       margin: 0 auto 0;
+       padding: 0;
+       width: 55px;
+       height: 33px;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/pannel_icon.png) no-repeat;
+       background-size: 110px auto;
    }
-   div.header_content_select{
-      top: 300px;
-   }
-   div.header ui-section-a{
-   max-height: 600px;
-   }
-   .header_panel a .icon {
-    display: block;
-    margin: 0 auto 0;
-    padding: 0;
-    width: 55px;
-    height: 33px;
-    background: url(${initParam.root}weddingCard/preview_Romantic/img/pannel_icon.png) no-repeat;
-    background-size: 110px auto;
-   }
-   div.header_panel{
-    top: -90px;
-   }
-   .header {
-       min-height: 700px;
-       height: 700px;
-   }
-   div.greeting_img_select.img{
-      margin-left: 30px;
-       width: 320px;
-   }
-   .greeting_img_select>img {
-    position: relative;
-    display: inline-block;
-    max-width: 100%;
-    max-height: 600px;
-    border: 15px solid rgba(255,255,255,0.8);
-    border-bottom: 0;
-    min-height: 450px;
-    margin: 30px 0px 0px 250px;
-        margin-left: 30px;
-    width: 300px;
-}
-}
-   .gallery_wrap+.dday_wrap:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background: url(${initParam.root}weddingCard/preview_Romantic/img/bg_roundbottom_green.png) no-repeat 50% 0;
-    background-size: 100% auto;
-    content: '';
-   }
-   .dday_wrap {
-    position: relative;
-    padding: 100px 0;
-    background: url(${initParam.root}weddingCard/preview_Romantic/img/bg_dday.jpg) no-repeat 50% 50%;
-    background-size: cover;
-    text-align: center;
-    z-index: 1;
-}
-   .dday_title{
-   display: inline-block;
-   width: 320px;
-   height: 100px;
-   background: url(${initParam.root}weddingCard/preview_Romantic/img/txt_savethedate.png) no-repeat 50% 60%;
-   background-size: auto 55px;
-   font-size: 0;
-   line-height: 0;
-   text-indent: -999px;
-   vertical-align: top;
-   padding-top: 50px;
-   }
+
    .gallery_wrap h2.title {
-   position: relative;
-   margin: 0 auto 30px;
-   width: 320px;
-   height: 70px;
-   background: url(${initParam.root}weddingCard/preview_Romantic/img/tit_gallery.png) no-repeat 50% 0;
-   background-size: 100%
+       position: relative;
+       margin: 0 auto 30px;
+       width: 320px;
+       height: 70px;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/tit_gallery.png) no-repeat 50% 0;
+       background-size: 100%;
    }
-   img, fieldset {
-    border: 0;
-    margin-left: 40px;
+   
+   .dday_title {
+       display: inline-block;
+       width: 320px;
+       height: 100px;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/txt_savethedate.png) no-repeat 50% 60%;
+       background-size: auto 55px;
+       font-size: 0;
+       line-height: 0;
+       text-indent: -999px;
+       vertical-align: top;
    }
+   
+   .dday_wrap {
+       position: relative;
+       padding: 100px 0;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_dday.jpg) no-repeat 50% 50%;
+       background-size: cover;
+       text-align: center;
+       z-index: 1;
+   }
+   
    .guestbook_wrap {
-    position: relative;
-    padding: 120px 40px;
-    overflow: hidden;
-    background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_guestbooktop.jpg) no-repeat 50% 0, url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_guestbookbottom.jpg) no-repeat 50% 100%,#fff;
+       position: relative;
+       padding: 120px 40px;
+       overflow: hidden;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_guestbooktop.jpg) no-repeat 50% 0,url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_guestbookbottom.jpg) no-repeat 50% 100%,#fff;
    }
+   
    .location_wrap {
-    position: relative;
-    overflow: hidden;
-    background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/img_guestbook.jpg) no-repeat 50% 0,url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_gallery.png) repeat;
-    background-size: auto 580px,auto;
+       position: relative;
+       padding: 120px 0 0;
+       overflow: hidden;
+       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/img_guestbook.jpg) no-repeat 50% 0,url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_gallery.png) repeat;
+       background-size: auto 580px,auto;
    }
+   
    .lo_tab_wrap .on {
-    background: rgba(6, 150, 137, 0.8) url(/Final_WeddingCard/weddingCard/preview_Romantic/img/ico_pin.png) no-repeat 10px 50%;
-    background-size: 16px;
-    color: #fff;
-    background-position: 9% 50%;
-    padding-left: 16px;
+       background: rgba(6,150,137,0.8) url(/Final_WeddingCard/weddingCard/preview_Romantic/img/ico_pin.png) no-repeat 20px 50%;
+       background-size: 16px;
+       padding-left: 20px;
+       color: #fff;
    }
-   .add_lo {
-    border: 0;
-    margin-left: 10px;
-}
+   
+   .col-md-4.album-post {
+      margin-left: 30px;
+   }
+   
+   .header {
+      height:1000px;
+   }
+   
+   .header_img_select {
+       min-height: 700px;
+   }
+   
+   .header_content_select {
+       height: 800px;
+   }
+   
+   img.add_be {
+       margin-left: 20px;
+       margin-top: 5px;
+       margin-right: 10px;
+       float: left;
+   }
+   
+   img.add_lo {
+       margin-left: 20px;
+       margin-top: 5px;
+       margin-right: 10px;
+       float: left;
+   }
 	
 } /* // 송지현 */
 
@@ -2349,8 +2454,8 @@ h2.title span {
 									<tr>
 										<th class="lo_tel"><span class="icon">Tel</span></th>
 										<td class="txt">${fn:substring(param.hallTel, 0, 3)}-${fn:substring(param.hallTel, 3, 6)}
-										-${fn:substring(param.hallTel, 6, 10)}
-										</td>
+                              -${fn:substring(param.hallTel, 6, 10)}
+                              </td>
 									</tr>
 								</table>
 							</div>
@@ -2392,7 +2497,7 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
 			<!--// footer -->
 		</div>
 		
-<script type='text/javascript'>
+		<script type='text/javascript'>
   //<![CDATA[
     // // 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init('150642152529d54760872b2abd33da63');
@@ -2402,9 +2507,9 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
       container: '#kakao-link-btn',
       label: '${param.groomName}♥${param.brideName}',
       image: {
-        src: 'http://cswiki.net/MSL/img/getting_married.jpg',
-        width: '1400',
-        height: '362'
+        src: '${initParam.root}url/${param.url}/${param.imgSrc}',
+        width: '320',
+        height: '190'
       },
       webButton: {
         text: 'D-${param.dDay} ${param.cardDate} ${param.hour}:${param.min} ',
@@ -2414,6 +2519,7 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
     });
   //]]>
 </script>
+
 		<!-- <script>
 			(function(i, s, o, g, r, a, m) {
 				i['GoogleAnalyticsObject'] = r;

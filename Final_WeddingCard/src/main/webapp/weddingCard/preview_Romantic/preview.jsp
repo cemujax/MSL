@@ -38,93 +38,35 @@ media="screen and (max-width:639px)"> -->
 
 <script src="js/jquery.swipebox_Romantic.js"></script>
 
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<!-- <script src="js/kakao.min.js"></script> -->
 
 <script src="js/jquery.scrollTo.min_Romantic.js"></script>
-<!-- 방명록 -->
+
 <script type="text/javascript">
 function setPosition(id){
-	   //var $obj = $('#sk_'+id);
-	   // console.log(id);
-
-	   //window.scrollTo($obj, 500);
 	   $('html, body').animate({
 	       scrollTop: $("#sk_"+ id).offset().top
 	   }, 1000);
 	}
-/* 	
-function writeComment() {
-   location.href = "${initParam.root}card.do?command=linkGuestBook&&url=temp_${mvo.memberId}";
-} */
-   $(document).ready(function() {
+	$(document).ready(function() {
 	   $('.menu_scrolls').click(function(){
-		      try{
-		         if($(this).attr('id')){
+	      try{
+	         if($(this).attr('id')){
 
 
-		         //   var id = $(this).attr('id').replace('p_','').replace('m_','');
-		         var id = $(this).attr('id').replace('p_','').replace('m_','');
+	         //   var id = $(this).attr('id').replace('p_','').replace('m_','');
+	         var id = $(this).attr('id').replace('p_','').replace('m_','');
 
-		            //console.log(id);
+	            //console.log(id);
 
-		            setPosition(id);
-		         }
-		      }catch(e){
-		         //console.log(e);
-		      }
-		   }).css('cursor','pointer');
-
-	   
-	 /*   
-      $.ajax({
-         type : "get",
-         url : "../card.do",
-         data : "command=getAllCardComments&&cardNo=" + '${param.cardNo}',
-         dataType : "json",
-
-         success : function(jsonData) {
-
-            var commentList = jsonData.commentList;
-            //$('.guestBook').innerHTML = "123123213";
-
-            for (i = 0; i < 6; i++) {
-                  var cDate = commentList[i].writeDate.split(':');
-                  if(commentList[i].guest.indexOf('`MSL User`') != -1){//MSL 회원이 남긴 방명록
-                     +"&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"
-                     $('.guestbook_add').append(
-                             "<div class='pricingtable pricing_free add' ><ul class='pricing_iconlist iconset_free'>"
-                             +"<li class='add_li' style='height: 50px;background-color:#ff6250; font-size:20px;'><font style='color: black;font-size: 16px;'>"
-                             +"<img alt='' class='add_lo' width='40px' src='${initParam.root}url/img/logo_02.png' ><b>"
-                             +commentList[i].guest.substring(10)+"</b></font><br>"
-                             +"<font style='float:right;font-size:13px;margin-right: 5%;'>"+cDate[0]+":"+ cDate[1]+"</font></li>"
-                             +"<li style='font-size: 15px; margin-top:20px;margin-left: 5%;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
-                             + "<p><li>&nbsp;&nbsp;</li>"
-                             + "<li>&nbsp;&nbsp;</li>"+
-                             "</ul></div>");
-                    }
-                    else{//비로그인 방명록
-                        
-                       $('.guestbook_add').append(
-                    		   "<div class='pricingtable pricing_free add' ><ul class='pricing_iconlist iconset_free'>"
-                               +"<li class='add_li' style='height: 50px;background-color:#ff6250; font-size:20px;'><font style='color: black;font-size: 16px;color: #444;'>"
-                               +"<img class='add_be' alt='' width='40px' ' src='${initParam.root}url/img/p3.png' ><b>"
-                               +commentList[i].guest+"</b></font><br>"
-                               +"<font style='float:right;font-size:13px;margin-right: 5%;'>"+cDate[0]+":"+ cDate[1]+"</font></li>"
-                               +"<li style='font-size: 15px; margin-top:20px;margin-left: 5%;'><span class='user'></span><font>"+commentList[i].content+"</font></li>"
-                               + "<p><li>&nbsp;&nbsp;</li>"
-                               + "<li>&nbsp;&nbsp;</li>"+
-                               "</ul></div>");
-                    }
-               
-               }//for
-         
-         }//success
-      });//ajax */
-   
-   });//ready
+	            setPosition(id);
+	         }
+	      }catch(e){
+	         //console.log(e);
+	      }
+	   }).css('cursor','pointer');
+	});
 </script>
-<!-- //방명록 -->
-
 
 <style type="text/css">
 
@@ -156,7 +98,7 @@ function writeComment() {
 .ui-panel-inner {
 	position: absolute;
 	top: 1px;
-	left: 0px; 
+	left: 65px;
 	right: 0;
 	bottom: 0px;
 	-webkit-overflow-scrolling: touch;
@@ -302,7 +244,7 @@ function writeComment() {
 	}
 	
 .header_img_select {
-  background: url(${initParam.root}url/temp_temp_${mvo.memberId}/${param.imgSrc}) center center / cover no-repeat;
+  background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}) center center / cover no-repeat;
 min-height: 944px;
 		}
 		.header_date_select {
@@ -320,8 +262,8 @@ min-height: 944px;
     font-family: 'Cookie', cursive;
     line-height: 1;
 }
-/* .greeting_img_select {
-    background: url(${initParam.root}url/temp_${mvo.memberId}/${param.imgSrc}) center center no-repeat;
+.greeting_img_select {
+    background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}) center center no-repeat;
     background-size: cover;
     top: -90px;
    
@@ -333,7 +275,7 @@ min-height: 944px;
     display: inline-block;
     max-width: 100%;
     min-height: 200px;
-} */
+}
 
  .greeting_img_select h2.title {
     position: absolute;
@@ -371,29 +313,9 @@ min-height: 944px;
 		background: url('${initParam.root}weddingCard/preview_Romantic/img/1e1e02198d6c5fa2065aedb76e979025.JPG') center center no-repeat;
    		background-size: cover;
 	}
-	.greeting_img_select>img {
-    position: relative;
-    display: inline-block;
-    max-width: 100%;
-    max-height: 600px;
-    border: 15px solid rgba(255,255,255,0.8);
-    border-bottom: 0;
-        min-height: 600px;
-            margin: 30px 0px 0px 250px;
-}
 	
 
 @media screen and (max-width: 1010px) {
-.greeting_img_select>img {
-    position: relative;
-    display: inline-block;
-    max-width: 100%;
-    max-height: 600px;
-    border: 15px solid rgba(255,255,255,0.8);
-    border-bottom: 0;
-        min-height: 600px;
-            margin: 30px 0px 0px 250px;
-}
 .greeting_wrap_select h2.title {
 		position: absolute;
 		top: -90px;
@@ -410,7 +332,7 @@ min-height: 944px;
 	}
 	
 .header_img_select {
-  background: url(${initParam.root}url/temp_${mvo.memberId}/${param.imgSrc}) center center / cover no-repeat;
+  background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}) center center / cover no-repeat;
 min-height: 944px;
 		}
 		.header_date_select {
@@ -429,7 +351,7 @@ min-height: 944px;
     line-height: 1;
 }
 .greeting_img_select {
-    background: url(${initParam.root}url/temp_${mvo.memberId}/${param.imgSrc}) center center no-repeat;
+    background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}) center center no-repeat;
     background-size: cover;
     top: -90px;
 }
@@ -518,16 +440,6 @@ min-height: 944px;
 }
 
 @media screen and (max-width: 820px) {
-.greeting_img_select>img {
-    position: relative;
-    display: inline-block;
-    max-width: 100%;
-    max-height: 600px;
-    border: 15px solid rgba(255,255,255,0.8);
-    border-bottom: 0;
-        min-height: 600px;
-            margin: 30px 0px 0px 250px;
-}
 .contents {
     position: relative;
     max-width: 1024px;
@@ -676,23 +588,9 @@ min-height: 944px;
 
 
 @media all and (min-width: 1024px) {
-/* 추가 */
-.add{
-margin-left:2%; margin-top:50px;width: 250px;height: 200px;float: left; background-color:#f9a096;
-}
-
 pre{
 
 }
-
-.snsbbs_sections:first-child .gb_cont_box {
-    background-color: #fff;
-    color: #fff;
-    border-color: #fff;
-    width: 830px;
-    float: left;
-}
-
 .greeting_text {
     position: relative;
     width: 90%;
@@ -708,13 +606,7 @@ pre{
     word-break: break-word;
     box-sizing: border-box;
 }
-/* .greeting_wrap_select {
-    /* min-height: auto!important; 
-    min-height: 667px;
-    position: relative;
-    background: #eee url(${initParam.root}weddingCard/preview_Romantic/img/bg_greeting.png) repeat 0 0;
-font-family: AppleSDGothicNeo-Regular,Droid sans,'NanumGothic','돋움',Dotum,Helvetica,sans-serif;
-} */
+
 .ui-panel-inner {
     position: absolute;
     top: 1px;
@@ -936,19 +828,6 @@ img, fieldset {
 	text-indent: -9999px
 	}
 	
-	.gb_msg span {
-    display: block;
-    width: 270px;
-    height: 18px;
-    margin: 0 auto;
-    background: url(${initParam.root}weddingCard/preview_Romantic/img/txt_guestbook.png) no-repeat 50% 0;
-    background-size: 100%;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;
-}
-	
-	
 	.groom-wrap ul, .bride-wrap ul{
 		width: 400px;
 	}
@@ -971,7 +850,7 @@ img, fieldset {
 	}
 	
 .header_img_select {
-  background: url(${initParam.root}url/temp_${mvo.memberId}/${param.imgSrc}) center center / cover no-repeat;
+  background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}) center center / cover no-repeat;
 			
 min-height: 944px;
 		}
@@ -979,8 +858,7 @@ min-height: 944px;
   position: absolute;
     width: 220px;
     height: 220px;
-   /*  top: 50%; */
-    top: 35%;
+    top: 50%;
     left: 50%;
     margin: -110px 0 0 -110px;
     padding: 75px 0 0;
@@ -992,28 +870,43 @@ min-height: 944px;
     line-height: 1;
 }
 .greeting_img_select {
-    background: url(${initParam.root}url/temp_${mvo.memberId}/${param.imgSrc}) center center no-repeat;
+    background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}) center center no-repeat;
     background-size: cover;
     min-height: 600px;
         position: relative;
     padding: 30px 30px 0 30px;
     text-align: center;
+    top: 0px;
    
 }
 .greeting_img_select>img {
-                position: relative;
+                    position: relative;
     display: inline-block;
     max-width: 100%;
     max-height: 600px;
     border: 15px solid rgba(255,255,255,0.8);
     border-bottom: 0;
+        margin-left: 25%;
 }
-h2.title span {
-      font-size: 3.2em;
-    line-height: 5;
-    color: #fff;
-    font-family: 'Cookie', cursive
-	}
+.greeting_img {
+    background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}) center center no-repeat;
+    background-size: cover;
+    min-height: 600px;
+        position: relative;
+    padding: 30px 30px 0 30px;
+    text-align: center;
+    top: 0px;
+   
+}
+.greeting_img>img {
+                    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    max-height: 600px;
+    border: 15px solid rgba(255,255,255,0.8);
+    border-bottom: 0;
+        margin-left: 25%;
+}
 .greeting_img_select:before {
     content: '';
     position: absolute;
@@ -1023,7 +916,7 @@ h2.title span {
     bottom: 0;
     background: url(${initParam.root}weddingCard/preview_Romantic/img/bg_greeting.png) repeat;
     opacity: 0.8;
-     z-index: -999;
+    z-index: -999;
 }
 
  .greeting_img_select h2.title {
@@ -1049,19 +942,14 @@ h2.title span {
 }
 .header_content_select{
     position: absolute;
-    bottom: -180px;
+    bottom: -150px;
     left: 0;
     width: 100%;
     height: 400px;
     background: url('${initParam.root}weddingCard/preview_Romantic/img/header_flower.png') no-repeat;
     background-position: 50% 50%;
 }
-	
 
-	.greeting_img{
-		background: url('${initParam.root}weddingCard/preview_Romantic/img/1e1e02198d6c5fa2065aedb76e979025.JPG') center center no-repeat;
-   		background-size: cover;
-	}
 	.greeting_content {
         position: relative;
     margin: 0;
@@ -1073,7 +961,7 @@ h2.title span {
 .greeting_content_select {
     position: relative;
     margin: 0;
-    padding: 60px 0; 
+   /*  padding: 60px 0; */
     background-color: #fff;
     z-index: 10;
 }
@@ -1115,29 +1003,13 @@ h2.title span {
     line-height: 0;
     text-indent: -9999px;
 }
-h2.title{
-margin: 0px
-}
-.add_be{
-		margin-right: 10%;
-  	  margin-top: 3%;
-	}
-	.add_lo{
-	margin-right: 10%;
-    margin-top: 1%;
-	}
-	
-}/*//1024  */
 
+
+}
 
 
 /* 320 */
 @media( max-width: 320px ){
-.add_li{
-	width: 230px;
-	}
-	
-
 .gb_msg {
     position: relative;
      margin: 0 0 0px; 
@@ -1153,6 +1025,8 @@ margin: 0px
     line-height: 0;
     text-indent: -9999px;
 }
+
+
 .greeting_name li em {
     font-family: 'Lora', serif;
     color: #f7776a;
@@ -1168,17 +1042,19 @@ margin: 0px
 	.header_img{
 	  height: 414px;
    		background: url("${initParam.root}weddingCard/preview_Romantic/img/1e1e02198d6c5fa2065aedb76e979025.JPG") center center / cover no-repeat;
-	 
+	  /*   height: 320px !important;
+	    position: relative;
+    max-height: 720px;
+    margin: 0 auto;
+    z-index: -1; */
 	}
 	
 	.header_img_select {
-		     background: url(${initParam.root}url/temp_${mvo.memberId}/${param.imgSrc}) center center / cover no-repeat;
-			min-height: 450px;
+		     background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}) center center / cover no-repeat;
+			min-height: 300px;
+			
 		}
-		.header_panel{
-			padding:0px;
-			    top: -70px;
-		}
+		
 	.header_date_select {
     position: absolute;
     width: 220px;
@@ -1202,14 +1078,14 @@ margin: 0px
 }
    
    .greeting_img_select {
-    background: url(${initParam.root}url/temp_${mvo.memberId}/${param.imgSrc}) center center no-repeat;
+    background: url(${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}) center center no-repeat;
     background-size: cover;
     top: 0px;
     position: relative;
     padding: 30px 30px 0 30px;
     text-align: center;
         padding: 20px 20px 0 20px;
-      min-height: 300px 
+        min-height: 200px
 }
 
 .greeting_img_select>img {
@@ -1219,7 +1095,6 @@ margin: 0px
     display: inline-block;
     max-width: 100%;
     min-height: 200px;
-      margin: 0px;
 }
 
 .header_content_select {
@@ -1228,7 +1103,6 @@ margin: 0px
     left: 0;
     width: 100%;
     height: 400px;
-    top: 250px;
     background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/header_flower.png) no-repeat;
     background-position: 50% 50%;
 }
@@ -1288,6 +1162,8 @@ margin: 0px
     bottom: 0;
     left: 0px;
 }
+
+
 	
 	.header.ui-section-a{
 		height: 300px;
@@ -1320,10 +1196,9 @@ margin: 0px
 	.greeting_wrap_select h2.title {
      background: url(${initParam.root}weddingCard/preview_Romantic/img/tit_greeting.png) no-repeat 50% 0;
     background-size: 100%;
-    width: 90%;
-    /* margin: 0 0 0 -100px; */
-    top: -65px;
-        left: 165px;
+    width: 100%;
+    margin: 0 0 0 -100px;
+    top: -40px;
 	}  
 	
 	.greeting_text {
@@ -1379,11 +1254,11 @@ margin: 0px
     background-size: 100%;
 	}
 	.dday_title {
-   display: inline-block;
-    width: 300px;
+    display: inline-block;
+    width: 200px;
     height: 100px;
-    background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/txt_savethedate.png) no-repeat 50% 0%;
-    background-size: auto 50px;
+    background: url(${initParam.root}weddingCard/preview_Romantic/img/txt_savethedate.png) no-repeat 50% 60%;
+    background-size: auto 40px;
     font-size: 0;
     line-height: 0;
     text-indent: -999px;
@@ -1391,13 +1266,13 @@ margin: 0px
 	}
 	.dday_text .date {
     display: inline-block;
-    width: 170px;
+    width: 130px;
     font-size: 1.5em;
     text-align: center;
 	}
 	.dday_text .time {
     display: inline-block;
-    width: 185px;
+    width: 150px;
     font-size: 1.4em;
     font-weight: 700;
 	}
@@ -1417,32 +1292,19 @@ margin: 0px
 	}
 	.dday_text .dday {
    position: absolute;
-    top: 0px;
-    right: 13%;
+    top: 7px;
+    right: 3px;
     display: block;
-    width: 90px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
     text-align: center;
-    line-height: 80px;
+    line-height: 65px;
     font-size: 1.9em;
     font-weight: 700;
     border-radius: 50%;
     background-color: rgba(245, 99, 85, 0.7);
     letter-spacing: 0;
-	}/* 얍 */
-	.add_be{
-		margin-right: 5%;
-  	  margin-top: 3%;
-  	  margin-left: 5%;
-  	      float: left;
 	}
-	.add_lo{
-	margin-right: 5%;
-    margin-top: 3%;
-    margin-left: 5%;
-        float: left;
-	}
-	
 	.dday_wrap {
     position: relative;
     background: url(${initParam.root}weddingCard/preview_Romantic/img/bg_dday.jpg) no-repeat 50% 50%;
@@ -1472,7 +1334,7 @@ margin: 0px
 	    background-size: 100% auto;
 	}
 	.col-md-4, .album-post img {
-		width: 300px;
+		width: 185px;
 	}
 	.dday_text .time span:first-child {
 	    padding: 0 2px 0 0;
@@ -1541,223 +1403,37 @@ margin: 0px
     background-color: #fff;
     z-index: 10;
 }
-
 .gn4 label {
     font-size: 13px
 }
 
-
-
-}/* 320PX */
-
-
-/* 411px nexus5X  */
-@media( max-width: 411px ){
-	
-} /* // 411px nexus5X */
-
-/* 375px 아이폰6 plus 황희 */
-@media( max-width: 414px ){
-	/* .header_img_select {
-    background: url(/Final_WeddingCard/url/test_Pink9/romantic_main1.jpg) center center / cover no-repeat;
-    min-height: 736px;
-	} */
-	/* .header_panel {
-    padding: 55px 5px 0;
-	}
-	.header_content_select {
-    position: absolute;
-    bottom: -180px;
-    left: 0;
-    width: 100%;
-    height: 400px;
-    background: url('/Final_WeddingCard/weddingCard/preview_Romantic/img/header_flower.png') no-repeat;
-    background-position: 50% 50%;
-	}
-	.header_date {
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    top: 50%;
-    left: 50%;
-    margin: -110px 0 0 -110px;
-    padding: 75px 0 0;
-    background-color: #fff;
-    border-radius: 50%;
-    text-align: center;
-    color: #ec7267;
-    font-family: 'Cookie', cursive;
-    line-height: 1;
-	} */
-} /* //375px 아이폰6 plus */
-
-
-
-
-
-
-
-
-
-/* 360px 갤럭시 5 이승현 */
-@media( max-width: 360px ){
-/* .header_content_select{
-   top: 400px;
 }
-img{
-   margin-left: 0px;
-} */
-
-}/* // 이승현 */
-
-/* 435px nexus6P 김진선 */
-@media( min-width: 0px ) and ( max-width: 435px ){
-h2.title span {
-    font-size: 3.2em;
-    line-height: 1;
-    color: #fff;
-    font-family: 'Cookie', cursive;
-}
-
-   
-   img.add_be {
-       margin-left: 20px;
-       margin-top: 5px;
-       margin-right: 10px;
-       float: left;
-   }
-   
-   img.add_lo {
-       margin-left: 20px;
-       margin-top: 5px;
-       margin-right: 10px;
-       float: left;
-   }
-	  .header_content {
-       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/header_flower.png) no-repeat;
-       background-position: 50% 50%;
-       background-size: auto 350px;
-       height : 400px;
-   }
-   .greeting_img_select>img {
-    position: relative;
-    display: inline-block;
-    max-width: 85%;
-    max-height: 400px;
-    border: 15px solid rgba(255,255,255,0.8);
-    border-bottom: 0;
-    min-height: 600px;
-    margin: 30px 0px 0px 30px;
-}
-   .header {
-      height:1000px;
-   }
-   
-   .header_img_select {
-       min-height: 700px;
-   }
-   
-   .header_content_select {
-       height: 800px;
-   }
-   
-   .header_panel a .icon {
-       display: block;
-       margin: 0 auto 0;
-       padding: 0;
-       width: 55px;
-       height: 33px;
-       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/pannel_icon.png) no-repeat;
-       background-size: 110px auto;
-   }
-   
-   .greeting_wrap h2.title {
-       position: absolute;
-       left: 50%;
-       margin: 0 0 0 -150px;
-       width: 300px;
-       height: 105px;
-       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/tit_greeting.png) no-repeat 50% 0;
-       background-size: 100%;
-   }
-   
-   .gallery_wrap h2.title {
-       position: relative;
-       margin: 0 auto 30px;
-       width: 320px;
-       height: 70px;
-       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/tit_gallery.png) no-repeat 50% 0;
-       background-size: 100%;
-   }
-   
-   .col-md-4.album-post {
-    margin-left: 75px;
-   }
-   
-   .dday_wrap {
-       position: relative;
-       padding: 100px 0;
-       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_dday.jpg) no-repeat 50% 50%;
-       background-size: cover;
-       text-align: center;
-       z-index: 1;
-   }
-
-   .dday_title {
-       display: inline-block;
-       width: 320px;
-       height: 100px;
-       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/txt_savethedate.png) no-repeat 50% 60%;
-       background-size: auto 55px;
-       font-size: 0;
-       line-height: 0;
-       text-indent: -999px;
-       vertical-align: top;
-   }
-   
-   .guestbook_wrap {
-       position: relative;
-       padding: 120px 40px;
-       overflow: hidden;
-       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_guestbooktop.jpg) no-repeat 50% 0,url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_guestbookbottom.jpg) no-repeat 50% 100%,#fff;
-   }
-   
-   .location_wrap {
-       position: relative;
-       padding: 120px 0 0;
-       overflow: hidden;
-       background: url(/Final_WeddingCard/weddingCard/preview_Romantic/img/img_guestbook.jpg) no-repeat 50% 0,url(/Final_WeddingCard/weddingCard/preview_Romantic/img/bg_gallery.png) repeat;
-       background-size: auto 580px,auto;
-   }
-   
-   .lo_tab_wrap .on {
-       background: rgba(6,150,137,0.8) url(/Final_WeddingCard/weddingCard/preview_Romantic/img/ico_pin.png) no-repeat 20px 50%;
-       background-size: 16px;
-       padding-left: 20px;
-       color: #fff;
-   }
-	
-	.guestbook_wrap:after {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    border: 1px solid rgba(247, 119, 106, 0.5);
-    content: '';
-}
-	
-} /* // 김진선 */
-
-/* 375px 아이폰6 송지현 */
-@media( max-width: 375px ){
-	
-} /* // 송지현 */
 
 
 
 </style>
 
+<script type="text/javascript">
+	
+	/* function cardContext(){
+		
+		//줄 바꿈 문자를 기준으로 textarea 문자열을 분리
+		var context = '${param.cardContext}';
+		alert(context);
+		var lines = context.split("\n");
+		//내용을 HTML 버전으로 변경
+		var resultString  = "<p>";
+		for (var j = 0; j < lines.length; j++) {
+		    resultString += lines[j] + "<br>";
+		}
+		resultString += "</p>"; 
+		alert(resultString);
+		document.getElementById("greeting_text").innerHTML = resultString;
+	} */
+	
+
+	
+</script>
 </head>
 
 <body onload="cardContext()">
@@ -1770,6 +1446,8 @@ h2.title span {
 		<div data-role="panel" id="panel_groom" class="leftpanel"
 			data-position="left" data-display="push" data-position-fixed="true"
 			data-swipe-close="true" data-theme="b"><!-- style="background: #fff url('img/bg_groom.jpg') center top no-repeat; background-size: 100%; z-index: 9999;" -->
+		
+					
 				 			<div class="groom-wrap">
 								<!-- <ul>
 									<a href="#"><li class="ico5">신랑에게 전화하기</li></a>
@@ -1781,8 +1459,7 @@ h2.title span {
 				 		<div data-role="panel" id="panel_groom" class="leftpanel"
 			data-position="left" data-display="push" data-position-fixed="true"
 			data-swipe-close="true" data-theme="b"
-			style="background: #2a2a2a url('${initParam.root}url/temp_${mvo.memberId}/${param.imgGroom}') no-repeat; "
-			
+			style="background: #2a2a2a url('${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgGroom}') no-repeat;"
 			>
 				 			<div class="groom-wrap">
 								<!-- <ul>
@@ -1816,10 +1493,10 @@ h2.title span {
 				 		</c:when>
 				 		<c:otherwise>
 				 		<div class="ui-panel-inner"
-				 		style="background: url('${initParam.root}url/temp_${mvo.memberId}/${param.imgBride}') no-repeat;"
+				 		style="background: url('${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgBride}') no-repeat;"
 				 		></div>
 				 		<div class="bride-wrap">
-						<!-- 	<ul>
+					<!-- 		<ul>
 					<a href="#"><li class="ico1">신부에게 전화하기</li></a>
 					<p class="btn_go_snsbbs">축하글 남기기</p>
 						</ul> -->
@@ -1934,7 +1611,7 @@ h2.title span {
 				<c:otherwise>
 				<div class="greeting_wrap_select">
 				<div class="greeting_img_select">
-					<img src="${initParam.root}url/temp_${mvo.memberId}/${param.imgSrc}"
+					<img src="${initParam.root}url/temp_${sessionScope.mvo.memberId}/${param.imgSrc}"
 						alt="">
 				</div>
 				</c:otherwise>
@@ -1944,7 +1621,7 @@ h2.title span {
 						<span>Greetings</span>
 					</h2>
 
-					<div class="greeting_text" id="greeting_text">
+					<div class="greeting_text" ><!-- greeting_text -->
 						${param.cardContext}
 					</div>
 					<ul class="greeting_name">
@@ -1957,7 +1634,7 @@ h2.title span {
 						<li class="gn_groom">
 							<p>
 								<span class="gn4"><em>Groom</em><strong>${param.brideName}</strong></span>
-								<span class="gn4"><em>TEL.</em><label>${fn:substring(param.brideTel, 0,3) }-${fn:substring(param.brideTel, 3,7)}-${fn:substring(param.brideTel, 7,11)}</label></span>
+							<span class="gn4"><em>TEL.</em><label>${fn:substring(param.brideTel, 0,3) }-${fn:substring(param.brideTel, 3,7)}-${fn:substring(param.brideTel, 7,11)}</label></span>
 							</p>
 						</li>
 						
@@ -1984,13 +1661,13 @@ h2.title span {
 						<div class="col-5">
 							<c:if test="${param.photoBookNo != null && param.photoBookNo != ''}">
 							<c:set var="pbImg" value="${fn:split(param.photoBookImg, '`') }" />
-							<%-- <c:set var="pbComment"
+						<%-- 	<c:set var="pbComment"
 								value="${fn:split(param.photoBookComment, '`END`') }" /> --%>
 
 							<c:forEach begin="0" end="${fn:length(pbImg)-1 }" var="i">
 								<div class="col-md-4 album-post">
 									<img
-										src="${initParam.root }/img/photobook/${param.memberId}/${param.photoBookNo }/${pbImg[i] }"
+										src="${initParam.root }/img/photobook/${sessionScope.mvo.memberId}/${param.photoBookNo }/${pbImg[i] }"
 										class="img-responsive" alt="/" width="280px">
 									<div class="textbox">
 										<!-- <h4>my wedding</h4> -->
@@ -2044,20 +1721,19 @@ h2.title span {
 					<div class="gb_msg">
 						<span>신랑♥신부에게 축하메시지를 남겨주세요</span>
 					</div>
-					
-					
 					<div id="div_snsbbs" style='z-index: 999;'>
-                  <div class="">
-                     <div class="btn_go_snsbbs guestbook_add">
-                        <!-- guestbook Line -->
-                     </div>
-                  </div>
-               </div>
-            </div> <!--ul-body  -->
-            <div class="gb_btn btn_go_snsbbs" style='z-index: 999;' onclick="writeComment()">
-               <span>Write</span>
-           	 </div>
-				
+						<div class="snsbbs_sections  ">
+							<div class="ui-body-d">
+								
+							</div>
+						</div>
+						
+						
+					</div>
+				</div> 
+				<div class="gb_btn btn_go_snsbbs" style='z-index: 999;'>
+					<span>Write</span>
+				</div>
 			</div>
 			<!--// guestbook -->
 
@@ -2087,6 +1763,7 @@ h2.title span {
 								</p>
 								<p class="place">${param.hallName}</p>
 							</div>
+							
 							
 							
 							
@@ -2129,13 +1806,15 @@ h2.title span {
                                  map: map,
                                  position: coords
                              });
+                             
                              map.relayout();
+                             
                              // 인포윈도우로 장소에 대한 설명을 표시합니다
                              var infowindow = new daum.maps.InfoWindow({
                                  content: '<div style="width:150px;text-align:center;padding:6px 0;">예식장</div>'
                              });
                              infowindow.open(map, marker);
-
+                             map.relayout();
                              // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
                              map.setCenter(coords);
                              
@@ -2145,6 +1824,9 @@ h2.title span {
                   </script>
                   </div>
                </div><!-- map div End -->
+							
+							
+							
 							
 						</div>
 						<div class="ui-block-b">
@@ -2157,8 +1839,8 @@ h2.title span {
 									<tr>
 										<th class="lo_tel"><span class="icon">Tel</span></th>
 										<td class="txt">${fn:substring(param.hallTel, 0, 3)}-${fn:substring(param.hallTel, 3, 6)}
-										-${fn:substring(param.hallTel, 6, 10)}
-										</td>
+                              -${fn:substring(param.hallTel, 6, 10)}
+                              </td>
 									</tr>
 								</table>
 							</div>
@@ -2192,14 +1874,13 @@ h2.title span {
 </a>
 <!-- Facebook share -->
 <a 
-href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_WeddingCard/url/temp_${mvo.memberId}.jsp">
+href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_WeddingCard/url/${param.url}.jsp">
 <img style="width:40px; height: 40px;"  src=${initParam.root}img/facebook-share.png></a>
 					
 				</div>
 			</div>
 			<!--// footer -->
 		</div>
-		
 
 		<!-- <script>
 			(function(i, s, o, g, r, a, m) {
