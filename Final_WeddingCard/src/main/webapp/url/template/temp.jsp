@@ -349,9 +349,9 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
       container: '#kakao-link-btn',
       label: '${param.groomName}♥${param.brideName}',
       image: {
-        src: '${initParam.root}url/${param.url}/${param.imgSrc}',
-        width: '320',
-        height: '190'
+        src: 'http://cswiki.net/MSL/img/getting_married.jpg',
+        width: '1400',
+        height: '362'
       },
       webButton: {
         text: 'D-${param.dDay} ${param.cardDate} ${param.hour}:${param.min} ',
@@ -361,7 +361,6 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
     });
   //]]>
 </script>
-
             </div>
          </div>
       </div>

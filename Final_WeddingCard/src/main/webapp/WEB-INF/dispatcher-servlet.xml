@@ -93,13 +93,13 @@
     <property name="cardTemplateService" ref="cardTemplateService"/>
     <property name="path">
 	<!-- for windows -->
-	<value>../../MSL/Final_WeddingCard/src/main/webapp/url/</value>
+<!-- 	<value>../../MSL/Final_WeddingCard/src/main/webapp/url/</value> -->
 	
 	<!-- for linux local -->
 <!-- 	<value>EFI/MSL/Final_WeddingCard/src/main/webapp/url/</value> -->
 	
 	<!-- for linux remote -->
-<!-- 	<value>../webapps/Final_WeddingCard/url/</value> -->
+	<value>../webapps/Final_WeddingCard/url/</value>
 
 
     </property>
@@ -111,13 +111,13 @@
     <property name="path">
 
 	<!-- for windows -->
-	<value>../../MSL/Final_WeddingCard/src/main/webapp/img/photobook/</value>
+<!-- 	<value>../../MSL/Final_WeddingCard/src/main/webapp/img/photobook/</value> -->
 
 	<!-- for linux local -->
 	<!-- <value>EFI/MSL/Final_WeddingCard/src/main/webapp/img/photobook/</value> -->
 
 	<!-- for linux remote -->
-	<!-- <value>../webapps/Final_WeddingCard/img/photobook/</value> -->
+	<value>../webapps/Final_WeddingCard/img/photobook/</value>
 
     </property>
   </bean>
@@ -144,13 +144,13 @@
   	<property name="cardService" ref="cardService"/>
   	<property name="path">
   		<!-- for windows -->
-		<value>../../MSL/Final_WeddingCard/src/main/webapp/</value>
+	<!-- 	<value>../../MSL/Final_WeddingCard/src/main/webapp/</value> -->
 
 		<!-- for linux local -->
 		<!-- <value>EFI/MSL/Final_WeddingCard/src/main/webapp/</value> -->
 
 		<!-- for linux remote -->
-		<!-- <value>../webapps/Final_WeddingCard/</value> -->
+		<value>../webapps/Final_WeddingCard/</value>
   	</property>
   </bean>
 

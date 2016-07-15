@@ -665,15 +665,16 @@ href="http://www.facebook.com/sharer/sharer.php?u=http://mysweetlove.org/Final_W
     // // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
     Kakao.Link.createTalkLinkButton({
       container: '#kakao-link-btn',
-      label: '카카오링크 샘플에 오신 것을 환영합니다.',
+      label: '${param.groomName}♥${param.brideName}',
       image: {
-        src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
-        width: '60',
-        height: '60'
+        src: 'http://cswiki.net/MSL/img/getting_married.jpg',
+        width: '1400',
+        height: '362'
       },
       webButton: {
-        text: '카카오 디벨로퍼스',
-        url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+        text: 'D-${param.dDay} ${param.cardDate} ${param.hour}:${param.min} ',
+       /*  url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다. */
+       url: 'http://mysweetlove.org/url/${param.url}.jsp'
       }
     });
   //]]>
